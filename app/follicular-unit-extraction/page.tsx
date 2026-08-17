@@ -15,10 +15,10 @@ const MEDIA = "https://www.imamihair.com/wp-content/uploads/2026/05";
 
 const NAV = [
   { href: "#reviews", label: "Reviews" },
-  { href: "#approach", label: "Our approach" },
-  { href: "#results", label: "Before & after" },
+  { href: "#approach", label: "Our Approach" },
+  { href: "#results", label: "Before & After" },
   { href: "#what", label: "What is FUE" },
-  { href: "#works", label: "How it works" },
+  { href: "#works", label: "How It Works" },
   { href: "#cost", label: "Cost" },
   { href: "#location", label: "Location" },
   { href: "#faq", label: "FAQ" },
@@ -44,39 +44,39 @@ const RESULTS = [
 ];
 
 const TREATS = [
-  { h: "Receding hairline", p: "Redesigning and lowering the hairline for a youthful frame, including hairline transplant work on weak or uneven temples." },
-  { h: "Thinning crown", p: "Restoring density to the vertex for complete coverage where a crown has opened up over time." },
-  { h: "Temple restoration", p: "Rebuilding temporal points for a balanced facial profile and a hairline that suits your age." },
-  { h: "FUE scar camouflage", p: "Concealing previous surgical scars, including strip-scar work and trauma, with individual follicle placement." },
-  { h: "Hairline refinement", p: "Adding density to previous hair transplants or naturally weak hairlines, including repair of work done elsewhere." },
-  { h: "Mid-scalp density", p: "Filling thinning through the mid-scalp so the result reads evenly from hairline to crown." },
+  { h: "Receding Hairline", p: "Redesigning and lowering the hairline for a youthful frame, including hairline transplant work on weak or uneven temples." },
+  { h: "Thinning Crown", p: "Restoring density to the vertex for complete coverage where a crown has opened up over time." },
+  { h: "Temple Restoration", p: "Rebuilding temporal points for a balanced facial profile and a hairline that suits your age." },
+  { h: "Scar Camouflage", p: "Concealing previous surgical scars, including strip-scar work and trauma, with individual follicle placement." },
+  { h: "Hairline Refinement", p: "Adding density to previous hair transplants or naturally weak hairlines, including repair of work done elsewhere." },
+  { h: "Mid-Scalp Density", p: "Filling thinning through the mid-scalp so the result reads evenly from hairline to crown." },
 ];
 
 const STEPS = [
   { n: "01", h: "Extraction", p: "Individual follicles are carefully extracted using a microscopic punch tool." },
-  { n: "02", h: "Preparation", p: "Grafts are inspected, sorted and preserved in a specialised solution." },
-  { n: "03", h: "Site creation", p: "Precise recipient sites are created, matching the hair’s natural angle and direction." },
+  { n: "02", h: "Preparation", p: "Grafts are inspected, sorted and preserved in a specialized solution." },
+  { n: "03", h: "Site Creation", p: "Precise recipient sites are created, matching the hair’s natural angle and direction." },
   { n: "04", h: "Implantation", p: "Grafts are delicately placed into the sites for natural-looking density." },
 ];
 
 const JOURNEY = [
   { n: "01", h: "Consultation", p: "In-depth analysis of hair loss, medical history and goal setting." },
-  { n: "02", h: "Planning & design", p: "Custom hairline design and calculation of the required graft count." },
-  { n: "03", h: "Donor preparation", p: "Local anaesthesia administered; meticulous extraction begins." },
-  { n: "04", h: "Graft placement", p: "Strategic implantation into recipient sites for optimal density." },
-  { n: "05", h: "Post-op care", p: "Immediate review, care instructions provided, and you head home." },
-  { n: "06", h: "Follow-up", p: "Scheduled check-ins at Day 2, Day 14, Month 6 and Year 1." },
+  { n: "02", h: "Planning & Design", p: "Custom hairline design and calculation of the required graft count." },
+  { n: "03", h: "Donor Preparation", p: "Local anesthesia administered; meticulous extraction begins." },
+  { n: "04", h: "Graft Placement", p: "Strategic implantation into recipient sites for optimal density." },
+  { n: "05", h: "Post-Op Care", p: "Immediate review, care instructions provided, and you head home." },
+  { n: "06", h: "Follow-Up", p: "Scheduled check-ins at Day 2, Day 14, Month 6 and Year 1." },
 ];
 
 const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   {
     q: "Do I have to shave my head?",
     open: true,
-    a: ["No. Dr. Imami specialises in no-shave FUE, which keeps the surrounding hair at its existing length so the procedure stays discreet. Individual follicles are extracted from longer donor hair without shaving the head, meaning you can return to work and social settings without an obvious transplant look. Patients search for this as a hair transplant without shaving, a hair transplant no shaving hair option, or FUE without shaving. These all describe the same procedure. For larger sessions where a partial trim is needed, Dr. Imami will discuss your options at consultation."],
+    a: ["No. Dr. Imami specializes in no-shave FUE, which keeps the surrounding hair at its existing length so the procedure stays discreet. Individual follicles are extracted from longer donor hair without shaving the head, meaning you can return to work and social settings without an obvious transplant look. Patients search for this as a hair transplant without shaving, a hair transplant no shaving hair option, or FUE without shaving. These all describe the same procedure. For larger sessions where a partial trim is needed, Dr. Imami will discuss your options at consultation."],
   },
   {
     q: "How much does a hair transplant cost?",
-    a: ["Hair transplant cost is driven by the number of grafts you need, which is why we quote after an assessment rather than advertising a flat hair transplant price. As a reference point, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemised quote covering the procedure and your year-one follow-ups, and we offer financing through CareCredit and Affirm."],
+    a: ["Hair transplant cost is driven by the number of grafts you need, which is why we quote after an assessment rather than advertising a flat hair transplant price. As a reference point, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized quote covering the procedure and your year-one follow-ups, and we offer financing through CareCredit and Affirm."],
   },
   {
     q: "How many grafts will I need?",
@@ -84,7 +84,7 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "Is the FUE procedure uncomfortable?",
-    a: ["The procedure is performed under local anaesthesia. You may feel minor discomfort during the initial numbing injections, but most patients are comfortable throughout and watch a film, listen to music or nap during the session."],
+    a: ["The procedure is performed under local anesthesia. You may feel minor discomfort during the initial numbing injections, but most patients are comfortable throughout and watch a film, listen to music or nap during the session."],
   },
   {
     q: "When will I see results?",
@@ -97,7 +97,7 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   {
     q: "What is the complimentary biomimetic hair growth treatment?",
     a: [
-      "Every hair transplant booked through this page includes one complimentary session of our biomimetic hair growth treatment, provided as part of your post-operative care programme. It sits alongside the other things already included in your quote: your follow-up appointments at Day 2, Day 14, Month 6 and Year 1, and your medication refills through the first year.",
+      "Every hair transplant booked through this page includes one complimentary session of our biomimetic hair growth treatment, provided as part of your post-operative care program. It sits alongside the other things already included in your quote: your follow-up appointments at Day 2, Day 14, Month 6 and Year 1, and your medication refills through the first year.",
       "It is an adjunct to your surgery rather than a replacement for it, and it is not an FDA-approved product. No specific result is implied or guaranteed. Dr. Imami will talk you through exactly what it involves, and whether he considers it appropriate in your case, at your consultation.",
     ],
   },
@@ -153,7 +153,7 @@ export default function FollicularUnitExtraction() {
           <a className="brand" href="#top" aria-label="Imami MD Hair Restoration">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/imami-logo.webp"
+              src="/imami-logo.png"
               alt="Imami MD Hair Restoration"
               width={600}
               height={200}
@@ -177,7 +177,7 @@ export default function FollicularUnitExtraction() {
 
       <div className="offerbar">
         Complimentary biomimetic hair growth treatment with every hair transplant{" "}
-        <span>as part of Dr. Imami&rsquo;s post-operative care programme.</span>
+        <span>as part of Dr. Imami&rsquo;s post-operative care program.</span>
         <span className="offer-note">
           Offered with procedures booked through this page. Ask at your
           consultation for full details.
@@ -218,8 +218,8 @@ export default function FollicularUnitExtraction() {
       >
         <div className="wrap rev-grid">
           <div>
-            <p className="eyebrow">Patient testimonials</p>
-            <h2>What our patients say</h2>
+            <p className="eyebrow">Patient Testimonials</p>
+            <h2>What Our Patients Say</h2>
             <div className="rev-score">
               <span className="rev-num">4.6</span>
               <span className="rev-of">out of 5</span>
@@ -227,21 +227,21 @@ export default function FollicularUnitExtraction() {
             <div className="stars" role="img" aria-label="Rated 4.6 out of 5">
               {[0, 1, 2, 3].map((i) => (
                 <svg key={i} viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="#B08442" d={STAR_PATH} />
+                  <path fill="#FF8400" d={STAR_PATH} />
                 </svg>
               ))}
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <defs>
                   <linearGradient id="hf">
-                    <stop offset="60%" stopColor="#B08442" />
-                    <stop offset="60%" stopColor="#D8D2C8" />
+                    <stop offset="60%" stopColor="#FF8400" />
+                    <stop offset="60%" stopColor="#DCDCDC" />
                   </linearGradient>
                 </defs>
                 <path fill="url(#hf)" d={STAR_PATH} />
               </svg>
             </div>
             <p className="rev-meta">
-              Based on 14 Google reviews of Imami Hair Restoration.{" "}
+              Based on 15 Google reviews of Imami Hair Restoration.{" "}
               <a
                 href="https://www.google.com/maps/place/?q=place_id:ChIJMWgAohAP3ogRYDZWIg_3KX0"
                 target="_blank"
@@ -258,10 +258,12 @@ export default function FollicularUnitExtraction() {
 
           {/*
             GOOGLE REVIEWS FEED
-            Drop the live review widget into the container below, using the same
-            plugin as imamihair.com (or the Google Places API with the clinic's
-            place_id: ChIJMWgAohAP3ogRYDZWIg_3KX0). Reviews must render live and
-            verbatim from Google - do not hard-code or edit review text.
+            imamihair.com renders its reviews with the Trustindex Google widget
+            ("Posted on Google", verified-source badge per review). Mount the same
+            Trustindex widget in the container below so this page shows the same
+            feed. Reviews must render live and verbatim - do not hard-code or edit
+            review text. The 4.6 / 15-review summary beside it is static and
+            should be replaced by the widget's own rating once it is embedded.
           */}
           <div className="rev-feed" id="google-reviews-widget">
             <p className="rev-ph">Google reviews feed</p>
@@ -277,8 +279,8 @@ export default function FollicularUnitExtraction() {
       <section className="sec" id="approach">
         <div className="wrap g2">
           <div>
-            <p className="eyebrow">Our approach</p>
-            <h2>The doctor you meet is the doctor who operates.</h2>
+            <p className="eyebrow">Our Approach</p>
+            <h2>The Doctor You Meet Is the Doctor Who Operates.</h2>
             <p className="lede">
               At most large hair restoration clinics, your consultation is with a
               salesperson and your surgery is carried out by a technician. At
@@ -293,12 +295,12 @@ export default function FollicularUnitExtraction() {
             </p>
           </div>
           <div className="card">
-            <span className="num">Why it matters</span>
+            <span className="num">Why It Matters</span>
             <ul className="checks">
               <li>One surgeon from consultation through to your one-year follow-up</li>
               <li>Hairline designed around your facial geometry, age and hair loss pattern</li>
               <li>Extraction and site creation directed by the surgeon, not delegated</li>
-              <li>A clear, itemised quote, with no sales pressure at the consultation</li>
+              <li>A clear, itemized quote, with no sales pressure at the consultation</li>
             </ul>
           </div>
         </div>
@@ -307,8 +309,8 @@ export default function FollicularUnitExtraction() {
       <section className="sec sec--tint" id="results">
         <div className="wrap">
           <div className="head">
-            <p className="eyebrow">Real results</p>
-            <h2>Before &amp; after</h2>
+            <p className="eyebrow">Real Results</p>
+            <h2>Before &amp; After</h2>
             <p className="lede">
               Recent no-shave FUE hair transplant patients, with graft counts and
               time elapsed. Sessions typically run between 1,100 and 2,000 grafts
@@ -349,7 +351,7 @@ export default function FollicularUnitExtraction() {
       <section className="sec" id="what">
         <div className="wrap g2">
           <div>
-            <p className="eyebrow">The technique</p>
+            <p className="eyebrow">The Technique</p>
             <h2>What is FUE?</h2>
             <p className="lede">
               Follicular unit extraction, or FUE, is a minimally invasive hair
@@ -374,11 +376,11 @@ export default function FollicularUnitExtraction() {
             </p>
           </div>
           <div className="card">
-            <span className="num">Key distinction</span>
-            <h3>No-shave FUE</h3>
+            <span className="num">Key Distinction</span>
+            <h3>No-Shave FUE</h3>
             <p>
               Most clinics shave the entire head before a hair transplant. Dr.
-              Imami specialises in FUE without shaving: individual follicles are
+              Imami specializes in FUE without shaving: individual follicles are
               extracted from longer donor hair, so a hair transplant without
               shaving your head stays discreet from day one and you can return to
               work and social settings without an obvious change.
@@ -395,8 +397,8 @@ export default function FollicularUnitExtraction() {
       <section className="sec sec--dark" id="treats">
         <div className="wrap">
           <div className="head">
-            <p className="eyebrow">What FUE can treat</p>
-            <h2>Scalp restoration, tailored to your pattern of loss</h2>
+            <p className="eyebrow">What FUE Can Treat</p>
+            <h2>Scalp Restoration, Tailored to Your Pattern of Loss</h2>
           </div>
           <div className="g3">
             {TREATS.map((t) => (
@@ -412,8 +414,8 @@ export default function FollicularUnitExtraction() {
       <section className="sec" id="works">
         <div className="wrap">
           <div className="head">
-            <p className="eyebrow">The process</p>
-            <h2>How FUE works</h2>
+            <p className="eyebrow">The Process</p>
+            <h2>How FUE Works</h2>
             <p className="lede">
               One outpatient day at our hair transplant Melbourne FL clinic. You
               arrive in the morning and go home the same afternoon.
@@ -452,18 +454,18 @@ export default function FollicularUnitExtraction() {
             </ul>
           </div>
           <div className="card">
-            <span className="num">Why choose Dr. Imami</span>
-            <h3>Triple board-certified</h3>
+            <span className="num">Why Choose Dr. Imami</span>
+            <h3>Triple Board-Certified</h3>
             <p>
               A rare distinction, reflecting high standards of surgical safety,
               ethics and aesthetic judgement.
             </p>
-            <h3 style={{ marginTop: 22 }}>Surgeon-led procedure</h3>
+            <h3 style={{ marginTop: 22 }}>Surgeon-Led Procedure</h3>
             <p>
               Dr. Imami directs his experienced hair transplant team for
               extraction and site creation on every case.
             </p>
-            <h3 style={{ marginTop: 22 }}>Personalised design</h3>
+            <h3 style={{ marginTop: 22 }}>Personalized Design</h3>
             <p>
               Every hairline is custom-designed around facial geometry, age and
               long-term hair loss progression.
@@ -476,7 +478,7 @@ export default function FollicularUnitExtraction() {
         <div className="wrap">
           <div className="head">
             <p className="eyebrow">Investment</p>
-            <h2>Hair transplant cost &amp; financing</h2>
+            <h2>Hair Transplant Cost &amp; Financing</h2>
             <span className="offer-ribbon">
               Includes a complimentary biomimetic hair growth treatment
             </span>
@@ -528,8 +530,8 @@ export default function FollicularUnitExtraction() {
             </table>
             <div>
               <div className="card">
-                <span className="num">Typical session sizes</span>
-                <h3>What your graft count means</h3>
+                <span className="num">Typical Session Sizes</span>
+                <h3>What Your Graft Count Means</h3>
                 <table className="tbl" style={{ marginTop: 16 }}>
                   <thead>
                     <tr>
@@ -562,22 +564,22 @@ export default function FollicularUnitExtraction() {
                 </p>
               </div>
               <div className="card" style={{ marginTop: 24 }}>
-                <span className="num">Paying for it</span>
-                <h3>Flexible payment plans</h3>
+                <span className="num">Paying For It</span>
+                <h3>Flexible Payment Plans</h3>
                 <p>
                   We offer financing through CareCredit and Affirm, so hair
                   restoration surgery cost can be spread over monthly payments
                   rather than paid in one go.
                 </p>
                 <ul className="checks" style={{ marginTop: 20 }}>
-                  <li>A written, itemised quote at your consultation, with no hidden extras</li>
+                  <li>A written, itemized quote at your consultation, with no hidden extras</li>
                   <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
                   <li>Medication refills included through your first year</li>
                   <li>Complimentary biomimetic hair growth treatment with your procedure</li>
                   <li>Quotes based on your actual graft count, not a package guess</li>
                 </ul>
                 <BookButton style={{ marginTop: 24 }}>
-                  Get a personalised quote
+                  Get a personalized quote
                 </BookButton>
               </div>
             </div>
@@ -588,13 +590,13 @@ export default function FollicularUnitExtraction() {
       <section className="sec sec--tint" id="who">
         <div className="wrap">
           <div className="head">
-            <p className="eyebrow">Who we treat</p>
-            <h2>Hair transplants for men and women</h2>
+            <p className="eyebrow">Who We Treat</p>
+            <h2>Hair Transplants for Men and Women</h2>
           </div>
           <div className="g2" style={{ alignItems: "start" }}>
             <div className="card">
               <span className="num">Men</span>
-              <h3>Male pattern hair loss</h3>
+              <h3>Male Pattern Hair Loss</h3>
               <p>
                 Most of our patients are men with a receding hairline, a thinning
                 crown or both. A men&rsquo;s FUE hair transplant rebuilds the
@@ -613,7 +615,7 @@ export default function FollicularUnitExtraction() {
             </div>
             <div className="card">
               <span className="num">Women</span>
-              <h3>Female thinning &amp; hairlines</h3>
+              <h3>Female Thinning &amp; Hairlines</h3>
               <p>
                 Women lose hair differently, more often with diffuse thinning or a
                 high, uneven hairline than a classic receding pattern. A female
@@ -636,7 +638,7 @@ export default function FollicularUnitExtraction() {
       <div className="band">
         <div className="wrap">
           <p className="eyebrow">Consultation</p>
-          <h2>Wondering if FUE is right for you?</h2>
+          <h2>Wondering if FUE Is Right for You?</h2>
           <p>
             Book a free discovery call with Dr. Imami to discuss your options,
             your likely graft count and what it would cost.
@@ -657,8 +659,8 @@ export default function FollicularUnitExtraction() {
       <section className="sec" id="journey">
         <div className="wrap g2" style={{ alignItems: "start" }}>
           <div>
-            <p className="eyebrow">The timeline</p>
-            <h2>Your FUE journey</h2>
+            <p className="eyebrow">The Timeline</p>
+            <h2>Your FUE Journey</h2>
             <div className="timeline" style={{ marginTop: 34 }}>
               {JOURNEY.map((j) => (
                 <div className="tl" key={j.n}>
@@ -671,28 +673,28 @@ export default function FollicularUnitExtraction() {
           </div>
           <div>
             <p className="eyebrow">Recovery</p>
-            <h2 style={{ fontSize: "2rem" }}>Post-op aftercare</h2>
+            <h2 style={{ fontSize: "2rem" }}>Post-Op Aftercare</h2>
             <div className="card" style={{ marginTop: 26 }}>
-              <h3>First 48 hours</h3>
+              <h3>First 48 Hours</h3>
               <p>
                 Rest with your head elevated. Spray grafts with the saline
                 solution provided. Avoid touching the recipient area.
               </p>
             </div>
             <div className="card" style={{ marginTop: 18 }}>
-              <h3>Activity restrictions</h3>
+              <h3>Activity Restrictions</h3>
               <p>
                 No strenuous exercise or heavy lifting for 14 days. Avoid direct
                 sun exposure to the scalp for 3 months.
               </p>
             </div>
             <div className="offercard">
-              <span className="num">Included with your procedure</span>
-              <h3>Biomimetic hair growth treatment</h3>
+              <span className="num">Included With Your Procedure</span>
+              <h3>Biomimetic Hair Growth Treatment</h3>
               <p>
                 Every hair transplant booked through this page includes a
                 complimentary session of our biomimetic hair growth treatment,
-                given as part of your post-operative care programme alongside your
+                given as part of your post-operative care program alongside your
                 year-one follow-ups and included medication refills.
               </p>
               <p className="disc-sm">
@@ -704,7 +706,7 @@ export default function FollicularUnitExtraction() {
               </p>
             </div>
             <div className="card" style={{ marginTop: 18 }}>
-              <h3>Follow-up schedule</h3>
+              <h3>Follow-up Schedule</h3>
               <p>
                 We monitor progress with scheduled visits at Day 2, Day 14, Month
                 6 and Year 1, with medication refills included through year one.
@@ -717,8 +719,8 @@ export default function FollicularUnitExtraction() {
       <section className="sec sec--dark" id="location">
         <div className="wrap g2" style={{ alignItems: "start" }}>
           <div>
-            <p className="eyebrow">Where we are</p>
-            <h2>A hair transplant clinic in Melbourne, FL</h2>
+            <p className="eyebrow">Where We Are</p>
+            <h2>A Hair Transplant Clinic in Melbourne, FL</h2>
             <p className="lede">
               If you have been searching for a hair transplant clinic near you, we
               are on the Space Coast at the NASA Palms Professional Center, about
@@ -757,7 +759,7 @@ export default function FollicularUnitExtraction() {
             </p>
           </div>
           <div className="card">
-            <span className="num">Visit us</span>
+            <span className="num">Visit Us</span>
             <h3>Imami Hair Restoration</h3>
             <p>
               NASA Palms Professional Center
@@ -769,7 +771,7 @@ export default function FollicularUnitExtraction() {
             <ul className="loc-list">
               <li>
                 Local:{" "}
-                <a href={PHONE_HREF} style={{ color: "#D9B77E" }}>
+                <a href={PHONE_HREF} style={{ color: "#FFA240" }}>
                   {PHONE}
                 </a>
               </li>
@@ -784,8 +786,8 @@ export default function FollicularUnitExtraction() {
       <section className="sec" id="faq">
         <div className="wrap">
           <div className="head">
-            <p className="eyebrow">Common questions</p>
-            <h2>Frequently asked questions</h2>
+            <p className="eyebrow">Common Questions</p>
+            <h2>Frequently Asked Questions</h2>
           </div>
           <div className="faq">
             {FAQ.map((item) => (
@@ -804,7 +806,7 @@ export default function FollicularUnitExtraction() {
         <div className="wrap form-grid">
           <div>
             <p className="eyebrow">Consultation</p>
-            <h2>Request a consultation with Dr. Imami</h2>
+            <h2>Request a Consultation with Dr. Imami</h2>
             <span className="offer-ribbon">
               Book through this page: complimentary biomimetic hair growth
               treatment included
@@ -816,7 +818,7 @@ export default function FollicularUnitExtraction() {
             </p>
             <ul className="checks" style={{ marginTop: 28 }}>
               <li>You speak with the surgeon, not a sales representative</li>
-              <li>Written, itemised quote with your graft count</li>
+              <li>Written, itemized quote with your graft count</li>
               <li>Virtual and after-hours appointments available</li>
               <li>Financing options explained up front</li>
               <li>Complimentary biomimetic hair growth treatment with your procedure</li>

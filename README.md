@@ -22,9 +22,31 @@ npm run dev     # http://localhost:3000/follicular-unit-extraction
 npm run build   # production build
 ```
 
+## Styling
+
+The page uses imamihair.com's own design system, read from the site's Elementor
+global kit so this landing page reads as part of the main site:
+
+| Token           | Value                              | Used for                          |
+| --------------- | ---------------------------------- | --------------------------------- |
+| primary         | `#000000`                          | dark sections, headings           |
+| text            | `#171717`                          | body copy                         |
+| accent          | `#FF8400`                          | CTAs, eyebrows, numbers, offer bar |
+| secondary       | `#87825A`                          | list bullets, rules, offer cards  |
+| light           | `#F2EFE8`                          | tinted section backgrounds        |
+| grey            | `#AFAFAF`                          | footer text                       |
+| heading font    | Playfair Display 400               | `h1`–`h3`                         |
+| body font       | Montserrat 300                     | everything else                   |
+
+All of these are declared once in the `:root` block at the top of
+`app/globals.css`; restyling starts there. Buttons follow the site's CTA
+pattern — orange, Montserrat 500, uppercase with 2px tracking, hovering to
+white on black.
+
 ## Assets
 
-The logo is bundled at `public/imami-logo.webp`. The hero background and the
+The logo is bundled at `public/imami-logo.png` (the site's own
+`imami-md-hair-logo-transparent-bg.png`). The hero background and the
 before/after photographs are referenced directly from the existing
 imamihair.com media library (`https://www.imamihair.com/wp-content/uploads/...`),
 so they stay in sync with the main site. The media paths live in
@@ -50,7 +72,8 @@ the page goes live behind ad spend:
 - **Lead form** (`app/follicular-unit-extraction/LeadForm.tsx`) validates input
   and shows a confirmation, but does not yet submit anywhere. It needs pointing
   at a real destination (CRM, form endpoint or notification email).
-- **Google reviews feed** (`#google-reviews-widget`) is an empty container. It
-  should mount the same live review widget used on imamihair.com, or the Google
-  Places API using place ID `ChIJMWgAohAP3ogRYDZWIg_3KX0`. Review text must
-  render live and verbatim rather than being hard-coded.
+- **Google reviews feed** (`#google-reviews-widget`) is an empty container.
+  imamihair.com renders its reviews with the **Trustindex** Google widget, so
+  the same widget should be mounted here. Review text must render live and
+  verbatim rather than being hard-coded. The 4.6 / 15-review summary beside it
+  is static and should give way to the widget's own rating once embedded.
