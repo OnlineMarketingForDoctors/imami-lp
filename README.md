@@ -33,9 +33,14 @@ array) and in the `.hero-bg` rules in `app/globals.css`.
 
 ## Deployment
 
-The repository is linked to the `imami-lp` Vercel project. The default branch
-is the production branch, so every push to it builds and promotes a production
-deployment automatically — no manual promotion step.
+The repository is linked to the `imami-lp` Vercel project, whose production
+branch is `main`. Every push to `main` builds and promotes a production
+deployment automatically — there is no manual promotion step. Pushes to any
+other branch produce a preview deployment on its own branch URL.
+
+Vercel Authentication is enabled for everything except custom domains, so the
+`*.vercel.app` URLs require a Vercel login and the page becomes publicly
+reachable once a custom domain is attached to the project.
 
 ## Outstanding
 
