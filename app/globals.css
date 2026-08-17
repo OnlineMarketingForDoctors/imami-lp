@@ -1,0 +1,187 @@
+:root{
+  --ink:#12171A; --ink-2:#1C2427; --paper:#FAF8F5; --paper-2:#F2EDE6;
+  --brass:#B08442; --brass-lt:#D9B77E; --line:#E4DED5; --muted:#6B7378;
+  --serif:'Instrument Serif',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+  --wrap:1180px; --r:4px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(2.6rem,6vw,4.4rem)}
+h2{font-size:clamp(2rem,4.2vw,3.1rem)}
+h3{font-size:1.35rem}
+p{color:#33393C}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:500}
+.sec{padding:88px 0;border-top:1px solid var(--line)}
+.sec--dark{background:var(--ink);color:var(--paper);border-top:none}
+.sec--dark p{color:#B9C1C4}.sec--dark h2,.sec--dark h3{color:#fff}
+.sec--tint{background:var(--paper-2)}
+.lede{font-size:1.1rem;max-width:62ch;margin-top:18px}
+.head{max-width:70ch;margin-bottom:48px}
+.head h2{margin-top:12px}
+
+header{position:sticky;top:0;z-index:60;background:rgba(250,248,245,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 24px;max-width:var(--wrap);margin:0 auto}
+.brand{flex:0 0 auto;text-decoration:none;display:block}
+.brand img{width:184px;height:auto}
+.brand img{display:block}
+.bar{gap:24px}
+.hnav{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
+.hnav a{font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 9px;border-bottom:2px solid transparent;white-space:nowrap}
+.hnav a:hover{color:var(--ink);border-bottom-color:var(--brass)}
+.hact{display:flex;align-items:center;gap:16px;flex:0 0 auto}
+.tel{font-family:var(--mono);font-size:.95rem;font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap}
+.btn{display:inline-block;background:var(--brass);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;padding:14px 26px;border-radius:var(--r);border:1px solid var(--brass);transition:background .18s,transform .18s;white-space:nowrap;font-family:var(--sans);cursor:pointer}
+.btn:hover{background:#966D36;transform:translateY(-1px)}
+.btn--lt{background:#fff;color:var(--ink);border-color:#fff}
+.btn--lt:hover{background:var(--brass-lt);border-color:var(--brass-lt)}
+.btn--sm{padding:11px 20px;font-size:.88rem}
+
+.offerbar{background:var(--brass);color:#fff;text-align:center;padding:13px 24px;font-size:.95rem;font-weight:600;line-height:1.45}
+.offerbar span{font-weight:400;opacity:.92}
+.offer-note{display:block;font-size:.72rem;font-weight:400;opacity:.8;margin-top:3px}
+.cta-offer{display:flex;align-items:flex-start;gap:9px;margin-top:16px;font-size:.9rem;color:var(--brass);font-weight:600;max-width:52ch}
+.cta-offer::before{content:"";flex:none;width:9px;height:9px;margin-top:7px;border-radius:50%;background:var(--brass)}
+.band .cta-offer{justify-content:center;margin:16px auto 0;color:var(--brass-lt)}
+.sec--dark .cta-offer{color:var(--brass-lt)}
+.offer-ribbon{display:inline-block;background:#FBF6EE;border:1px solid var(--brass);color:#8A6423;border-radius:20px;padding:5px 15px;font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:16px}
+.sec--dark .offer-ribbon{background:rgba(217,183,126,.14);color:var(--brass-lt)}
+.offercard{border:1px solid var(--brass);background:#FBF6EE;border-radius:var(--r);padding:24px 26px;margin-top:26px}
+.offercard .num{color:var(--brass)}
+.offercard h3{margin-bottom:8px}
+.disc-sm{font-size:.78rem;color:var(--muted);margin-top:12px;line-height:1.5}
+.usps li.hl{color:#fff;font-weight:600}
+.usps li.hl::before{background:var(--brass);width:11px;height:11px;margin-top:8px}
+.hero{position:relative;background:var(--ink);color:var(--paper);padding:96px 0 104px;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-1;
+  background-image:linear-gradient(90deg,rgba(12,17,20,.95) 0%,rgba(12,17,20,.93) 46%,rgba(12,17,20,.78) 60%,rgba(12,17,20,.3) 82%,rgba(12,17,20,.18) 100%),
+  url('https://www.imamihair.com/wp-content/uploads/2026/05/FUE-Hair-Transplant.jpg');
+  background-size:cover;background-position:88% 28%}
+.hero h1{color:#fff}
+.hero .eyebrow{color:var(--brass-lt)}
+.hero-stack{text-align:left;max-width:640px}
+.hero-stack h1{margin-top:14px;max-width:17ch;font-size:clamp(2.3rem,4.3vw,3.7rem)}
+.usps{list-style:none;display:grid;gap:15px;margin-top:34px}
+.usps li{display:flex;gap:14px;align-items:flex-start;color:#DDE2E4;font-size:1.02rem;line-height:1.5}
+.usps li::before{content:"";flex:none;width:9px;height:9px;margin-top:9px;border-radius:50%;background:var(--brass-lt)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;align-items:center}
+
+
+/* google reviews */
+.rev-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.rev-score{display:flex;align-items:baseline;gap:14px;margin-top:18px}
+.rev-num{font-family:var(--mono);font-size:3.4rem;font-weight:600;line-height:1;color:var(--ink)}
+.rev-of{font-family:var(--mono);font-size:.9rem;color:var(--muted)}
+.stars{display:flex;gap:4px;margin-top:14px}
+.stars svg{width:22px;height:22px}
+.rev-meta{font-size:.95rem;color:var(--muted);margin-top:12px}
+.rev-meta a{color:var(--brass);font-weight:600}
+.gbadge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:22px}
+.gbadge b{font-family:var(--sans);font-size:.85rem;letter-spacing:0;text-transform:none;color:var(--ink)}
+.rev-feed{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;min-height:230px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.rev-feed p{font-size:.95rem}
+.rev-ph{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px}
+.sec--dark .card{background:var(--ink-2);border-color:rgba(255,255,255,.1)}
+.card h3{margin-bottom:10px}
+.card p{font-size:.96rem}
+.num{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;color:var(--brass);font-weight:600;display:block;margin-bottom:14px}
+
+.ba{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ba-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.ba-card img{width:100%;height:auto;display:block;background:#EFE9E1}
+.ba-body{padding:20px 22px 22px}
+.ba-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:600}
+.ba-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+.ba-stats dt{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ba-stats dd{font-family:var(--mono);font-size:1.05rem;font-weight:600;margin-top:3px}
+.disc{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:90ch;line-height:1.55}
+
+.checks{list-style:none;display:grid;gap:14px;margin-top:8px}
+.checks li{display:flex;gap:14px;font-size:1rem;align-items:flex-start}
+.checks li::before{content:"";flex:none;width:18px;height:18px;margin-top:4px;border-radius:50%;border:1.5px solid var(--brass);background:radial-gradient(circle,var(--brass) 0 34%,transparent 35%)}
+.sec--dark .checks li{color:#C3CACD}
+
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.tbl th,.tbl td{text-align:left;padding:15px 18px;border-bottom:1px solid var(--line);font-size:.95rem;vertical-align:top}
+.tbl th{background:var(--ink);color:#fff;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.tbl td:first-child{font-weight:600;white-space:nowrap}
+.tbl tr:last-child td{border-bottom:none}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+.step{padding:30px 26px;border-right:1px solid var(--line)}
+.step:last-child{border-right:none}
+.timeline{border-left:2px solid var(--line);margin-left:8px}
+.tl{padding:0 0 34px 34px;position:relative}
+.tl:last-child{padding-bottom:0}
+.tl::before{content:"";position:absolute;left:-9px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--paper);border:2px solid var(--brass)}
+.tl h3{font-size:1.15rem}
+.tl .num{margin-bottom:6px}
+
+.band{background:var(--ink);color:#fff;padding:72px 0;text-align:center}
+.band h2{color:#fff;max-width:20ch;margin:14px auto 0}
+.band p{color:#B9C1C4;max-width:56ch;margin:18px auto 0}
+.band .hero-cta{justify-content:center}
+
+.faq{max-width:880px}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+summary{font-family:var(--serif);font-size:1.3rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);font-size:1.3rem;color:var(--brass);flex:none;line-height:1}
+details[open] summary::after{content:"-";}
+details p{margin-top:14px;font-size:1rem;max-width:74ch}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.form-card{background:var(--ink-2);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:34px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field--full{grid-column:1/-1}
+label{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#939C9F}
+input,select,textarea{font-family:var(--sans);font-size:1rem;padding:13px 14px;border:1px solid rgba(255,255,255,.16);border-radius:var(--r);background:#141A1D;color:#fff;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--brass);outline-offset:1px}
+textarea{min-height:96px;resize:vertical}
+.form-card .btn{width:100%;text-align:center;margin-top:20px;border:none}
+.fineprint{font-size:.78rem;color:#8B9599;margin-top:14px}
+
+.loc-list{list-style:none;margin-top:22px}
+.loc-list li{font-size:.95rem;padding:7px 0;color:#B9C1C4}
+.loc-list li::before{content:"\2014";color:var(--brass-lt);margin-right:10px}
+
+footer{background:var(--ink);color:#8B9599;padding:56px 0 40px;font-size:.88rem;border-top:1px solid rgba(255,255,255,.12)}
+footer a{color:#C3CACD}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+.f-bot{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:24px;font-size:.78rem;line-height:1.6}
+
+.mobar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--ink);border-top:1px solid rgba(255,255,255,.14);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
+.mobar a{flex:1;text-align:center;padding:14px 8px;border-radius:var(--r);text-decoration:none;font-weight:600;font-size:.92rem}
+.mobar .call{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
+.mobar .book{background:var(--brass);color:#fff}
+
+@media(max-width:980px){
+  .g2,.form-grid,.rev-grid{grid-template-columns:1fr;gap:40px}
+  .g3,.ba,.steps{grid-template-columns:1fr 1fr}
+  .step{border-right:none;border-bottom:1px solid var(--line)}
+  .hnav{display:none}
+  .hact .tel{display:none}
+}
+@media(max-width:680px){
+  body{font-size:16px;padding-bottom:76px}
+  .sec{padding:60px 0}
+  .offerbar{font-size:.86rem;padding:11px 16px;text-align:left}
+  .hero{padding:64px 0 72px}
+  .hero-bg{background-image:linear-gradient(180deg,rgba(12,17,20,.93),rgba(12,17,20,.88)),url('https://www.imamihair.com/wp-content/uploads/2026/05/FUE-Hair-Transplant.jpg');background-position:60% 20%}
+  .usps li{font-size:.98rem}
+  .g3,.ba,.steps,.fields{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .mobar{display:flex}
+  .hact .btn{display:none}
+  .hact .tel{display:block}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
