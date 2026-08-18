@@ -27,11 +27,13 @@ Google Tag Manager (`GTM-NPV88WZQ`) is installed in the root layout
 and the `<noscript>` iframe is the first element in `<body>`. The container ID
 is a constant at the top of that file.
 
-`/thank-you` is the conversion destination. Configure the Google Ads conversion
-inside the GTM container rather than hard-coding a gtag snippet: a conversion
-tag on a Page View trigger limited to **Page Path equals `/thank-you`**. Scoping
-it that way counts one conversion per completed form and never on a
-landing-page view.
+`/thank-you` is the conversion destination. It pushes a
+`lead_form_submitted` event into the dataLayer on every load, so the Google
+Ads conversion tag in GTM should fire on a **Custom Event trigger with event
+name `lead_form_submitted`** (a Page View trigger on Page Path equals
+`/thank-you` works too). Either way the conversion counts once per completed
+form and never on a landing-page view. Pair the conversion tag with a
+Conversion Linker tag on All Pages.
 
 **This only works if the LeadConnector form redirects there.** The form is an
 iframe on another origin, so submission happens entirely inside it and this site

@@ -41,6 +41,15 @@ export default function ThankYou() {
         trigger that way counts one conversion per completed form and never on
         a landing-page view.
       */}
+      {/* Fires once per thank-you load. GTM's conversion trigger can key on this
+          custom event instead of a Page View path match, which survives any
+          future URL or trigger-config changes. */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html:
+            "window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'lead_form_submitted'});",
+        }}
+      />
       <SiteHeader base={LANDING} minimal />
 
       <section className="sec sec--dark ty-hero" style={{ paddingTop: 96 }}>
