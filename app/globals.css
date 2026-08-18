@@ -101,11 +101,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .hero-points{list-style:none;display:grid;gap:12px;margin-top:26px}
 .hero-points li{display:flex;align-items:center;gap:12px;color:#E4E4E4;font-size:1rem;font-weight:400}
 .hero-points svg{width:19px;height:19px;flex:none;fill:var(--brass)}
-.booknow{position:absolute;right:0;top:18%;z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;
-  background:var(--brass);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;letter-spacing:.5px;
-  padding:16px 18px;border-radius:12px 0 0 12px}
-.booknow svg{width:30px;height:30px}
-.booknow:hover{background:#e07500}
 
 /* What is FUE + What FUE Can Treat share one dark section */
 .what-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:72px;align-items:start}
@@ -412,7 +407,6 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
   .mq-card{width:310px;padding:20px}
   .wsteps{grid-template-columns:1fr}
   .hero2{padding:90px 0 110px}
-  .booknow{display:none}
   .hero-grid{grid-template-columns:1fr;gap:36px}
   .eyebrow{font-size:1.2rem}
   .mobar{display:flex}

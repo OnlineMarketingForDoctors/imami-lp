@@ -157,16 +157,6 @@ export default function FollicularUnitExtraction() {
             </a>
           </div>
         </div>
-        <a className="booknow" href="#consult">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="11" fill="#fff" />
-            <path
-              d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.4-4-4 1.7-1.7 2.3 2.3 4.7-4.7 1.7 1.7z"
-              fill="#FF8400"
-            />
-          </svg>
-          Book Now
-        </a>
       </section>
 
       <section className="sec sec--tint" id="reviews" style={{ borderTop: "none" }}>
