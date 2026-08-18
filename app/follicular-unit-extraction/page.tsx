@@ -5,7 +5,7 @@ import LeadFormEmbed from "../components/LeadFormEmbed";
 import ReviewMarquee from "../components/ReviewMarquee";
 import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
-import { NAV_MAIN, PHONE_HREF } from "../site";
+import { NAV_MAIN } from "../site";
 
 export const metadata: Metadata = {
   title: "FUE Hair Transplant in Florida | Follicular Unit Extraction",
@@ -90,7 +90,7 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "Do I have to shave my head?",
-    a: ["No — Dr. Imami specialises in No-Shave FUE, which allows the surrounding hair to be kept at its existing length so the procedure remains completely discreet. Individual follicles are extracted from longer donor hair without shaving the head, meaning you can return to work and social settings without an obvious ‘transplant look’. For larger sessions where a partial trim is needed, Dr. Imami will discuss your options during your consultation and design an approach that fits both your hair loss pattern and your lifestyle."],
+    a: ["No. Dr. Imami specialises in No-Shave FUE, which allows the surrounding hair to be kept at its existing length so the procedure remains completely discreet. Individual follicles are extracted from longer donor hair without shaving the head, meaning you can return to work and social settings without an obvious ‘transplant look’. For larger sessions where a partial trim is needed, Dr. Imami will discuss your options during your consultation and design an approach that fits both your hair loss pattern and your lifestyle."],
   },
   {
     q: "When will I see the final results?",
@@ -98,15 +98,15 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "How much does a hair transplant cost?",
-    a: ["There is no single hair transplant price, because hair transplant cost is driven by the number of grafts you need — no two patients are the same. As a reference, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized quote covering your procedure and your year-one follow-ups, and financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask how many grafts it covers, who performs the surgery, and whether follow-ups are included."],
+    a: ["There is no single hair transplant price, because hair transplant cost is driven by the number of grafts you need, and no two patients are the same. As a reference, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized quote covering your procedure and your year-one follow-ups, and financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask how many grafts it covers, who performs the surgery, and whether follow-ups are included."],
   },
   {
     q: "Do patients travel from Miami or Orlando?",
-    a: ["Yes, all the time. Our hair transplant clinic is in Melbourne, on Florida's Space Coast — about an hour from Orlando and a comfortable drive up the coast from Miami. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a same-day virtual consultation from wherever you are, then visit once for the procedure itself."],
+    a: ["Yes, all the time. Our hair transplant clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando and a comfortable drive up the coast from Miami. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a same-day virtual consultation from wherever you are, then visit once for the procedure itself."],
   },
   {
     q: "How many grafts will I need?",
-    a: ["The number of grafts varies based on your degree of hair loss (Norwood stage), the areas being treated, your donor density, and your desired result. As a reference, Dr. Imami’s recent No-Shave FUE patients have typically received between 1,100 and 2,000 grafts per session — for example, a Norwood 3 hairline restoration may require around 1,100–1,800 grafts, while more advanced patterns at Norwood 4–5 often need 1,800–2,000+ grafts. During your consultation, Dr. Imami will assess your scalp, design your hairline, and calculate the precise graft count needed to achieve a natural, balanced outcome."],
+    a: ["The number of grafts varies based on your degree of hair loss (Norwood stage), the areas being treated, your donor density, and your desired result. As a reference, Dr. Imami’s recent No-Shave FUE patients have typically received between 1,100 and 2,000 grafts per session. For example, a Norwood 3 hairline restoration may require around 1,100–1,800 grafts, while more advanced patterns at Norwood 4–5 often need 1,800–2,000+ grafts. During your consultation, Dr. Imami will assess your scalp, design your hairline, and calculate the precise graft count needed to achieve a natural, balanced outcome."],
   },
 ];
 
@@ -196,7 +196,7 @@ export default function FollicularUnitExtraction() {
             <p className="lede">
               Your transplant is then completed under his direct supervision by a
               dedicated team of technicians with 15 years of experience working
-              alongside him — bringing surgical-level precision and artistry to
+              alongside him, bringing surgical-level precision and artistry to
               every stage of your procedure.
             </p>
           </div>
@@ -223,21 +223,16 @@ export default function FollicularUnitExtraction() {
             </p>
           </div>
           <BASlider items={RESULTS} />
-          <p className="disc">
+          <p className="disc disc--center">
             The images above are displayed with the consent of the patients. The
             outcomes shown are only relevant for these patients and do not
             necessarily reflect the results other patients may experience. Our
             team will discuss any factors that could influence the results that
             you may get.
           </p>
-          <div className="hero-cta">
-            <a
-              className="btn"
-              href={`${MAIN}/before-and-after-photos/`}
-              target="_blank"
-              rel="noopener"
-            >
-              View Full Gallery
+          <div className="hero-cta hero-cta--center">
+            <a className="btn" href="#consult">
+              Book Your Free Consultation
             </a>
           </div>
         </div>
@@ -258,7 +253,7 @@ export default function FollicularUnitExtraction() {
             <p className="kd">Key Distinction</p>
             <p className="lede" style={{ marginTop: 12 }}>
               Whether you call it an FUE hair transplant, FUE hair replacement
-              or simply FUE, the technique is the same — and Dr. Imami
+              or simply FUE, the technique is the same, and Dr. Imami
               specializes in the no-shave version. Individual follicles are
               taken from longer donor hair without shaving your head, so the
               procedure stays discreet from day one and leaves no linear scar.
@@ -348,8 +343,8 @@ export default function FollicularUnitExtraction() {
             <p className="lede">
               There is no single hair transplant price, because no two patients
               need the same number of grafts. What follows is how the cost of a
-              hair transplant is actually built, so you can judge any quote
-              &mdash; ours or anyone else&rsquo;s.
+              hair transplant is actually built, so you can judge any quote,
+              ours or anyone else&rsquo;s.
             </p>
           </div>
           <div className="g2" style={{ alignItems: "start" }}>
@@ -435,7 +430,7 @@ export default function FollicularUnitExtraction() {
               than paid in one go.
             </p>
             <ul className="checks" style={{ marginTop: 20 }}>
-              <li>A written, itemized quote at your consultation &mdash; no hidden extras</li>
+              <li>A written, itemized quote at your consultation, with no hidden extras</li>
               <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
               <li>Medication refills included through your first year</li>
               <li>Quotes based on your actual graft count, not a package guess</li>
@@ -477,7 +472,7 @@ export default function FollicularUnitExtraction() {
               <span className="num">Women</span>
               <h3>Female Thinning &amp; Hairlines</h3>
               <p>
-                Women lose hair differently &mdash; more often diffuse thinning
+                Women lose hair differently, more often diffuse thinning
                 or a high, uneven hairline than a classic receding pattern. A
                 female hairline transplant can lower and soften the frame, and
                 FUE hair transplant for women is carried out without shaving the
@@ -488,8 +483,8 @@ export default function FollicularUnitExtraction() {
                 count, in writing, after assessment. That applies equally to a
                 female hairline transplant cost, to female hair implants cost,
                 and to any ladies hair transplant cost, hair implants for women
-                cost or hair replacement for women cost quoted elsewhere &mdash;
-                ask every clinic what the number actually includes.
+                cost or hair replacement for women cost quoted elsewhere.
+                Ask every clinic what the number actually includes.
               </p>
             </div>
           </div>
@@ -567,7 +562,7 @@ export default function FollicularUnitExtraction() {
             <p className="lede">
               Triple board-certified surgeon with over 30 years of surgical
               excellence, bringing precision and artistry to every hair
-              restoration procedure at Imami Hair Restoration — a surgeon-led
+              restoration procedure at Imami Hair Restoration, a surgeon-led
               hair transplant clinic in Melbourne, Florida that patients travel
               to from Orlando, Miami and across the state.
             </p>
@@ -645,15 +640,6 @@ export default function FollicularUnitExtraction() {
       <SiteFooter />
 
       <BackToTop />
-
-      <div className="mobar">
-        <a className="call" href={PHONE_HREF}>
-          Call now
-        </a>
-        <a className="book" href="#consult">
-          Book a free call
-        </a>
-      </div>
     </>
   );
 }

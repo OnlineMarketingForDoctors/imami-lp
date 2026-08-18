@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { NAV, PHONE, PHONE_HREF } from "../site";
 
 /** Font Awesome solid "phone", the same glyph imamihair.com uses. */
@@ -13,9 +16,13 @@ function PhoneIcon() {
  * `base` prefixes the section anchors. Empty on the landing page itself, and
  * the landing page's path anywhere else, so the nav still works off-page.
  *
- * `minimal` strips the header back to a centred logo — used on /thank-you,
+ * `minimal` strips the header back to a centred logo, used on /thank-you,
  * where the visitor has already converted and the nav, phone number and CTA
  * are only exits.
+ *
+ * Below the desktop breakpoint the inline nav gives way to a menu button and
+ * dropdown; on phones the phone number collapses to its icon and the CTA
+ * shortens to "Book" so logo, CTA, phone and menu all fit on one row.
  */
 export default function SiteHeader({
   base = "",
@@ -26,6 +33,8 @@ export default function SiteHeader({
   minimal?: boolean;
   nav?: { href: string; label: string }[];
 }) {
+  const [open, setOpen] = useState(false);
+
   if (minimal) {
     return (
       <header>
@@ -72,15 +81,53 @@ export default function SiteHeader({
           ))}
         </nav>
         <div className="hact">
-          <a className="tel" href={PHONE_HREF}>
+          <a className="btn btn--sm" href={`${base}#consult`}>
+            Book<span className="btn-now"> Now</span>
+          </a>
+          <a className="tel" href={PHONE_HREF} aria-label={`Call ${PHONE}`}>
+            <PhoneIcon />
+            <span className="tel-num">{PHONE}</span>
+          </a>
+          <button
+            type="button"
+            className="menu-btn"
+            aria-label={open ? "Close menu" : "Menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((o) => !o)}
+          >
+            {open ? (
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M5.7 4.3 12 10.6l6.3-6.3 1.4 1.4L13.4 12l6.3 6.3-1.4 1.4L12 13.4l-6.3 6.3-1.4-1.4L10.6 12 4.3 5.7z" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z" />
+              </svg>
+            )}
+          </button>
+        </div>
+      </div>
+      {open && (
+        <nav className="mnav" aria-label="Page sections">
+          {nav.map((item) => (
+            <a
+              key={item.href}
+              href={`${base}${item.href}`}
+              onClick={() => setOpen(false)}
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            className="mnav-tel"
+            href={PHONE_HREF}
+            onClick={() => setOpen(false)}
+          >
             <PhoneIcon />
             {PHONE}
           </a>
-          <a className="btn btn--sm" href={`${base}#consult`}>
-            Book Now
-          </a>
-        </div>
-      </div>
+        </nav>
+      )}
     </header>
   );
 }

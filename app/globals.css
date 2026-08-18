@@ -48,6 +48,15 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .hact{display:flex;align-items:center;gap:16px;flex:0 0 auto}
 .tel{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:.95rem;font-weight:500;color:var(--ink);text-decoration:none;white-space:nowrap}
 .tel svg{width:15px;height:15px;flex:none;fill:var(--brass)}
+/* Menu button + dropdown replace the inline nav below the desktop breakpoint */
+.menu-btn{display:none;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border:none;background:none;cursor:pointer;color:var(--ink)}
+.menu-btn svg{width:24px;height:24px;fill:currentColor}
+.mnav{display:flex;flex-direction:column;background:#fff;border-top:1px solid var(--line);padding:8px 24px 18px}
+.mnav a{font-family:var(--sans);font-size:.95rem;font-weight:500;color:var(--ink);text-decoration:none;padding:13px 0;border-bottom:1px solid var(--line)}
+.mnav a:last-child{border-bottom:none}
+.mnav-tel{display:inline-flex;align-items:center;gap:10px}
+.mnav-tel svg{width:15px;height:15px;fill:var(--brass)}
+@media(min-width:1281px){.menu-btn,.mnav{display:none}}
 /* Site CTA: orange accent, Montserrat 500, uppercase with 2px tracking;
    hovers to white on black, as on imamihair.com. */
 .btn{display:inline-block;background:var(--brass);color:#fff;text-decoration:none;font-weight:500;font-size:.9rem;text-transform:uppercase;letter-spacing:2px;padding:16px 30px;border-radius:var(--r);border:1px solid var(--brass);transition:background .3s,color .3s,border-color .3s;white-space:nowrap;font-family:var(--sans);cursor:pointer}
@@ -124,7 +133,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .mq-stars{margin:2px 0 0 auto}
 .mq-stars svg{width:15px;height:15px}
 .mq-body{font-size:.92rem;line-height:1.6;white-space:pre-line;display:-webkit-box;-webkit-line-clamp:7;line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
-.mq-more{margin-top:12px;font-size:.82rem;font-weight:600;color:var(--brass);text-decoration:underline}
+.mq-more{margin-top:12px;padding:0;border:none;background:none;cursor:pointer;align-self:flex-start;font-family:inherit;font-size:.82rem;font-weight:600;color:var(--brass);text-decoration:underline}
+
+/* Full-review overlay opened by a card's Read more button */
+.rev-modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;padding:24px}
+.rev-modal-card{width:min(640px,100%);max-height:82vh;overflow-y:auto;background:#fff;border-radius:8px;padding:32px 28px}
+.rev-modal-body{font-size:.95rem;line-height:1.65;white-space:pre-line}
 @media(prefers-reduced-motion:reduce){
   .mq-track{animation:none}
   .marquee{overflow-x:auto}
@@ -268,6 +282,8 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .ba-stats dt{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .ba-stats dd{font-family:var(--mono);font-size:1.05rem;font-weight:600;margin-top:3px}
 .disc{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:90ch;line-height:1.55}
+.disc--center{margin-inline:auto;text-align:center}
+.hero-cta--center{justify-content:center}
 @media(min-width:681px){
   #results .head{margin-left:auto;text-align:right}
   #results .head .lede{margin-left:auto}
@@ -349,7 +365,7 @@ footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-f
 .backtop.is-shown{opacity:1;visibility:visible;transform:none}
 .backtop:hover{background:#e07500}
 .backtop svg{width:20px;height:20px}
-@media(max-width:680px){.backtop{left:14px;bottom:calc(76px + env(safe-area-inset-bottom) + 12px)}}
+@media(max-width:680px){.backtop{left:14px;bottom:calc(14px + env(safe-area-inset-bottom))}}
 .mobar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--ink);border-top:1px solid rgba(255,255,255,.14);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
 .mobar a{flex:1;text-align:center;padding:14px 8px;border-radius:var(--r);text-decoration:none;font-weight:600;font-size:.92rem}
 .mobar .call{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
@@ -357,6 +373,7 @@ footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-f
 
 @media(max-width:1280px){
   .hnav{display:none}
+  .menu-btn{display:inline-flex}
 }
 @media(max-width:980px){
   .what-grid,.consult-grid{grid-template-columns:1fr;gap:44px}
@@ -392,7 +409,14 @@ footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-f
   .hero-grid{grid-template-columns:1fr;gap:36px}
   .eyebrow{font-size:1.2rem}
   .mobar{display:flex}
-  .hact .btn{display:none}
+  /* Phones: logo | BOOK | phone icon | menu on one row. The number collapses
+     to its icon and the CTA label shortens to "Book". */
+  .hact{gap:10px}
+  .hact .btn{padding:11px 16px;font-size:.74rem;letter-spacing:1px}
+  .btn-now{display:none}
+  .tel-num{display:none}
+  .hact .tel svg{width:19px;height:19px}
+  .menu-btn{width:34px;height:34px}
   /* Cost tables carry long unbreakable figures. Let them wrap and pin the
      columns to the table width, rather than pushing the whole page into
      horizontal scroll on narrow phones. */
@@ -403,8 +427,10 @@ footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-f
 /* Very narrow phones: the logo plus phone number, and the long CTA label,
    both exceed 360px otherwise. */
 @media(max-width:420px){
-  .bar{gap:12px;padding:12px 16px}
-  .brand img{width:140px}
+  .bar{gap:10px;padding:12px 14px}
+  .brand img{width:128px}
+  .hact{gap:8px}
+  .hact .btn{padding:10px 12px;font-size:.7rem}
   .tel{font-size:.86rem}
   .btn{white-space:normal;padding:14px 20px;font-size:.82rem;letter-spacing:1px}
 }

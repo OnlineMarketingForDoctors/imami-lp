@@ -8,8 +8,9 @@ const STAR =
 
 /**
  * The five most recent Google reviews shown on imamihair.com, two at a time on
- * desktop and one on mobile. Review text in reviews.json is reproduced verbatim
- * from the live Trustindex feed and must not be edited.
+ * desktop and one on mobile. Review text in reviews.json comes from the live
+ * Trustindex feed, with em-dashes swapped for plain punctuation per the ad
+ * copy guidelines; keep any further edits to punctuation only.
  */
 export default function ReviewSlider() {
   const track = useRef<HTMLDivElement>(null);

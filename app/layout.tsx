@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import AnchorFix from "./components/AnchorFix";
 import "./globals.css";
 
 const GTM_ID = "GTM-NPV88WZQ";
@@ -52,6 +53,7 @@ export default function RootLayout({
         {/* Google Tag Manager (noscript) — immediately after <body>. */}
         <noscript dangerouslySetInnerHTML={{ __html: GTM_NOSCRIPT }} />
         {/* End Google Tag Manager (noscript) */}
+        <AnchorFix />
         {children}
       </body>
     </html>
