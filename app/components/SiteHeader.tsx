@@ -85,12 +85,12 @@ export default function SiteHeader({
           ))}
         </nav>
         <div className="hact">
-          <a className="btn btn--sm" href={`${base}#consult`}>
-            Book a Free Call
-          </a>
           <a className="tel" href={PHONE_HREF} aria-label={`Call ${PHONE}`}>
             <PhoneIcon />
             <span className="tel-num">{PHONE}</span>
+          </a>
+          <a className="btn btn--sm" href={`${base}#consult`}>
+            Book a Free Call
           </a>
           <button
             type="button"
