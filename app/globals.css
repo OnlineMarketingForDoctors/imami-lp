@@ -88,9 +88,9 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
   background:linear-gradient(90deg,rgba(20,16,12,.82) 0%,rgba(20,16,12,.55) 45%,rgba(20,16,12,.25) 100%),
   url('/images/FUE-Hair-Transplant.jpg') center 30%/cover no-repeat #111}
 .hero2 h1{color:#fff;max-width:14ch;font-size:clamp(2.6rem,4.8vw,4.2rem);margin-top:14px}
-.crumbs{font-size:.92rem;color:#E4E4E4;margin-bottom:14px}
-.crumbs a{color:#E4E4E4;text-decoration:none}
-.crumbs a:hover{color:#fff;text-decoration:underline}
+.hero-points{list-style:none;display:grid;gap:12px;margin-top:26px}
+.hero-points li{display:flex;align-items:center;gap:12px;color:#E4E4E4;font-size:1rem;font-weight:400}
+.hero-points svg{width:19px;height:19px;flex:none;fill:var(--brass)}
 .booknow{position:absolute;right:0;top:18%;z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;
   background:var(--brass);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;letter-spacing:.5px;
   padding:16px 18px;border-radius:12px 0 0 12px}
@@ -176,7 +176,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-sub{margin-top:18px;font-size:1.12rem;color:#E4E4E4;max-width:56ch}
-.trust{margin-top:26px;font-size:.86rem;color:#C9C9C9;letter-spacing:.4px}
 .hero-img img{width:100%;height:auto;border-radius:10px}
 .rounded-img{width:100%;height:auto;border-radius:10px}
 .surgeon-img{max-width:420px}

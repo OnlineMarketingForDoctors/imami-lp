@@ -16,6 +16,13 @@ export const metadata: Metadata = {
 
 const MAIN = "https://www.imamihair.com";
 
+const HERO_POINTS = [
+  "Triple Board-Certified Surgeon",
+  "Flexible Financing Available",
+  "Natural-Looking, Artful Results",
+  "30+ Years Surgical Excellence",
+];
+
 const RESULTS: BAItem[] = [
   { img: "1.png", age: "37", norwood: "3", grafts: "1,112", timeline: "1 Year Post-Op" },
   { img: "1-1.png", age: "39", norwood: "3", grafts: "1,647", timeline: "19 Months after 2nd FUE" },
@@ -126,10 +133,6 @@ export default function FollicularUnitExtraction() {
       {/* Hero: full-bleed photo, breadcrumb, left copy, floating BOOK NOW pill */}
       <section className="hero2" id="top">
         <div className="wrap">
-          <nav className="crumbs" aria-label="Breadcrumb">
-            <a href={MAIN}>Home</a> » <a href={`${MAIN}/hair-transplants/`}>Hair Transplants</a> »{" "}
-            <span>FUE Hair Transplant</span>
-          </nav>
           <p className="eyebrow eyebrow--accent">FUE Hair Transplant</p>
           <h1>
             No-Shave FUE - Natural,
@@ -140,15 +143,21 @@ export default function FollicularUnitExtraction() {
             Surgeon-led experienced team, no-shave FUE hair transplant for
             natural hairline restoration and premium patient care.
           </p>
+          <ul className="hero-points">
+            {HERO_POINTS.map((point) => (
+              <li key={point}>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.4-4-4 1.7-1.7 2.3 2.3 4.7-4.7 1.7 1.7z" />
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
           <div className="hero-cta">
             <a className="btn" href="#consult">
               Book a Free Discovery Call
             </a>
           </div>
-          <p className="trust">
-            · Triple Board-Certified Surgeon · Flexible Financing Available ·
-            Natural-Looking, Artful Results · 30+ Years Surgical Excellence
-          </p>
         </div>
         <a className="booknow" href="#consult">
           <svg viewBox="0 0 24 24" aria-hidden="true">
