@@ -38,7 +38,7 @@ export default function SiteFooter() {
                 height={200}
               />
             </a>
-            <p style={{ color: "#AFAFAF" }}>
+            <p>
               Surgeon-led FUE hair transplant and hair restoration surgery in
               Melbourne, Florida, serving Brevard County, the Space Coast and the
               wider Orlando area.

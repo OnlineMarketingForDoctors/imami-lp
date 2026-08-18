@@ -181,7 +181,7 @@ export default function FollicularUnitExtraction() {
         <ReviewMarquee />
       </section>
 
-      <section className="sec" id="approach">
+      <section className="sec sec--dark" id="approach">
         <div className="wrap g2">
           <div>
             <p className="eyebrow">Our Approach</p>
@@ -312,7 +312,18 @@ export default function FollicularUnitExtraction() {
       </section>
 
       <section className="sec" id="benefits">
-        <div className="wrap g2" style={{ alignItems: "start" }}>
+        <div className="wrap g2">
+          <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img"
+              src="/images/fue-procedure.jpg"
+              alt="FUE hair transplant procedure in progress"
+              width={1400}
+              height={1400}
+              loading="lazy"
+            />
+          </div>
           <div>
             <p className="eyebrow">Advantages</p>
             <h2>Benefits of FUE</h2>
@@ -321,16 +332,6 @@ export default function FollicularUnitExtraction() {
                 <li key={b}>{b}</li>
               ))}
             </ul>
-          </div>
-          <div className="card" id="why">
-            <span className="num">Excellence</span>
-            <h3 style={{ fontSize: "1.7rem" }}>Why Choose Dr. Imami</h3>
-            {WHY.map((w) => (
-              <div key={w.h} style={{ marginTop: 18 }}>
-                <h3 style={{ marginBottom: 6 }}>{w.h}</h3>
-                <p>{w.p}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -586,6 +587,14 @@ export default function FollicularUnitExtraction() {
               hair transplant clinic in Melbourne, Florida that patients travel
               to from Orlando, Miami and across the state.
             </p>
+            <div id="why">
+              {WHY.map((w) => (
+                <div key={w.h} style={{ marginTop: 20 }}>
+                  <h3 style={{ marginBottom: 6 }}>{w.h}</h3>
+                  <p>{w.p}</p>
+                </div>
+              ))}
+            </div>
             <div className="hero-cta">
               <a
                 className="btn btn--lt"
