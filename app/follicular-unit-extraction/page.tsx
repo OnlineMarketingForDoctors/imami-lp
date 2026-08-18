@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import LeadFormEmbed from "../components/LeadFormEmbed";
-import ReviewSlider from "../components/ReviewSlider";
+import ReviewMarquee from "../components/ReviewMarquee";
 import BASlider, { BAItem } from "../components/BASlider";
 import { NAV_MAIN, PHONE_HREF } from "../site";
 
@@ -162,8 +162,8 @@ export default function FollicularUnitExtraction() {
       </section>
 
       <section className="sec sec--tint" id="reviews" style={{ borderTop: "none" }}>
-        <div className="wrap rev-grid">
-          <div>
+        <div className="wrap">
+          <div className="head" style={{ marginBottom: 34 }}>
             <p className="eyebrow">Patient Testimonials</p>
             <h2>What Our Patients Say</h2>
             <p className="rev-meta">
@@ -177,12 +177,9 @@ export default function FollicularUnitExtraction() {
               </a>
               .
             </p>
-            <span className="gbadge">
-              Posted on <b>Google</b>
-            </span>
           </div>
-          <ReviewSlider />
         </div>
+        <ReviewMarquee />
       </section>
 
       <section className="sec" id="approach">
