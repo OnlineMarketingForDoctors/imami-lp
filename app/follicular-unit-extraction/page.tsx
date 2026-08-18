@@ -138,8 +138,11 @@ export default function FollicularUnitExtraction() {
             Undetectable Results
           </h1>
           <p className="hero-sub">
-            Surgeon-led experienced team, no-shave FUE hair transplant for
-            natural hairline restoration and premium patient care.
+            <strong className="hero-offer">
+              Complimentary biomimetic hair growth treatment
+            </strong>{" "}
+            with every hair transplant, included in Dr. Imami&rsquo;s
+            post-operative care program.*
           </p>
           <ul className="hero-points">
             {HERO_POINTS.map((point) => (
@@ -156,6 +159,10 @@ export default function FollicularUnitExtraction() {
               Book a Free Discovery Call
             </a>
           </div>
+          <p className="hero-fine">
+            *Offered with procedures booked through this page. Ask at your
+            consultation for full details.
+          </p>
         </div>
       </section>
 

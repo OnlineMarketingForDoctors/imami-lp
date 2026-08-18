@@ -186,6 +186,8 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-sub{margin-top:18px;font-size:1.12rem;color:#E4E4E4;max-width:56ch}
+.hero-offer{color:var(--brass-lt);font-weight:600}
+.hero-fine{margin-top:16px;font-size:.78rem;line-height:1.5;color:#B9B9B9;max-width:52ch}
 .hero-img img{width:100%;height:auto;border-radius:10px}
 .rounded-img{width:100%;height:auto;border-radius:10px}
 .surgeon-img{max-width:420px}
