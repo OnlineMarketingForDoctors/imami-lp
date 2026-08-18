@@ -3,6 +3,7 @@ import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import { PHONE, PHONE_HREF } from "../site";
 import LeadFormEmbed from "./LeadFormEmbed";
+import ReviewSlider from "./ReviewSlider";
 
 export const metadata: Metadata = {
   title:
@@ -20,7 +21,6 @@ const USPS: { text: string; highlight?: boolean }[] = [
   { text: "Natural-looking results using advanced techniques, including NeoGraft FUE" },
   { text: "Highly personalized treatment plans developed by Dr. Imami" },
   { text: "Flexible payment plans to ease the financial burden" },
-  { text: "Complimentary biomimetic hair growth treatment with every hair transplant", highlight: true },
   { text: "One year of complimentary follow-up appointments" },
   { text: "Flexible after-hour online consultations and same-day virtual appointments available" },
 ];
@@ -141,14 +141,6 @@ export default function FollicularUnitExtraction() {
     <>
       <SiteHeader />
 
-      <div className="offerbar">
-        Complimentary biomimetic hair growth treatment with every hair transplant{" "}
-        <span>as part of Dr. Imami&rsquo;s post-operative care program.</span>
-        <span className="offer-note">
-          Offered with procedures booked through this page. Ask at your
-          consultation for full details.
-        </span>
-      </div>
 
       <section className="hero">
         <div className="hero-bg" aria-hidden="true" />
@@ -169,10 +161,6 @@ export default function FollicularUnitExtraction() {
                 Call {PHONE}
               </a>
             </div>
-            <p className="cta-offer">
-              Book through this page and your procedure includes a complimentary
-              biomimetic hair growth treatment.
-            </p>
           </div>
         </div>
       </section>
@@ -222,23 +210,7 @@ export default function FollicularUnitExtraction() {
             </span>
           </div>
 
-          {/*
-            GOOGLE REVIEWS FEED
-            imamihair.com renders its reviews with the Trustindex Google widget
-            ("Posted on Google", verified-source badge per review). Mount the same
-            Trustindex widget in the container below so this page shows the same
-            feed. Reviews must render live and verbatim - do not hard-code or edit
-            review text. The 4.6 / 15-review summary beside it is static and
-            should be replaced by the widget's own rating once it is embedded.
-          */}
-          <div className="rev-feed" id="google-reviews-widget">
-            <p className="rev-ph">Google reviews feed</p>
-            <p>
-              Live review carousel mounts here. Until the widget is connected,
-              this block stays empty rather than showing placeholder
-              testimonials.
-            </p>
-          </div>
+          <ReviewSlider />
         </div>
       </section>
 
@@ -314,7 +286,7 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <section className="sec" id="what">
+      <section className="sec bg-photo bg-photo--light" id="what">
         <div className="wrap g2">
           <div>
             <p className="eyebrow">The Technique</p>
@@ -445,9 +417,6 @@ export default function FollicularUnitExtraction() {
           <div className="head">
             <p className="eyebrow">Investment</p>
             <h2>Hair Transplant Cost &amp; Financing</h2>
-            <span className="offer-ribbon">
-              Includes a complimentary biomimetic hair growth treatment
-            </span>
             <p className="lede">
               There is no single hair transplant price, because no two patients
               need the same number of grafts. What follows is how the cost of a
@@ -455,7 +424,7 @@ export default function FollicularUnitExtraction() {
               or anyone else&rsquo;s.
             </p>
           </div>
-          <div className="g2" style={{ alignItems: "start" }}>
+          <div className="stack">
             <table className="tbl">
               <thead>
                 <tr>
@@ -494,8 +463,7 @@ export default function FollicularUnitExtraction() {
                 </tr>
               </tbody>
             </table>
-            <div>
-              <div className="card">
+            <div className="card">
                 <span className="num">Typical Session Sizes</span>
                 <h3>What Your Graft Count Means</h3>
                 <table className="tbl" style={{ marginTop: 16 }}>
@@ -529,7 +497,7 @@ export default function FollicularUnitExtraction() {
                   inclusions differ.
                 </p>
               </div>
-              <div className="card" style={{ marginTop: 24 }}>
+            <div className="card">
                 <span className="num">Paying For It</span>
                 <h3>Flexible Payment Plans</h3>
                 <p>
@@ -547,7 +515,6 @@ export default function FollicularUnitExtraction() {
                 <BookButton style={{ marginTop: 24 }}>
                   Get a personalized quote
                 </BookButton>
-              </div>
             </div>
           </div>
         </div>
@@ -559,7 +526,7 @@ export default function FollicularUnitExtraction() {
             <p className="eyebrow">Who We Treat</p>
             <h2>Hair Transplants for Men and Women</h2>
           </div>
-          <div className="g2" style={{ alignItems: "start" }}>
+          <div className="g2" style={{ alignItems: "stretch" }}>
             <div className="card">
               <span className="num">Men</span>
               <h3>Male Pattern Hair Loss</h3>
@@ -601,17 +568,13 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <div className="band">
+      <div className="band bg-photo">
         <div className="wrap">
           <p className="eyebrow">Consultation</p>
           <h2>Wondering if FUE Is Right for You?</h2>
           <p>
             Book a free discovery call with Dr. Imami to discuss your options,
             your likely graft count and what it would cost.
-          </p>
-          <p className="cta-offer">
-            Every hair transplant booked through this page includes a
-            complimentary biomimetic hair growth treatment.
           </p>
           <div className="hero-cta">
             <BookButton />
@@ -724,7 +687,8 @@ export default function FollicularUnitExtraction() {
               biomimetic hair growth treatment.
             </p>
           </div>
-          <div className="card">
+          <div>
+            <div className="card">
             <span className="num">Visit Us</span>
             <h3>Imami Hair Restoration</h3>
             <p>
@@ -745,6 +709,14 @@ export default function FollicularUnitExtraction() {
               <li>Mon-Fri, 8am to 5pm · after hours by appointment</li>
               <li>Virtual consultations available</li>
             </ul>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="loc-photo"
+              src={`${MEDIA}/image-27-1.png`}
+              alt="Imami Hair Restoration, NASA Palms Professional Center, Melbourne, Florida"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -768,15 +740,11 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <section className="sec sec--dark" id="consult">
+      <section className="sec sec--dark bg-photo" id="consult">
         <div className="wrap form-grid">
           <div>
             <p className="eyebrow">Consultation</p>
             <h2>Request a Consultation with Dr. Imami</h2>
-            <span className="offer-ribbon">
-              Book through this page: complimentary biomimetic hair growth
-              treatment included
-            </span>
             <p className="lede">
               Begin with a private, surgeon-led consultation to discuss your hair
               loss, your suitability for FUE and the outcome you can realistically

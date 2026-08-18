@@ -19,8 +19,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacin
 h1{font-size:clamp(2.6rem,6vw,4.4rem)}
 h2{font-size:clamp(2rem,4.2vw,3.1rem)}
 h3{font-size:1.35rem}
+h2{margin-bottom:22px}
+h3{margin-bottom:14px}
 p{color:#171717}
-.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:500}
+/* Matches imamihair.com's h4: Montserrat 22px, 700, 1px tracking, no caps. */
+.eyebrow{font-family:var(--sans);font-size:1.375rem;font-weight:700;letter-spacing:1px;line-height:1.4;color:inherit}
 .sec{padding:88px 0;border-top:1px solid var(--line)}
 .sec--dark{background:var(--ink);color:var(--paper);border-top:none}
 .sec--dark p{color:#C9C9C9}.sec--dark h2,.sec--dark h3{color:#fff}
@@ -30,7 +33,7 @@ p{color:#171717}
 .head h2{margin-top:12px}
 
 header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 24px;max-width:var(--wrap);margin:0 auto}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 24px;max-width:1400px;margin:0 auto}
 .brand{flex:0 0 auto;text-decoration:none;display:block}
 .brand img{width:184px;height:auto}
 .brand img{display:block}
@@ -38,10 +41,12 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 /* Logo-only header (thank-you page): nothing to space apart, so centre it. */
 .bar--center{justify-content:center}
 .hnav{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
-.hnav a{font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 9px;border-bottom:2px solid transparent;white-space:nowrap}
+/* Nav matches imamihair.com: Montserrat 500 at 16px, Title Case, no tracking. */
+.hnav a{font-family:var(--sans);font-size:.85rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 8px;border-bottom:2px solid transparent;white-space:nowrap}
 .hnav a:hover{color:var(--ink);border-bottom-color:var(--brass)}
 .hact{display:flex;align-items:center;gap:16px;flex:0 0 auto}
-.tel{font-family:var(--mono);font-size:.95rem;font-weight:600;color:var(--ink);text-decoration:none;white-space:nowrap}
+.tel{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:.95rem;font-weight:500;color:var(--ink);text-decoration:none;white-space:nowrap}
+.tel svg{width:15px;height:15px;flex:none;fill:var(--brass)}
 /* Site CTA: orange accent, Montserrat 500, uppercase with 2px tracking;
    hovers to white on black, as on imamihair.com. */
 .btn{display:inline-block;background:var(--brass);color:#fff;text-decoration:none;font-weight:500;font-size:.9rem;text-transform:uppercase;letter-spacing:2px;padding:16px 30px;border-radius:var(--r);border:1px solid var(--brass);transition:background .3s,color .3s,border-color .3s;white-space:nowrap;font-family:var(--sans);cursor:pointer}
@@ -51,9 +56,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .btn--lt:hover{background:var(--brass);color:#fff;border-color:var(--brass)}
 .btn--sm{padding:12px 22px;font-size:.78rem;letter-spacing:1px}
 
-.offerbar{background:var(--brass);color:#fff;text-align:center;padding:13px 24px;font-size:.95rem;font-weight:600;line-height:1.45}
-.offerbar span{font-weight:400;opacity:.92}
-.offer-note{display:block;font-size:.72rem;font-weight:400;opacity:.8;margin-top:3px}
 .cta-offer{display:flex;align-items:flex-start;gap:9px;margin-top:16px;font-size:.9rem;color:var(--brass);font-weight:600;max-width:52ch}
 .cta-offer::before{content:"";flex:none;width:9px;height:9px;margin-top:7px;border-radius:50%;background:var(--olive)}
 .band .cta-offer{justify-content:center;margin:16px auto 0;color:var(--brass-lt)}
@@ -72,7 +74,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
   url('https://www.imamihair.com/wp-content/uploads/2026/05/FUE-Hair-Transplant.jpg');
   background-size:cover;background-position:88% 28%}
 .hero h1{color:#fff}
-.hero .eyebrow{color:var(--brass-lt)}
 .hero-stack{text-align:left;max-width:640px}
 .hero-stack h1{margin-top:14px;max-width:17ch;font-size:clamp(2.3rem,4.3vw,3.7rem)}
 .usps{list-style:none;display:grid;gap:15px;margin-top:34px}
@@ -80,9 +81,19 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .usps li::before{content:"";flex:none;width:9px;height:9px;margin-top:9px;border-radius:50%;background:#D6D1AE}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;align-items:center}
 
+/* Photo-backed sections. The scrim keeps copy legible over the image. */
+.bg-photo{position:relative;isolation:isolate}
+.bg-photo::before{content:"";position:absolute;inset:0;z-index:-1;
+  background-image:linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.8)),
+  url('https://www.imamihair.com/wp-content/uploads/2026/05/2301.w019.n002.819A.p30.819-1-3-1.jpg');
+  background-size:cover;background-position:center}
+.bg-photo--light::before{background-image:linear-gradient(rgba(255,255,255,.88),rgba(255,255,255,.92)),
+  url('https://www.imamihair.com/wp-content/uploads/2026/05/2301.w019.n002.819A.p30.819-1-3-1.jpg')}
+.sec.bg-photo{border-top:none}
+
 
 /* google reviews */
-.rev-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.rev-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
 .rev-score{display:flex;align-items:baseline;gap:14px;margin-top:18px}
 .rev-num{font-family:var(--mono);font-size:3.4rem;font-weight:600;line-height:1;color:var(--ink)}
 .rev-of{font-family:var(--mono);font-size:.9rem;color:var(--muted)}
@@ -94,8 +105,31 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .gbadge b{font-family:var(--sans);font-size:.85rem;letter-spacing:0;text-transform:none;color:var(--ink)}
 .rev-feed{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px;min-height:230px;display:flex;flex-direction:column;justify-content:center;gap:12px}
 .rev-feed p{font-size:.95rem}
-.rev-ph{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brass)}
+.rev-slider{min-width:0}
+.rev-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc(50% - 12px);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.rev-track::-webkit-scrollbar{display:none}
+.rev-card{scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;display:flex;flex-direction:column}
+.rev-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+.rev-card .stars{margin-top:0}
+.rev-card .stars svg{width:17px;height:17px}
+.rev-src{font-size:.72rem;color:var(--muted);white-space:nowrap}
+.rev-body{font-size:.92rem;line-height:1.6;white-space:pre-line;display:-webkit-box;-webkit-line-clamp:8;line-clamp:8;-webkit-box-orient:vertical;overflow:hidden}
+.rev-body.is-open{display:block;overflow:visible}
+.rev-more{align-self:flex-start;margin-top:10px;background:none;border:none;padding:0;font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--brass);cursor:pointer;text-decoration:underline}
+.rev-by{margin-top:auto;padding-top:16px;display:flex;flex-direction:column;gap:2px;font-size:.88rem}
+.rev-by b{font-weight:600}
+.rev-by span{color:var(--muted);font-size:.8rem}
+.rev-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:22px}
+.rev-arrow{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:1rem;line-height:1;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.rev-arrow:hover:not(:disabled){background:var(--brass);border-color:var(--brass);color:#fff}
+.rev-arrow:disabled{opacity:.35;cursor:default}
+.rev-dots{display:flex;gap:8px}
+.rev-dots button{width:8px;height:8px;padding:0;border-radius:50%;border:none;background:#C9C4B6;cursor:pointer}
+.rev-dots button.is-active{background:var(--brass);width:22px;border-radius:4px}
 
+/* Grid children default to min-width:auto, which stops wide content (the cost
+   tables) shrinking and pushes the page into horizontal scroll. */
+.g2>*,.g3>*,.ba>*,.steps>*,.form-grid>*,.rev-grid>*,.stack>*{min-width:0}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px}
@@ -113,6 +147,10 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .ba-stats dt{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .ba-stats dd{font-family:var(--mono);font-size:1.05rem;font-weight:600;margin-top:3px}
 .disc{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:90ch;line-height:1.55}
+@media(min-width:681px){
+  #results .head{margin-left:auto;text-align:right}
+  #results .head .lede{margin-left:auto}
+}
 
 .checks{list-style:none;display:grid;gap:14px;margin-top:8px}
 .checks li{display:flex;gap:14px;font-size:1rem;align-items:flex-start}
@@ -125,6 +163,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .tbl td:first-child{font-weight:600;white-space:nowrap}
 .tbl tr:last-child td{border-bottom:none}
 
+.stack{display:grid;grid-template-columns:1fr;gap:24px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
 .step{padding:30px 26px;border-right:1px solid var(--line)}
 .step:last-child{border-right:none}
@@ -147,7 +186,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .ty-hero .hero-cta{justify-content:center}
 .ty-hero .cta-offer{margin-left:auto;margin-right:auto;text-align:center}
 
-.faq{max-width:880px}
+.faq{max-width:none}
 details{border-bottom:1px solid var(--line);padding:22px 0}
 summary{font-family:var(--serif);font-size:1.3rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
 summary::-webkit-details-marker{display:none}
@@ -159,8 +198,8 @@ details p{margin-top:14px;font-size:1rem;max-width:74ch}
 .form-card{background:var(--ink-2);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:34px}
 /* LeadConnector embed. White canvas so the form stays legible whatever
    background it sets, and a min-height floor until form_embed.js measures it. */
-.form-embed{background:#fff;border-radius:8px;overflow:hidden}
-.form-embed iframe{display:block;width:100%;min-height:420px;background:#fff}
+.form-embed{background:#000;border:1px solid #999;border-radius:8px;padding:20px;overflow:hidden}
+.form-embed iframe{display:block;width:100%;min-height:420px;background:#000;border-radius:6px}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .field{display:flex;flex-direction:column;gap:7px}
 .field--full{grid-column:1/-1}
@@ -174,6 +213,7 @@ textarea{min-height:96px;resize:vertical}
 .loc-list{list-style:none;margin-top:22px}
 .loc-list li{font-size:.95rem;padding:7px 0;color:#C9C9C9}
 .loc-list li::before{content:"\2014";color:var(--olive);margin-right:10px}
+.loc-photo{width:100%;height:auto;margin-top:24px;border-radius:10px}
 
 footer{background:var(--ink);color:#AFAFAF;padding:56px 0 40px;font-size:.88rem;border-top:1px solid rgba(255,255,255,.12)}
 footer a{color:#E4E4E4}
@@ -186,24 +226,40 @@ footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-f
 .mobar .call{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
 .mobar .book{background:var(--brass);color:#fff}
 
+@media(max-width:1280px){
+  .hnav{display:none}
+}
 @media(max-width:980px){
   .g2,.form-grid,.rev-grid{grid-template-columns:1fr;gap:40px}
   .g3,.ba,.steps{grid-template-columns:1fr 1fr}
   .step{border-right:none;border-bottom:1px solid var(--line)}
-  .hnav{display:none}
-  .hact .tel{display:none}
 }
 @media(max-width:680px){
   body{font-size:16px;padding-bottom:76px}
   .sec{padding:60px 0}
-  .offerbar{font-size:.86rem;padding:11px 16px;text-align:left}
+  
   .hero{padding:64px 0 72px}
   .hero-bg{background-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,.84)),url('https://www.imamihair.com/wp-content/uploads/2026/05/FUE-Hair-Transplant.jpg');background-position:60% 20%}
   .usps li{font-size:.98rem}
   .g3,.ba,.steps,.fields{grid-template-columns:1fr}
   .f-grid{grid-template-columns:1fr}
+  .rev-track{grid-auto-columns:100%}
+  .eyebrow{font-size:1.2rem}
   .mobar{display:flex}
   .hact .btn{display:none}
-  .hact .tel{display:block}
+  /* Cost tables carry long unbreakable figures. Let them wrap and pin the
+     columns to the table width, rather than pushing the whole page into
+     horizontal scroll on narrow phones. */
+  .tbl{table-layout:fixed}
+  .tbl td:first-child{white-space:normal}
+  .tbl th,.tbl td{overflow-wrap:anywhere;padding:13px 14px}
+}
+/* Very narrow phones: the logo plus phone number, and the long CTA label,
+   both exceed 360px otherwise. */
+@media(max-width:420px){
+  .bar{gap:12px;padding:12px 16px}
+  .brand img{width:140px}
+  .tel{font-size:.86rem}
+  .btn{white-space:normal;padding:14px 20px;font-size:.82rem;letter-spacing:1px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}

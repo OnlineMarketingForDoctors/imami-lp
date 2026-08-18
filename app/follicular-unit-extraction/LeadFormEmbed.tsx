@@ -22,12 +22,9 @@ export default function LeadFormEmbed() {
       <div className="form-embed">
         <iframe
           src={`https://api.leadconnectorhq.com/widget/form/${FORM_ID}`}
-          style={{
-            width: "100%",
-            height: "100%",
-            border: "none",
-            borderRadius: 8,
-          }}
+          // border and radius come from .form-embed in globals.css; an inline
+          // border here would win over it
+          style={{ width: "100%", height: "100%" }}
           id={`inline-${FORM_ID}`}
           data-layout="{'id':'INLINE'}"
           data-trigger-type="alwaysShow"
@@ -47,9 +44,6 @@ export default function LeadFormEmbed() {
         src="https://link.msgsndr.com/js/form_embed.js"
         strategy="afterInteractive"
       />
-      <p className="cta-offer" style={{ fontSize: ".84rem", marginTop: 18 }}>
-        Includes your complimentary biomimetic hair growth treatment.
-      </p>
       <p className="fineprint">
         By submitting you agree to be contacted about your enquiry. We never
         share your details. Results vary by individual and no specific outcome is
