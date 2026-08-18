@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const HOW_HEARD = [
@@ -17,7 +16,6 @@ const HOW_HEARD = [
 ];
 
 export default function LeadForm() {
-  const router = useRouter();
   const [sending, setSending] = useState(false);
   const [invalid, setInvalid] = useState<Record<string, boolean>>({});
 
@@ -33,10 +31,12 @@ export default function LeadForm() {
     setInvalid(next);
     if (Object.keys(next).length) return;
     // On success the visitor goes to /thank-you, which is where the Google Ads
-    // conversion is counted. Once the form posts to a real destination, await
-    // that request here and only redirect when it resolves.
+    // conversion is counted. This is a full navigation rather than a client-side
+    // route change, so GTM sees a genuine page load and a standard Page View
+    // trigger fires. Once the form posts to a real destination, await that
+    // request here and only redirect when it resolves.
     setSending(true);
-    router.push("/thank-you");
+    window.location.assign("/thank-you");
   }
 
   const border = (id: string) =>

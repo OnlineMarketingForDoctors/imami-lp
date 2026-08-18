@@ -19,13 +19,22 @@ reached by submitting the form.
 The header and footer are shared components in `app/components/`, and the phone
 number and section nav live in `app/site.ts`, so both pages stay in step.
 
-### Conversion tracking
+### Analytics and conversion tracking
 
-`/thank-you` exists to be the conversion destination, so the Google Ads
-conversion snippet belongs on that page and nowhere else — one conversion per
-completed form, never on a landing-page view. There is a marked comment at the
-top of `app/thank-you/page.tsx` showing where it goes; it needs the account's
-own conversion ID and label.
+Google Tag Manager (`GTM-NPV88WZQ`) is installed in the root layout
+(`app/layout.tsx`), so it loads on every route: the script is first in `<head>`
+and the `<noscript>` iframe is the first element in `<body>`. The container ID
+is a constant at the top of that file.
+
+`/thank-you` is the conversion destination. Configure the Google Ads conversion
+inside the GTM container rather than hard-coding a gtag snippet: a conversion
+tag on a Page View trigger limited to **Page Path equals `/thank-you`**. Scoping
+it that way counts one conversion per completed form and never on a
+landing-page view.
+
+The form redirects with a full page navigation rather than a client-side route
+change, precisely so GTM sees a genuine page load and an ordinary Page View
+trigger fires. Keep it that way, or the conversion will stop being recorded.
 
 ## Local development
 

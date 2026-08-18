@@ -33,11 +33,13 @@ export default function ThankYou() {
     <>
       {/*
         CONVERSION TRACKING
-        This page is the conversion destination for the landing page form, so
-        it is where the Google Ads conversion event belongs. Add the gtag
-        snippet with the account's own conversion ID and label here; keep it on
-        this page only, so a conversion is counted once per completed form and
-        never on a landing-page view.
+        This page is the conversion destination for the landing page form.
+        Google Tag Manager (GTM-NPV88WZQ) loads site-wide from the root layout,
+        so the conversion is configured in the GTM container rather than by
+        pasting a gtag snippet here: add a Google Ads conversion tag fired by a
+        Page View trigger limited to Page Path equals /thank-you. Scoping the
+        trigger that way counts one conversion per completed form and never on
+        a landing-page view.
       */}
       <SiteHeader base={LANDING} />
 
