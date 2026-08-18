@@ -4,6 +4,7 @@ import SiteFooter from "../components/SiteFooter";
 import LeadFormEmbed from "../components/LeadFormEmbed";
 import ReviewMarquee from "../components/ReviewMarquee";
 import BASlider, { BAItem } from "../components/BASlider";
+import BackToTop from "../components/BackToTop";
 import { NAV_MAIN, PHONE_HREF } from "../site";
 
 export const metadata: Metadata = {
@@ -166,17 +167,6 @@ export default function FollicularUnitExtraction() {
           <div className="head" style={{ marginBottom: 34 }}>
             <p className="eyebrow">Patient Testimonials</p>
             <h2>What Our Patients Say</h2>
-            <p className="rev-meta">
-              Based on 15 reviews of Imami Hair Restoration.{" "}
-              <a
-                href="https://www.google.com/maps/place/?q=place_id:ChIJMWgAohAP3ogRYDZWIg_3KX0"
-                target="_blank"
-                rel="noopener"
-              >
-                Read them on Google
-              </a>
-              .
-            </p>
           </div>
         </div>
         <ReviewMarquee />
@@ -341,7 +331,163 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <div className="band">
+      <section className="sec sec--tint" id="cost">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Investment</p>
+            <h2>Hair Transplant Cost &amp; Financing</h2>
+            <p className="lede">
+              There is no single hair transplant price, because no two patients
+              need the same number of grafts. What follows is how the cost of a
+              hair transplant is actually built, so you can judge any quote
+              &mdash; ours or anyone else&rsquo;s.
+            </p>
+          </div>
+          <div className="g2" style={{ alignItems: "start" }}>
+            <table className="tbl">
+              <thead>
+                <tr>
+                  <th>What drives the price</th>
+                  <th>Why</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Graft count</td>
+                  <td>
+                    Hair transplant cost per graft is the basic unit. A Norwood 3
+                    hairline may need 1,100-1,800 grafts; Norwood 4-5 often
+                    1,800-2,000 or more.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Areas treated</td>
+                  <td>
+                    A hairline transplant alone costs less than hairline plus
+                    crown.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Donor density</td>
+                  <td>
+                    Determines how much can safely be moved in a single session.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Technique</td>
+                  <td>
+                    FUE hair transplant cost differs from FUT. Dr. Imami
+                    recommends the one that suits your case.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="card">
+              <span className="num">Typical Session Sizes</span>
+              <h3>What Your Graft Count Means</h3>
+              <table className="tbl" style={{ marginTop: 16 }}>
+                <thead>
+                  <tr>
+                    <th>Session</th>
+                    <th>Typically suits</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1,000-1,200</td>
+                    <td>An early Norwood 2-3 hairline or temple rebuild</td>
+                  </tr>
+                  <tr>
+                    <td>1,200-1,800</td>
+                    <td>A full Norwood 3 hairline restoration</td>
+                  </tr>
+                  <tr>
+                    <td>1,800-2,000+</td>
+                    <td>Norwood 4-5, or hairline plus crown together</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style={{ marginTop: 16 }}>
+                So if you are pricing a hair transplant 1000 grafts cost, or
+                costing a 2000 grafts hair transplant, the graft count comes
+                first and the figure follows from it. Hair transplant cost
+                Florida-wide is quoted this way; Florida hair transplant cost
+                differs between clinics mainly because graft counts and
+                inclusions differ.
+              </p>
+            </div>
+          </div>
+          <div className="card" style={{ marginTop: 28 }}>
+            <span className="num">Paying For It</span>
+            <h3>Flexible Payment Plans</h3>
+            <p>
+              We offer financing through CareCredit and Affirm, so hair
+              restoration surgery cost can be spread over monthly payments rather
+              than paid in one go.
+            </p>
+            <ul className="checks" style={{ marginTop: 20 }}>
+              <li>A written, itemized quote at your consultation &mdash; no hidden extras</li>
+              <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
+              <li>Medication refills included through your first year</li>
+              <li>Quotes based on your actual graft count, not a package guess</li>
+            </ul>
+            <a className="btn" style={{ marginTop: 24 }} href="#consult">
+              Get a personalized quote
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="who">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Who We Treat</p>
+            <h2>Hair Transplants for Men and Women</h2>
+          </div>
+          <div className="g2" style={{ alignItems: "stretch" }}>
+            <div className="card">
+              <span className="num">Men</span>
+              <h3>Male Pattern Hair Loss</h3>
+              <p>
+                Most of our patients are men with a receding hairline, a thinning
+                crown or both. A men&rsquo;s FUE hair transplant rebuilds the
+                frame of the face using your own hair, and no-shave FUE means
+                colleagues need not know you have had anything done.
+              </p>
+              <p style={{ marginTop: 14 }}>
+                Whether you are comparing mens hair transplant cost, male hair
+                transplant cost, hair implants for men cost, male hair implants
+                cost or hair replacement for men cost, the figure comes from the
+                same place: your graft count. We quote hair implants for men in
+                writing after Dr. Imami has assessed your donor area, so the cost
+                of hair implants for men is never a package guess. Mens hair
+                transplant surgery here is a single outpatient day.
+              </p>
+            </div>
+            <div className="card">
+              <span className="num">Women</span>
+              <h3>Female Thinning &amp; Hairlines</h3>
+              <p>
+                Women lose hair differently &mdash; more often diffuse thinning
+                or a high, uneven hairline than a classic receding pattern. A
+                female hairline transplant can lower and soften the frame, and
+                FUE hair transplant for women is carried out without shaving the
+                head.
+              </p>
+              <p style={{ marginTop: 14 }}>
+                Female hair transplant cost is quoted the same way: by graft
+                count, in writing, after assessment. That applies equally to a
+                female hairline transplant cost, to female hair implants cost,
+                and to any ladies hair transplant cost, hair implants for women
+                cost or hair replacement for women cost quoted elsewhere &mdash;
+                ask every clinic what the number actually includes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="band band--photo">
         <div className="wrap">
           <h2>
             Wondering if FUE is the Right Procedure for You? Book a Consultation
@@ -478,14 +624,18 @@ export default function FollicularUnitExtraction() {
               alt="Confident man after hair restoration"
               loading="lazy"
             />
-            <div className="consult-form">
-              <LeadFormEmbed />
-            </div>
+          </div>
+        </div>
+        <div className="wrap">
+          <div className="consult-form">
+            <LeadFormEmbed />
           </div>
         </div>
       </section>
 
       <SiteFooter />
+
+      <BackToTop />
 
       <div className="mobar">
         <a className="call" href={PHONE_HREF}>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export type BAItem = {
   img: string;
@@ -17,6 +17,31 @@ export type BAItem = {
 export default function BASlider({ items }: { items: BAItem[] }) {
   const track = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [lightbox, setLightbox] = useState<number | null>(null);
+
+  const closeLightbox = useCallback(() => setLightbox(null), []);
+  const stepLightbox = useCallback(
+    (d: number) =>
+      setLightbox((i) =>
+        i === null ? i : (i + d + items.length) % items.length
+      ),
+    [items.length]
+  );
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") stepLightbox(-1);
+      if (e.key === "ArrowRight") stepLightbox(1);
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox, closeLightbox, stepLightbox]);
 
   useEffect(() => {
     const el = track.current;
@@ -54,12 +79,19 @@ export default function BASlider({ items }: { items: BAItem[] }) {
       <div className="rev-track ba-track" ref={track}>
         {items.map((r, i) => (
           <figure className="ba-card" key={r.img + i}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`/images/${r.img}`}
-              alt={`No shave FUE hair transplant before and after, age ${r.age}, Norwood ${r.norwood}, ${r.grafts} grafts`}
-              loading="lazy"
-            />
+            <button
+              type="button"
+              className="ba-zoom"
+              aria-label={`View before and after, age ${r.age}, Norwood ${r.norwood}, full size`}
+              onClick={() => setLightbox(i)}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/images/${r.img}`}
+                alt={`No shave FUE hair transplant before and after, age ${r.age}, Norwood ${r.norwood}, ${r.grafts} grafts`}
+                loading="lazy"
+              />
+            </button>
             <figcaption className="ba-body">
               <p className="ba-tag">No Shave FUE</p>
               <p className="ba-sub">
@@ -111,6 +143,59 @@ export default function BASlider({ items }: { items: BAItem[] }) {
           &#8594;
         </button>
       </div>
+
+      {lightbox !== null && (
+        <div
+          className="lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Before and after photo"
+          onClick={closeLightbox}
+        >
+          <button
+            type="button"
+            className="lb-close"
+            aria-label="Close"
+            onClick={closeLightbox}
+          >
+            &#10005;
+          </button>
+          <button
+            type="button"
+            className="lb-arrow lb-prev"
+            aria-label="Previous photo"
+            onClick={(e) => {
+              e.stopPropagation();
+              stepLightbox(-1);
+            }}
+          >
+            &#8592;
+          </button>
+          <figure onClick={(e) => e.stopPropagation()}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/images/${items[lightbox].img}`}
+              alt={`No shave FUE hair transplant before and after, age ${items[lightbox].age}, Norwood ${items[lightbox].norwood}, ${items[lightbox].grafts} grafts`}
+            />
+            <figcaption>
+              No Shave FUE &middot; Age {items[lightbox].age} &middot; Norwood{" "}
+              {items[lightbox].norwood} &middot; {items[lightbox].grafts} Grafts
+              &middot; {items[lightbox].timeline}
+            </figcaption>
+          </figure>
+          <button
+            type="button"
+            className="lb-arrow lb-next"
+            aria-label="Next photo"
+            onClick={(e) => {
+              e.stopPropagation();
+              stepLightbox(1);
+            }}
+          >
+            &#8594;
+          </button>
+        </div>
+      )}
     </div>
   );
 }
