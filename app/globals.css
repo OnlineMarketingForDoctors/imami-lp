@@ -284,11 +284,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 /* Photo atop a card (Who We Treat) */
 .card-img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:6px;margin-bottom:20px;display:block}
 .hero-cta--center{justify-content:center}
-@media(min-width:681px){
-  #results .head{margin-left:auto;text-align:right}
-  #results .head .lede{margin-left:auto}
-}
-
 .checks{list-style:none;display:grid;gap:14px;margin-top:8px}
 .checks li{display:flex;gap:14px;font-size:1rem;align-items:flex-start}
 .checks li::before{content:"";flex:none;width:18px;height:18px;margin-top:4px;border-radius:50%;border:1.5px solid var(--olive);background:radial-gradient(circle,var(--olive) 0 34%,transparent 35%)}
