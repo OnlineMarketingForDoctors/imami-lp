@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import { PHONE, PHONE_HREF } from "../site";
-import LeadForm from "./LeadForm";
+import LeadFormEmbed from "./LeadFormEmbed";
 
 export const metadata: Metadata = {
   title:
@@ -790,7 +790,7 @@ export default function FollicularUnitExtraction() {
               <li>Complimentary biomimetic hair growth treatment with your procedure</li>
             </ul>
           </div>
-          <LeadForm />
+          <LeadFormEmbed />
         </div>
       </section>
 

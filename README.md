@@ -32,9 +32,12 @@ tag on a Page View trigger limited to **Page Path equals `/thank-you`**. Scoping
 it that way counts one conversion per completed form and never on a
 landing-page view.
 
-The form redirects with a full page navigation rather than a client-side route
-change, precisely so GTM sees a genuine page load and an ordinary Page View
-trigger fires. Keep it that way, or the conversion will stop being recorded.
+**This only works if the LeadConnector form redirects there.** The form is an
+iframe on another origin, so submission happens entirely inside it and this site
+never sees the event. Set the form's on-submit action in LeadConnector to
+redirect to `https://lp.imamihair.com/thank-you`. Without that the visitor stays
+on the landing page, `/thank-you` is never loaded, and no conversion is
+recorded.
 
 ## Local development
 
@@ -86,16 +89,27 @@ Vercel Authentication is enabled for everything except custom domains, so the
 `*.vercel.app` URLs require a Vercel login and the page becomes publicly
 reachable once a custom domain is attached to the project.
 
+## Lead form
+
+The consultation form is a LeadConnector (GoHighLevel) inline embed, in
+`app/follicular-unit-extraction/LeadFormEmbed.tsx`. Leads land in LeadConnector,
+not in this codebase.
+
+`form_embed.js` sizes the iframe: it reads the measured height posted by the
+form and writes it onto the element matching `data-layout-iframe-id`, so those
+data attributes must stay exactly as LeadConnector's snippet supplies them. The
+`min-height` on `.form-embed iframe` is only a floor for the moment before that
+script runs, or if it fails to load — if the real form renders shorter than the
+floor, lower it rather than leaving dead space.
+
 ## Outstanding
 
-Two blocks on the page are deliberately left unwired and need a decision before
-the page goes live behind ad spend:
+One block on the page is still unwired, plus one setting that lives outside this
+repository:
 
-- **Lead form** (`app/follicular-unit-extraction/LeadForm.tsx`) validates input
-  and redirects to `/thank-you`, but does not yet submit the data anywhere. It
-  needs pointing at a real destination (CRM, form endpoint or notification
-  email). When that lands, await the request in `onSubmit` and only redirect
-  once it resolves, so a failed submission never shows a thank-you page.
+- **Form redirect** must be set in LeadConnector to
+  `https://lp.imamihair.com/thank-you`, or the conversion never fires. See
+  Analytics and conversion tracking above.
 - **Google reviews feed** (`#google-reviews-widget`) is an empty container.
   imamihair.com renders its reviews with the **Trustindex** Google widget, so
   the same widget should be mounted here. Review text must render live and
