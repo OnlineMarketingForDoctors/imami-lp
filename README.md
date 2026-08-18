@@ -75,14 +75,37 @@ All images are stored locally in `public/images/` (plus the logo at
 `public/imami-logo.png`) — nothing hotlinks to imamihair.com. The files were
 taken from a saved copy of the live FUE page.
 
-Six background images could not be recovered because outbound requests to
-imamihair.com are blocked from the build environment. Their local paths are
-already wired in `app/globals.css` (`.bg-photo` rules), and the dark/light
-scrims render fine without them; to complete the backgrounds, drop these files
-into `public/images/` keeping the exact names:
+### The one missing file
 
-- `2301.w019.n002.819A.p30.819-1-1.jpg`, `...-1-2-2.jpg`, `...-1-3-1.jpg`
-- `image-25-2.jpg`, `image-28.png`, `Contact-Us.png`
+Exactly one image is referenced but not present:
+
+```
+public/images/2301.w019.n002.819A.p30.819-1-3-1.jpg
+```
+
+It is the section background used by the `.bg-photo` and `.bg-photo--light`
+rules in `app/globals.css`, which between them back six sections across the two
+pages (Treatments, the consultation band and the form section on the main page;
+What is FUE, the band and the form section on `-2`). It lazy-loaded on the live
+site, so the saved copy the other images came from never fetched it.
+
+Both rules layer the photo under a scrim — 72–80% black for the dark variant,
+88–92% white for the light one — so those sections render correctly as flat
+tinted panels today; the file only restores a faint photographic texture. The
+CSS needs no change: drop the file in under that exact name and it appears.
+
+Earlier revisions of this file also listed `...-1-1.jpg`, `...-1-2-2.jpg`,
+`image-25-2.jpg`, `image-28.png` and `Contact-Us.png` as missing. Nothing in the
+codebase references those five — they were on the live page but did not survive
+into this rebuild, so there is no need to source them.
+
+**Fetching it needs network access this environment does not currently have.**
+`imamihair.com` (apex) is allowed by the egress policy, but the gateway times
+out connecting to its origin; `www.imamihair.com` and `lp.imamihair.com` are
+still refused at the proxy with a 403. To let a session download the file, the
+environment's network policy has to allow `www.imamihair.com` — the canonical
+host the apex redirects to — and the origin has to be reachable from the
+gateway. Otherwise just add the file to the repo by hand.
 
 ## Deployment
 
@@ -121,4 +144,6 @@ repository:
   verbatim from the live site's Trustindex widget. If the practice's reviews
   change, refresh `reviews.json`, or replace the slider with the live Trustindex
   embed.
-- **Missing background images** — see Assets above.
+- **One missing background image** — `2301.w019.n002.819A.p30.819-1-3-1.jpg`.
+  Cosmetic only; the sections that use it render correctly without it. See
+  Assets above.
