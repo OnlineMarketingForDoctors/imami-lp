@@ -43,11 +43,11 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .bar--center{justify-content:center}
 .hnav{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
 /* Nav matches imamihair.com: Montserrat 500 at 16px, Title Case, no tracking. */
-.hnav a{font-family:var(--sans);font-size:.85rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 8px;border-bottom:2px solid transparent;white-space:nowrap}
+.hnav a{font-family:var(--sans);font-size:.85rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 6px;border-bottom:2px solid transparent;white-space:nowrap}
 .hnav a:hover{color:var(--ink);border-bottom-color:var(--brass)}
 .hact{display:flex;align-items:center;gap:16px;flex:0 0 auto}
-.tel{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:.95rem;font-weight:500;color:var(--ink);text-decoration:none;white-space:nowrap}
-.tel svg{width:15px;height:15px;flex:none;fill:var(--brass)}
+.tel{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:1.12rem;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
+.tel svg{width:17px;height:17px;flex:none;fill:var(--brass)}
 /* Menu button + dropdown replace the inline nav below the desktop breakpoint */
 .menu-btn{display:none;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border:none;background:none;cursor:pointer;color:var(--ink)}
 .menu-btn svg{width:24px;height:24px;fill:currentColor}
@@ -406,11 +406,12 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
   .eyebrow{font-size:1.2rem}
   .mobar{display:flex}
   /* Phones: logo | BOOK A FREE CALL | phone icon | menu on one row. The
-     number collapses to its icon and everything tightens up to fit. */
+     number collapses to its icon, everything tightens up to fit, and the
+     button moves ahead of the phone (desktop keeps phone first). */
   .bar{gap:14px}
   .brand img{width:120px}
   .hact{gap:9px}
-  .hact .btn{padding:10px 12px;font-size:.68rem;letter-spacing:.5px}
+  .hact .btn{order:-1;padding:10px 12px;font-size:.68rem;letter-spacing:.5px}
   .tel-num{display:none}
   .hact .tel svg{width:19px;height:19px}
   .menu-btn{width:34px;height:34px}
