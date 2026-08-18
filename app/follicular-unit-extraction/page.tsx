@@ -14,8 +14,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-const MAIN = "https://www.imamihair.com";
-
 const HERO_POINTS = [
   "Triple Board-Certified Surgeon",
   "Flexible Financing Available",
@@ -317,10 +315,10 @@ export default function FollicularUnitExtraction() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="rounded-img"
-              src="/images/fue-procedure.jpg"
+              src="/images/benefits.png"
               alt="FUE hair transplant procedure in progress"
-              width={1400}
-              height={1400}
+              width={623}
+              height={564}
               loading="lazy"
             />
           </div>
@@ -596,13 +594,8 @@ export default function FollicularUnitExtraction() {
               ))}
             </div>
             <div className="hero-cta">
-              <a
-                className="btn btn--lt"
-                href={`${MAIN}/meet-dr-imami/`}
-                target="_blank"
-                rel="noopener"
-              >
-                View Full Profile
+              <a className="btn btn--lt" href="#consult">
+                Book Your Free Consultation
               </a>
             </div>
           </div>

@@ -75,10 +75,10 @@ white on black.
 
 All images are stored locally in `public/images/` (plus the logo at
 `public/imami-logo.png`) — nothing hotlinks to imamihair.com. The files were
-taken from a saved copy of the live FUE page, except `who-men.jpg` and
-`who-women.jpg` (the Who We Treat cards) and `fue-procedure.jpg` (the
-Benefits section), which are AI-generated stock-style images — swap in
-licensed photography whenever it becomes available.
+taken from a saved copy of the live FUE page, except `benefits.png` (the
+Benefits section, supplied by the client) and `who-men.jpg` and
+`who-women.jpg` (the Who We Treat cards), which are AI-generated stock-style
+portraits — swap in licensed photography whenever it becomes available.
 
 Six background images could not be recovered because outbound requests to
 imamihair.com are blocked from the build environment. Their local paths are
