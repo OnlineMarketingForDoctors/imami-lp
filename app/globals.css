@@ -128,7 +128,9 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 
 /* Your FUE Journey: centre zigzag timeline */
 .journey-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:70px}
-.badge--journey{flex:none}
+/* A rotating 170px square overhangs its box by ~35px at 45deg; keep that
+   inside the viewport when the wrap edge meets the screen edge. */
+.badge--journey{flex:none;margin-right:36px}
 .zig{position:relative;padding:10px 0 30px}
 .zig::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--brass)}
 .zitem{position:relative;width:50%;padding-bottom:64px}
@@ -145,9 +147,11 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 /* Consultation: form overlaps the portrait */
 .consult-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
 .consult-side{margin-top:44px;max-width:400px}
-.consult-visual{position:relative;min-height:640px}
+.consult-visual{position:relative}
 .consult-portrait{width:72%;margin-left:auto}
-.consult-form{position:absolute;left:0;top:300px;width:70%;z-index:2}
+/* Negative margin keeps the form in flow, so the section grows with the real
+   form height while still overlapping the portrait. */
+.consult-form{position:relative;z-index:2;width:70%;margin-top:-340px}
 
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-sub{margin-top:18px;font-size:1.12rem;color:#E4E4E4;max-width:56ch}
@@ -321,8 +325,7 @@ footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-f
   .wstep--1,.wstep--2,.wstep--3,.wstep--4{transform:none;margin-top:46px}
   .works-head{grid-template-columns:1fr;gap:20px}
   .badge{width:130px;height:130px}
-  .consult-visual{min-height:0}
-  .consult-form{position:static;width:100%;margin-top:28px}
+  .consult-form{position:relative;width:100%;margin-top:28px}
   .consult-portrait{width:100%}
   .zig::before{left:8px}
   .zitem,.zitem--left,.zitem--right{width:auto;margin-left:0;padding:0 0 44px 40px;text-align:left}
