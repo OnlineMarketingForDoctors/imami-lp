@@ -89,6 +89,14 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
     a: ["Hair growth after FUE happens gradually. The transplanted hairs typically shed within the first few weeks (this is normal and expected), with new growth beginning around the 3–4 month mark. Most patients see noticeable density and a clear improvement by 6 months, and the final, fully matured result is generally visible at 12–18 months post-op. We monitor your progress with scheduled follow-ups at Day 2, Day 14, Month 6, and Year 1 to track your transformation."],
   },
   {
+    q: "How much does a hair transplant cost?",
+    a: ["There is no single hair transplant price, because hair transplant cost is driven by the number of grafts you need — no two patients are the same. As a reference, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized quote covering your procedure and your year-one follow-ups, and financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask how many grafts it covers, who performs the surgery, and whether follow-ups are included."],
+  },
+  {
+    q: "Do patients travel from Miami or Orlando?",
+    a: ["Yes, all the time. Our hair transplant clinic is in Melbourne, on Florida's Space Coast — about an hour from Orlando and a comfortable drive up the coast from Miami. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a same-day virtual consultation from wherever you are, then visit once for the procedure itself."],
+  },
+  {
     q: "How many grafts will I need?",
     a: ["The number of grafts varies based on your degree of hair loss (Norwood stage), the areas being treated, your donor density, and your desired result. As a reference, Dr. Imami’s recent No-Shave FUE patients have typically received between 1,100 and 2,000 grafts per session — for example, a Norwood 3 hairline restoration may require around 1,100–1,800 grafts, while more advanced patterns at Norwood 4–5 often need 1,800–2,000+ grafts. During your consultation, Dr. Imami will assess your scalp, design your hairline, and calculate the precise graft count needed to achieve a natural, balanced outcome."],
   },
@@ -128,8 +136,8 @@ export default function FollicularUnitExtraction() {
             Undetectable Results
           </h1>
           <p className="hero-sub">
-            Surgeon-led experienced team, no-shave FUE for natural hairline
-            restoration and premium patient care.
+            Surgeon-led experienced team, no-shave FUE hair transplant for
+            natural hairline restoration and premium patient care.
           </p>
           <div className="hero-cta">
             <a className="btn" href="#consult">
@@ -253,10 +261,11 @@ export default function FollicularUnitExtraction() {
             </p>
             <p className="kd">Key Distinction</p>
             <p className="lede" style={{ marginTop: 12 }}>
-              Follicular Unit Extraction (FUE) is the most advanced, minimally
-              invasive hair transplant method available today. It involves
-              extracting individual hair follicles from a donor area and
-              implanting them where hair is thinning.
+              Whether you call it an FUE hair transplant, FUE hair replacement
+              or simply FUE, the technique is the same — and Dr. Imami
+              specializes in the no-shave version. Individual follicles are
+              taken from longer donor hair without shaving your head, so the
+              procedure stays discreet from day one and leaves no linear scar.
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -406,8 +415,9 @@ export default function FollicularUnitExtraction() {
             <p className="lede">
               Triple board-certified surgeon with over 30 years of surgical
               excellence, bringing precision and artistry to every hair
-              restoration procedure at Imami Hair Restoration in Melbourne,
-              Florida.
+              restoration procedure at Imami Hair Restoration — a surgeon-led
+              hair transplant clinic in Melbourne, Florida that patients travel
+              to from Orlando, Miami and across the state.
             </p>
             <div className="hero-cta">
               <a
@@ -450,7 +460,10 @@ export default function FollicularUnitExtraction() {
             <h2>Request a Consultation with Dr. Imami</h2>
             <p className="lede">
               Begin with a private, surgeon-led consultation with Dr. Imami to
-              discuss your hair loss concerns, suitability and expected outcomes.
+              discuss your hair loss concerns, suitability and expected
+              outcomes. Same-day virtual consultations are available, so
+              patients coming from Orlando, Miami or anywhere in Florida can
+              start from home and visit once for the procedure itself.
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
