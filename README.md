@@ -99,13 +99,21 @@ Earlier revisions of this file also listed `...-1-1.jpg`, `...-1-2-2.jpg`,
 codebase references those five — they were on the live page but did not survive
 into this rebuild, so there is no need to source them.
 
-**Fetching it needs network access this environment does not currently have.**
-`imamihair.com` (apex) is allowed by the egress policy, but the gateway times
-out connecting to its origin; `www.imamihair.com` and `lp.imamihair.com` are
-still refused at the proxy with a 403. To let a session download the file, the
-environment's network policy has to allow `www.imamihair.com` — the canonical
-host the apex redirects to — and the origin has to be reachable from the
-gateway. Otherwise just add the file to the repo by hand.
+**Fetching it needs network access this environment does not currently have,
+and the allowlist is no longer the reason.** Both `imamihair.com` and
+`www.imamihair.com` now pass the egress policy — the proxy records no denial
+for either. The block sits further out: both names resolve to `82.38.138.27`,
+and the egress gateway cannot open a connection to that address. Over plain
+HTTP the gateway answers `503 … the latest reset reason: connection timeout`;
+over HTTPS the tunnel opens and then resets mid-handshake after about six
+seconds, whatever the TLS version or SNI. The same proxy reaches other hosts
+normally and the resolver is sound, so this is the origin dropping traffic
+from the gateway's address, not a setting in this repo or in the allowlist.
+
+Two ways round it: allow the egress gateway's address through whatever
+firewall, WAF or geo-block fronts the origin — or, far simpler for one
+cosmetic file, save the JPG from the live page in a browser and commit it to
+`public/images/` under the exact name above.
 
 ## Deployment
 
