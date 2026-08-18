@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const HOW_HEARD = [
@@ -16,7 +17,8 @@ const HOW_HEARD = [
 ];
 
 export default function LeadForm() {
-  const [sent, setSent] = useState(false);
+  const router = useRouter();
+  const [sending, setSending] = useState(false);
   const [invalid, setInvalid] = useState<Record<string, boolean>>({});
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -30,28 +32,15 @@ export default function LeadForm() {
       });
     setInvalid(next);
     if (Object.keys(next).length) return;
-    setSent(true);
+    // On success the visitor goes to /thank-you, which is where the Google Ads
+    // conversion is counted. Once the form posts to a real destination, await
+    // that request here and only redirect when it resolves.
+    setSending(true);
+    router.push("/thank-you");
   }
 
   const border = (id: string) =>
     invalid[id] ? { borderColor: "#C0563F" } : undefined;
-
-  if (sent) {
-    return (
-      <div className="form-card">
-        <h3 style={{ color: "#fff" }}>Thank you. Request received.</h3>
-        <p style={{ marginTop: 10, color: "#B9C1C4" }}>
-          A member of Dr. Imami&rsquo;s team will be in touch within one business
-          day, and your complimentary biomimetic hair growth treatment is noted
-          against your enquiry. If you would rather speak to someone now, call{" "}
-          <a href="tel:3213124168" style={{ color: "#D9B77E" }}>
-            321-312-4168
-          </a>
-          .
-        </p>
-      </div>
-    );
-  }
 
   return (
     <div className="form-card">
@@ -117,8 +106,8 @@ export default function LeadForm() {
             />
           </div>
         </div>
-        <button className="btn" type="submit">
-          Request a consultation
+        <button className="btn" type="submit" disabled={sending}>
+          {sending ? "Sending…" : "Request a consultation"}
         </button>
         <p className="cta-offer" style={{ fontSize: ".84rem", marginTop: 14 }}>
           Includes your complimentary biomimetic hair growth treatment.

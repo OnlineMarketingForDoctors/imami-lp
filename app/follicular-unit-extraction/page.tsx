@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
+import { PHONE, PHONE_HREF } from "../site";
 import LeadForm from "./LeadForm";
 
 export const metadata: Metadata = {
@@ -9,20 +12,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-const PHONE = "321-312-4168";
-const PHONE_HREF = "tel:3213124168";
 const MEDIA = "https://www.imamihair.com/wp-content/uploads/2026/05";
 
-const NAV = [
-  { href: "#reviews", label: "Reviews" },
-  { href: "#approach", label: "Our Approach" },
-  { href: "#results", label: "Before & After" },
-  { href: "#what", label: "What is FUE" },
-  { href: "#works", label: "How It Works" },
-  { href: "#cost", label: "Cost" },
-  { href: "#location", label: "Location" },
-  { href: "#faq", label: "FAQ" },
-];
 
 const USPS: { text: string; highlight?: boolean }[] = [
   { text: "Triple board-certified surgeon with over 30 years of hair restoration experience" },
@@ -148,32 +139,7 @@ function BookButton({
 export default function FollicularUnitExtraction() {
   return (
     <>
-      <header>
-        <div className="bar">
-          <a className="brand" href="#top" aria-label="Imami MD Hair Restoration">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/imami-logo.png"
-              alt="Imami MD Hair Restoration"
-              width={600}
-              height={200}
-            />
-          </a>
-          <nav className="hnav" aria-label="Page sections">
-            {NAV.map((item) => (
-              <a key={item.href} href={item.href}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <div className="hact">
-            <a className="tel" href={PHONE_HREF}>
-              {PHONE}
-            </a>
-            <BookButton className="btn btn--sm" />
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       <div className="offerbar">
         Complimentary biomimetic hair growth treatment with every hair transplant{" "}
@@ -828,48 +794,7 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <footer>
-        <div className="wrap">
-          <div className="f-grid">
-            <div>
-              <strong>Imami Hair Restoration</strong>
-              <p style={{ color: "#8B9599" }}>
-                Surgeon-led FUE hair transplant and hair restoration surgery in
-                Melbourne, Florida, serving Brevard County, the Space Coast and
-                the wider Orlando area.
-              </p>
-            </div>
-            <div>
-              <strong>Visit</strong>
-              NASA Palms Professional Center
-              <br />
-              1140 Broadband Drive, Unit G2
-              <br />
-              Melbourne, FL 32901
-            </div>
-            <div>
-              <strong>Contact</strong>
-              <a href={PHONE_HREF}>{PHONE}</a>
-              <br />
-              Toll-free 855-5-HAIRMD
-              <br />
-              <a href="mailto:info@imamihair.com">info@imamihair.com</a>
-              <br />
-              Mon-Fri 8am-5pm
-            </div>
-          </div>
-          <p className="f-bot">
-            Before and after images are published with patient consent. Outcomes
-            shown relate to those patients only and do not necessarily reflect
-            results other patients may experience; results vary by individual. The
-            complimentary biomimetic hair growth treatment is offered as an
-            adjunct to surgery for procedures booked through this page; it is not
-            an FDA-approved product and no specific outcome is implied. This page
-            is for information and does not constitute medical advice. ©2026 Imami
-            Hair Restoration. All rights reserved.
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <div className="mobar">
         <a className="call" href={PHONE_HREF}>

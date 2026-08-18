@@ -5,14 +5,27 @@ deployed on Vercel.
 
 ## Pages
 
-| Route                        | Purpose                                              |
-| ---------------------------- | ---------------------------------------------------- |
-| `/follicular-unit-extraction` | FUE hair transplant landing page for Google Ads traffic |
-| `/`                          | Redirects to `/follicular-unit-extraction`            |
+| Route                         | Purpose                                                 |
+| ----------------------------- | ------------------------------------------------------- |
+| `/follicular-unit-extraction` | FUE hair transplant landing page for Google Ads traffic  |
+| `/thank-you`                  | Confirmation page the form redirects to on success       |
+| `/`                           | Redirects to `/follicular-unit-extraction`               |
 
-Both routes are prerendered as static content at build time. The landing page
-is set to `noindex, follow` so paid traffic does not compete with
-`imamihair.com` in organic search.
+All routes are prerendered as static content at build time. The landing page is
+`noindex, follow` so paid traffic does not compete with `imamihair.com` in
+organic search; `/thank-you` is `noindex, nofollow` since it should only ever be
+reached by submitting the form.
+
+The header and footer are shared components in `app/components/`, and the phone
+number and section nav live in `app/site.ts`, so both pages stay in step.
+
+### Conversion tracking
+
+`/thank-you` exists to be the conversion destination, so the Google Ads
+conversion snippet belongs on that page and nowhere else — one conversion per
+completed form, never on a landing-page view. There is a marked comment at the
+top of `app/thank-you/page.tsx` showing where it goes; it needs the account's
+own conversion ID and label.
 
 ## Local development
 
@@ -70,8 +83,10 @@ Two blocks on the page are deliberately left unwired and need a decision before
 the page goes live behind ad spend:
 
 - **Lead form** (`app/follicular-unit-extraction/LeadForm.tsx`) validates input
-  and shows a confirmation, but does not yet submit anywhere. It needs pointing
-  at a real destination (CRM, form endpoint or notification email).
+  and redirects to `/thank-you`, but does not yet submit the data anywhere. It
+  needs pointing at a real destination (CRM, form endpoint or notification
+  email). When that lands, await the request in `onSubmit` and only redirect
+  once it resolves, so a failed submission never shows a thank-you page.
 - **Google reviews feed** (`#google-reviews-widget`) is an empty container.
   imamihair.com renders its reviews with the **Trustindex** Google widget, so
   the same widget should be mounted here. Review text must render live and
