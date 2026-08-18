@@ -35,6 +35,8 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .brand img{width:184px;height:auto}
 .brand img{display:block}
 .bar{gap:24px}
+/* Logo-only header (thank-you page): nothing to space apart, so centre it. */
+.bar--center{justify-content:center}
 .hnav{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
 .hnav a{font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 9px;border-bottom:2px solid transparent;white-space:nowrap}
 .hnav a:hover{color:var(--ink);border-bottom-color:var(--brass)}
@@ -137,6 +139,13 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .band h2{color:#fff;max-width:20ch;margin:14px auto 0}
 .band p{color:#C9C9C9;max-width:56ch;margin:18px auto 0}
 .band .hero-cta{justify-content:center}
+
+/* Thank-you confirmation: one centred column rather than the landing page's
+   left-aligned measure. */
+.ty-hero .head{max-width:74ch;margin-left:auto;margin-right:auto;text-align:center}
+.ty-hero .lede{margin-left:auto;margin-right:auto}
+.ty-hero .hero-cta{justify-content:center}
+.ty-hero .cta-offer{margin-left:auto;margin-right:auto;text-align:center}
 
 .faq{max-width:880px}
 details{border-bottom:1px solid var(--line);padding:22px 0}

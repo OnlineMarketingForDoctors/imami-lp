@@ -41,9 +41,9 @@ export default function ThankYou() {
         trigger that way counts one conversion per completed form and never on
         a landing-page view.
       */}
-      <SiteHeader base={LANDING} />
+      <SiteHeader base={LANDING} minimal />
 
-      <section className="sec sec--dark" style={{ paddingTop: 96 }}>
+      <section className="sec sec--dark ty-hero" style={{ paddingTop: 96 }}>
         <div className="wrap">
           <div className="head" style={{ marginBottom: 0 }}>
             <p className="eyebrow">Request received</p>
