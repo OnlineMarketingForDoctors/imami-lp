@@ -83,6 +83,18 @@ Exactly one image is referenced but not present:
 public/images/2301.w019.n002.819A.p30.819-1-3-1.jpg
 ```
 
+Its source on the live site — taken from the hotlinked URL this CSS used before
+the images were localized, in commit `8e67e7a`:
+
+```
+https://www.imamihair.com/wp-content/uploads/2026/05/2301.w019.n002.819A.p30.819-1-3-1.jpg
+```
+
+Save that URL directly rather than right-click-saving from the rendered page:
+WordPress serves scaled variants (`-1024x683` and friends) into the layout, and
+the CSS wants the full-size original. Keep the filename exactly as it appears in
+the URL, `-1-3-1` suffix included.
+
 It is the section background used by the `.bg-photo` and `.bg-photo--light`
 rules in `app/globals.css`, which between them back six sections across the two
 pages (Treatments, the consultation band and the form section on the main page;
