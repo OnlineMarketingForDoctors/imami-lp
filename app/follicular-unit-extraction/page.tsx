@@ -347,7 +347,9 @@ export default function FollicularUnitExtraction() {
               ours or anyone else&rsquo;s.
             </p>
           </div>
-          <div className="g2" style={{ alignItems: "start" }}>
+          {/* Both columns stretch to the same height; the table distributes
+              the extra space across its rows. */}
+          <div className="g2 g2--stretch">
             <table className="tbl">
               <thead>
                 <tr>
@@ -450,6 +452,15 @@ export default function FollicularUnitExtraction() {
           </div>
           <div className="g2" style={{ alignItems: "stretch" }}>
             <div className="card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="card-img"
+                src="/images/who-men.jpg"
+                alt="Man with a full, natural head of hair"
+                width={1400}
+                height={939}
+                loading="lazy"
+              />
               <span className="num">Men</span>
               <h3>Male Pattern Hair Loss</h3>
               <p>
@@ -469,6 +480,15 @@ export default function FollicularUnitExtraction() {
               </p>
             </div>
             <div className="card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="card-img"
+                src="/images/who-women.jpg"
+                alt="Woman with thick, healthy shoulder-length hair"
+                width={1400}
+                height={939}
+                loading="lazy"
+              />
               <span className="num">Women</span>
               <h3>Female Thinning &amp; Hairlines</h3>
               <p>

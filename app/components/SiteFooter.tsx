@@ -23,14 +23,21 @@ export default function SiteFooter() {
       <div className="wrap">
         <div className="f-grid">
           <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="f-logo"
-              src="/imami-logo.png"
-              alt="Imami MD Hair Restoration"
-              width={600}
-              height={200}
-            />
+            <a
+              href="https://www.imamihair.com/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Imami MD Hair Restoration website"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="f-logo"
+                src="/imami-logo.png"
+                alt="Imami MD Hair Restoration"
+                width={600}
+                height={200}
+              />
+            </a>
             <p style={{ color: "#AFAFAF" }}>
               Surgeon-led FUE hair transplant and hair restoration surgery in
               Melbourne, Florida, serving Brevard County, the Space Coast and the

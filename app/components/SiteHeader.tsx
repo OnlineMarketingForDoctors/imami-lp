@@ -41,7 +41,9 @@ export default function SiteHeader({
         <div className="bar bar--center">
           <a
             className="brand"
-            href={base || "#top"}
+            href="https://www.imamihair.com/"
+            target="_blank"
+            rel="noopener"
             aria-label="Imami MD Hair Restoration"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -62,7 +64,9 @@ export default function SiteHeader({
       <div className="bar">
         <a
           className="brand"
-          href={base || "#top"}
+          href="https://www.imamihair.com/"
+          target="_blank"
+          rel="noopener"
           aria-label="Imami MD Hair Restoration"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -82,7 +86,7 @@ export default function SiteHeader({
         </nav>
         <div className="hact">
           <a className="btn btn--sm" href={`${base}#consult`}>
-            Book<span className="btn-now"> Now</span>
+            Book a Free Call
           </a>
           <a className="tel" href={PHONE_HREF} aria-label={`Call ${PHONE}`}>
             <PhoneIcon />

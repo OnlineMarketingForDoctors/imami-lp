@@ -56,7 +56,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .mnav a:last-child{border-bottom:none}
 .mnav-tel{display:inline-flex;align-items:center;gap:10px}
 .mnav-tel svg{width:15px;height:15px;fill:var(--brass)}
-@media(min-width:1281px){.menu-btn,.mnav{display:none}}
+@media(min-width:1401px){.menu-btn,.mnav{display:none}}
 /* Site CTA: orange accent, Montserrat 500, uppercase with 2px tracking;
    hovers to white on black, as on imamihair.com. */
 .btn{display:inline-block;background:var(--brass);color:#fff;text-decoration:none;font-weight:500;font-size:.9rem;text-transform:uppercase;letter-spacing:2px;padding:16px 30px;border-radius:var(--r);border:1px solid var(--brass);transition:background .3s,color .3s,border-color .3s;white-space:nowrap;font-family:var(--sans);cursor:pointer}
@@ -96,7 +96,8 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .hero2{position:relative;color:#fff;padding:150px 0 170px;overflow:hidden;isolation:isolate;
   background:linear-gradient(90deg,rgba(20,16,12,.82) 0%,rgba(20,16,12,.55) 45%,rgba(20,16,12,.25) 100%),
   url('/images/FUE-Hair-Transplant.jpg') center 30%/cover no-repeat #111}
-.hero2 h1{color:#fff;max-width:14ch;font-size:clamp(2.6rem,4.8vw,4.2rem);margin-top:14px}
+/* Wide enough that the headline breaks across two or three lines, never four */
+.hero2 h1{color:#fff;max-width:22ch;font-size:clamp(2.1rem,4vw,3.6rem);margin-top:14px}
 .hero-points{list-style:none;display:grid;gap:12px;margin-top:26px}
 .hero-points li{display:flex;align-items:center;gap:12px;color:#E4E4E4;font-size:1rem;font-weight:400}
 .hero-points svg{width:19px;height:19px;flex:none;fill:var(--brass)}
@@ -266,6 +267,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
    tables) shrinking and pushes the page into horizontal scroll. */
 .g2>*,.g3>*,.ba>*,.steps>*,.form-grid>*,.rev-grid>*,.stack>*{min-width:0}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.g2--stretch{align-items:stretch}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px}
 .sec--dark .card{background:var(--ink-2);border-color:rgba(255,255,255,.1)}
@@ -283,6 +285,8 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .ba-stats dd{font-family:var(--mono);font-size:1.05rem;font-weight:600;margin-top:3px}
 .disc{font-size:.82rem;color:var(--muted);margin-top:28px;max-width:90ch;line-height:1.55}
 .disc--center{margin-inline:auto;text-align:center}
+/* Photo atop a card (Who We Treat) */
+.card-img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:6px;margin-bottom:20px;display:block}
 .hero-cta--center{justify-content:center}
 @media(min-width:681px){
   #results .head{margin-left:auto;text-align:right}
@@ -361,17 +365,19 @@ footer p,.f-bot{color:#C9C9C9}
 footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
 .f-bot{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:24px;font-size:.78rem;line-height:1.6}
 
-.backtop{position:fixed;left:22px;bottom:22px;z-index:80;width:46px;height:46px;border-radius:50%;border:none;background:var(--brass);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.3);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .25s,transform .25s,visibility .25s}
+.backtop{position:fixed;right:22px;bottom:22px;z-index:80;width:46px;height:46px;border-radius:50%;border:none;background:var(--brass);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.3);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .25s,transform .25s,visibility .25s}
 .backtop.is-shown{opacity:1;visibility:visible;transform:none}
 .backtop:hover{background:#e07500}
 .backtop svg{width:20px;height:20px}
-@media(max-width:680px){.backtop{left:14px;bottom:calc(14px + env(safe-area-inset-bottom))}}
+@media(max-width:680px){.backtop{right:14px;bottom:calc(14px + env(safe-area-inset-bottom))}}
 .mobar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--ink);border-top:1px solid rgba(255,255,255,.14);padding:10px 12px calc(10px + env(safe-area-inset-bottom));gap:10px}
 .mobar a{flex:1;text-align:center;padding:14px 8px;border-radius:var(--r);text-decoration:none;font-weight:600;font-size:.92rem}
 .mobar .call{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4)}
 .mobar .book{background:var(--brass);color:#fff}
 
-@media(max-width:1280px){
+/* The longer Book a Free Call CTA needs the full 1400px bar alongside the
+   inline nav, so the menu button takes over below that. */
+@media(max-width:1400px){
   .hnav{display:none}
   .menu-btn{display:inline-flex}
 }
@@ -409,11 +415,12 @@ footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-f
   .hero-grid{grid-template-columns:1fr;gap:36px}
   .eyebrow{font-size:1.2rem}
   .mobar{display:flex}
-  /* Phones: logo | BOOK | phone icon | menu on one row. The number collapses
-     to its icon and the CTA label shortens to "Book". */
-  .hact{gap:10px}
-  .hact .btn{padding:11px 16px;font-size:.74rem;letter-spacing:1px}
-  .btn-now{display:none}
+  /* Phones: logo | BOOK A FREE CALL | phone icon | menu on one row. The
+     number collapses to its icon and everything tightens up to fit. */
+  .bar{gap:14px}
+  .brand img{width:120px}
+  .hact{gap:9px}
+  .hact .btn{padding:10px 12px;font-size:.68rem;letter-spacing:.5px}
   .tel-num{display:none}
   .hact .tel svg{width:19px;height:19px}
   .menu-btn{width:34px;height:34px}
@@ -427,10 +434,10 @@ footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-f
 /* Very narrow phones: the logo plus phone number, and the long CTA label,
    both exceed 360px otherwise. */
 @media(max-width:420px){
-  .bar{gap:10px;padding:12px 14px}
-  .brand img{width:128px}
-  .hact{gap:8px}
-  .hact .btn{padding:10px 12px;font-size:.7rem}
+  .bar{gap:8px;padding:12px 12px}
+  .brand img{width:104px}
+  .hact{gap:7px}
+  .hact .btn{padding:9px 10px;font-size:.62rem;letter-spacing:.4px}
   .tel{font-size:.86rem}
   .btn{white-space:normal;padding:14px 20px;font-size:.82rem;letter-spacing:1px}
 }
