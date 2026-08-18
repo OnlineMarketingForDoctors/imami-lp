@@ -4,7 +4,7 @@ import SiteFooter from "../components/SiteFooter";
 import LeadFormEmbed from "../components/LeadFormEmbed";
 import ReviewSlider from "../components/ReviewSlider";
 import BASlider, { BAItem } from "../components/BASlider";
-import { NAV_MAIN, PHONE, PHONE_HREF } from "../site";
+import { NAV_MAIN, PHONE_HREF } from "../site";
 
 export const metadata: Metadata = {
   title: "FUE Hair Transplant in Florida | Follicular Unit Extraction",
@@ -60,12 +60,12 @@ const WHY = [
 ];
 
 const JOURNEY = [
-  { n: "01", h: "Consultation", p: "In-depth analysis of hair loss, medical history, and goal setting." },
-  { n: "02", h: "Planning & Design", p: "Custom hairline design and calculation of required graft count." },
-  { n: "03", h: "Donor Preparation", p: "Local anesthesia administered; meticulous extraction begins." },
-  { n: "04", h: "Graft Placement", p: "Strategic implantation into recipient sites for optimal density." },
-  { n: "05", h: "Post-op Care", p: "Immediate review, care instructions provided, and you head home." },
-  { n: "06", h: "Follow-up", p: "Scheduled check-ins at 2 weeks, 6 months, and 12 months." },
+  { h: "Consultation", p: "In-depth analysis of hair loss, medical history, and goal setting." },
+  { h: "Planning & Design", p: "Custom hairline design and calculation of required graft count." },
+  { h: "Donor Preparation", p: "Local anesthesia administered; meticulous extraction begins." },
+  { h: "Graft Placement", p: "Strategic implantation into recipient sites for optimal density." },
+  { h: "Post-op Care", p: "Immediate review, care instructions provided, and you head home." },
+  { h: "Follow-up", p: "Scheduled check-ins at 2 weeks, 6 months, and 12 months." },
 ];
 
 const AFTERCARE = [
@@ -94,41 +94,63 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
 ];
 
+/** Slowly rotating circular "Imami Hair Restoration" badge, as on the live page. */
+function Badge({ dark, className }: { dark?: boolean; className?: string }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      className={`badge${className ? " " + className : ""}`}
+      src={dark ? "/images/Imami-Hair-Restoration-1.png" : "/images/Imami-Hair-Restoration.png"}
+      alt=""
+      width={226}
+      height={227}
+      loading="lazy"
+    />
+  );
+}
+
 export default function FollicularUnitExtraction() {
   return (
     <>
       <SiteHeader nav={NAV_MAIN} />
 
-      <section className="hero" id="top">
-        <div className="hero-bg" aria-hidden="true" />
-        <div className="wrap hero-grid">
-          <div className="hero-stack">
-            <p className="eyebrow">FUE Hair Transplant</p>
-            <h1>No-Shave FUE - Natural, Undetectable Results</h1>
-            <p className="hero-sub">
-              Surgeon-led experienced team, no-shave FUE for natural hairline
-              restoration and premium patient care.
-            </p>
-            <div className="hero-cta">
-              <a className="btn" href="#consult">
-                Book a Free Discovery Call
-              </a>
-            </div>
-            <p className="trust">
-              · Triple Board-Certified Surgeon · Flexible Financing Available ·
-              Natural-Looking, Artful Results · 30+ Years Surgical Excellence
-            </p>
+      {/* Hero: full-bleed photo, breadcrumb, left copy, floating BOOK NOW pill */}
+      <section className="hero2" id="top">
+        <div className="wrap">
+          <nav className="crumbs" aria-label="Breadcrumb">
+            <a href={MAIN}>Home</a> » <a href={`${MAIN}/hair-transplants/`}>Hair Transplants</a> »{" "}
+            <span>FUE Hair Transplant</span>
+          </nav>
+          <p className="eyebrow eyebrow--accent">FUE Hair Transplant</p>
+          <h1>
+            No-Shave FUE - Natural,
+            <br />
+            Undetectable Results
+          </h1>
+          <p className="hero-sub">
+            Surgeon-led experienced team, no-shave FUE for natural hairline
+            restoration and premium patient care.
+          </p>
+          <div className="hero-cta">
+            <a className="btn" href="#consult">
+              Book a Free Discovery Call
+            </a>
           </div>
-          <div className="hero-img">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/FUE-Hair-Transplant.jpg"
-              alt="FUE Hair Transplant"
-              width={1000}
-              height={727}
-            />
-          </div>
+          <p className="trust">
+            · Triple Board-Certified Surgeon · Flexible Financing Available ·
+            Natural-Looking, Artful Results · 30+ Years Surgical Excellence
+          </p>
         </div>
+        <a className="booknow" href="#consult">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="11" fill="#fff" />
+            <path
+              d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.4-4-4 1.7-1.7 2.3 2.3 4.7-4.7 1.7 1.7z"
+              fill="#FF8400"
+            />
+          </svg>
+          Book Now
+        </a>
       </section>
 
       <section className="sec sec--tint" id="reviews" style={{ borderTop: "none" }}>
@@ -217,8 +239,9 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <section className="sec" id="what">
-        <div className="wrap g2">
+      {/* What is FUE + What FUE Can Treat: one dark textured section, as on the site */}
+      <section className="sec sec--dark" id="what">
+        <div className="wrap what-grid">
           <div>
             <p className="eyebrow">The Technique</p>
             <h2>What is FUE?</h2>
@@ -228,57 +251,59 @@ export default function FollicularUnitExtraction() {
               extracting individual hair follicles from a donor area and
               implanting them where hair is thinning.
             </p>
-          </div>
-          <div className="card">
-            <span className="num">Key Distinction</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="rounded-img"
-              src="/images/key-distinction.webp"
-              alt="Key distinction of no-shave FUE"
-              loading="lazy"
-              style={{ marginBottom: 16 }}
-            />
-            <p>
+            <p className="kd">Key Distinction</p>
+            <p className="lede" style={{ marginTop: 12 }}>
               Follicular Unit Extraction (FUE) is the most advanced, minimally
               invasive hair transplant method available today. It involves
               extracting individual hair follicles from a donor area and
               implanting them where hair is thinning.
             </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="collage"
+              src="/images/key-distinction.webp"
+              alt="Dr. Imami performing FUE hair transplant procedures"
+              loading="lazy"
+            />
+          </div>
+          <div id="treats">
+            <h3 className="treats-title">What FUE Can Treat</h3>
+            <ul className="treat-rows">
+              {TREATS.map((t) => (
+                <li key={t.h}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/images/${t.icon}`} alt="" width={72} height={72} loading="lazy" />
+                  <div>
+                    <h4>{t.h}</h4>
+                    <p>{t.p}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      <section className="sec sec--dark bg-photo" id="treats">
+      {/* How FUE Works: cream, circular badge, staggered boxes with big numbers */}
+      <section className="sec sec--tint" id="works">
         <div className="wrap">
-          <div className="head">
-            <p className="eyebrow">What FUE Can Treat</p>
+          <div className="works-head">
+            <Badge dark className="badge--works" />
+            <div>
+              <p className="eyebrow">The Process</p>
+              <h2>
+                How FUE
+                <br />
+                Works
+              </h2>
+            </div>
           </div>
-          <div className="g3">
-            {TREATS.map((t) => (
-              <div className="card tcard" key={t.h}>
+          <div className="wsteps">
+            {STEPS.map((s, i) => (
+              <div className={`wstep wstep--${i + 1}`} key={s.h}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/images/${t.icon}`} alt="" width={72} height={72} loading="lazy" />
-                <h3>{t.h}</h3>
-                <p>{t.p}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="sec" id="works">
-        <div className="wrap">
-          <div className="head">
-            <p className="eyebrow">The Process</p>
-            <h2>How FUE Works</h2>
-          </div>
-          <div className="steps">
-            {STEPS.map((s) => (
-              <div className="step" key={s.h}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="step-num" src={`/images/${s.num}`} alt="" loading="lazy" />
-                <h3>{s.h}</h3>
+                <img className="wnum" src={`/images/${s.num}`} alt="" loading="lazy" />
+                <h4>{s.h}</h4>
                 <p>{s.p}</p>
               </div>
             ))}
@@ -286,7 +311,7 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <section className="sec sec--tint" id="benefits">
+      <section className="sec" id="benefits">
         <div className="wrap g2" style={{ alignItems: "start" }}>
           <div>
             <p className="eyebrow">Advantages</p>
@@ -310,7 +335,7 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <div className="band bg-photo">
+      <div className="band">
         <div className="wrap">
           <h2>
             Wondering if FUE is the Right Procedure for You? Book a Consultation
@@ -324,26 +349,36 @@ export default function FollicularUnitExtraction() {
         </div>
       </div>
 
-      <section className="sec" id="journey">
-        <div className="wrap g2" style={{ alignItems: "start" }}>
-          <div>
-            <p className="eyebrow">The Timeline</p>
-            <h2>Your FUE Journey</h2>
-            <div className="timeline" style={{ marginTop: 34 }}>
-              {JOURNEY.map((j) => (
-                <div className="tl" key={j.n}>
-                  <span className="num">{j.n}</span>
-                  <h3>{j.h}</h3>
-                  <p>{j.p}</p>
-                </div>
-              ))}
+      {/* Your FUE Journey: dark textured, centre zigzag timeline */}
+      <section className="sec sec--dark" id="journey">
+        <div className="wrap">
+          <div className="journey-head">
+            <div>
+              <p className="eyebrow">The Timeline</p>
+              <h2>Your FUE Journey</h2>
             </div>
+            <Badge className="badge--journey" />
           </div>
-          <div>
+          <div className="zig">
+            {JOURNEY.map((j, i) => (
+              <div className={`zitem ${i % 2 ? "zitem--right" : "zitem--left"}`} key={j.h}>
+                <h4>{j.h}</h4>
+                <p>{j.p}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec sec--tint" id="aftercare">
+        <div className="wrap">
+          <div className="head">
             <p className="eyebrow">Recovery</p>
-            <h2 style={{ fontSize: "2rem" }}>Post-Op Aftercare</h2>
+            <h2>Post-Op Aftercare</h2>
+          </div>
+          <div className="g3">
             {AFTERCARE.map((a) => (
-              <div className="card tcard" style={{ marginTop: 18 }} key={a.h}>
+              <div className="card tcard" key={a.h}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`/images/${a.icon}`} alt="" width={72} height={72} loading="lazy" />
                 <h3>{a.h}</h3>
@@ -407,8 +442,9 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <section className="sec sec--dark bg-photo" id="consult">
-        <div className="wrap form-grid">
+      {/* Consultation: portrait right with the form overlapping it, photo lower-left */}
+      <section className="sec sec--dark" id="consult">
+        <div className="wrap consult-grid">
           <div>
             <p className="eyebrow">Consultation</p>
             <h2>Request a Consultation with Dr. Imami</h2>
@@ -418,13 +454,24 @@ export default function FollicularUnitExtraction() {
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              className="rounded-img consult-img"
-              src="/images/Rectangle-183-8-1.png"
-              alt="Imami Hair Restoration clinic"
+              className="rounded-img consult-side"
+              src="/images/Rectangle-187-1-1.png"
+              alt="Active lifestyle after FUE hair transplant"
               loading="lazy"
             />
           </div>
-          <LeadFormEmbed />
+          <div className="consult-visual">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img consult-portrait"
+              src="/images/Rectangle-183-8-1.png"
+              alt="Confident man after hair restoration"
+              loading="lazy"
+            />
+            <div className="consult-form">
+              <LeadFormEmbed />
+            </div>
+          </div>
         </div>
       </section>
 

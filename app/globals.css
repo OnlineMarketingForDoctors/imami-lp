@@ -22,10 +22,11 @@ h3{font-size:1.35rem}
 h2{margin-bottom:22px}
 h3{margin-bottom:14px}
 p{color:#171717}
-/* Matches imamihair.com's h4: Montserrat 22px, 700, 1px tracking, no caps. */
-.eyebrow{font-family:var(--sans);font-size:1.375rem;font-weight:700;letter-spacing:1px;line-height:1.4;color:inherit}
+/* Eyebrows on imamihair.com: olive Montserrat semi-bold, no caps. */
+.eyebrow{font-family:var(--sans);font-size:1.3rem;font-weight:600;letter-spacing:.5px;line-height:1.4;color:var(--olive)}
+.eyebrow--accent{color:var(--brass)}
 .sec{padding:88px 0;border-top:1px solid var(--line)}
-.sec--dark{background:var(--ink);color:var(--paper);border-top:none}
+.sec--dark{background:#111 url('/images/texture-dark.jpg');color:var(--paper);border-top:none}
 .sec--dark p{color:#C9C9C9}.sec--dark h2,.sec--dark h3{color:#fff}
 .sec--tint{background:var(--paper-2)}
 .lede{font-size:1.1rem;max-width:62ch;margin-top:18px}
@@ -82,6 +83,72 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;align-items:center}
 
 /* ---- main FUE page (mirror of imamihair.com/follicular-unit-extraction) ---- */
+/* Hero: full-bleed photo, floating BOOK NOW pill on the right edge */
+.hero2{position:relative;color:#fff;padding:150px 0 170px;overflow:hidden;isolation:isolate;
+  background:linear-gradient(90deg,rgba(20,16,12,.82) 0%,rgba(20,16,12,.55) 45%,rgba(20,16,12,.25) 100%),
+  url('/images/FUE-Hair-Transplant.jpg') center 30%/cover no-repeat #111}
+.hero2 h1{color:#fff;max-width:14ch;font-size:clamp(2.6rem,4.8vw,4.2rem);margin-top:14px}
+.crumbs{font-size:.92rem;color:#E4E4E4;margin-bottom:14px}
+.crumbs a{color:#E4E4E4;text-decoration:none}
+.crumbs a:hover{color:#fff;text-decoration:underline}
+.booknow{position:absolute;right:0;top:18%;z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;
+  background:var(--brass);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;letter-spacing:.5px;
+  padding:16px 18px;border-radius:12px 0 0 12px}
+.booknow svg{width:30px;height:30px}
+.booknow:hover{background:#e07500}
+
+/* What is FUE + What FUE Can Treat share one dark section */
+.what-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:72px;align-items:start}
+.kd{margin-top:28px;font-weight:600;color:var(--brass);text-transform:uppercase;letter-spacing:1.5px;font-size:1.15rem}
+.collage{width:100%;max-width:540px;height:auto;margin-top:36px}
+.treats-title{font-family:var(--serif);font-size:1.5rem;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:26px}
+.treat-rows{list-style:none}
+.treat-rows li{display:flex;gap:26px;align-items:flex-start;padding:26px 0;border-bottom:1px solid rgba(214,209,174,.3)}
+.treat-rows li:last-child{border-bottom:none}
+.treat-rows img{width:72px;height:72px;flex:none}
+.treat-rows h4{font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:8px}
+.treat-rows p{color:#C9C9C9;font-size:1.02rem}
+
+/* How FUE Works: badge left, heading right, staggered outline boxes */
+.works-head{display:grid;grid-template-columns:1fr 1fr;align-items:start;margin-bottom:60px}
+.works-head>div{justify-self:start}
+.works-head .eyebrow{margin-bottom:6px}
+.badge{width:170px;height:170px;animation:spin 30s linear infinite}
+.badge--works{margin-top:20px;margin-left:8%}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.wsteps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;padding-bottom:130px}
+.wstep{position:relative;border:1px solid #C9C4B6;padding:34px 26px 30px}
+.wstep h4{font-size:1.3rem;font-weight:700;margin-bottom:12px}
+.wstep p{font-size:.98rem}
+.wnum{position:absolute;top:-42px;right:14px;height:78px;width:auto}
+.wstep--1{transform:translateY(70px)}
+.wstep--2{transform:translateY(0)}
+.wstep--3{transform:translateY(110px)}
+.wstep--4{transform:translateY(40px)}
+
+/* Your FUE Journey: centre zigzag timeline */
+.journey-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:70px}
+.badge--journey{flex:none}
+.zig{position:relative;padding:10px 0 30px}
+.zig::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--brass)}
+.zitem{position:relative;width:50%;padding-bottom:64px}
+.zitem::before{content:"";position:absolute;top:6px;width:12px;height:12px;border-radius:50%;
+  background:#111;border:2px solid var(--brass)}
+.zitem--left{padding-right:56px;text-align:right;margin-left:0}
+.zitem--left::before{right:-7px}
+.zitem--right{padding-left:56px;text-align:left;margin-left:50%}
+.zitem--right::before{left:-7px}
+.zitem h4{font-family:var(--sans);font-size:1.6rem;font-weight:700;color:#D6D1AE;margin-bottom:10px}
+.zitem p{color:#C9C9C9;max-width:44ch;display:inline-block}
+.zitem:last-child{padding-bottom:0}
+
+/* Consultation: form overlaps the portrait */
+.consult-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.consult-side{margin-top:44px;max-width:400px}
+.consult-visual{position:relative;min-height:640px}
+.consult-portrait{width:72%;margin-left:auto}
+.consult-form{position:absolute;left:0;top:300px;width:70%;z-index:2}
+
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-sub{margin-top:18px;font-size:1.12rem;color:#E4E4E4;max-width:56ch}
 .trust{margin-top:26px;font-size:.86rem;color:#C9C9C9;letter-spacing:.4px}
@@ -193,7 +260,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .tl h3{font-size:1.15rem}
 .tl .num{margin-bottom:6px}
 
-.band{background:var(--ink);color:#fff;padding:72px 0;text-align:center}
+.band{background:#111 url('/images/texture-dark.jpg');color:#fff;padding:72px 0;text-align:center}
 .band h2{color:#fff;max-width:20ch;margin:14px auto 0}
 .band p{color:#C9C9C9;max-width:56ch;margin:18px auto 0}
 .band .hero-cta{justify-content:center}
@@ -249,6 +316,17 @@ footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-f
   .hnav{display:none}
 }
 @media(max-width:980px){
+  .what-grid,.consult-grid{grid-template-columns:1fr;gap:44px}
+  .wsteps{grid-template-columns:1fr 1fr;padding-bottom:60px}
+  .wstep--1,.wstep--2,.wstep--3,.wstep--4{transform:none;margin-top:46px}
+  .works-head{grid-template-columns:1fr;gap:20px}
+  .badge{width:130px;height:130px}
+  .consult-visual{min-height:0}
+  .consult-form{position:static;width:100%;margin-top:28px}
+  .consult-portrait{width:100%}
+  .zig::before{left:8px}
+  .zitem,.zitem--left,.zitem--right{width:auto;margin-left:0;padding:0 0 44px 40px;text-align:left}
+  .zitem--left::before,.zitem--right::before{left:1px;right:auto}
   .ba-track{grid-auto-columns:calc(50% - 12px)}
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .g2,.form-grid,.rev-grid{grid-template-columns:1fr;gap:40px}
@@ -265,6 +343,9 @@ footer strong{color:#fff;display:block;margin-bottom:12px;font-weight:600;font-f
   .g3,.ba,.steps,.fields{grid-template-columns:1fr}
   .f-grid{grid-template-columns:1fr}
   .rev-track,.ba-track{grid-auto-columns:100%}
+  .wsteps{grid-template-columns:1fr}
+  .hero2{padding:90px 0 110px}
+  .booknow{display:none}
   .hero-grid{grid-template-columns:1fr;gap:36px}
   .eyebrow{font-size:1.2rem}
   .mobar{display:flex}
