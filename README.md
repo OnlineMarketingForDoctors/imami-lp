@@ -5,11 +5,12 @@ deployed on Vercel.
 
 ## Pages
 
-| Route                         | Purpose                                                 |
-| ----------------------------- | ------------------------------------------------------- |
-| `/follicular-unit-extraction` | FUE hair transplant landing page for Google Ads traffic  |
-| `/thank-you`                  | Confirmation page the form redirects to on success       |
-| `/`                           | Redirects to `/follicular-unit-extraction`               |
+| Route                           | Purpose                                                        |
+| ------------------------------- | -------------------------------------------------------------- |
+| `/follicular-unit-extraction`   | Mirror of imamihair.com's FUE page (primary Google Ads target)  |
+| `/follicular-unit-extraction-2` | The original landing page built from the mockup                 |
+| `/thank-you`                    | Confirmation page the form redirects to on success              |
+| `/`                             | Redirects to `/follicular-unit-extraction`                      |
 
 All routes are prerendered as static content at build time. The landing page is
 `noindex, follow` so paid traffic does not compete with `imamihair.com` in
@@ -70,13 +71,18 @@ white on black.
 
 ## Assets
 
-The logo is bundled at `public/imami-logo.png` (the site's own
-`imami-md-hair-logo-transparent-bg.png`). The hero background and the
-before/after photographs are referenced directly from the existing
-imamihair.com media library (`https://www.imamihair.com/wp-content/uploads/...`),
-so they stay in sync with the main site. The media paths live in
-`app/follicular-unit-extraction/page.tsx` (`MEDIA` constant and the `RESULTS`
-array) and in the `.hero-bg` rules in `app/globals.css`.
+All images are stored locally in `public/images/` (plus the logo at
+`public/imami-logo.png`) — nothing hotlinks to imamihair.com. The files were
+taken from a saved copy of the live FUE page.
+
+Six background images could not be recovered because outbound requests to
+imamihair.com are blocked from the build environment. Their local paths are
+already wired in `app/globals.css` (`.bg-photo` rules), and the dark/light
+scrims render fine without them; to complete the backgrounds, drop these files
+into `public/images/` keeping the exact names:
+
+- `2301.w019.n002.819A.p30.819-1-1.jpg`, `...-1-2-2.jpg`, `...-1-3-1.jpg`
+- `image-25-2.jpg`, `image-28.png`, `Contact-Us.png`
 
 ## Deployment
 
@@ -92,7 +98,7 @@ reachable once a custom domain is attached to the project.
 ## Lead form
 
 The consultation form is a LeadConnector (GoHighLevel) inline embed, in
-`app/follicular-unit-extraction/LeadFormEmbed.tsx`. Leads land in LeadConnector,
+`app/components/LeadFormEmbed.tsx`, used by both pages. Leads land in LeadConnector,
 not in this codebase.
 
 `form_embed.js` sizes the iframe: it reads the measured height posted by the
@@ -110,8 +116,9 @@ repository:
 - **Form redirect** must be set in LeadConnector to
   `https://lp.imamihair.com/thank-you`, or the conversion never fires. See
   Analytics and conversion tracking above.
-- **Google reviews feed** (`#google-reviews-widget`) is an empty container.
-  imamihair.com renders its reviews with the **Trustindex** Google widget, so
-  the same widget should be mounted here. Review text must render live and
-  verbatim rather than being hard-coded. The 4.6 / 15-review summary beside it
-  is static and should give way to the widget's own rating once embedded.
+- **Reviews** on both pages are a static slider (`app/components/ReviewSlider.tsx`
+  with `reviews.json`) carrying the five most recent Google reviews, reproduced
+  verbatim from the live site's Trustindex widget. If the practice's reviews
+  change, refresh `reviews.json`, or replace the slider with the live Trustindex
+  embed.
+- **Missing background images** — see Assets above.

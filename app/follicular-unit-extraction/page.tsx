@@ -1,201 +1,143 @@
 import type { Metadata } from "next";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
-import { PHONE, PHONE_HREF } from "../site";
-import LeadFormEmbed from "./LeadFormEmbed";
-import ReviewSlider from "./ReviewSlider";
+import LeadFormEmbed from "../components/LeadFormEmbed";
+import ReviewSlider from "../components/ReviewSlider";
+import BASlider, { BAItem } from "../components/BASlider";
+import { NAV_MAIN, PHONE, PHONE_HREF } from "../site";
 
 export const metadata: Metadata = {
-  title:
-    "FUE Hair Transplant Florida | No-Shave FUE + Complimentary Growth Treatment | Imami Hair Restoration",
+  title: "FUE Hair Transplant in Florida | Follicular Unit Extraction",
   description:
-    "No-shave FUE hair transplant in Melbourne, Florida. Complimentary biomimetic hair growth treatment with every procedure. Triple board-certified surgeon, 30+ years. Book a free discovery call.",
+    "Surgeon-led, no-shave FUE hair transplant in Melbourne, Florida. Natural hairline restoration by triple board-certified Dr. Emran Imami. Book a free discovery call.",
   robots: { index: false, follow: true },
 };
 
-const MEDIA = "https://www.imamihair.com/wp-content/uploads/2026/05";
+const MAIN = "https://www.imamihair.com";
 
-
-const USPS: { text: string; highlight?: boolean }[] = [
-  { text: "Triple board-certified surgeon with over 30 years of hair restoration experience" },
-  { text: "Natural-looking results using advanced techniques, including NeoGraft FUE" },
-  { text: "Highly personalized treatment plans developed by Dr. Imami" },
-  { text: "Flexible payment plans to ease the financial burden" },
-  { text: "One year of complimentary follow-up appointments" },
-  { text: "Flexible after-hour online consultations and same-day virtual appointments available" },
-];
-
-const RESULTS = [
-  { img: "1.png", tag: "No-shave FUE · Age 37 · Norwood 3", grafts: "1,112", timeline: "1 year post-op", alt: "No-shave FUE hair transplant before and after, age 37, Norwood 3, 1,112 grafts" },
-  { img: "1-1.png", tag: "No-shave FUE · Age 39 · Norwood 3", grafts: "1,647", timeline: "19 months, 2nd FUE", alt: "No-shave FUE hair transplant before and after, age 39, Norwood 3, 1,647 grafts" },
-  { img: "1-2.png", tag: "No-shave FUE · Age 61 · Norwood 4A", grafts: "1,205", timeline: "15 months post-op", alt: "No-shave FUE hair transplant before and after, age 61, Norwood 4A, 1,205 grafts" },
-  { img: "1-3.png", tag: "No-shave FUE · Age 32 · Norwood 3", grafts: "1,800", timeline: "1 year post-op", alt: "No-shave FUE hair transplant before and after, age 32, Norwood 3, 1,800 grafts" },
-  { img: "1-4.png", tag: "No-shave FUE · Age 33 · Norwood 3A", grafts: "1,750", timeline: "4 years post-op", alt: "No-shave FUE hair transplant before and after, age 33, Norwood 3A, 1,750 grafts" },
-  { img: "1-6.png", tag: "No-shave FUE · Age 38 · Norwood 4", grafts: "2,023", timeline: "2 years post-op", alt: "No-shave FUE hair transplant before and after, age 38, Norwood 4, 2,023 grafts" },
+const RESULTS: BAItem[] = [
+  { img: "1.png", age: "37", norwood: "3", grafts: "1,112", timeline: "1 Year Post-Op" },
+  { img: "1-1.png", age: "39", norwood: "3", grafts: "1,647", timeline: "19 Months after 2nd FUE" },
+  { img: "1-2.png", age: "61", norwood: "4A", grafts: "1,205", timeline: "15 Months Post-Op" },
+  { img: "1-3.png", age: "32", norwood: "3", grafts: "1,800", timeline: "1 Year Post-Op" },
+  { img: "1-4.png", age: "33", norwood: "3A", grafts: "1,750", timeline: "4 Years Post-Op" },
+  { img: "1-5.png", age: "66", norwood: "5", grafts: "1,350", timeline: "1 Year Post-Op" },
+  { img: "1-6.png", age: "38", norwood: "4", grafts: "2,023", timeline: "2 Years Post-Op" },
+  { img: "1-8.png", age: "55", norwood: "5", grafts: "1,800", timeline: "1 Year Post-Op" },
+  { img: "1-9.png", age: "61", norwood: "4A", grafts: "1,205", timeline: "15 Months Post-Op" },
+  { img: "2-9.png", age: "39", norwood: "4A", grafts: "1,875", timeline: "1 Year Post-Op" },
 ];
 
 const TREATS = [
-  { h: "Receding Hairline", p: "Redesigning and lowering the hairline for a youthful frame, including hairline transplant work on weak or uneven temples." },
-  { h: "Thinning Crown", p: "Restoring density to the vertex for complete coverage where a crown has opened up over time." },
-  { h: "Temple Restoration", p: "Rebuilding temporal points for a balanced facial profile and a hairline that suits your age." },
-  { h: "Scar Camouflage", p: "Concealing previous surgical scars, including strip-scar work and trauma, with individual follicle placement." },
-  { h: "Hairline Refinement", p: "Adding density to previous hair transplants or naturally weak hairlines, including repair of work done elsewhere." },
-  { h: "Mid-Scalp Density", p: "Filling thinning through the mid-scalp so the result reads evenly from hairline to crown." },
+  { icon: "Group-467.png", h: "Receding Hairline", p: "Redesigning and lowering the hairline for a youthful frame." },
+  { icon: "Group-473.png", h: "Thinning Crown", p: "Restoring density to the vertex for complete coverage." },
+  { icon: "Group-467.png", h: "Temple Restoration", p: "Rebuilding temporal points for a balanced facial profile." },
+  { icon: "Group-474.png", h: "Scar Camouflage", p: "Concealing previous surgical scars or trauma." },
+  { icon: "Group-475-1.png", h: "Hairline Refinement", p: "Adding density to previous transplants or naturally weak hairlines." },
+  { icon: "Group-475.png", h: "Eyebrow Restoration", p: "Recreating fuller, natural-looking eyebrows for both men and women." },
 ];
 
 const STEPS = [
-  { n: "01", h: "Extraction", p: "Individual follicles are carefully extracted using a microscopic punch tool." },
-  { n: "02", h: "Preparation", p: "Grafts are inspected, sorted and preserved in a specialized solution." },
-  { n: "03", h: "Site Creation", p: "Precise recipient sites are created, matching the hair’s natural angle and direction." },
-  { n: "04", h: "Implantation", p: "Grafts are delicately placed into the sites for natural-looking density." },
+  { num: "01.png", h: "Extraction", p: "Individual follicles are carefully extracted using a microscopic punch tool." },
+  { num: "02.png", h: "Preparation", p: "Grafts are inspected, sorted, and preserved in a specialized solution." },
+  { num: "03.png", h: "Site Creation", p: "Precise recipient sites are carefully created, matching the hair’s natural angle and direction." },
+  { num: "04.png", h: "Implantation", p: "Grafts are delicately placed into the sites for natural-looking density." },
+];
+
+const BENEFITS = [
+  "No linear scarring in the donor area",
+  "Significantly shorter recovery time",
+  "No-shave options available for minimal downtime",
+  "Ability to wear hair longer or shorter",
+  "Repeatable procedure for future thinning",
+  "Completely natural, undetectable outcomes",
+];
+
+const WHY = [
+  { h: "Triple Board-Certified", p: "A rare distinction ensuring the highest standards of surgical safety, ethics, and aesthetic outcomes." },
+  { h: "Surgeon-Led Procedure", p: "Dr Imami directs his experienced hair transplant team for optimal extraction and site creation." },
+  { h: "Personalized Design", p: "Every hairline is custom-designed based on facial geometry, age, and long-term hair loss progression." },
 ];
 
 const JOURNEY = [
-  { n: "01", h: "Consultation", p: "In-depth analysis of hair loss, medical history and goal setting." },
-  { n: "02", h: "Planning & Design", p: "Custom hairline design and calculation of the required graft count." },
+  { n: "01", h: "Consultation", p: "In-depth analysis of hair loss, medical history, and goal setting." },
+  { n: "02", h: "Planning & Design", p: "Custom hairline design and calculation of required graft count." },
   { n: "03", h: "Donor Preparation", p: "Local anesthesia administered; meticulous extraction begins." },
   { n: "04", h: "Graft Placement", p: "Strategic implantation into recipient sites for optimal density." },
-  { n: "05", h: "Post-Op Care", p: "Immediate review, care instructions provided, and you head home." },
-  { n: "06", h: "Follow-Up", p: "Scheduled check-ins at Day 2, Day 14, Month 6 and Year 1." },
+  { n: "05", h: "Post-op Care", p: "Immediate review, care instructions provided, and you head home." },
+  { n: "06", h: "Follow-up", p: "Scheduled check-ins at 2 weeks, 6 months, and 12 months." },
+];
+
+const AFTERCARE = [
+  { icon: "Group-472-1.png", h: "First 48 Hours", p: "Rest with head elevated. Spray grafts with provided saline solution. Avoid touching the recipient area." },
+  { icon: "Group-473-1.png", h: "Activity Restrictions", p: "No strenuous exercise or heavy lifting for 14 days. Avoid direct sun exposure to the scalp for 3 months." },
+  { icon: "Group-467-1.png", h: "Follow-up Schedule", p: "We monitor your progress closely with scheduled visits at Day 2, Day 14, Month 6, and Year 1." },
 ];
 
 const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   {
-    q: "Do I have to shave my head?",
+    q: "Is the FUE procedure painful?",
     open: true,
-    a: ["No. Dr. Imami specializes in no-shave FUE, which keeps the surrounding hair at its existing length so the procedure stays discreet. Individual follicles are extracted from longer donor hair without shaving the head, meaning you can return to work and social settings without an obvious transplant look. Patients search for this as a hair transplant without shaving, a hair transplant no shaving hair option, or FUE without shaving. These all describe the same procedure. For larger sessions where a partial trim is needed, Dr. Imami will discuss your options at consultation."],
+    a: ["No. The procedure is performed under local anesthesia. You may feel minor discomfort during the initial numbing injections, but the surgery itself is virtually painless. Most patients watch movies, listen to music, or even nap during the process."],
   },
   {
-    q: "How much does a hair transplant cost?",
-    a: ["Hair transplant cost is driven by the number of grafts you need, which is why we quote after an assessment rather than advertising a flat hair transplant price. As a reference point, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized quote covering the procedure and your year-one follow-ups, and we offer financing through CareCredit and Affirm."],
+    q: "Do I have to shave my head?",
+    a: ["No — Dr. Imami specialises in No-Shave FUE, which allows the surrounding hair to be kept at its existing length so the procedure remains completely discreet. Individual follicles are extracted from longer donor hair without shaving the head, meaning you can return to work and social settings without an obvious ‘transplant look’. For larger sessions where a partial trim is needed, Dr. Imami will discuss your options during your consultation and design an approach that fits both your hair loss pattern and your lifestyle."],
+  },
+  {
+    q: "When will I see the final results?",
+    a: ["Hair growth after FUE happens gradually. The transplanted hairs typically shed within the first few weeks (this is normal and expected), with new growth beginning around the 3–4 month mark. Most patients see noticeable density and a clear improvement by 6 months, and the final, fully matured result is generally visible at 12–18 months post-op. We monitor your progress with scheduled follow-ups at Day 2, Day 14, Month 6, and Year 1 to track your transformation."],
   },
   {
     q: "How many grafts will I need?",
-    a: ["It varies with your Norwood stage, the areas being treated, your donor density and the result you want. A Norwood 3 hairline restoration may need around 1,100-1,800 grafts, while more advanced patterns at Norwood 4-5 often need 1,800-2,000 or more. Dr. Imami will assess your scalp, design your hairline and calculate the graft count needed for a natural, balanced outcome."],
-  },
-  {
-    q: "Is the FUE procedure uncomfortable?",
-    a: ["The procedure is performed under local anesthesia. You may feel minor discomfort during the initial numbing injections, but most patients are comfortable throughout and watch a film, listen to music or nap during the session."],
-  },
-  {
-    q: "When will I see results?",
-    a: ["Growth after FUE is gradual. Transplanted hairs typically shed within the first few weeks, which is normal and expected, with new growth beginning around the 3-4 month mark. Most patients see noticeable density by 6 months, and the fully matured result is generally visible at 12-18 months. Results vary by individual."],
-  },
-  {
-    q: "Will there be a scar?",
-    a: ["FUE does not leave a linear donor scar the way strip surgery can, because follicles are taken individually rather than as a strip. Any surgical procedure creates some marking; the small extraction points fade over time and are covered by surrounding hair. Dr. Imami will explain what to expect for your donor area at consultation."],
-  },
-  {
-    q: "What is the complimentary biomimetic hair growth treatment?",
-    a: [
-      "Every hair transplant booked through this page includes one complimentary session of our biomimetic hair growth treatment, provided as part of your post-operative care program. It sits alongside the other things already included in your quote: your follow-up appointments at Day 2, Day 14, Month 6 and Year 1, and your medication refills through the first year.",
-      "It is an adjunct to your surgery rather than a replacement for it, and it is not an FDA-approved product. No specific result is implied or guaranteed. Dr. Imami will talk you through exactly what it involves, and whether he considers it appropriate in your case, at your consultation.",
-    ],
-  },
-  {
-    q: "What is the average cost of a hair transplant?",
-    a: [
-      "Published figures for the average cost of hair transplant surgery vary enormously, because they average very different graft counts. FUE cost and follicular unit extraction cost describe the same thing, and your FUE hair transplant price should be quoted per graft rather than as a flat package.",
-      "When you compare quotes for hair implant cost, hair graft cost, hairline transplant cost or overall hair restoration cost, ask each clinic three things: how many grafts is that for, who is performing the surgery, and are follow-ups included. Our quotes include your year-one follow-ups and medication refills.",
-    ],
-  },
-  {
-    q: "Do patients travel from Orlando?",
-    a: ["Yes. We are about an hour from Orlando and a steady share of our patients drive over. If you have been comparing hair transplant Orlando options, looking up hair transplant Orlando FL clinics, researching hair restoration Orlando or checking Orlando hair transplant cost, it is worth the drive for a surgeon-led procedure. Patients also search for a hair surgeon Orlando and find us on the Space Coast instead."],
-  },
-  {
-    q: "How do I find the best hair transplant in Florida?",
-    a: ["There is no official ranking, and any clinic claiming to be the best hair transplant in Florida is expressing an opinion rather than a fact. What you can compare objectively is who performs the surgery, what board certifications they hold, how many grafts they are quoting you and what their real patient results look like at one year. Judge us on those, and judge the best hair transplant near me results the same way."],
-  },
-  {
-    q: "How do I choose a hair transplant surgeon in Florida?",
-    a: ["Three questions separate most clinics. Who performs the surgery, the surgeon you meet or a technician? What board certifications do they hold? And can they show you real patient results with graft counts and time elapsed, rather than stock photography? Ask those of us, and of anyone else you are considering."],
-  },
-  {
-    q: "FUE or FUT: which is right for me?",
-    a: ["FUE suits most patients and is the technique behind our no-shave work. FUT, or follicular unit transplantation, can still be the better choice where a very large number of grafts is needed in one session. Dr. Imami performs both and recommends based on your donor area and goals."],
+    a: ["The number of grafts varies based on your degree of hair loss (Norwood stage), the areas being treated, your donor density, and your desired result. As a reference, Dr. Imami’s recent No-Shave FUE patients have typically received between 1,100 and 2,000 grafts per session — for example, a Norwood 3 hairline restoration may require around 1,100–1,800 grafts, while more advanced patterns at Norwood 4–5 often need 1,800–2,000+ grafts. During your consultation, Dr. Imami will assess your scalp, design your hairline, and calculate the precise graft count needed to achieve a natural, balanced outcome."],
   },
 ];
-
-const STAR_PATH =
-  "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z";
-
-function BookButton({
-  className = "btn",
-  style,
-  children = "Book a Free Discovery Call",
-}: {
-  className?: string;
-  style?: React.CSSProperties;
-  children?: React.ReactNode;
-}) {
-  return (
-    <a className={className} style={style} href="#consult">
-      {children}
-    </a>
-  );
-}
 
 export default function FollicularUnitExtraction() {
   return (
     <>
-      <SiteHeader />
+      <SiteHeader nav={NAV_MAIN} />
 
-
-      <section className="hero">
+      <section className="hero" id="top">
         <div className="hero-bg" aria-hidden="true" />
-        <div className="wrap">
+        <div className="wrap hero-grid">
           <div className="hero-stack">
-            <p className="eyebrow">FUE Hair Transplant · Melbourne, Florida</p>
-            <h1>No-Shave FUE. Natural, Undetectable Results.</h1>
-            <ul className="usps">
-              {USPS.map((usp) => (
-                <li key={usp.text} className={usp.highlight ? "hl" : undefined}>
-                  {usp.text}
-                </li>
-              ))}
-            </ul>
+            <p className="eyebrow">FUE Hair Transplant</p>
+            <h1>No-Shave FUE - Natural, Undetectable Results</h1>
+            <p className="hero-sub">
+              Surgeon-led experienced team, no-shave FUE for natural hairline
+              restoration and premium patient care.
+            </p>
             <div className="hero-cta">
-              <BookButton />
-              <a className="btn btn--lt" href={PHONE_HREF}>
-                Call {PHONE}
+              <a className="btn" href="#consult">
+                Book a Free Discovery Call
               </a>
             </div>
+            <p className="trust">
+              · Triple Board-Certified Surgeon · Flexible Financing Available ·
+              Natural-Looking, Artful Results · 30+ Years Surgical Excellence
+            </p>
+          </div>
+          <div className="hero-img">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/FUE-Hair-Transplant.jpg"
+              alt="FUE Hair Transplant"
+              width={1000}
+              height={727}
+            />
           </div>
         </div>
       </section>
 
-      <section
-        className="sec sec--tint"
-        id="reviews"
-        style={{ borderTop: "none" }}
-      >
+      <section className="sec sec--tint" id="reviews" style={{ borderTop: "none" }}>
         <div className="wrap rev-grid">
           <div>
             <p className="eyebrow">Patient Testimonials</p>
             <h2>What Our Patients Say</h2>
-            <div className="rev-score">
-              <span className="rev-num">4.6</span>
-              <span className="rev-of">out of 5</span>
-            </div>
-            <div className="stars" role="img" aria-label="Rated 4.6 out of 5">
-              {[0, 1, 2, 3].map((i) => (
-                <svg key={i} viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill="#FF8400" d={STAR_PATH} />
-                </svg>
-              ))}
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <defs>
-                  <linearGradient id="hf">
-                    <stop offset="60%" stopColor="#FF8400" />
-                    <stop offset="60%" stopColor="#DCDCDC" />
-                  </linearGradient>
-                </defs>
-                <path fill="url(#hf)" d={STAR_PATH} />
-              </svg>
-            </div>
             <p className="rev-meta">
-              Based on 15 Google reviews of Imami Hair Restoration.{" "}
+              Based on 15 reviews of Imami Hair Restoration.{" "}
               <a
                 href="https://www.google.com/maps/place/?q=place_id:ChIJMWgAohAP3ogRYDZWIg_3KX0"
                 target="_blank"
@@ -206,10 +148,9 @@ export default function FollicularUnitExtraction() {
               .
             </p>
             <span className="gbadge">
-              Verified on <b>Google</b>
+              Posted on <b>Google</b>
             </span>
           </div>
-
           <ReviewSlider />
         </div>
       </section>
@@ -220,26 +161,27 @@ export default function FollicularUnitExtraction() {
             <p className="eyebrow">Our Approach</p>
             <h2>The Doctor You Meet Is the Doctor Who Operates.</h2>
             <p className="lede">
-              At most large hair restoration clinics, your consultation is with a
-              salesperson and your surgery is carried out by a technician. At
-              Imami Hair Restoration it works differently. Dr. Imami personally
-              evaluates every patient, designs the new hairline and performs the
+              At most large hair restoration chains, your consultation is with a
+              salesperson and your surgery is performed by a technician. At Imami
+              Hair Restoration, it works differently. Dr. Imami personally
+              evaluates every patient, designs your new hairline and performs the
               surgical components of every procedure himself.
             </p>
             <p className="lede">
-              Your hair transplant is then completed under his direct supervision
-              by a dedicated team of technicians with 15 years of experience
-              working alongside him.
+              Your transplant is then completed under his direct supervision by a
+              dedicated team of technicians with 15 years of experience working
+              alongside him — bringing surgical-level precision and artistry to
+              every stage of your procedure.
             </p>
           </div>
-          <div className="card">
-            <span className="num">Why It Matters</span>
-            <ul className="checks">
-              <li>One surgeon from consultation through to your one-year follow-up</li>
-              <li>Hairline designed around your facial geometry, age and hair loss pattern</li>
-              <li>Extraction and site creation directed by the surgeon, not delegated</li>
-              <li>A clear, itemized quote, with no sales pressure at the consultation</li>
-            </ul>
+          <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img"
+              src="/images/consultation-with-dr-imami.webp"
+              alt="Consultation with Dr Imami"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
@@ -250,97 +192,73 @@ export default function FollicularUnitExtraction() {
             <p className="eyebrow">Real Results</p>
             <h2>Before &amp; After</h2>
             <p className="lede">
-              Recent no-shave FUE hair transplant patients, with graft counts and
-              time elapsed. Sessions typically run between 1,100 and 2,000 grafts
-              depending on Norwood stage and donor density.
+              See the transformative results our patients have achieved with Dr.
+              Imami.
             </p>
           </div>
-          <div className="ba">
-            {RESULTS.map((r) => (
-              <figure className="ba-card" key={r.img}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${MEDIA}/${r.img}`} alt={r.alt} loading="lazy" />
-                <figcaption className="ba-body">
-                  <p className="ba-tag">{r.tag}</p>
-                  <dl className="ba-stats">
-                    <div>
-                      <dt>Grafts placed</dt>
-                      <dd>{r.grafts}</dd>
-                    </div>
-                    <div>
-                      <dt>Timeline</dt>
-                      <dd>{r.timeline}</dd>
-                    </div>
-                  </dl>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+          <BASlider items={RESULTS} />
           <p className="disc">
             The images above are displayed with the consent of the patients. The
             outcomes shown are only relevant for these patients and do not
-            necessarily reflect the results other patients may experience. Results
-            vary by individual. Our team will discuss any factors that could
-            influence the results that you may get.
+            necessarily reflect the results other patients may experience. Our
+            team will discuss any factors that could influence the results that
+            you may get.
           </p>
+          <div className="hero-cta">
+            <a
+              className="btn"
+              href={`${MAIN}/before-and-after-photos/`}
+              target="_blank"
+              rel="noopener"
+            >
+              View Full Gallery
+            </a>
+          </div>
         </div>
       </section>
 
-      <section className="sec bg-photo bg-photo--light" id="what">
+      <section className="sec" id="what">
         <div className="wrap g2">
           <div>
             <p className="eyebrow">The Technique</p>
             <h2>What is FUE?</h2>
             <p className="lede">
-              Follicular unit extraction, or FUE, is a minimally invasive hair
-              transplant method in which individual follicles are taken one at a
-              time from the donor area at the back and sides of the scalp, then
-              placed where hair is thinning. Because nothing is removed as a
-              strip, follicular extraction leaves no linear donor scar.
-            </p>
-            <p className="lede">
-              You will see the same operation described in several ways: an FUE
-              hair implant, FUE hair replacement, an FUE hair graft session, FUE
-              treatment, or simply a follicle hair transplant. Each describes the
-              same FUE method hair transplant and the same FUE hair transplant
-              procedure, and FUE hair restoration is what we do every day at our
-              FUE hair transplant clinic in Melbourne.
-            </p>
-            <p className="lede">
-              The alternative, follicular unit transplantation (FUT), removes a
-              strip of donor tissue. It still suits some larger cases, and Dr.
-              Imami performs both, and he will tell you honestly which FUE method
-              or hair transplant procedure fits your pattern of loss.
+              Follicular Unit Extraction (FUE) is the most advanced, minimally
+              invasive hair transplant method available today. It involves
+              extracting individual hair follicles from a donor area and
+              implanting them where hair is thinning.
             </p>
           </div>
           <div className="card">
             <span className="num">Key Distinction</span>
-            <h3>No-Shave FUE</h3>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img"
+              src="/images/key-distinction.webp"
+              alt="Key distinction of no-shave FUE"
+              loading="lazy"
+              style={{ marginBottom: 16 }}
+            />
             <p>
-              Most clinics shave the entire head before a hair transplant. Dr.
-              Imami specializes in FUE without shaving: individual follicles are
-              extracted from longer donor hair, so a hair transplant without
-              shaving your head stays discreet from day one and you can return to
-              work and social settings without an obvious change.
-            </p>
-            <p style={{ marginTop: 14 }}>
-              For larger sessions where a partial trim helps, he will discuss the
-              options at your consultation and design an approach that fits your
-              hair loss pattern and your lifestyle.
+              Follicular Unit Extraction (FUE) is the most advanced, minimally
+              invasive hair transplant method available today. It involves
+              extracting individual hair follicles from a donor area and
+              implanting them where hair is thinning.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="sec sec--dark" id="treats">
+      <section className="sec sec--dark bg-photo" id="treats">
         <div className="wrap">
           <div className="head">
             <p className="eyebrow">What FUE Can Treat</p>
-            <h2>Scalp Restoration, Tailored to Your Pattern of Loss</h2>
           </div>
           <div className="g3">
             {TREATS.map((t) => (
-              <div className="card" key={t.h}>
+              <div className="card tcard" key={t.h}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/images/${t.icon}`} alt="" width={72} height={72} loading="lazy" />
                 <h3>{t.h}</h3>
                 <p>{t.p}</p>
               </div>
@@ -354,15 +272,12 @@ export default function FollicularUnitExtraction() {
           <div className="head">
             <p className="eyebrow">The Process</p>
             <h2>How FUE Works</h2>
-            <p className="lede">
-              One outpatient day at our hair transplant Melbourne FL clinic. You
-              arrive in the morning and go home the same afternoon.
-            </p>
           </div>
           <div className="steps">
             {STEPS.map((s) => (
-              <div className="step" key={s.n}>
-                <span className="num">{s.n}</span>
+              <div className="step" key={s.h}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="step-num" src={`/images/${s.num}`} alt="" loading="lazy" />
                 <h3>{s.h}</h3>
                 <p>{s.p}</p>
               </div>
@@ -372,214 +287,38 @@ export default function FollicularUnitExtraction() {
       </section>
 
       <section className="sec sec--tint" id="benefits">
-        <div className="wrap g2">
+        <div className="wrap g2" style={{ alignItems: "start" }}>
           <div>
             <p className="eyebrow">Advantages</p>
             <h2>Benefits of FUE</h2>
             <ul className="checks" style={{ marginTop: 26 }}>
-              <li>No linear scarring in the donor area</li>
-              <li>Significantly shorter recovery time</li>
-              <li>No-shave options available for minimal downtime</li>
-              <li>Ability to wear your hair longer or shorter afterwards</li>
-              <li>Repeatable procedure for future thinning</li>
-              <li>Natural, undetectable outcomes</li>
-              <li>
-                <b>
-                  Complimentary biomimetic hair growth treatment with every
-                  procedure booked through this page
-                </b>
-              </li>
+              {BENEFITS.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
             </ul>
           </div>
-          <div className="card">
-            <span className="num">Why Choose Dr. Imami</span>
-            <h3>Triple Board-Certified</h3>
-            <p>
-              A rare distinction, reflecting high standards of surgical safety,
-              ethics and aesthetic judgement.
-            </p>
-            <h3 style={{ marginTop: 22 }}>Surgeon-Led Procedure</h3>
-            <p>
-              Dr. Imami directs his experienced hair transplant team for
-              extraction and site creation on every case.
-            </p>
-            <h3 style={{ marginTop: 22 }}>Personalized Design</h3>
-            <p>
-              Every hairline is custom-designed around facial geometry, age and
-              long-term hair loss progression.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec" id="cost">
-        <div className="wrap">
-          <div className="head">
-            <p className="eyebrow">Investment</p>
-            <h2>Hair Transplant Cost &amp; Financing</h2>
-            <p className="lede">
-              There is no single hair transplant price, because no two patients
-              need the same number of grafts. What follows is how the cost of a
-              hair transplant is actually built, so you can judge any quote, ours
-              or anyone else&rsquo;s.
-            </p>
-          </div>
-          <div className="stack">
-            <table className="tbl">
-              <thead>
-                <tr>
-                  <th>What drives the price</th>
-                  <th>Why</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Graft count</td>
-                  <td>
-                    Hair transplant cost per graft is the basic unit. A Norwood 3
-                    hairline may need 1,100-1,800 grafts; Norwood 4-5 often
-                    1,800-2,000 or more.
-                  </td>
-                </tr>
-                <tr>
-                  <td>Areas treated</td>
-                  <td>
-                    A hairline transplant alone costs less than hairline plus
-                    crown.
-                  </td>
-                </tr>
-                <tr>
-                  <td>Donor density</td>
-                  <td>
-                    Determines how much can safely be moved in a single session.
-                  </td>
-                </tr>
-                <tr>
-                  <td>Technique</td>
-                  <td>
-                    FUE hair transplant cost differs from FUT. Dr. Imami
-                    recommends the one that suits your case.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div className="card">
-                <span className="num">Typical Session Sizes</span>
-                <h3>What Your Graft Count Means</h3>
-                <table className="tbl" style={{ marginTop: 16 }}>
-                  <thead>
-                    <tr>
-                      <th>Session</th>
-                      <th>Typically suits</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1,000-1,200</td>
-                      <td>An early Norwood 2-3 hairline or temple rebuild</td>
-                    </tr>
-                    <tr>
-                      <td>1,200-1,800</td>
-                      <td>A full Norwood 3 hairline restoration</td>
-                    </tr>
-                    <tr>
-                      <td>1,800-2,000+</td>
-                      <td>Norwood 4-5, or hairline plus crown together</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <p style={{ marginTop: 16 }}>
-                  So if you are pricing a hair transplant 1000 grafts cost, or
-                  costing a 2000 grafts hair transplant, the graft count comes
-                  first and the figure follows from it. Hair transplant cost
-                  Florida-wide is quoted this way; Florida hair transplant cost
-                  differs between clinics mainly because graft counts and
-                  inclusions differ.
-                </p>
+          <div className="card" id="why">
+            <span className="num">Excellence</span>
+            <h3 style={{ fontSize: "1.7rem" }}>Why Choose Dr. Imami</h3>
+            {WHY.map((w) => (
+              <div key={w.h} style={{ marginTop: 18 }}>
+                <h3 style={{ marginBottom: 6 }}>{w.h}</h3>
+                <p>{w.p}</p>
               </div>
-            <div className="card">
-                <span className="num">Paying For It</span>
-                <h3>Flexible Payment Plans</h3>
-                <p>
-                  We offer financing through CareCredit and Affirm, so hair
-                  restoration surgery cost can be spread over monthly payments
-                  rather than paid in one go.
-                </p>
-                <ul className="checks" style={{ marginTop: 20 }}>
-                  <li>A written, itemized quote at your consultation, with no hidden extras</li>
-                  <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
-                  <li>Medication refills included through your first year</li>
-                  <li>Complimentary biomimetic hair growth treatment with your procedure</li>
-                  <li>Quotes based on your actual graft count, not a package guess</li>
-                </ul>
-                <BookButton style={{ marginTop: 24 }}>
-                  Get a personalized quote
-                </BookButton>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec sec--tint" id="who">
-        <div className="wrap">
-          <div className="head">
-            <p className="eyebrow">Who We Treat</p>
-            <h2>Hair Transplants for Men and Women</h2>
-          </div>
-          <div className="g2" style={{ alignItems: "stretch" }}>
-            <div className="card">
-              <span className="num">Men</span>
-              <h3>Male Pattern Hair Loss</h3>
-              <p>
-                Most of our patients are men with a receding hairline, a thinning
-                crown or both. A men&rsquo;s FUE hair transplant rebuilds the
-                frame of the face using your own hair, and no-shave FUE means
-                colleagues need not know you have had anything done.
-              </p>
-              <p style={{ marginTop: 14 }}>
-                Whether you are comparing mens hair transplant cost, male hair
-                transplant cost, hair implants for men cost, male hair implants
-                cost or hair replacement for men cost, the figure comes from the
-                same place: your graft count. We quote hair implants for men in
-                writing after Dr. Imami has assessed your donor area, so the cost
-                of hair implants for men is never a package guess. Mens hair
-                transplant surgery here is a single outpatient day.
-              </p>
-            </div>
-            <div className="card">
-              <span className="num">Women</span>
-              <h3>Female Thinning &amp; Hairlines</h3>
-              <p>
-                Women lose hair differently, more often with diffuse thinning or a
-                high, uneven hairline than a classic receding pattern. A female
-                hairline transplant can lower and soften the frame, and FUE hair
-                transplant for women is carried out without shaving the head.
-              </p>
-              <p style={{ marginTop: 14 }}>
-                Female hair transplant cost is quoted the same way: by graft
-                count, in writing, after assessment. That applies equally to a
-                female hairline transplant cost, to female hair implants cost, and
-                to any ladies hair transplant cost, hair implants for women cost
-                or hair replacement for women cost quoted elsewhere. Ask every
-                clinic what the number actually includes.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       <div className="band bg-photo">
         <div className="wrap">
-          <p className="eyebrow">Consultation</p>
-          <h2>Wondering if FUE Is Right for You?</h2>
-          <p>
-            Book a free discovery call with Dr. Imami to discuss your options,
-            your likely graft count and what it would cost.
-          </p>
+          <h2>
+            Wondering if FUE is the Right Procedure for You? Book a Consultation
+            with Dr. Imami to Discuss Your Options.
+          </h2>
           <div className="hero-cta">
-            <BookButton />
-            <a className="btn btn--lt" href={PHONE_HREF}>
-              Call {PHONE}
+            <a className="btn" href="#consult">
+              Book a Free Discovery Call
             </a>
           </div>
         </div>
@@ -603,120 +342,48 @@ export default function FollicularUnitExtraction() {
           <div>
             <p className="eyebrow">Recovery</p>
             <h2 style={{ fontSize: "2rem" }}>Post-Op Aftercare</h2>
-            <div className="card" style={{ marginTop: 26 }}>
-              <h3>First 48 Hours</h3>
-              <p>
-                Rest with your head elevated. Spray grafts with the saline
-                solution provided. Avoid touching the recipient area.
-              </p>
-            </div>
-            <div className="card" style={{ marginTop: 18 }}>
-              <h3>Activity Restrictions</h3>
-              <p>
-                No strenuous exercise or heavy lifting for 14 days. Avoid direct
-                sun exposure to the scalp for 3 months.
-              </p>
-            </div>
-            <div className="offercard">
-              <span className="num">Included With Your Procedure</span>
-              <h3>Biomimetic Hair Growth Treatment</h3>
-              <p>
-                Every hair transplant booked through this page includes a
-                complimentary session of our biomimetic hair growth treatment,
-                given as part of your post-operative care program alongside your
-                year-one follow-ups and included medication refills.
-              </p>
-              <p className="disc-sm">
-                This treatment is offered as an adjunct to surgery and is not a
-                substitute for it. It is not an FDA-approved product, and no
-                specific outcome is implied or guaranteed. Dr. Imami will explain
-                what it involves, and whether it is appropriate for you, at your
-                consultation.
-              </p>
-            </div>
-            <div className="card" style={{ marginTop: 18 }}>
-              <h3>Follow-up Schedule</h3>
-              <p>
-                We monitor progress with scheduled visits at Day 2, Day 14, Month
-                6 and Year 1, with medication refills included through year one.
-              </p>
-            </div>
+            {AFTERCARE.map((a) => (
+              <div className="card tcard" style={{ marginTop: 18 }} key={a.h}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/images/${a.icon}`} alt="" width={72} height={72} loading="lazy" />
+                <h3>{a.h}</h3>
+                <p>{a.p}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="sec sec--dark" id="location">
-        <div className="wrap g2" style={{ alignItems: "start" }}>
+      <section className="sec sec--dark" id="surgeon">
+        <div className="wrap g2" style={{ alignItems: "center" }}>
           <div>
-            <p className="eyebrow">Where We Are</p>
-            <h2>A Hair Transplant Clinic in Melbourne, FL</h2>
-            <p className="lede">
-              If you have been searching for a hair transplant clinic near you, we
-              are on the Space Coast at the NASA Palms Professional Center, about
-              an hour from Orlando and easily reached from across Brevard County.
-              Patients travel to us from Melbourne, Palm Bay, Viera, Rockledge,
-              Cocoa, Titusville, Merritt Island, Satellite Beach and Vero Beach,
-              as well as from the Orlando area.
-            </p>
-            <p className="lede">
-              People find us searching for a hair transplant near me, hair
-              implants near me, a hair transplant clinic near me or simply a hair
-              clinic near me. Others arrive from hair replacement near me, hair
-              loss clinics near me, hair restoration clinics near me, FUE hair
-              transplant near me or FUE near me. However you got here, the
-              questions worth asking are the same, and they are set out in our FAQ
-              below.
-            </p>
-            <p className="lede">
-              We are a Florida hair transplant clinic in the full sense: patients
-              come to us for hair transplant surgery Florida-wide, for FUE hair
-              transplant Florida enquiries and for hair replacement Florida
-              options, and Dr. Imami is a hair transplant surgeon Florida patients
-              travel to see.
-            </p>
-            <p className="lede">
-              Not local, or not ready to come in? Start with a same-day virtual
-              consultation, then visit once for the procedure itself. After-hours
-              appointments are available.
-            </p>
-            <div className="hero-cta">
-              <BookButton />
-            </div>
-            <p className="cta-offer">
-              Procedures booked through this page include a complimentary
-              biomimetic hair growth treatment.
-            </p>
-          </div>
-          <div>
-            <div className="card">
-            <span className="num">Visit Us</span>
-            <h3>Imami Hair Restoration</h3>
-            <p>
-              NASA Palms Professional Center
-              <br />
-              1140 Broadband Drive, Unit G2
-              <br />
-              Melbourne, FL 32901
-            </p>
-            <ul className="loc-list">
-              <li>
-                Local:{" "}
-                <a href={PHONE_HREF} style={{ color: "#FFA240" }}>
-                  {PHONE}
-                </a>
-              </li>
-              <li>Toll-free: 855-5-HAIRMD (424763)</li>
-              <li>Mon-Fri, 8am to 5pm · after hours by appointment</li>
-              <li>Virtual consultations available</li>
-            </ul>
-            </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              className="loc-photo"
-              src={`${MEDIA}/image-27-1.png`}
-              alt="Imami Hair Restoration, NASA Palms Professional Center, Melbourne, Florida"
+              className="rounded-img surgeon-img"
+              src="/images/dr-imami-2.webp"
+              alt="Dr. Emran Imami"
               loading="lazy"
             />
+          </div>
+          <div>
+            <p className="eyebrow">Meet Your Surgeon</p>
+            <h2>Dr. Emran Imami</h2>
+            <p className="lede">
+              Triple board-certified surgeon with over 30 years of surgical
+              excellence, bringing precision and artistry to every hair
+              restoration procedure at Imami Hair Restoration in Melbourne,
+              Florida.
+            </p>
+            <div className="hero-cta">
+              <a
+                className="btn btn--lt"
+                href={`${MAIN}/meet-dr-imami/`}
+                target="_blank"
+                rel="noopener"
+              >
+                View Full Profile
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -746,17 +413,16 @@ export default function FollicularUnitExtraction() {
             <p className="eyebrow">Consultation</p>
             <h2>Request a Consultation with Dr. Imami</h2>
             <p className="lede">
-              Begin with a private, surgeon-led consultation to discuss your hair
-              loss, your suitability for FUE and the outcome you can realistically
-              expect. We come back to you within one business day.
+              Begin with a private, surgeon-led consultation with Dr. Imami to
+              discuss your hair loss concerns, suitability and expected outcomes.
             </p>
-            <ul className="checks" style={{ marginTop: 28 }}>
-              <li>You speak with the surgeon, not a sales representative</li>
-              <li>Written, itemized quote with your graft count</li>
-              <li>Virtual and after-hours appointments available</li>
-              <li>Financing options explained up front</li>
-              <li>Complimentary biomimetic hair growth treatment with your procedure</li>
-            </ul>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img consult-img"
+              src="/images/Rectangle-183-8-1.png"
+              alt="Imami Hair Restoration clinic"
+              loading="lazy"
+            />
           </div>
           <LeadFormEmbed />
         </div>

@@ -20,9 +20,11 @@ function PhoneIcon() {
 export default function SiteHeader({
   base = "",
   minimal = false,
+  nav = NAV,
 }: {
   base?: string;
   minimal?: boolean;
+  nav?: { href: string; label: string }[];
 }) {
   if (minimal) {
     return (
@@ -63,7 +65,7 @@ export default function SiteHeader({
           />
         </a>
         <nav className="hnav" aria-label="Page sections">
-          {NAV.map((item) => (
+          {nav.map((item) => (
             <a key={item.href} href={`${base}${item.href}`}>
               {item.label}
             </a>
