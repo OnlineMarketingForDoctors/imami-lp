@@ -136,8 +136,17 @@ export default function FollicularUnitExtraction() {
     <>
       <SiteHeader nav={NAV_MAIN} />
 
-      {/* Hero: full-bleed photo, breadcrumb, left copy, floating BOOK NOW pill */}
+      {/* Hero: full-bleed background video (image fallback), left copy */}
       <section className="hero2" id="top">
+        {/* Rendered as raw HTML so the muted attribute lands in the markup
+            itself; browsers refuse to autoplay before hydration without it. */}
+        <div
+          className="hero-media"
+          aria-hidden="true"
+          dangerouslySetInnerHTML={{
+            __html: `<video autoplay muted loop playsinline preload="metadata" poster="/images/FUE-Hair-Transplant.jpg"><source src="/hero-video.webm" type="video/webm"><source src="/hero-video.mp4" type="video/mp4"></video>`,
+          }}
+        />
         <div className="wrap">
           <p className="eyebrow eyebrow--accent">FUE Hair Transplant</p>
           <h1>
