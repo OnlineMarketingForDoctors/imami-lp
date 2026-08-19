@@ -5,7 +5,15 @@ import LeadFormEmbed from "../components/LeadFormEmbed";
 import ReviewMarquee from "../components/ReviewMarquee";
 import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
+import HeroBA from "../components/HeroBA";
 import { NAV_MAIN } from "../site";
+
+const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/maps/place/?q=place_id:ChIJMWgAohAP3ogRYDZWIg_3KX0";
+
+/* Font Awesome solid star */
+const STAR =
+  "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14l-5-4.87 6.91-1.01L12 2z";
 
 export const metadata: Metadata = {
   title: "FUE Hair Transplant in Florida | Follicular Unit Extraction",
@@ -163,10 +171,49 @@ export default function FollicularUnitExtraction() {
               Book a Free Discovery Call
             </a>
           </div>
+          <a
+            className="hero-rating"
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/google-icon.svg" alt="" width={22} height={22} />
+            <span
+              className="hero-rating-stars"
+              role="img"
+              aria-label="4.5 out of 5 stars"
+            >
+              {[0, 1, 2, 3].map((n) => (
+                <svg key={n} viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#FF8400" d={STAR} />
+                </svg>
+              ))}
+              {/* half star: left half brass, right half faint */}
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <defs>
+                  <linearGradient id="halfstar">
+                    <stop offset="50%" stopColor="#FF8400" />
+                    <stop offset="50%" stopColor="rgba(255,255,255,.35)" />
+                  </linearGradient>
+                </defs>
+                <path fill="url(#halfstar)" d={STAR} />
+              </svg>
+            </span>
+            <span className="hero-rating-text">
+              <b>4.5</b> out of 5 &middot; Google reviews
+            </span>
+          </a>
           <p className="hero-fine">
             *Offered with procedures booked through this page. Ask at your
             consultation for full details.
           </p>
+          <HeroBA
+            items={RESULTS.slice(0, 4).map((r) => ({
+              img: r.img,
+              alt: `No shave FUE hair transplant before and after, age ${r.age}, Norwood ${r.norwood}`,
+            }))}
+          />
         </div>
       </section>
 
