@@ -525,13 +525,11 @@ export default function FollicularUnitExtraction() {
                 colleagues need not know you have had anything done.
               </p>
               <p style={{ marginTop: 14 }}>
-                Whether you are comparing mens hair transplant cost, male hair
-                transplant cost, hair implants for men cost, male hair implants
-                cost or hair replacement for men cost, the figure works the same
-                way here: Dr. Imami assesses your donor area, estimates the
-                grafts your plan needs, and quotes a custom session price in
-                writing rather than a per-graft rate. Mens hair transplant
-                surgery here is a single outpatient day.
+                If you have been researching what a hair transplant costs, the
+                honest answer is that it depends on how much coverage you need.
+                Dr. Imami assesses your donor area, estimates how many grafts
+                your plan calls for, and gives you a custom session price in
+                writing. The procedure itself is a single outpatient day.
               </p>
             </div>
             <div className="card">
@@ -554,12 +552,10 @@ export default function FollicularUnitExtraction() {
                 head.
               </p>
               <p style={{ marginTop: 14 }}>
-                Female hair transplant cost is quoted the same way: a written
-                custom session price after your assessment. That applies equally
-                to a female hairline transplant cost, to female hair implants
-                cost, and to any ladies hair transplant cost, hair implants for
-                women cost or hair replacement for women cost you may be
-                comparing. Ask every clinic what their session price includes.
+                Pricing works the same way for women: after your assessment,
+                you receive a written session price for your treatment plan,
+                with everything it covers spelled out. Wherever you compare,
+                ask what the quoted price actually includes.
               </p>
             </div>
           </div>
