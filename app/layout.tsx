@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "Imami Hair Restoration",
   description:
     "Surgeon-led FUE hair transplant and hair restoration surgery in Melbourne, Florida.",
+  // Paid-traffic site: nothing here should compete with imamihair.com in
+  // organic search. Every route inherits noindex; pages may only tighten it.
+  robots: { index: false, follow: true },
 };
 
 export const viewport: Viewport = {
