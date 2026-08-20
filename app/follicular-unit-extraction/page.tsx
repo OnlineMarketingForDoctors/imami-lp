@@ -104,11 +104,11 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "How much does a hair transplant cost?",
-    a: ["There is no single hair transplant price, because hair transplant cost is driven by the number of grafts you need, and no two patients are the same. As a reference, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized quote covering your procedure and your year-one follow-ups, and financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask how many grafts it covers, who performs the surgery, and whether follow-ups are included."],
+    a: ["There is no single hair transplant price, because no two patients need the same session. Dr. Imami estimates the graft count your plan requires, then quotes a custom session price rather than charging per graft. As a reference, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized session quote covering your procedure and your year-one follow-ups, and financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included."],
   },
   {
     q: "Do patients travel from Miami or Orlando?",
-    a: ["Yes, all the time. Our hair transplant clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando and a comfortable drive up the coast from Miami. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a same-day virtual consultation from wherever you are, then visit once for the procedure itself."],
+    a: ["Yes, all the time, and many patients travel to us from across the country. Our hair transplant clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando, a comfortable drive up the coast from Miami, and just 1 mile from Melbourne-Orlando International Airport (MLB) for patients who fly in. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a same-day virtual consultation from wherever you are, then visit once for the procedure itself."],
   },
   {
     q: "How many grafts will I need?",
@@ -417,9 +417,9 @@ export default function FollicularUnitExtraction() {
                 <tr>
                   <td>Graft count</td>
                   <td>
-                    Hair transplant cost per graft is the basic unit. A Norwood 3
-                    hairline may need 1,100-1,800 grafts; Norwood 4-5 often
-                    1,800-2,000 or more.
+                    Your estimated graft count sets the scope of the session. A
+                    Norwood 3 hairline may need 1,100-1,800 grafts; Norwood 4-5
+                    often 1,800-2,000 or more.
                   </td>
                 </tr>
                 <tr>
@@ -471,11 +471,10 @@ export default function FollicularUnitExtraction() {
               </table>
               <p style={{ marginTop: 16 }}>
                 So if you are pricing a hair transplant 1000 grafts cost, or
-                costing a 2000 grafts hair transplant, the graft count comes
-                first and the figure follows from it. Hair transplant cost
-                Florida-wide is quoted this way; Florida hair transplant cost
-                differs between clinics mainly because graft counts and
-                inclusions differ.
+                costing a 2000 grafts hair transplant, we first estimate your
+                graft count, then quote a custom session price rather than a
+                per-graft rate. Florida hair transplant cost differs between
+                clinics mainly because session scopes and inclusions differ.
               </p>
             </div>
           </div>
@@ -491,7 +490,7 @@ export default function FollicularUnitExtraction() {
               <li>A written, itemized quote at your consultation, with no hidden extras</li>
               <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
               <li>Medication refills included through your first year</li>
-              <li>Quotes based on your actual graft count, not a package guess</li>
+              <li>A custom session price built on your estimated graft count, not per-graft pricing</li>
             </ul>
             <a className="btn" style={{ marginTop: 24 }} href="#consult">
               Get a personalized quote
@@ -528,11 +527,11 @@ export default function FollicularUnitExtraction() {
               <p style={{ marginTop: 14 }}>
                 Whether you are comparing mens hair transplant cost, male hair
                 transplant cost, hair implants for men cost, male hair implants
-                cost or hair replacement for men cost, the figure comes from the
-                same place: your graft count. We quote hair implants for men in
-                writing after Dr. Imami has assessed your donor area, so the cost
-                of hair implants for men is never a package guess. Mens hair
-                transplant surgery here is a single outpatient day.
+                cost or hair replacement for men cost, the figure works the same
+                way here: Dr. Imami assesses your donor area, estimates the
+                grafts your plan needs, and quotes a custom session price in
+                writing rather than a per-graft rate. Mens hair transplant
+                surgery here is a single outpatient day.
               </p>
             </div>
             <div className="card">
@@ -555,12 +554,12 @@ export default function FollicularUnitExtraction() {
                 head.
               </p>
               <p style={{ marginTop: 14 }}>
-                Female hair transplant cost is quoted the same way: by graft
-                count, in writing, after assessment. That applies equally to a
-                female hairline transplant cost, to female hair implants cost,
-                and to any ladies hair transplant cost, hair implants for women
-                cost or hair replacement for women cost quoted elsewhere.
-                Ask every clinic what the number actually includes.
+                Female hair transplant cost is quoted the same way: a written
+                custom session price after your assessment. That applies equally
+                to a female hairline transplant cost, to female hair implants
+                cost, and to any ladies hair transplant cost, hair implants for
+                women cost or hair replacement for women cost you may be
+                comparing. Ask every clinic what their session price includes.
               </p>
             </div>
           </div>
@@ -640,7 +639,7 @@ export default function FollicularUnitExtraction() {
               excellence, bringing precision and artistry to every hair
               restoration procedure at Imami Hair Restoration, a surgeon-led
               hair transplant clinic in Melbourne, Florida that patients travel
-              to from Orlando, Miami and across the state.
+              to from Orlando, Miami and across the country.
             </p>
             <div id="why">
               {WHY.map((w) => (
@@ -687,9 +686,11 @@ export default function FollicularUnitExtraction() {
             <p className="lede">
               Begin with a private, surgeon-led consultation with Dr. Imami to
               discuss your hair loss concerns, suitability and expected
-              outcomes. Same-day virtual consultations are available, so
-              patients coming from Orlando, Miami or anywhere in Florida can
-              start from home and visit once for the procedure itself.
+              outcomes. Same-day virtual consultations are available, so you can
+              start from home wherever you are. Patients visit from Orlando,
+              Miami and across the country, and our office is just 1 mile from
+              Melbourne-Orlando International Airport (MLB), so fly-in patients
+              can come once for the procedure itself.
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
