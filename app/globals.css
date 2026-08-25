@@ -34,19 +34,19 @@ p{color:#171717}
 .head h2{margin-top:12px}
 
 header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 24px;max-width:1400px;margin:0 auto}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;max-width:1400px;margin:0 auto}
 .brand{flex:0 0 auto;text-decoration:none;display:block}
-.brand img{width:184px;height:auto}
+.brand img{width:156px;height:auto}
 .brand img{display:block}
-.bar{gap:24px}
+
 /* Logo-only header (thank-you page): nothing to space apart, so centre it. */
 .bar--center{justify-content:center}
-.hnav{display:flex;align-items:center;gap:4px;flex:1;justify-content:center}
+.hnav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
 /* Nav matches imamihair.com: Montserrat 500 at 16px, Title Case, no tracking. */
-.hnav a{font-family:var(--sans);font-size:.85rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 6px;border-bottom:2px solid transparent;white-space:nowrap}
+.hnav a{font-family:var(--sans);font-size:.78rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 5px;border-bottom:2px solid transparent;white-space:nowrap}
 .hnav a:hover{color:var(--ink);border-bottom-color:var(--brass)}
-.hact{display:flex;align-items:center;gap:16px;flex:0 0 auto}
-.tel{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-size:1.12rem;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
+.hact{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.tel{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
 .tel svg{width:17px;height:17px;flex:none;fill:var(--brass)}
 /* Menu button + dropdown replace the inline nav below the desktop breakpoint */
 .menu-btn{display:none;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border:none;background:none;cursor:pointer;color:var(--ink)}
@@ -64,7 +64,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .sec:not(.sec--dark) .btn:hover{border-color:#000}
 .btn--lt{background:#fff;color:#000;border-color:#fff}
 .btn--lt:hover{background:var(--brass);color:#fff;border-color:var(--brass)}
-.btn--sm{padding:12px 22px;font-size:.78rem;letter-spacing:1px}
+.btn--sm{padding:12px 16px;font-size:.76rem;letter-spacing:.5px}
 
 .cta-offer{display:flex;align-items:flex-start;gap:9px;margin-top:16px;font-size:.9rem;color:var(--brass);font-weight:600;max-width:52ch}
 .cta-offer::before{content:"";flex:none;width:9px;height:9px;margin-top:7px;border-radius:50%;background:var(--olive)}
