@@ -202,14 +202,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .hero-offer{color:var(--brass-lt);font-weight:600}
 .hero-gift{display:inline-block;width:19px;height:19px;fill:var(--brass-lt);margin-right:10px;vertical-align:-2px}
 
-/* Google rating row under the hero CTA */
-.hero-rating{display:inline-flex;align-items:center;gap:10px;margin-top:18px;text-decoration:none;color:#E4E4E4;font-size:.95rem}
-.hero-rating img{width:22px;height:22px;background:#fff;border-radius:50%;padding:3px}
-.hero-rating-stars{display:inline-flex;gap:2px}
-.hero-rating-stars svg{width:17px;height:17px}
-.hero-rating-text b{font-weight:700;color:#fff}
-.hero-rating:hover .hero-rating-text{color:#fff}
-
 /* Before & after rotator, pinned to the hero's bottom-right on desktop */
 .hero-ba{position:absolute;right:4%;bottom:32px;z-index:5;width:min(400px,30vw);background:rgba(8,8,8,.55);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px;backdrop-filter:blur(6px)}
 .hero-ba-frame{position:relative;aspect-ratio:2/1;border-radius:8px;overflow:hidden}

@@ -39,13 +39,7 @@ export default function SiteHeader({
     return (
       <header>
         <div className="bar bar--center">
-          <a
-            className="brand"
-            href="https://www.imamihair.com/"
-            target="_blank"
-            rel="noopener"
-            aria-label="Imami MD Hair Restoration"
-          >
+          <span className="brand">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/imami-logo.png"
@@ -53,7 +47,7 @@ export default function SiteHeader({
               width={600}
               height={200}
             />
-          </a>
+          </span>
         </div>
       </header>
     );
@@ -62,13 +56,7 @@ export default function SiteHeader({
   return (
     <header>
       <div className="bar">
-        <a
-          className="brand"
-          href="https://www.imamihair.com/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Imami MD Hair Restoration"
-        >
+        <span className="brand">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/imami-logo.png"
@@ -76,7 +64,7 @@ export default function SiteHeader({
             width={600}
             height={200}
           />
-        </a>
+        </span>
         <nav className="hnav" aria-label="Page sections">
           {nav.map((item) => (
             <a key={item.href} href={`${base}${item.href}`}>
