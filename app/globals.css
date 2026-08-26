@@ -36,16 +36,16 @@ p{color:#171717}
 header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;max-width:1400px;margin:0 auto}
 .brand{flex:0 0 auto;text-decoration:none;display:block}
-.brand img{width:156px;height:auto}
+.brand img{width:142px;height:auto}
 .brand img{display:block}
 
 /* Logo-only header (thank-you page): nothing to space apart, so centre it. */
 .bar--center{justify-content:center}
 .hnav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
 /* Nav matches imamihair.com: Montserrat 500 at 16px, Title Case, no tracking. */
-.hnav a{font-family:var(--sans);font-size:.78rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 5px;border-bottom:2px solid transparent;white-space:nowrap}
+.hnav a{font-family:var(--sans);font-size:.76rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 4px;border-bottom:2px solid transparent;white-space:nowrap}
 .hnav a:hover{color:var(--ink);border-bottom-color:var(--brass)}
-.hact{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.hact{display:flex;align-items:center;gap:8px;flex:0 0 auto}
 .tel{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
 .tel svg{width:17px;height:17px;flex:none;fill:var(--brass)}
 /* Menu button + dropdown replace the inline nav below the desktop breakpoint */
@@ -196,6 +196,11 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 /* Negative margin keeps the form in flow, so the section grows with the real
    form height; centered horizontally over the section. */
 .consult-form{position:relative;z-index:2;width:min(620px,100%);margin:-380px auto 0}
+/* Booking calendars run wider than the enquiry form */
+.consult-form--wide{width:min(880px,100%)}
+.booking-embed{background:#000;border:1px solid #999;border-radius:8px;padding:12px;overflow:hidden}
+.booking-embed iframe{display:block;width:100%;min-height:700px;background:#fff;border-radius:6px}
+.contact-form{width:min(620px,100%);margin:0 auto}
 
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-sub{margin-top:18px;font-size:1.12rem;color:#E4E4E4;max-width:56ch}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import LeadFormEmbed from "../components/LeadFormEmbed";
+import BookingEmbed from "../components/BookingEmbed";
 import ReviewMarquee from "../components/ReviewMarquee";
 import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
@@ -638,7 +639,7 @@ export default function FollicularUnitExtraction() {
         <div className="wrap consult-grid">
           <div>
             <p className="eyebrow">Consultation</p>
-            <h2>Request a Consultation with Dr. Imami</h2>
+            <h2>Book Your Consultation with Dr. Imami</h2>
             <p className="lede">
               Begin with a private, surgeon-led consultation with Dr. Imami to
               discuss your hair loss concerns, suitability and expected
@@ -667,7 +668,24 @@ export default function FollicularUnitExtraction() {
           </div>
         </div>
         <div className="wrap">
-          <div className="consult-form">
+          <div className="consult-form consult-form--wide">
+            <BookingEmbed />
+          </div>
+        </div>
+      </section>
+
+      {/* General enquiries: the form stays for visitors not ready to book */}
+      <section className="sec sec--tint" id="contact">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Contact</p>
+            <h2>General Enquiries</h2>
+            <p className="lede">
+              Not ready to book a time yet? Send us a message and our team will
+              get back to you.
+            </p>
+          </div>
+          <div className="contact-form">
             <LeadFormEmbed />
           </div>
         </div>

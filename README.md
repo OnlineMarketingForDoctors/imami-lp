@@ -100,11 +100,21 @@ Vercel Authentication is enabled for everything except custom domains, so the
 `*.vercel.app` URLs require a Vercel login and the page becomes publicly
 reachable once a custom domain is attached to the project.
 
-## Lead form
+## Booking calendar and lead form
 
-The consultation form is a LeadConnector (GoHighLevel) inline embed, in
-`app/components/LeadFormEmbed.tsx`, used by both pages. Leads land in LeadConnector,
-not in this codebase.
+The main conversion path on `/follicular-unit-extraction` is a LeadConnector
+(GoHighLevel) booking calendar, in `app/components/BookingEmbed.tsx`, embedded
+in the `#consult` section that every BOOK button links to. The enquiry form
+(`app/components/LeadFormEmbed.tsx`) stays for general questions in the
+`#contact` section, linked from the menu's Contact item, and remains the sole
+form on the `-2` page. Bookings and leads land in LeadConnector, not in this
+codebase.
+
+Note on tracking: the `/thank-you` redirect (and its `lead_form_submitted`
+dataLayer event) belongs to the enquiry form. Calendar bookings confirm inside
+the widget; to count them as conversions, configure the calendar's own
+thank-you redirect in LeadConnector or track its booking-confirmed event in
+GTM.
 
 `form_embed.js` sizes the iframe: it reads the measured height posted by the
 form and writes it onto the element matching `data-layout-iframe-id`, so those

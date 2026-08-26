@@ -16,6 +16,7 @@ export const NAV_MAIN = [
   { href: "#surgeon", label: "Meet the Doctor" },
   { href: "#journey", label: "Your Journey" },
   { href: "#faq", label: "FAQ" },
+  { href: "#contact", label: "Contact" },
 ];
 
 /** Nav for the original landing page, now at /follicular-unit-extraction-2. */
