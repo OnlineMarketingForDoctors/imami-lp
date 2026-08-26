@@ -8,13 +8,10 @@ export const LANDING = "/follicular-unit-extraction";
 export const NAV_MAIN = [
   { href: "#results", label: "Before & After" },
   { href: "#what", label: "What is FUE" },
-  { href: "#treats", label: "What It Treats" },
   { href: "#works", label: "How It Works" },
   { href: "#benefits", label: "Benefits" },
   { href: "#cost", label: "Cost" },
   { href: "#why", label: "Why Choose Us" },
-  { href: "#surgeon", label: "Meet the Doctor" },
-  { href: "#journey", label: "Your Journey" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
 ];

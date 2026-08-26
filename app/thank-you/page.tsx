@@ -24,7 +24,7 @@ const NEXT = [
   {
     n: "03",
     h: "Your Free Discovery Call",
-    p: "You speak with Dr. Imami about your hair loss, your likely graft count and what it would cost. You leave with a written, itemized quote and no sales pressure.",
+    p: "You speak with a hair transplant specialist about your hair loss, whether no-shave FUE could suit you, and your next steps, including your consultation with Dr. Imami. No sales pressure.",
   },
 ];
 

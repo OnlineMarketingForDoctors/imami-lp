@@ -102,7 +102,7 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "Do patients travel from Miami or Orlando?",
-    a: ["Yes, all the time, and many patients travel to us from across the country. Our hair transplant clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando, a comfortable drive up the coast from Miami, and just 1 mile from Melbourne-Orlando International Airport (MLB) for patients who fly in. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a same-day virtual consultation from wherever you are, then visit once for the procedure itself."],
+    a: ["Yes, all the time, and many patients travel to us from across the country. Our hair transplant clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando, a comfortable drive up the coast from Miami, and just 1 mile from Melbourne-Orlando International Airport (MLB) for patients who fly in. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a free discovery call from wherever you are, then visit once for the procedure itself."],
   },
   {
     q: "How many grafts will I need?",
@@ -248,7 +248,7 @@ export default function FollicularUnitExtraction() {
           </p>
           <div className="hero-cta hero-cta--center">
             <a className="btn" href="#consult">
-              Book Your Free Consultation
+              Book a Free Discovery Call
             </a>
           </div>
         </div>
@@ -526,8 +526,9 @@ export default function FollicularUnitExtraction() {
       <div className="band band--photo">
         <div className="wrap">
           <h2>
-            Wondering if FUE is the Right Procedure for You? Book a Consultation
-            with Dr. Imami to Discuss Your Options.
+            Wondering if FUE is the Right Procedure for You? Book a Free
+            Discovery Call with a Hair Transplant Specialist to Discuss Your
+            Options.
           </h2>
           <div className="hero-cta">
             <a className="btn" href="#consult">
@@ -608,7 +609,7 @@ export default function FollicularUnitExtraction() {
             </div>
             <div className="hero-cta">
               <a className="btn btn--lt" href="#consult">
-                Book Your Free Consultation
+                Book a Free Discovery Call
               </a>
             </div>
           </div>
@@ -638,16 +639,16 @@ export default function FollicularUnitExtraction() {
       <section className="sec sec--dark" id="consult">
         <div className="wrap consult-grid">
           <div>
-            <p className="eyebrow">Consultation</p>
-            <h2>Book Your Consultation with Dr. Imami</h2>
+            <p className="eyebrow">Free Discovery Call</p>
+            <h2>Book Your Free Discovery Call</h2>
             <p className="lede">
-              Begin with a private, surgeon-led consultation with Dr. Imami to
-              discuss your hair loss concerns, suitability and expected
-              outcomes. Same-day virtual consultations are available, so you can
-              start from home wherever you are. Patients visit from Orlando,
-              Miami and across the country, and our office is just 1 mile from
-              Melbourne-Orlando International Airport (MLB), so fly-in patients
-              can come once for the procedure itself.
+              Start with a free phone call with one of our hair transplant
+              specialists to talk through your hair loss concerns, whether
+              no-shave FUE could suit you, and your next steps, including your
+              consultation with Dr. Imami. Book from wherever you are: patients
+              visit from Orlando, Miami and across the country, and our office
+              is just 1 mile from Melbourne-Orlando International Airport
+              (MLB), so fly-in patients can come once for the procedure itself.
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
