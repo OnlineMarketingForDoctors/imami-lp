@@ -30,6 +30,7 @@ p{color:#171717}
 .sec--dark p{color:#C9C9C9}.sec--dark h2,.sec--dark h3{color:#fff}
 .sec--tint{background:var(--paper-2)}
 .lede{font-size:1.1rem;max-width:62ch;margin-top:18px}
+.lede a{color:inherit;font-weight:500;text-decoration:underline;text-decoration-color:var(--brass);text-underline-offset:3px}
 .head{max-width:70ch;margin-bottom:48px}
 .head h2{margin-top:12px}
 
@@ -196,11 +197,13 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 /* Negative margin keeps the form in flow, so the section grows with the real
    form height; centered horizontally over the section. */
 .consult-form{position:relative;z-index:2;width:min(620px,100%);margin:-380px auto 0}
-/* Booking calendars run wider than the enquiry form */
-.consult-form--wide{width:min(880px,100%)}
+/* Booking calendars run wider than the enquiry form, and the wide white
+   widget can't overlap the section imagery the way the slim form did, so
+   it sits in normal flow below the grid instead. */
+.consult-form--wide{width:min(880px,100%);margin:56px auto 0}
 .booking-embed{background:#000;border:1px solid #999;border-radius:8px;padding:12px;overflow:hidden}
 .booking-embed iframe{display:block;width:100%;min-height:700px;background:#fff;border-radius:6px}
-.contact-form{width:min(620px,100%);margin:0 auto}
+.contact-form{width:min(620px,100%);margin:0 auto;justify-self:end}
 
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-sub{margin-top:18px;font-size:1.12rem;color:#E4E4E4;max-width:56ch}

@@ -7,7 +7,7 @@ import ReviewMarquee from "../components/ReviewMarquee";
 import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
 import HeroBA from "../components/HeroBA";
-import { NAV_MAIN } from "../site";
+import { NAV_MAIN, PHONE, PHONE_HREF } from "../site";
 
 export const metadata: Metadata = {
   title: "FUE Hair Transplant in Florida | Follicular Unit Extraction",
@@ -676,13 +676,18 @@ export default function FollicularUnitExtraction() {
 
       {/* General enquiries: the form stays for visitors not ready to book */}
       <section className="sec sec--tint" id="contact">
-        <div className="wrap">
-          <div className="head">
+        <div className="wrap g2" style={{ alignItems: "start" }}>
+          <div>
             <p className="eyebrow">Contact</p>
             <h2>General Enquiries</h2>
             <p className="lede">
               Not ready to book a time yet? Send us a message and our team will
               get back to you.
+            </p>
+            <p className="lede">
+              Prefer to talk? Call us at{" "}
+              <a href={PHONE_HREF}>{PHONE}</a> during office hours, Monday to
+              Friday, 8 am to 5 pm.
             </p>
           </div>
           <div className="contact-form">
