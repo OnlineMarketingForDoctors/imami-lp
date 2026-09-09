@@ -110,7 +110,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 @media(prefers-reduced-motion:reduce){.hero-media{display:none}}
 .hero2>.wrap{width:100%}
 /* Wide enough that the headline breaks across two or three lines, never four */
-.hero2 h1{color:#fff;max-width:22ch;font-size:clamp(2.1rem,4vw,3.4rem);margin-top:12px}
+.hero2 h1{color:#fff;max-width:22ch;font-size:clamp(2.1rem,4vw,3.4rem);margin-top:12px;text-wrap:balance}
 .hero2 .hero-cta{margin-top:28px}
 .hero-points{list-style:none;display:grid;gap:10px;margin-top:22px}
 .hero-points li{display:flex;align-items:center;gap:12px;color:#E4E4E4;font-size:1rem;font-weight:400}

@@ -177,9 +177,7 @@ export default function FueHairTransplantCost() {
         <div className="wrap">
           <p className="eyebrow eyebrow--accent">FUE Hair Transplant Cost</p>
           <h1>
-            The Cost of Getting Your Hair Back
-            <br />
-            Is Less Than You Fear
+            The Cost of Getting Your Hair Back Is Less Than You Fear
           </h1>
           <p className="hero-sub">
             {/* Font Awesome solid "gift" */}
