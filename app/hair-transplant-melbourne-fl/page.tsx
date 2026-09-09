@@ -213,19 +213,6 @@ export default function HairTransplantMelbourneFl() {
         </div>
       </section>
 
-      {/* Booking widget high on the page, per the brief */}
-      <section className="sec sec--dark" id="consult" style={{ padding: "56px 0" }}>
-        <div className="wrap">
-          <div className="consult-form consult-form--wide" style={{ margin: "0 auto" }}>
-            <BookingEmbed />
-            <p className="fineprint">
-              Your discovery call is free. Fees for in-person consultations,
-              where applicable, are confirmed when you book.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Address, map and areas served, per the brief */}
       <section className="sec" id="location">
         <div className="wrap g2" style={{ alignItems: "start" }}>
@@ -589,7 +576,7 @@ export default function HairTransplantMelbourneFl() {
       </section>
 
       {/* Consultation: portrait right with the form overlapping it, photo lower-left */}
-      <section className="sec sec--dark" id="book">
+      <section className="sec sec--dark" id="consult">
         <div className="wrap consult-grid">
           <div>
             <p className="eyebrow">Free Discovery Call</p>
@@ -623,7 +610,7 @@ export default function HairTransplantMelbourneFl() {
         </div>
         <div className="wrap">
           <div className="consult-form consult-form--wide">
-            <BookingEmbed instance="2" />
+            <BookingEmbed />
             <p className="fineprint">
               Your discovery call is free. Fees for in-person consultations,
               where applicable, are confirmed when you book.

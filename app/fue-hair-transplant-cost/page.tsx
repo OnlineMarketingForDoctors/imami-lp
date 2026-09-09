@@ -234,19 +234,6 @@ export default function FueHairTransplantCost() {
         </div>
       </section>
 
-      {/* Booking widget high on the page, per the brief */}
-      <section className="sec sec--dark" id="consult" style={{ padding: "56px 0" }}>
-        <div className="wrap">
-          <div className="consult-form consult-form--wide" style={{ margin: "0 auto" }}>
-            <BookingEmbed />
-            <p className="fineprint">
-              Your discovery call is free. Fees for in-person consultations,
-              where applicable, are confirmed when you book.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Patient quote on cost, placed high per the brief */}
       <section className="sec">
         <div className="wrap">
@@ -668,7 +655,7 @@ export default function FueHairTransplantCost() {
       </section>
 
       {/* Consultation: portrait right with the form overlapping it, photo lower-left */}
-      <section className="sec sec--dark" id="book">
+      <section className="sec sec--dark" id="consult">
         <div className="wrap consult-grid">
           <div>
             <p className="eyebrow">Free Discovery Call</p>
@@ -702,7 +689,7 @@ export default function FueHairTransplantCost() {
         </div>
         <div className="wrap">
           <div className="consult-form consult-form--wide">
-            <BookingEmbed instance="2" />
+            <BookingEmbed />
             <p className="fineprint">
               Your discovery call is free. Fees for in-person consultations,
               where applicable, are confirmed when you book.
