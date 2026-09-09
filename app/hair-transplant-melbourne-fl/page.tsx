@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import LeadFormEmbed from "../components/LeadFormEmbed";
 import BookingEmbed from "../components/BookingEmbed";
-import BASlider, { BAItem } from "../components/BASlider";
 import ReviewMarquee from "../components/ReviewMarquee";
+import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
+import HeroBA from "../components/HeroBA";
 import { PHONE, PHONE_HREF } from "../site";
 
 export const metadata: Metadata = {
@@ -16,10 +18,13 @@ export const metadata: Metadata = {
 
 const NAV_LOCAL = [
   { href: "#location", label: "Location" },
-  { href: "#results", label: "Results" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#surgeon", label: "Meet the Doctor" },
+  { href: "#results", label: "Before & After" },
+  { href: "#what", label: "What is FUE" },
+  { href: "#works", label: "How It Works" },
   { href: "#cost", label: "Cost" },
+  { href: "#why", label: "Why Choose Us" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#contact", label: "Contact" },
 ];
 
 const AREAS = [
@@ -31,68 +36,187 @@ const AREAS = [
   "The Space Coast",
 ];
 
-/* Six representative no-shave FUE cases. */
+const HERO_POINTS = [
+  "Triple Board-Certified Surgeon",
+  "Flexible Financing Available",
+  "Natural-Looking, Artful Results",
+  "30+ Years Surgical Excellence",
+];
+
 const RESULTS: BAItem[] = [
   { img: "1.png", age: "37", norwood: "3", grafts: "1,112", timeline: "1 Year Post-Op" },
   { img: "1-1.png", age: "39", norwood: "3", grafts: "1,647", timeline: "19 Months after 2nd FUE" },
   { img: "1-2.png", age: "61", norwood: "4A", grafts: "1,205", timeline: "15 Months Post-Op" },
   { img: "1-3.png", age: "32", norwood: "3", grafts: "1,800", timeline: "1 Year Post-Op" },
+  { img: "1-4.png", age: "33", norwood: "3A", grafts: "1,750", timeline: "4 Years Post-Op" },
   { img: "1-5.png", age: "66", norwood: "5", grafts: "1,350", timeline: "1 Year Post-Op" },
   { img: "1-6.png", age: "38", norwood: "4", grafts: "2,023", timeline: "2 Years Post-Op" },
+  { img: "1-8.png", age: "55", norwood: "5", grafts: "1,800", timeline: "1 Year Post-Op" },
+  { img: "1-9.png", age: "61", norwood: "4A", grafts: "1,205", timeline: "15 Months Post-Op" },
+  { img: "2-9.png", age: "39", norwood: "4A", grafts: "1,875", timeline: "1 Year Post-Op" },
+];
+
+const TREATS = [
+  { icon: "Group-467.png", h: "Receding Hairline", p: "Redesigning and lowering the hairline for a youthful frame." },
+  { icon: "Group-473.png", h: "Thinning Crown", p: "Restoring density to the vertex for complete coverage." },
+  { icon: "Group-467.png", h: "Temple Restoration", p: "Rebuilding temporal points for a balanced facial profile." },
+  { icon: "Group-474.png", h: "Scar Camouflage", p: "Concealing previous surgical scars or trauma." },
+  { icon: "Group-475-1.png", h: "Hairline Refinement", p: "Adding density to previous transplants or naturally weak hairlines." },
+];
+
+const STEPS = [
+  { num: "01.png", h: "Extraction", p: "Individual follicles are carefully extracted using a microscopic punch tool." },
+  { num: "02.png", h: "Preparation", p: "Grafts are inspected, sorted, and preserved in a specialized solution." },
+  { num: "03.png", h: "Site Creation", p: "Precise recipient sites are carefully created, matching the hair’s natural angle and direction." },
+  { num: "04.png", h: "Implantation", p: "Grafts are delicately placed into the sites for natural-looking density." },
+];
+
+const BENEFITS = [
+  "No linear scarring in the donor area",
+  "Significantly shorter recovery time",
+  "No-shave options available for minimal downtime",
+  "Ability to wear hair longer or shorter",
+  "Repeatable procedure for future thinning",
+  "Completely natural, undetectable outcomes",
 ];
 
 const WHY = [
+  { h: "Triple Board-Certified", p: "A rare distinction ensuring the highest standards of surgical safety, ethics, and aesthetic outcomes." },
+  { h: "Surgeon-Led Procedure", p: "Dr Imami directs his experienced hair transplant team for optimal extraction and site creation." },
+  { h: "Personalized Design", p: "Every hairline is custom-designed based on facial geometry, age, and long-term hair loss progression." },
+];
+
+const JOURNEY = [
+  { h: "Consultation", p: "In-depth analysis of hair loss, medical history, and goal setting." },
+  { h: "Planning & Design", p: "Custom hairline design and calculation of required graft count." },
+  { h: "Donor Preparation", p: "Local anesthesia administered; meticulous extraction begins." },
+  { h: "Graft Placement", p: "Strategic implantation into recipient sites for optimal density." },
+  { h: "Post-op Care", p: "Immediate review, care instructions provided, and you head home." },
+  { h: "Follow-up", p: "Scheduled check-ins at 2 weeks, 6 months, and 12 months." },
+];
+
+const AFTERCARE = [
+  { icon: "Group-472-1.png", h: "First 48 Hours", p: "Rest with head elevated. Spray grafts with provided saline solution. Avoid touching the recipient area." },
+  { icon: "Group-473-1.png", h: "Activity Restrictions", p: "No strenuous exercise or heavy lifting for 14 days. Avoid direct sun exposure to the scalp for 3 months." },
+  { icon: "Group-467-1.png", h: "Follow-up Schedule", p: "We monitor your progress closely with scheduled visits at Day 2, Day 14, Month 6, and Year 1." },
+];
+
+const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   {
-    h: "Triple Board-Certified",
-    p: "A rare distinction ensuring the highest standards of surgical safety, ethics, and aesthetic outcomes.",
+    q: "Is the FUE procedure painful?",
+    open: true,
+    a: ["No. The procedure is performed under local anesthesia. You may feel minor discomfort during the initial numbing injections, but the surgery itself is virtually painless. Most patients watch movies, listen to music, or even nap during the process."],
   },
   {
-    h: "Surgeon-Led Procedure",
-    p: "Dr Imami directs his experienced hair transplant team for optimal extraction and site creation.",
+    q: "Do I have to shave my head?",
+    a: ["No. Dr. Imami specialises in No-Shave FUE, which allows the surrounding hair to be kept at its existing length so the procedure remains completely discreet. Individual follicles are extracted from longer donor hair without shaving the head, meaning you can return to work and social settings without an obvious ‘transplant look’. For larger sessions where a partial trim is needed, Dr. Imami will discuss your options during your consultation and design an approach that fits both your hair loss pattern and your lifestyle."],
   },
   {
-    h: "Personalized Design",
-    p: "Every hairline is custom-designed based on facial geometry, age, and long-term hair loss progression.",
+    q: "When will I see the final results?",
+    a: ["Hair growth after FUE happens gradually. The transplanted hairs typically shed within the first few weeks (this is normal and expected), with new growth beginning around the 3–4 month mark. Most patients see noticeable density and a clear improvement by 6 months, and the final, fully matured result is generally visible at 12–18 months post-op. We monitor your progress with scheduled follow-ups at Day 2, Day 14, Month 6, and Year 1 to track your transformation."],
+  },
+  {
+    q: "How much does a hair transplant cost?",
+    a: ["There is no single hair transplant price, because no two patients need the same session. Dr. Imami estimates the graft count your plan requires, then quotes a custom session price rather than charging per graft. As a reference, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized session quote covering your procedure and your year-one follow-ups, and financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included."],
+  },
+  {
+    q: "Do patients travel from Miami or Orlando?",
+    a: ["Yes, all the time, and many patients travel to us from across the country. Our hair transplant clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando, a comfortable drive up the coast from Miami, and just 1 mile from Melbourne-Orlando International Airport (MLB) for patients who fly in. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a free discovery call from wherever you are, then visit once for the procedure itself."],
+  },
+  {
+    q: "How many grafts will I need?",
+    a: ["The number of grafts varies based on your degree of hair loss (Norwood stage), the areas being treated, your donor density, and your desired result. As a reference, Dr. Imami’s recent No-Shave FUE patients have typically received between 1,100 and 2,000 grafts per session. For example, a Norwood 3 hairline restoration may require around 1,100–1,800 grafts, while more advanced patterns at Norwood 4–5 often need 1,800–2,000+ grafts. During your consultation, Dr. Imami will assess your scalp, design your hairline, and calculate the precise graft count needed to achieve a natural, balanced outcome."],
   },
 ];
 
-/* Font Awesome solid "phone", as used in the site header. */
-const PHONE_PATH =
-  "M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z";
+/** Slowly rotating circular "Imami Hair Restoration" badge, as on the live page. */
+function Badge({ dark, className }: { dark?: boolean; className?: string }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      className={`badge${className ? " " + className : ""}`}
+      src={dark ? "/images/Imami-Hair-Restoration-1.png" : "/images/Imami-Hair-Restoration.png"}
+      alt=""
+      width={226}
+      height={227}
+      loading="lazy"
+    />
+  );
+}
 
-export default function MelbournePage() {
+export default function HairTransplantMelbourneFl() {
   return (
     <>
       <SiteHeader nav={NAV_LOCAL} />
 
-      {/* Hero: local emotional hook, hours and phone above the fold,
-          booking widget above the fold */}
-      <section className="hero-lp" id="top">
-        <div className="wrap hero-lp-grid">
-          <div>
-            <p className="eyebrow eyebrow--accent">Melbourne &middot; Space Coast</p>
-            <h1>
-              Feel Like Yourself Again: No-Shave FUE Hair Transplants in
-              Melbourne, FL
-            </h1>
-            <p className="hero-sub">
-              You should not have to fly across the country, or the world, to
-              trust the person restoring your hairline. Dr. Imami has served
-              the Space Coast for over 30 years, and his surgeon-led, no-shave
-              FUE means nobody at work has to know.
-            </p>
-            <a className="hero-phone" href={PHONE_HREF}>
-              <svg viewBox="0 0 512 512" aria-hidden="true">
-                <path fill="#FF8400" d={PHONE_PATH} />
-              </svg>
-              {PHONE}
+      {/* Hero: full-bleed background video (image fallback), left copy */}
+      <section className="hero2" id="top">
+        {/* Rendered as raw HTML so the muted attribute lands in the markup
+            itself; browsers refuse to autoplay before hydration without it. */}
+        <div
+          className="hero-media"
+          aria-hidden="true"
+          dangerouslySetInnerHTML={{
+            __html: `<video autoplay muted loop playsinline preload="metadata" poster="/images/FUE-Hair-Transplant.jpg"><source src="/hero-video.webm" type="video/webm"><source src="/hero-video.mp4" type="video/mp4"></video>`,
+          }}
+        />
+        <div className="wrap">
+          <p className="eyebrow eyebrow--accent">Melbourne &middot; Space Coast</p>
+          <h1>
+            Feel Like Yourself Again -
+            <br />
+            No-Shave FUE in Melbourne, FL
+          </h1>
+          <p className="hero-sub">
+            {/* Font Awesome solid "gift" */}
+            <svg className="hero-gift" viewBox="0 0 512 512" aria-hidden="true">
+              <path d="M190.5 68.8 225.3 128h-1.3-72c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32v-64c0-17.7-14.3-32-32-32h-41.6c6.1-12 9.6-25.6 9.6-40 0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40h-72-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48h2.2c22.1 0 40 17.9 40 40zM32 288v176c0 26.5 21.5 48 48 48h144V288H32zm256 224h144c26.5 0 48-21.5 48-48V288H288v224z" />
+            </svg>
+            <strong className="hero-offer">
+              Complimentary biomimetic hair growth treatment
+            </strong>{" "}
+            with every hair transplant, included in Dr. Imami&rsquo;s
+            post-operative care program.*
+          </p>
+          <ul className="hero-points">
+            {HERO_POINTS.map((point) => (
+              <li key={point}>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.4-4-4 1.7-1.7 2.3 2.3 4.7-4.7 1.7 1.7z" />
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
+          <div className="hero-cta">
+            <a className="btn" href="#consult">
+              Get My Free Hair Restoration Plan
             </a>
-            <p className="hero-hours">
-              Mon &ndash; Fri: 8 am to 5 pm &middot; After hours by appointment
-              &middot; 1140 Broadband Drive, Unit G2, Melbourne, FL
-            </p>
           </div>
-          <div>
+          <p className="hero-hours">
+            <a className="hero-phone" href={PHONE_HREF}>
+              {PHONE}
+            </a>{" "}
+            &middot; Mon &ndash; Fri: 8 am to 5 pm &middot; After hours by
+            appointment
+          </p>
+          <p className="hero-fine">
+            *Offered with procedures booked through this page. Ask at your
+            consultation for full details.
+          </p>
+          <HeroBA
+            items={RESULTS.slice(0, 4).map((r) => ({
+              img: r.img,
+              alt: `No shave FUE hair transplant before and after, age ${r.age}, Norwood ${r.norwood}`,
+            }))}
+          />
+        </div>
+      </section>
+
+      {/* Booking widget high on the page, per the brief */}
+      <section className="sec sec--dark" id="consult" style={{ padding: "56px 0" }}>
+        <div className="wrap">
+          <div className="consult-form consult-form--wide" style={{ margin: "0 auto" }}>
             <BookingEmbed />
             <p className="fineprint">
               Your discovery call is free. Fees for in-person consultations,
@@ -102,6 +226,7 @@ export default function MelbournePage() {
         </div>
       </section>
 
+      {/* Address, map and areas served, per the brief */}
       <section className="sec" id="location">
         <div className="wrap g2" style={{ alignItems: "start" }}>
           <div>
@@ -141,32 +266,270 @@ export default function MelbournePage() {
         </div>
       </section>
 
-      <section className="sec sec--tint" id="results">
+      <section className="sec sec--tint" id="reviews" style={{ borderTop: "none" }}>
         <div className="wrap">
-          <div className="head">
-            <p className="eyebrow">Real Results</p>
-            <h2>Before &amp; After, Right Here in Melbourne</h2>
-          </div>
-          <BASlider items={RESULTS} />
-          <p className="disc disc--center">
-            The images above are displayed with the consent of the patients.
-            The outcomes shown are only relevant for these patients and do not
-            necessarily reflect the results other patients may experience.
-          </p>
-        </div>
-      </section>
-
-      <section className="sec" id="reviews" style={{ borderTop: "none" }}>
-        <div className="wrap">
-          <div className="head">
+          <div className="head" style={{ marginBottom: 34 }}>
             <p className="eyebrow">Patient Testimonials</p>
             <h2>What Our Patients Say</h2>
           </div>
         </div>
-        {/* The Blaufarb review discusses a FUT procedure, which this FUE
-            campaign page must not carry. */}
+        {/* One review discusses a FUT procedure; this FUE page must not carry it */}
         <ReviewMarquee exclude={["eric blaufarb"]} />
       </section>
+
+      <section className="sec sec--dark" id="approach">
+        <div className="wrap g2">
+          <div>
+            <p className="eyebrow">Our Approach</p>
+            <h2>The Doctor You Meet Is the Doctor Who Operates.</h2>
+            <p className="lede">
+              At most large hair restoration chains, your consultation is with a
+              salesperson and your surgery is performed by a technician. At Imami
+              Hair Restoration, it works differently. Dr. Imami personally
+              evaluates every patient, designs your new hairline and performs the
+              surgical components of every procedure himself.
+            </p>
+            <p className="lede">
+              Your transplant is then completed under his direct supervision by a
+              dedicated team of technicians with 15 years of experience working
+              alongside him, bringing surgical-level precision and artistry to
+              every stage of your procedure.
+            </p>
+          </div>
+          <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img"
+              src="/images/consultation-with-dr-imami.webp"
+              alt="Consultation with Dr Imami"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="sec sec--tint" id="results">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Real Results</p>
+            <h2>Before &amp; After</h2>
+            <p className="lede">
+              See the transformative results our patients have achieved with Dr.
+              Imami.
+            </p>
+          </div>
+          <BASlider items={RESULTS} />
+          <p className="disc disc--center">
+            The images above are displayed with the consent of the patients. The
+            outcomes shown are only relevant for these patients and do not
+            necessarily reflect the results other patients may experience. Our
+            team will discuss any factors that could influence the results that
+            you may get.
+          </p>
+          <div className="hero-cta hero-cta--center">
+            <a className="btn" href="#consult">
+              Book a Free Discovery Call
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* What is FUE + What FUE Can Treat: one dark textured section, as on the site */}
+      <section className="sec sec--dark" id="what">
+        <div className="wrap what-grid">
+          <div>
+            <p className="eyebrow">The Technique</p>
+            <h2>What is FUE?</h2>
+            <p className="lede">
+              Follicular Unit Extraction (FUE) is the most advanced, minimally
+              invasive hair transplant method available today. It involves
+              extracting individual hair follicles from a donor area and
+              implanting them where hair is thinning.
+            </p>
+            <p className="kd">Key Distinction</p>
+            <p className="lede" style={{ marginTop: 12 }}>
+              Whether you call it an FUE hair transplant, FUE hair replacement
+              or simply FUE, the technique is the same, and Dr. Imami
+              specializes in the no-shave version. Individual follicles are
+              taken from longer donor hair without shaving your head, so the
+              procedure stays discreet from day one and leaves no linear scar.
+            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="collage"
+              src="/images/key-distinction.webp"
+              alt="Dr. Imami performing FUE hair transplant procedures"
+              loading="lazy"
+            />
+          </div>
+          <div id="treats">
+            <h3 className="treats-title">What FUE Can Treat</h3>
+            <ul className="treat-rows">
+              {TREATS.map((t) => (
+                <li key={t.h}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/images/${t.icon}`} alt="" width={72} height={72} loading="lazy" />
+                  <div>
+                    <h4>{t.h}</h4>
+                    <p>{t.p}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* How FUE Works: cream, circular badge, staggered boxes with big numbers */}
+      <section className="sec sec--tint" id="works">
+        <div className="wrap">
+          <div className="works-head">
+            <Badge dark className="badge--works" />
+            <div>
+              <p className="eyebrow">The Process</p>
+              <h2>
+                How FUE
+                <br />
+                Works
+              </h2>
+            </div>
+          </div>
+          <div className="wsteps">
+            {STEPS.map((s, i) => (
+              <div className={`wstep wstep--${i + 1}`} key={s.h}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="wnum" src={`/images/${s.num}`} alt="" loading="lazy" />
+                <h4>{s.h}</h4>
+                <p>{s.p}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="benefits">
+        <div className="wrap g2">
+          <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img"
+              src="/images/benefits.png"
+              alt="FUE hair transplant procedure in progress"
+              width={623}
+              height={564}
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <p className="eyebrow">Advantages</p>
+            <h2>Benefits of FUE</h2>
+            <ul className="checks" style={{ marginTop: 26 }}>
+              {BENEFITS.map((b) => (
+                <li key={b}>{b}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Cost trimmed to a short block linking across, per the brief */}
+      <section className="sec sec--tint" id="cost">
+        <div className="wrap">
+          <div className="head" style={{ marginBottom: 0 }}>
+            <p className="eyebrow">Investment</p>
+            <h2>What Does a Hair Transplant Cost in Melbourne?</h2>
+            <p className="lede">
+              There is no per-graft meter here. Dr. Imami estimates the grafts
+              your plan needs and quotes one written session price, covering
+              the procedure and your first year of follow-ups, with financing
+              through CareCredit and Affirm.
+            </p>
+            <div className="hero-cta">
+              <a className="btn" href="/fue-hair-transplant-cost">
+                See Session Pricing &amp; Financing
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="who">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Who We Treat</p>
+            <h2>Hair Transplants for Men and Women</h2>
+          </div>
+          <div className="g2" style={{ alignItems: "stretch" }}>
+            <div className="card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="card-img"
+                src="/images/who-men.jpg"
+                alt="Man with a full, natural head of hair"
+                width={1400}
+                height={939}
+                loading="lazy"
+              />
+              <span className="num">Men</span>
+              <h3>Male Pattern Hair Loss</h3>
+              <p>
+                Most of our patients are men with a receding hairline, a thinning
+                crown or both. A men&rsquo;s FUE hair transplant rebuilds the
+                frame of the face using your own hair, and no-shave FUE means
+                colleagues need not know you have had anything done.
+              </p>
+              <p style={{ marginTop: 14 }}>
+                If you have been researching what a hair transplant costs, the
+                honest answer is that it depends on how much coverage you need.
+                Dr. Imami assesses your donor area, estimates how many grafts
+                your plan calls for, and gives you a custom session price in
+                writing. The procedure itself is a single outpatient day.
+              </p>
+            </div>
+            <div className="card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="card-img"
+                src="/images/who-women.jpg"
+                alt="Woman with thick, healthy shoulder-length hair"
+                width={1400}
+                height={939}
+                loading="lazy"
+              />
+              <span className="num">Women</span>
+              <h3>Female Thinning &amp; Hairlines</h3>
+              <p>
+                Women lose hair differently, more often diffuse thinning
+                or a high, uneven hairline than a classic receding pattern. A
+                female hairline transplant can lower and soften the frame, and
+                FUE hair transplant for women is carried out without shaving the
+                head.
+              </p>
+              <p style={{ marginTop: 14 }}>
+                Pricing works the same way for women: after your assessment,
+                you receive a written session price for your treatment plan,
+                with everything it covers spelled out. Wherever you compare,
+                ask what the quoted price actually includes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="band band--photo">
+        <div className="wrap">
+          <h2>
+            Wondering if FUE is the Right Procedure for You? Book a Free
+            Discovery Call with a Hair Transplant Specialist to Discuss Your
+            Options.
+          </h2>
+          <div className="hero-cta">
+            <a className="btn" href="#consult">
+              Book a Free Discovery Call
+            </a>
+          </div>
+        </div>
+      </div>
 
       <section className="sec sec--dark" id="surgeon">
         <div className="wrap g2" style={{ alignItems: "center" }}>
@@ -184,10 +547,10 @@ export default function MelbournePage() {
             <h2>Dr. Emran Imami</h2>
             <p className="lede">
               Triple board-certified surgeon with over 30 years of surgical
-              excellence, practicing right here in Melbourne. The doctor you
-              meet is the doctor who operates: Dr. Imami personally evaluates
-              every patient, designs your hairline and performs the surgical
-              components of every procedure himself.
+              excellence, bringing precision and artistry to every hair
+              restoration procedure at Imami Hair Restoration, a surgeon-led
+              hair transplant clinic in Melbourne, Florida that patients travel
+              to from Orlando, Miami and across the country.
             </p>
             <div id="why">
               {WHY.map((w) => (
@@ -206,40 +569,60 @@ export default function MelbournePage() {
         </div>
       </section>
 
-      {/* Short cost block linking across to the cost page */}
-      <section className="sec sec--tint" id="cost">
+      <section className="sec" id="faq">
         <div className="wrap">
-          <div className="head" style={{ marginBottom: 0 }}>
-            <p className="eyebrow">Investment</p>
-            <h2>What Does It Cost?</h2>
-            <p className="lede">
-              There is no per-graft meter here. Dr. Imami estimates the grafts
-              your plan needs and quotes one written session price, covering
-              the procedure and your first year of follow-ups, with financing
-              through CareCredit and Affirm.
-            </p>
-            <div className="hero-cta">
-              <a className="btn" href="/fue-hair-transplant-cost">
-                See Session Pricing &amp; Financing
-              </a>
-            </div>
+          <div className="head">
+            <p className="eyebrow">Common Questions</p>
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div className="faq">
+            {FAQ.map((item) => (
+              <details key={item.q} open={item.open}>
+                <summary>{item.q}</summary>
+                {item.a.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </details>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Closing booking widget */}
-      <section className="sec sec--dark" id="consult">
-        <div className="wrap">
-          <div className="head">
+      {/* Consultation: portrait right with the form overlapping it, photo lower-left */}
+      <section className="sec sec--dark" id="book">
+        <div className="wrap consult-grid">
+          <div>
             <p className="eyebrow">Free Discovery Call</p>
-            <h2>Talk to Us Today</h2>
+            <h2>Book Your Free Discovery Call</h2>
             <p className="lede">
-              A free phone call with a hair transplant specialist, then one
-              visit to our Melbourne office when you are ready. Same-day calls
-              are usually available.
+              Start with a free phone call with one of our hair transplant
+              specialists to talk through your hair loss concerns, whether
+              no-shave FUE could suit you, and your next steps, including your
+              consultation with Dr. Imami. Book from wherever you are: patients
+              visit from Orlando, Miami and across the country, and our office
+              is just 1 mile from Melbourne-Orlando International Airport
+              (MLB), so fly-in patients can come once for the procedure itself.
             </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img consult-side"
+              src="/images/Rectangle-187-1-1.png"
+              alt="Active lifestyle after FUE hair transplant"
+              loading="lazy"
+            />
           </div>
-          <div className="consult-form consult-form--wide" style={{ margin: "0 auto" }}>
+          <div className="consult-visual">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img consult-portrait"
+              src="/images/Rectangle-183-8-1.png"
+              alt="Confident man after hair restoration"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div className="wrap">
+          <div className="consult-form consult-form--wide">
             <BookingEmbed instance="2" />
             <p className="fineprint">
               Your discovery call is free. Fees for in-person consultations,
@@ -249,7 +632,30 @@ export default function MelbournePage() {
         </div>
       </section>
 
+      {/* General enquiries: the form stays for visitors not ready to book */}
+      <section className="sec sec--tint" id="contact">
+        <div className="wrap g2" style={{ alignItems: "start" }}>
+          <div>
+            <p className="eyebrow">Contact</p>
+            <h2>General Enquiries</h2>
+            <p className="lede">
+              Not ready to book a time yet? Send us a message and our team will
+              get back to you.
+            </p>
+            <p className="lede">
+              Prefer to talk? Call us at{" "}
+              <a href={PHONE_HREF}>{PHONE}</a> during office hours, Monday to
+              Friday, 8 am to 5 pm.
+            </p>
+          </div>
+          <div className="contact-form">
+            <LeadFormEmbed />
+          </div>
+        </div>
+      </section>
+
       <SiteFooter />
+
       <BackToTop />
     </>
   );

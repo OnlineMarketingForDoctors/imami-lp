@@ -476,23 +476,19 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
 /* ---- campaign variant pages: /fue-hair-transplant-cost and
    /hair-transplant-melbourne-fl. Same shell, compact mobile-first flow,
    booking widget above the fold and at the close. ---- */
-.hero-lp{position:relative;color:#fff;padding:56px 0 64px;background:#111 url('/images/texture-dark.jpg')}
-.hero-lp h1{color:#fff;font-size:clamp(1.9rem,3.4vw,3rem);max-width:24ch;margin-top:12px}
-.hero-lp-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
-.hero-lp .hero-sub{max-width:52ch}
 .hero-phone{display:inline-flex;align-items:center;gap:10px;margin-top:20px;font-size:1.25rem;font-weight:700;color:#fff;text-decoration:none}
 .hero-phone svg{width:19px;height:19px;fill:var(--brass)}
 .hero-hours{margin-top:6px;color:#C9C9C9;font-size:.92rem}
 
-/* Price band card: the first thing the cost page shows */
-.price-band{background:#fff;color:var(--ink-2);border-radius:8px;border-left:6px solid var(--brass);padding:24px 26px;margin-top:26px}
-.price-band h3{margin-bottom:4px}
-.price-band table{width:100%;border-collapse:collapse;margin-top:14px}
-.price-band th{text-align:left;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 8px 6px 0;border-bottom:1px solid var(--line)}
-.price-band td{padding:10px 8px 10px 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.price-band tr:last-child td{border-bottom:none}
-.price-band td b{font-weight:700;white-space:nowrap}
-.price-band .disc-sm{margin-top:10px}
+/* Price band inside the hero's corner-card slot (cost page) */
+.hero-price{padding:18px 20px}
+.hero-price h3{color:#fff;font-size:1.02rem;margin-bottom:4px}
+.hero-price table{width:100%;border-collapse:collapse}
+.hero-price td{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:.9rem;color:#E4E4E4}
+.hero-price tr:last-child td{border-bottom:none}
+.hero-price td b{color:#fff;font-weight:600}
+.hero-price td:last-child{text-align:right;color:var(--brass-lt);font-weight:600}
+.hero-price .hero-ba-more{display:inline-block;margin-top:12px}
 
 /* Patient quote placed high on the cost page */
 .quote-hi{border-left:4px solid var(--brass);padding:4px 0 4px 24px;max-width:62ch;font-size:1.2rem;font-style:italic;line-height:1.6}
@@ -506,6 +502,5 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
 .addr b{display:block;font-weight:600}
 
 @media(max-width:980px){
-  .hero-lp-grid{grid-template-columns:1fr;gap:36px}
   .map-embed{height:280px}
 }

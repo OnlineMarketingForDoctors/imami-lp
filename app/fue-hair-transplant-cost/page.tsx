@@ -1,58 +1,48 @@
 import type { Metadata } from "next";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import LeadFormEmbed from "../components/LeadFormEmbed";
 import BookingEmbed from "../components/BookingEmbed";
+import ReviewMarquee from "../components/ReviewMarquee";
 import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
+import { PHONE, PHONE_HREF } from "../site";
 
 export const metadata: Metadata = {
   title: "FUE Hair Transplant Cost | Imami Hair Restoration",
   description:
-    "What a no-shave FUE hair transplant costs at Imami Hair Restoration: one written session price built on your estimated graft count, with financing through CareCredit and Affirm.",
+    "What a no-shave FUE hair transplant costs: one written session price built on your estimated graft count, with financing through CareCredit and Affirm. Book a free discovery call.",
   robots: { index: false, follow: true },
 };
 
 const NAV_COST = [
-  { href: "#pricing", label: "Pricing" },
-  { href: "#included", label: "What's Included" },
-  { href: "#financing", label: "Financing" },
+  { href: "#results", label: "Before & After" },
+  { href: "#benefits", label: "Benefits" },
+  { href: "#cost", label: "Pricing" },
   { href: "#ask", label: "Compare Clinics" },
-  { href: "#results", label: "Results" },
+  { href: "#why", label: "Why Choose Us" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#contact", label: "Contact" },
 ];
 
 /**
- * Session price bands. `price` renders in the band table once the practice
- * supplies its figures; until then the row shows the written-quote line so
- * nothing invented ships.
+ * Session price bands. `price` renders once the practice supplies figures;
+ * until then rows fall back to the written-quote line so nothing invented
+ * ships.
  */
-const PRICE_BANDS: { grafts: string; suits: string; price: string | null }[] = [
-  { grafts: "1,000-1,200", suits: "Early hairline or temple rebuild", price: null },
-  { grafts: "1,200-1,800", suits: "Full hairline restoration", price: null },
-  { grafts: "1,800-2,000+", suits: "Hairline plus crown together", price: null },
+const PRICE_BANDS: { grafts: string; price: string | null }[] = [
+  { grafts: "1,000-1,200", price: null },
+  { grafts: "1,200-1,800", price: null },
+  { grafts: "1,800-2,000+", price: null },
 ];
 
-/** Indicative monthly financing figure, e.g. "$250" — null until supplied. */
+/** Indicative monthly financing figure, e.g. "$250" - null until supplied. */
 const FINANCE_MONTHLY: string | null = null;
-
-/* Four representative no-shave FUE cases, per the brief's trimmed gallery. */
-const RESULTS: BAItem[] = [
-  { img: "1.png", age: "37", norwood: "3", grafts: "1,112", timeline: "1 Year Post-Op" },
-  { img: "1-1.png", age: "39", norwood: "3", grafts: "1,647", timeline: "19 Months after 2nd FUE" },
-  { img: "1-3.png", age: "32", norwood: "3", grafts: "1,800", timeline: "1 Year Post-Op" },
-  { img: "1-6.png", age: "38", norwood: "4", grafts: "2,023", timeline: "2 Years Post-Op" },
-];
-
-const INCLUDED = [
-  "A written, itemized quote at your consultation, with no hidden extras",
-  "Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1",
-  "Medication refills included through your first year",
-  "One custom session price built on your estimated graft count, never a per-graft meter",
-];
 
 const ASK = [
   {
     h: "Who actually performs the surgery?",
-    p: "At some chains and overseas clinics, the surgeon you meet in the marketing is not the person in the room. Here, Dr. Imami designs your plan and performs the surgical components of every procedure, with his team working under his direct supervision.",
+    p: "At some chains and overseas clinics, the surgeon in the marketing is not the person in the room. Here, Dr. Imami designs your plan and performs the surgical components of every procedure, with his team under his direct supervision.",
   },
   {
     h: "What exactly does the quote include?",
@@ -64,53 +54,190 @@ const ASK = [
   },
 ];
 
-export default function CostPage() {
+const HERO_POINTS = [
+  "Triple Board-Certified Surgeon",
+  "Flexible Financing Available",
+  "Natural-Looking, Artful Results",
+  "30+ Years Surgical Excellence",
+];
+
+/* Gallery trimmed to four representative no-shave FUE cases, per the brief. */
+const RESULTS: BAItem[] = [
+  { img: "1.png", age: "37", norwood: "3", grafts: "1,112", timeline: "1 Year Post-Op" },
+  { img: "1-1.png", age: "39", norwood: "3", grafts: "1,647", timeline: "19 Months after 2nd FUE" },
+  { img: "1-3.png", age: "32", norwood: "3", grafts: "1,800", timeline: "1 Year Post-Op" },
+  { img: "1-6.png", age: "38", norwood: "4", grafts: "2,023", timeline: "2 Years Post-Op" },
+];
+
+const TREATS = [
+  { icon: "Group-467.png", h: "Receding Hairline", p: "Redesigning and lowering the hairline for a youthful frame." },
+  { icon: "Group-473.png", h: "Thinning Crown", p: "Restoring density to the vertex for complete coverage." },
+  { icon: "Group-467.png", h: "Temple Restoration", p: "Rebuilding temporal points for a balanced facial profile." },
+  { icon: "Group-474.png", h: "Scar Camouflage", p: "Concealing previous surgical scars or trauma." },
+  { icon: "Group-475-1.png", h: "Hairline Refinement", p: "Adding density to previous transplants or naturally weak hairlines." },
+  { icon: "Group-475.png", h: "Eyebrow Restoration", p: "Recreating fuller, natural-looking eyebrows for both men and women." },
+];
+
+const STEPS = [
+  { num: "01.png", h: "Extraction", p: "Individual follicles are carefully extracted using a microscopic punch tool." },
+  { num: "02.png", h: "Preparation", p: "Grafts are inspected, sorted, and preserved in a specialized solution." },
+  { num: "03.png", h: "Site Creation", p: "Precise recipient sites are carefully created, matching the hair’s natural angle and direction." },
+  { num: "04.png", h: "Implantation", p: "Grafts are delicately placed into the sites for natural-looking density." },
+];
+
+const BENEFITS = [
+  "No linear scarring in the donor area",
+  "Significantly shorter recovery time",
+  "No-shave options available for minimal downtime",
+  "Ability to wear hair longer or shorter",
+  "Repeatable procedure for future thinning",
+  "Completely natural, undetectable outcomes",
+];
+
+const WHY = [
+  { h: "Triple Board-Certified", p: "A rare distinction ensuring the highest standards of surgical safety, ethics, and aesthetic outcomes." },
+  { h: "Surgeon-Led Procedure", p: "Dr Imami directs his experienced hair transplant team for optimal extraction and site creation." },
+  { h: "Personalized Design", p: "Every hairline is custom-designed based on facial geometry, age, and long-term hair loss progression." },
+];
+
+const JOURNEY = [
+  { h: "Consultation", p: "In-depth analysis of hair loss, medical history, and goal setting." },
+  { h: "Planning & Design", p: "Custom hairline design and calculation of required graft count." },
+  { h: "Donor Preparation", p: "Local anesthesia administered; meticulous extraction begins." },
+  { h: "Graft Placement", p: "Strategic implantation into recipient sites for optimal density." },
+  { h: "Post-op Care", p: "Immediate review, care instructions provided, and you head home." },
+  { h: "Follow-up", p: "Scheduled check-ins at 2 weeks, 6 months, and 12 months." },
+];
+
+const AFTERCARE = [
+  { icon: "Group-472-1.png", h: "First 48 Hours", p: "Rest with head elevated. Spray grafts with provided saline solution. Avoid touching the recipient area." },
+  { icon: "Group-473-1.png", h: "Activity Restrictions", p: "No strenuous exercise or heavy lifting for 14 days. Avoid direct sun exposure to the scalp for 3 months." },
+  { icon: "Group-467-1.png", h: "Follow-up Schedule", p: "We monitor your progress closely with scheduled visits at Day 2, Day 14, Month 6, and Year 1." },
+];
+
+const FAQ: { q: string; a: string[]; open?: boolean }[] = [
+  {
+    q: "Is the FUE procedure painful?",
+    open: true,
+    a: ["No. The procedure is performed under local anesthesia. You may feel minor discomfort during the initial numbing injections, but the surgery itself is virtually painless. Most patients watch movies, listen to music, or even nap during the process."],
+  },
+  {
+    q: "Do I have to shave my head?",
+    a: ["No. Dr. Imami specialises in No-Shave FUE, which allows the surrounding hair to be kept at its existing length so the procedure remains completely discreet. Individual follicles are extracted from longer donor hair without shaving the head, meaning you can return to work and social settings without an obvious ‘transplant look’. For larger sessions where a partial trim is needed, Dr. Imami will discuss your options during your consultation and design an approach that fits both your hair loss pattern and your lifestyle."],
+  },
+  {
+    q: "When will I see the final results?",
+    a: ["Hair growth after FUE happens gradually. The transplanted hairs typically shed within the first few weeks (this is normal and expected), with new growth beginning around the 3–4 month mark. Most patients see noticeable density and a clear improvement by 6 months, and the final, fully matured result is generally visible at 12–18 months post-op. We monitor your progress with scheduled follow-ups at Day 2, Day 14, Month 6, and Year 1 to track your transformation."],
+  },
+  {
+    q: "How much does a hair transplant cost?",
+    a: ["There is no single hair transplant price, because no two patients need the same session. Dr. Imami estimates the graft count your plan requires, then quotes a custom session price rather than charging per graft. As a reference, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized session quote covering your procedure and your year-one follow-ups, and financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included."],
+  },
+  {
+    q: "Do patients travel from Miami or Orlando?",
+    a: ["Yes, all the time, and many patients travel to us from across the country. Our hair transplant clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando, a comfortable drive up the coast from Miami, and just 1 mile from Melbourne-Orlando International Airport (MLB) for patients who fly in. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a free discovery call from wherever you are, then visit once for the procedure itself."],
+  },
+  {
+    q: "How many grafts will I need?",
+    a: ["The number of grafts varies based on your degree of hair loss (Norwood stage), the areas being treated, your donor density, and your desired result. As a reference, Dr. Imami’s recent No-Shave FUE patients have typically received between 1,100 and 2,000 grafts per session. For example, a Norwood 3 hairline restoration may require around 1,100–1,800 grafts, while more advanced patterns at Norwood 4–5 often need 1,800–2,000+ grafts. During your consultation, Dr. Imami will assess your scalp, design your hairline, and calculate the precise graft count needed to achieve a natural, balanced outcome."],
+  },
+];
+
+/** Slowly rotating circular "Imami Hair Restoration" badge, as on the live page. */
+function Badge({ dark, className }: { dark?: boolean; className?: string }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      className={`badge${className ? " " + className : ""}`}
+      src={dark ? "/images/Imami-Hair-Restoration-1.png" : "/images/Imami-Hair-Restoration.png"}
+      alt=""
+      width={226}
+      height={227}
+      loading="lazy"
+    />
+  );
+}
+
+export default function FueHairTransplantCost() {
   return (
     <>
       <SiteHeader nav={NAV_COST} />
 
-      {/* Hero: emotional hook, price band and the booking widget above the fold */}
-      <section className="hero-lp" id="top">
-        <div className="wrap hero-lp-grid">
-          <div>
-            <p className="eyebrow eyebrow--accent">FUE Hair Transplant Cost</p>
-            <h1>The Cost of Getting Your Hair Back Is Probably Less Than You Fear</h1>
-            <p className="hero-sub">
-              Most people put this off for years because of a number they have
-              never actually been given. At Imami Hair Restoration you get one
-              written session price, built on your estimated graft count, with
-              your first year of care included.
-            </p>
-            <div className="price-band" id="pricing">
-              <h3>Your Session Price at a Glance</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Grafts</th>
-                    <th>Typically suits</th>
-                    <th>Session price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {PRICE_BANDS.map((b) => (
-                    <tr key={b.grafts}>
-                      <td>
-                        <b>{b.grafts}</b>
-                      </td>
-                      <td>{b.suits}</td>
-                      <td>{b.price ?? "Quoted in writing"}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <p className="disc-sm">
-                Your exact figure is confirmed in writing after your estimated
-                graft count, on your free discovery call and at your
-                consultation. Financing available through CareCredit and Affirm.
-              </p>
-            </div>
+      {/* Hero: full-bleed background video (image fallback), left copy */}
+      <section className="hero2" id="top">
+        {/* Rendered as raw HTML so the muted attribute lands in the markup
+            itself; browsers refuse to autoplay before hydration without it. */}
+        <div
+          className="hero-media"
+          aria-hidden="true"
+          dangerouslySetInnerHTML={{
+            __html: `<video autoplay muted loop playsinline preload="metadata" poster="/images/FUE-Hair-Transplant.jpg"><source src="/hero-video.webm" type="video/webm"><source src="/hero-video.mp4" type="video/mp4"></video>`,
+          }}
+        />
+        <div className="wrap">
+          <p className="eyebrow eyebrow--accent">FUE Hair Transplant Cost</p>
+          <h1>
+            The Cost of Getting Your Hair Back
+            <br />
+            Is Less Than You Fear
+          </h1>
+          <p className="hero-sub">
+            {/* Font Awesome solid "gift" */}
+            <svg className="hero-gift" viewBox="0 0 512 512" aria-hidden="true">
+              <path d="M190.5 68.8 225.3 128h-1.3-72c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32v-64c0-17.7-14.3-32-32-32h-41.6c6.1-12 9.6-25.6 9.6-40 0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40h-72-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48h2.2c22.1 0 40 17.9 40 40zM32 288v176c0 26.5 21.5 48 48 48h144V288H32zm256 224h144c26.5 0 48-21.5 48-48V288H288v224z" />
+            </svg>
+            <strong className="hero-offer">
+              Complimentary biomimetic hair growth treatment
+            </strong>{" "}
+            with every hair transplant, included in Dr. Imami&rsquo;s
+            post-operative care program.*
+          </p>
+          <ul className="hero-points">
+            {HERO_POINTS.map((point) => (
+              <li key={point}>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.4-4-4 1.7-1.7 2.3 2.3 4.7-4.7 1.7 1.7z" />
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
+          <div className="hero-cta">
+            <a className="btn" href="#consult">
+              Get My Free Hair Restoration Plan
+            </a>
           </div>
-          <div>
+          <p className="hero-fine">
+            *Offered with procedures booked through this page. Ask at your
+            consultation for full details.
+          </p>
+          {/* The brief puts the price band above the fold, so it takes the
+              hero's corner-card slot; the gallery still runs below. */}
+          <aside className="hero-ba hero-price" aria-label="Session price at a glance">
+            <h3>Session Price by Graft Count</h3>
+            <table>
+              <tbody>
+                {PRICE_BANDS.map((b) => (
+                  <tr key={b.grafts}>
+                    <td>
+                      <b>{b.grafts} grafts</b>
+                    </td>
+                    <td>{b.price ?? "Quoted in writing"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <a className="hero-ba-more" href="#cost">
+              Full Pricing Details &rarr;
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      {/* Booking widget high on the page, per the brief */}
+      <section className="sec sec--dark" id="consult" style={{ padding: "56px 0" }}>
+        <div className="wrap">
+          <div className="consult-form consult-form--wide" style={{ margin: "0 auto" }}>
             <BookingEmbed />
             <p className="fineprint">
               Your discovery call is free. Fees for in-person consultations,
@@ -135,38 +262,209 @@ export default function CostPage() {
         </div>
       </section>
 
-      <section className="sec sec--tint" id="included">
-        <div className="wrap g2" style={{ alignItems: "start" }}>
+      <section className="sec sec--tint" id="reviews" style={{ borderTop: "none" }}>
+        <div className="wrap">
+          <div className="head" style={{ marginBottom: 34 }}>
+            <p className="eyebrow">Patient Testimonials</p>
+            <h2>What Our Patients Say</h2>
+          </div>
+        </div>
+        {/* One review discusses a FUT procedure; this FUE page must not carry it */}
+        <ReviewMarquee exclude={["eric blaufarb"]} />
+      </section>
+
+      <section className="sec sec--dark" id="approach">
+        <div className="wrap g2">
           <div>
-            <p className="eyebrow">One Price, One Plan</p>
-            <h2>What the Session Price Includes</h2>
+            <p className="eyebrow">Our Approach</p>
+            <h2>The Doctor You Meet Is the Doctor Who Operates.</h2>
             <p className="lede">
-              We price the session, not each graft. Dr. Imami estimates the
-              grafts your plan needs, and the number you are quoted covers the
-              procedure and your first year of care.
+              At most large hair restoration chains, your consultation is with a
+              salesperson and your surgery is performed by a technician. At Imami
+              Hair Restoration, it works differently. Dr. Imami personally
+              evaluates every patient, designs your new hairline and performs the
+              surgical components of every procedure himself.
             </p>
-            <ul className="checks" style={{ marginTop: 22 }}>
-              {INCLUDED.map((item) => (
-                <li key={item}>{item}</li>
+            <p className="lede">
+              Your transplant is then completed under his direct supervision by a
+              dedicated team of technicians with 15 years of experience working
+              alongside him, bringing surgical-level precision and artistry to
+              every stage of your procedure.
+            </p>
+          </div>
+          <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img"
+              src="/images/consultation-with-dr-imami.webp"
+              alt="Consultation with Dr Imami"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="sec sec--tint" id="results">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Real Results</p>
+            <h2>Before &amp; After</h2>
+            <p className="lede">
+              See the transformative results our patients have achieved with Dr.
+              Imami.
+            </p>
+          </div>
+          <BASlider items={RESULTS} />
+          <p className="disc disc--center">
+            The images above are displayed with the consent of the patients. The
+            outcomes shown are only relevant for these patients and do not
+            necessarily reflect the results other patients may experience. Our
+            team will discuss any factors that could influence the results that
+            you may get.
+          </p>
+          <div className="hero-cta hero-cta--center">
+            <a className="btn" href="#consult">
+              Book a Free Discovery Call
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="benefits">
+        <div className="wrap g2">
+          <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img"
+              src="/images/benefits.png"
+              alt="FUE hair transplant procedure in progress"
+              width={623}
+              height={564}
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <p className="eyebrow">Advantages</p>
+            <h2>Benefits of FUE</h2>
+            <ul className="checks" style={{ marginTop: 26 }}>
+              {BENEFITS.map((b) => (
+                <li key={b}>{b}</li>
               ))}
             </ul>
           </div>
-          <div className="card" id="financing">
-            <span className="num">Financing</span>
-            <h3>Pay Monthly with CareCredit or Affirm</h3>
+        </div>
+      </section>
+
+      <section className="sec sec--tint" id="cost">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Investment</p>
+            <h2>Hair Transplant Cost &amp; Financing</h2>
+            <p className="lede">
+              There is no single hair transplant price, because no two patients
+              need the same number of grafts. What follows is how the cost of a
+              hair transplant is actually built, so you can judge any quote,
+              ours or anyone else&rsquo;s.
+            </p>
+          </div>
+          {/* Both columns stretch to the same height; the table distributes
+              the extra space across its rows. */}
+          <div className="g2 g2--stretch">
+            <table className="tbl">
+              <thead>
+                <tr>
+                  <th>What drives the price</th>
+                  <th>Why</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Graft count</td>
+                  <td>
+                    Your estimated graft count sets the scope of the session. A
+                    Norwood 3 hairline may need 1,100-1,800 grafts; Norwood 4-5
+                    often 1,800-2,000 or more.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Areas treated</td>
+                  <td>
+                    A hairline transplant alone costs less than hairline plus
+                    crown.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Donor density</td>
+                  <td>
+                    Determines how much can safely be moved in a single session.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Technique</td>
+                  <td>
+                    No-shave FUE is a specialised technique. Dr. Imami
+                    recommends the approach that suits your case.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="card">
+              <span className="num">Typical Session Sizes</span>
+              <h3>What Your Graft Count Means</h3>
+              <table className="tbl" style={{ marginTop: 16 }}>
+                <thead>
+                  <tr>
+                    <th>Session</th>
+                    <th>Typically suits</th>
+                    <th>Session price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1,000-1,200</td>
+                    <td>An early Norwood 2-3 hairline or temple rebuild</td>
+                    <td>{PRICE_BANDS[0].price ?? "Quoted in writing"}</td>
+                  </tr>
+                  <tr>
+                    <td>1,200-1,800</td>
+                    <td>A full Norwood 3 hairline restoration</td>
+                    <td>{PRICE_BANDS[1].price ?? "Quoted in writing"}</td>
+                  </tr>
+                  <tr>
+                    <td>1,800-2,000+</td>
+                    <td>Norwood 4-5, or hairline plus crown together</td>
+                    <td>{PRICE_BANDS[2].price ?? "Quoted in writing"}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style={{ marginTop: 16 }}>
+                So if you are pricing a hair transplant 1000 grafts cost, or
+                costing a 2000 grafts hair transplant, we first estimate your
+                graft count, then quote a custom session price rather than a
+                per-graft rate. Florida hair transplant cost differs between
+                clinics mainly because session scopes and inclusions differ.
+              </p>
+            </div>
+          </div>
+          <div className="card" style={{ marginTop: 28 }}>
+            <span className="num">Paying For It</span>
+            <h3>Flexible Payment Plans</h3>
             <p>
-              Hair restoration surgery cost can be spread over monthly payments
-              rather than paid in one go, through CareCredit and Affirm.
+              We offer financing through CareCredit and Affirm, so hair
+              restoration surgery cost can be spread over monthly payments rather
+              than paid in one go.
               {FINANCE_MONTHLY
                 ? ` For many patients that works out from about ${FINANCE_MONTHLY} a month, depending on the plan and term you choose.`
                 : " Ask on your free discovery call for an indicative monthly figure for your session size."}
             </p>
-            <p style={{ marginTop: 14 }}>
-              Approval takes minutes, and you will know your monthly figure
-              before you commit to anything.
-            </p>
-            <a className="btn" style={{ marginTop: 22 }} href="#consult">
-              Book a Free Discovery Call
+            <ul className="checks" style={{ marginTop: 20 }}>
+              <li>A written, itemized quote at your consultation, with no hidden extras</li>
+              <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
+              <li>Medication refills included through your first year</li>
+              <li>A custom session price built on your estimated graft count, not per-graft pricing</li>
+            </ul>
+            <a className="btn" style={{ marginTop: 24 }} href="#consult">
+              Get a personalized quote
             </a>
           </div>
         </div>
@@ -194,34 +492,216 @@ export default function CostPage() {
         </div>
       </section>
 
-      <section className="sec sec--tint" id="results">
+      <section className="sec" id="who">
         <div className="wrap">
           <div className="head">
-            <p className="eyebrow">Real Results</p>
-            <h2>What That Price Actually Buys</h2>
+            <p className="eyebrow">Who We Treat</p>
+            <h2>Hair Transplants for Men and Women</h2>
           </div>
-          <BASlider items={RESULTS} />
-          <p className="disc disc--center">
-            The images above are displayed with the consent of the patients.
-            The outcomes shown are only relevant for these patients and do not
-            necessarily reflect the results other patients may experience.
-          </p>
+          <div className="g2" style={{ alignItems: "stretch" }}>
+            <div className="card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="card-img"
+                src="/images/who-men.jpg"
+                alt="Man with a full, natural head of hair"
+                width={1400}
+                height={939}
+                loading="lazy"
+              />
+              <span className="num">Men</span>
+              <h3>Male Pattern Hair Loss</h3>
+              <p>
+                Most of our patients are men with a receding hairline, a thinning
+                crown or both. A men&rsquo;s FUE hair transplant rebuilds the
+                frame of the face using your own hair, and no-shave FUE means
+                colleagues need not know you have had anything done.
+              </p>
+              <p style={{ marginTop: 14 }}>
+                If you have been researching what a hair transplant costs, the
+                honest answer is that it depends on how much coverage you need.
+                Dr. Imami assesses your donor area, estimates how many grafts
+                your plan calls for, and gives you a custom session price in
+                writing. The procedure itself is a single outpatient day.
+              </p>
+            </div>
+            <div className="card">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="card-img"
+                src="/images/who-women.jpg"
+                alt="Woman with thick, healthy shoulder-length hair"
+                width={1400}
+                height={939}
+                loading="lazy"
+              />
+              <span className="num">Women</span>
+              <h3>Female Thinning &amp; Hairlines</h3>
+              <p>
+                Women lose hair differently, more often diffuse thinning
+                or a high, uneven hairline than a classic receding pattern. A
+                female hairline transplant can lower and soften the frame, and
+                FUE hair transplant for women is carried out without shaving the
+                head.
+              </p>
+              <p style={{ marginTop: 14 }}>
+                Pricing works the same way for women: after your assessment,
+                you receive a written session price for your treatment plan,
+                with everything it covers spelled out. Wherever you compare,
+                ask what the quoted price actually includes.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Closing booking widget */}
-      <section className="sec sec--dark" id="consult">
+      <div className="band band--photo">
+        <div className="wrap">
+          <h2>
+            Wondering if FUE is the Right Procedure for You? Book a Free
+            Discovery Call with a Hair Transplant Specialist to Discuss Your
+            Options.
+          </h2>
+          <div className="hero-cta">
+            <a className="btn" href="#consult">
+              Book a Free Discovery Call
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Your FUE Journey: dark textured, centre zigzag timeline */}
+      <section className="sec sec--dark" id="journey">
+        <div className="wrap">
+          <div className="journey-head">
+            <div>
+              <p className="eyebrow">The Timeline</p>
+              <h2>Your FUE Journey</h2>
+            </div>
+            <Badge className="badge--journey" />
+          </div>
+          <div className="zig">
+            {JOURNEY.map((j, i) => (
+              <div className={`zitem ${i % 2 ? "zitem--right" : "zitem--left"}`} key={j.h}>
+                <h4>{j.h}</h4>
+                <p>{j.p}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec sec--tint" id="aftercare">
         <div className="wrap">
           <div className="head">
-            <p className="eyebrow">Free Discovery Call</p>
-            <h2>Get Your Number in Writing</h2>
-            <p className="lede">
-              A free phone call with a hair transplant specialist is the
-              fastest way to an honest figure for your hair. No pressure, no
-              obligation.
-            </p>
+            <p className="eyebrow">Recovery</p>
+            <h2>Post-Op Aftercare</h2>
           </div>
-          <div className="consult-form consult-form--wide" style={{ margin: "0 auto" }}>
+          <div className="g3">
+            {AFTERCARE.map((a) => (
+              <div className="card tcard" key={a.h}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/images/${a.icon}`} alt="" width={72} height={72} loading="lazy" />
+                <h3>{a.h}</h3>
+                <p>{a.p}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sec sec--dark" id="surgeon">
+        <div className="wrap g2" style={{ alignItems: "center" }}>
+          <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img surgeon-img"
+              src="/images/dr-imami-2.webp"
+              alt="Dr. Emran Imami"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <p className="eyebrow">Meet Your Surgeon</p>
+            <h2>Dr. Emran Imami</h2>
+            <p className="lede">
+              Triple board-certified surgeon with over 30 years of surgical
+              excellence, bringing precision and artistry to every hair
+              restoration procedure at Imami Hair Restoration, a surgeon-led
+              hair transplant clinic in Melbourne, Florida that patients travel
+              to from Orlando, Miami and across the country.
+            </p>
+            <div id="why">
+              {WHY.map((w) => (
+                <div key={w.h} style={{ marginTop: 20 }}>
+                  <h3 style={{ marginBottom: 6 }}>{w.h}</h3>
+                  <p>{w.p}</p>
+                </div>
+              ))}
+            </div>
+            <div className="hero-cta">
+              <a className="btn btn--lt" href="#consult">
+                Book a Free Discovery Call
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="faq">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Common Questions</p>
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div className="faq">
+            {FAQ.map((item) => (
+              <details key={item.q} open={item.open}>
+                <summary>{item.q}</summary>
+                {item.a.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Consultation: portrait right with the form overlapping it, photo lower-left */}
+      <section className="sec sec--dark" id="book">
+        <div className="wrap consult-grid">
+          <div>
+            <p className="eyebrow">Free Discovery Call</p>
+            <h2>Book Your Free Discovery Call</h2>
+            <p className="lede">
+              Start with a free phone call with one of our hair transplant
+              specialists to talk through your hair loss concerns, whether
+              no-shave FUE could suit you, and your next steps, including your
+              consultation with Dr. Imami. Book from wherever you are: patients
+              visit from Orlando, Miami and across the country, and our office
+              is just 1 mile from Melbourne-Orlando International Airport
+              (MLB), so fly-in patients can come once for the procedure itself.
+            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img consult-side"
+              src="/images/Rectangle-187-1-1.png"
+              alt="Active lifestyle after FUE hair transplant"
+              loading="lazy"
+            />
+          </div>
+          <div className="consult-visual">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img consult-portrait"
+              src="/images/Rectangle-183-8-1.png"
+              alt="Confident man after hair restoration"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div className="wrap">
+          <div className="consult-form consult-form--wide">
             <BookingEmbed instance="2" />
             <p className="fineprint">
               Your discovery call is free. Fees for in-person consultations,
@@ -231,7 +711,30 @@ export default function CostPage() {
         </div>
       </section>
 
+      {/* General enquiries: the form stays for visitors not ready to book */}
+      <section className="sec sec--tint" id="contact">
+        <div className="wrap g2" style={{ alignItems: "start" }}>
+          <div>
+            <p className="eyebrow">Contact</p>
+            <h2>General Enquiries</h2>
+            <p className="lede">
+              Not ready to book a time yet? Send us a message and our team will
+              get back to you.
+            </p>
+            <p className="lede">
+              Prefer to talk? Call us at{" "}
+              <a href={PHONE_HREF}>{PHONE}</a> during office hours, Monday to
+              Friday, 8 am to 5 pm.
+            </p>
+          </div>
+          <div className="contact-form">
+            <LeadFormEmbed />
+          </div>
+        </div>
+      </section>
+
       <SiteFooter />
+
       <BackToTop />
     </>
   );
