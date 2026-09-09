@@ -36,6 +36,7 @@ export default function SiteFooter() {
                 alt="Imami MD Hair Restoration"
                 width={600}
                 height={200}
+                loading="lazy"
               />
             </a>
             <p>

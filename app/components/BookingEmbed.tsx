@@ -9,7 +9,13 @@ const CALENDAR_ID = "Jq3EkGZ211Wa13fIrHLn";
  * snippet supplied. The min-height is only a floor for the moment before
  * that script runs, or if it fails to load.
  */
-export default function BookingEmbed() {
+export default function BookingEmbed({
+  instance = "1787744742713",
+}: {
+  /** Unique per widget on a page — pages that embed the calendar twice
+      (above the fold and at the close) must not duplicate the iframe id. */
+  instance?: string;
+}) {
   return (
     <div>
       <div className="booking-embed">
@@ -18,7 +24,7 @@ export default function BookingEmbed() {
           allow="payment"
           style={{ width: "100%", border: "none", overflow: "hidden" }}
           scrolling="no"
-          id={`${CALENDAR_ID}_1787744742713`}
+          id={`${CALENDAR_ID}_${instance}`}
           title="Book a consultation"
         />
       </div>

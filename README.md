@@ -8,9 +8,20 @@ deployed on Vercel.
 | Route                           | Purpose                                                        |
 | ------------------------------- | -------------------------------------------------------------- |
 | `/follicular-unit-extraction`   | Mirror of imamihair.com's FUE page (primary Google Ads target)  |
+| `/fue-hair-transplant-cost`     | Compact variant for the Cost & Financing ad group               |
+| `/hair-transplant-melbourne-fl` | Compact variant for the Local (Melbourne & Brevard) ad group    |
 | `/follicular-unit-extraction-2` | The original landing page built from the mockup                 |
 | `/thank-you`                    | Confirmation page the form redirects to on success              |
 | `/`                             | Redirects to `/follicular-unit-extraction`                      |
+
+The two ad-group variants follow the September 2026 brief: booking widget
+above the fold and at the close, no FUT/eyebrow/beard content (one Google
+review is excluded from their marquee for mentioning FUT), free-offer
+language limited to the discovery call, and all images lazy-loaded. The cost
+page's dollar price bands and the indicative monthly financing figure are
+constants at the top of `app/fue-hair-transplant-cost/page.tsx`
+(`PRICE_BANDS`, `FINANCE_MONTHLY`), left null until the practice supplies
+figures — the copy stays truthful without them.
 
 All routes are prerendered as static content at build time. The landing page is
 `noindex, follow` so paid traffic does not compete with `imamihair.com` in

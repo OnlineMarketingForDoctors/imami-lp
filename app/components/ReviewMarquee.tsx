@@ -70,8 +70,12 @@ function Card({
  * aria-hidden so screen readers hear each review once. Pauses on hover,
  * and prefers-reduced-motion swaps the animation for manual scrolling.
  * Every card's Read more button opens the full review text in an overlay.
+ *
+ * `exclude` drops reviews by reviewer name — the FUE ad-group pages must
+ * not carry FUT content, and one review discusses a FUT procedure.
  */
-export default function ReviewMarquee() {
+export default function ReviewMarquee({ exclude = [] }: { exclude?: string[] }) {
+  const items = reviews.filter((r) => !exclude.includes(r.name));
   const [open, setOpen] = useState<Review | null>(null);
 
   const close = useCallback(() => setOpen(null), []);
@@ -92,11 +96,11 @@ export default function ReviewMarquee() {
   return (
     <div className="marquee">
       <div className="mq-track">
-        {reviews.map((r) => (
+        {items.map((r) => (
           <Card r={r} key={r.name + r.date} onMore={() => setOpen(r)} />
         ))}
         <div className="mq-dup" aria-hidden="true">
-          {reviews.map((r) => (
+          {items.map((r) => (
             <Card
               r={r}
               key={"dup" + r.name + r.date}
