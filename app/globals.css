@@ -198,9 +198,11 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .booking-embed{background:#000;border:1px solid #999;border-radius:8px;padding:12px;overflow:hidden}
 .booking-embed iframe{display:block;width:100%;min-height:700px;background:#fff;border-radius:6px}
 .contact-copy{display:flex;flex-direction:column}
-/* flex-grow makes the photo absorb the space the copy leaves, so its
-   bottom edge lands with the form's; cover keeps it from distorting. */
-.contact-side{flex:1;min-height:260px;margin-top:34px;width:100%;object-fit:cover}
+/* An empty box contributes only its min-height to the row, so the form
+   column decides the height and this grows into it. The photo is taken
+   out of flow inside, then covers the box at whatever height it lands. */
+.contact-photo{position:relative;flex:1 1 auto;min-height:280px;margin-top:34px}
+.contact-photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
 .contact-form{width:min(620px,100%);margin:0 auto;justify-self:end}
 
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
@@ -422,7 +424,8 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
   .ba-track{grid-auto-columns:calc(50% - 12px)}
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .g2,.form-grid,.rev-grid{grid-template-columns:1fr;gap:40px}
-  .contact-side{flex:none;height:auto;aspect-ratio:568/721}
+  /* Stacked: no form beside it to match, so it keeps its proportions. */
+  .contact-photo{flex:none;aspect-ratio:568/721;min-height:0}
   .g3,.ba,.steps{grid-template-columns:1fr 1fr}
   .step{border-right:none;border-bottom:1px solid var(--line)}
 }

@@ -689,16 +689,20 @@ export default function HairTransplantMelbourneFl() {
               <a href={PHONE_HREF}>{PHONE}</a> during office hours, Monday to
               Friday, 8 am to 5 pm.
             </p>
-            {/* Fills the column beside the tall enquiry form. */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="rounded-img contact-side"
-              src="/images/Rectangle-183-8-1.png"
-              alt="Confident man after hair restoration"
-              width={568}
-              height={721}
-              loading="lazy"
-            />
+            {/* The photo is absolutely positioned inside this box so its own
+                height never sizes the row; the box takes whatever height the
+                form column sets and the photo fills it. */}
+            <div className="contact-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="rounded-img"
+                src="/images/Rectangle-183-8-1.png"
+                alt="Confident man after hair restoration"
+                width={568}
+                height={721}
+                loading="lazy"
+              />
+            </div>
           </div>
           <div className="contact-form">
             <LeadFormEmbed />
