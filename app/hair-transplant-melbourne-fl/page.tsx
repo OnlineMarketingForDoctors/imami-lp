@@ -676,7 +676,7 @@ export default function HairTransplantMelbourneFl() {
       <section className="sec sec--tint" id="contact">
         {/* Stretched, so the photo grows to finish level with the form
             however tall LeadConnector sizes its iframe. */}
-        <div className="wrap g2 g2--stretch">
+        <div className="wrap g2 g2--stretch contact-grid">
           <div className="contact-copy">
             <p className="eyebrow">Contact</p>
             <h2>General Enquiries</h2>

@@ -306,6 +306,11 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .g2>*,.g3>*,.ba>*,.steps>*,.form-grid>*,.rev-grid>*,.stack>*{min-width:0}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .g2--stretch{align-items:stretch}
+/* Two-column only: the 56px gap belongs between the columns, not between
+   the form and its own small print, which carries its own 14px offset.
+   Stacked, the row gap is still doing real work between the photo and
+   the form, so it stays. */
+@media(min-width:981px){.contact-grid{row-gap:0}}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px}
 .sec--dark .card{background:var(--ink-2);border-color:rgba(255,255,255,.1)}
