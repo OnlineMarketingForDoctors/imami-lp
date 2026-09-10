@@ -634,20 +634,6 @@ export default function HairTransplantMelbourneFl() {
               International Airport (MLB), so fly-in patients can come once for
               the procedure itself.
             </p>
-            <div className="offercard">
-              <span className="num">Included With Your Procedure</span>
-              <h3>Complimentary Biomimetic Hair Growth Treatment</h3>
-              <p>
-                Every hair transplant booked through this page includes a
-                complimentary session of our biomimetic hair growth treatment,
-                given as part of Dr. Imami&rsquo;s post-operative care program
-                alongside your year-one follow-ups.
-              </p>
-              <p className="disc-sm">
-                Offered as an adjunct to surgery, not a substitute for it. Ask at
-                your consultation for full details.
-              </p>
-            </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="rounded-img consult-side"
@@ -667,6 +653,23 @@ export default function HairTransplantMelbourneFl() {
           </div>
         </div>
         <div className="wrap">
+          {/* Sits between the two-column intro and the calendar, at the
+              calendar's own width, so it reads as the last thing before
+              booking rather than unbalancing the columns above. */}
+          <div className="offercard offercard--consult">
+            <span className="num">Included With Your Procedure</span>
+            <h3>Complimentary Biomimetic Hair Growth Treatment</h3>
+            <p>
+              Every hair transplant booked through this page includes a
+              complimentary session of our biomimetic hair growth treatment,
+              given as part of Dr. Imami&rsquo;s post-operative care program
+              alongside your year-one follow-ups.
+            </p>
+            <p className="disc-sm">
+              Offered as an adjunct to surgery, not a substitute for it. Ask at
+              your consultation for full details.
+            </p>
+          </div>
           <div className="consult-form consult-form--wide">
             <BookingEmbed />
             <p className="fineprint">
