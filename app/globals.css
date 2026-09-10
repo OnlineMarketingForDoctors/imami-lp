@@ -144,7 +144,20 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .mq-stars{flex:0 0 100%;margin:0}
 .mq-stars svg{width:15px;height:15px}
 @media (max-width:1180px){.revgrid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:660px){.revgrid{grid-template-columns:1fr}}
+/* Phones: one card at a time, swiped. Scroll snap does the work, so there
+   is no carousel script; the next card peeks to signal it moves. */
+@media (max-width:660px){
+  .revgrid{
+    grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:87%;
+    overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;scroll-padding-left:24px;
+    /* Bleed to the screen edges so a card can sit flush while scrolling. */
+    margin:0 -24px;padding:2px 24px 8px;
+    scrollbar-width:none;
+  }
+  .revgrid::-webkit-scrollbar{display:none}
+  .revgrid>*{scroll-snap-align:start}
+}
 .mq-body{font-size:.92rem;line-height:1.6;white-space:pre-line;display:-webkit-box;-webkit-line-clamp:7;line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
 .mq-more{margin-top:12px;padding:0;border:none;background:none;cursor:pointer;align-self:flex-start;font-family:inherit;font-size:.82rem;font-weight:600;color:var(--brass);text-decoration:underline}
 
