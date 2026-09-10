@@ -684,9 +684,9 @@ export default function FueHairTransplantCost() {
         </div>
       </section>
 
-      {/* Consultation: portrait right with the form overlapping it, photo lower-left */}
+      {/* Consultation: copy and the included-treatment card left, booking calendar right */}
       <section className="sec sec--dark" id="consult">
-        <div className="wrap consult-grid">
+        <div className="wrap consult-grid consult-grid--book">
           <div>
             <p className="eyebrow">Free Discovery Call</p>
             <h2>Book Your Free Discovery Call</h2>
@@ -700,43 +700,22 @@ export default function FueHairTransplantCost() {
               International Airport (MLB), so fly-in patients can come once for
               the procedure itself.
             </p>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="rounded-img consult-side"
-              src="/images/Rectangle-187-1-1.png"
-              alt="Active lifestyle after FUE hair transplant"
-              loading="lazy"
-            />
+            <div className="offercard">
+              <span className="num">Included With Your Procedure</span>
+              <h3>Complimentary Biomimetic Hair Growth Treatment</h3>
+              <p>
+                Every hair transplant booked through this page includes a
+                complimentary session of our biomimetic hair growth treatment,
+                given as part of Dr. Imami&rsquo;s post-operative care program
+                alongside your year-one follow-ups.
+              </p>
+              <p className="disc-sm">
+                Offered as an adjunct to surgery, not a substitute for it. Ask
+                at your consultation for full details.
+              </p>
+            </div>
           </div>
-          <div className="consult-visual">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="rounded-img consult-portrait"
-              src="/images/Rectangle-183-8-1.png"
-              alt="Confident man after hair restoration"
-              loading="lazy"
-            />
-          </div>
-        </div>
-        <div className="wrap">
-          {/* Sits between the two-column intro and the calendar, at the
-              calendar's own width, so it reads as the last thing before
-              booking rather than unbalancing the columns above. */}
-          <div className="offercard offercard--consult">
-            <span className="num">Included With Your Procedure</span>
-            <h3>Complimentary Biomimetic Hair Growth Treatment</h3>
-            <p>
-              Every hair transplant booked through this page includes a
-              complimentary session of our biomimetic hair growth treatment,
-              given as part of Dr. Imami&rsquo;s post-operative care program
-              alongside your year-one follow-ups.
-            </p>
-            <p className="disc-sm">
-              Offered as an adjunct to surgery, not a substitute for it. Ask at
-              your consultation for full details.
-            </p>
-          </div>
-          <div className="consult-form consult-form--wide">
+          <div className="consult-book">
             <BookingEmbed />
             <p className="fineprint">
               Your discovery call is free. Fees for in-person consultations,

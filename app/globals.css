@@ -76,8 +76,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .offercard{border:1px solid var(--olive);background:var(--paper-2);border-radius:var(--r);padding:24px 26px;margin-top:26px}
 .offercard .num{color:var(--brass)}
 .offercard h3{margin-bottom:8px}
-.offercard--consult{width:min(880px,100%);margin:48px auto 0}
-.offercard--consult+.consult-form--wide{margin-top:20px}
 /* The card keeps its cream ground on dark sections, so its text has to
    opt back out of the inherited light colour. */
 .sec--dark .offercard,.sec--dark .offercard h3,.sec--dark .offercard p{color:var(--ink)}
@@ -190,18 +188,13 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .zitem p{color:#C9C9C9;max-width:44ch;display:inline-block}
 .zitem:last-child{padding-bottom:0}
 
-/* Consultation: form overlaps the portrait */
+/* Consultation: copy and the included-treatment card left, calendar right. */
 .consult-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
-.consult-side{margin-top:44px;max-width:400px}
-.consult-visual{position:relative}
-.consult-portrait{width:72%;margin-left:auto}
+.consult-grid--book{grid-template-columns:.85fr 1.15fr;gap:48px}
+.consult-book{min-width:0}
 /* Negative margin keeps the form in flow, so the section grows with the real
    form height; centered horizontally over the section. */
 .consult-form{position:relative;z-index:2;width:min(620px,100%);margin:-380px auto 0}
-/* Booking calendars run wider than the enquiry form, and the wide white
-   widget can't overlap the section imagery the way the slim form did, so
-   it sits in normal flow below the grid instead. */
-.consult-form--wide{width:min(880px,100%);margin:56px auto 0}
 .booking-embed{background:#000;border:1px solid #999;border-radius:8px;padding:12px;overflow:hidden}
 .booking-embed iframe{display:block;width:100%;min-height:700px;background:#fff;border-radius:6px}
 .contact-form{width:min(620px,100%);margin:0 auto;justify-self:end}
@@ -419,7 +412,6 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
   .works-head{grid-template-columns:1fr;gap:20px}
   .badge{width:130px;height:130px}
   .consult-form{margin:28px auto 0}
-  .consult-portrait{width:100%}
   .zig::before{left:8px}
   .zitem,.zitem--left,.zitem--right{width:auto;margin-left:0;padding:0 0 44px 40px;text-align:left}
   .zitem--left::before,.zitem--right::before{left:1px;right:auto}
@@ -499,6 +491,7 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
 .map-embed{width:100%;height:360px;border:0;border-radius:8px;display:block}
 .areas{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
 .areas span{border:1px solid var(--line);background:#fff;padding:8px 15px;border-radius:20px;font-size:.85rem;font-weight:500}
+.map-link{display:inline-block;margin-top:14px;font-weight:600;font-size:.9rem;color:var(--brass);text-decoration:underline}
 .addr{margin-top:18px;line-height:1.7}
 .addr b{display:block;font-weight:600}
 

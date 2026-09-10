@@ -1,6 +1,9 @@
 export const PHONE = "321-312-4168";
 export const PHONE_HREF = "tel:3213124168";
 
+/** Google Business Profile: listing, directions and reviews. */
+export const GMB_URL = "https://share.google/TjBqoowdZU6JTc1Sz";
+
 /** The landing page this site exists to serve. */
 export const LANDING = "/follicular-unit-extraction";
 
