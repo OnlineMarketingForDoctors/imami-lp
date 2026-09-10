@@ -16,7 +16,13 @@ const FORM_NAME = "LP Form - OMD";
  * LeadConnector, since the submission happens inside the iframe and this page
  * never sees it.
  */
-export default function LeadFormEmbed() {
+export default function LeadFormEmbed({
+  note = true,
+}: {
+  /** Render the small print under the form. Pages that need the form to end
+      level with something beside it place the note themselves, below. */
+  note?: boolean;
+}) {
   return (
     <div>
       <div className="form-embed">
@@ -44,11 +50,18 @@ export default function LeadFormEmbed() {
         src="https://link.msgsndr.com/js/form_embed.js"
         strategy="afterInteractive"
       />
-      <p className="fineprint">
-        By submitting you agree to be contacted about your enquiry. We never
-        share your details. Results vary by individual and no specific outcome is
-        implied.
-      </p>
+      {note && <LeadFormNote />}
     </div>
+  );
+}
+
+/** The form's small print, so pages placing it themselves keep one copy. */
+export function LeadFormNote() {
+  return (
+    <p className="fineprint">
+      By submitting you agree to be contacted about your enquiry. We never share
+      your details. Results vary by individual and no specific outcome is
+      implied.
+    </p>
   );
 }

@@ -204,6 +204,9 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .contact-photo{position:relative;flex:1 1 auto;min-height:280px;margin-top:34px}
 .contact-photo>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%}
 .contact-form{width:min(620px,100%);margin:0 auto;justify-self:end}
+/* Matches .contact-form's width and right edge, so the note still reads
+   as belonging to the form it sits under. */
+.contact-note{width:min(620px,100%);margin-left:auto}
 
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-sub{margin-top:18px;font-size:1.12rem;color:#E4E4E4;max-width:56ch}

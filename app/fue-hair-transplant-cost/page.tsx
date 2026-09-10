@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
-import LeadFormEmbed from "../components/LeadFormEmbed";
+import LeadFormEmbed, { LeadFormNote } from "../components/LeadFormEmbed";
 import BookingEmbed from "../components/BookingEmbed";
 import ReviewGrid from "../components/ReviewGrid";
 import BASlider, { BAItem } from "../components/BASlider";
@@ -758,7 +758,14 @@ export default function FueHairTransplantCost() {
             </div>
           </div>
           <div className="contact-form">
-            <LeadFormEmbed />
+            <LeadFormEmbed note={false} />
+          </div>
+        </div>
+        {/* Outside the grid, so the photo finishes level with the form itself
+            rather than with the form plus its small print. */}
+        <div className="wrap">
+          <div className="contact-note">
+            <LeadFormNote />
           </div>
         </div>
       </section>
