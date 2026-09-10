@@ -7,7 +7,13 @@ import ReviewMarquee from "../components/ReviewMarquee";
 import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
 import HeroBA from "../components/HeroBA";
-import { PHONE, PHONE_HREF } from "../site";
+import {
+  PHONE,
+  PHONE_HREF,
+  PRICE_AVERAGE,
+  PRICE_AVERAGE_UP_TO_GRAFTS,
+  PRICE_FROM_PER_GRAFT,
+} from "../site";
 
 export const metadata: Metadata = {
   title: "Hair Transplant in Melbourne, FL | Imami Hair Restoration",
@@ -117,7 +123,7 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "How much does a hair transplant cost?",
-    a: ["There is no single hair transplant price, because no two patients need the same session. Dr. Imami estimates the graft count your plan requires, then quotes a custom session price rather than charging per graft. As a reference, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized session quote covering your procedure and your year-one follow-ups, and financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included."],
+    a: [`Pricing starts at ${PRICE_FROM_PER_GRAFT} per graft, and most procedures come to around ${PRICE_AVERAGE}, which covers a session of up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized session price in front of you, covering your procedure and your year-one follow-ups. Financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
   },
   {
     q: "Do patients travel from Miami or Orlando?",
@@ -426,10 +432,12 @@ export default function HairTransplantMelbourneFl() {
             <p className="eyebrow">Investment</p>
             <h2>What Does a Hair Transplant Cost in Melbourne?</h2>
             <p className="lede">
-              There is no per-graft meter here. Dr. Imami estimates the grafts
-              your plan needs and quotes one written session price, covering
-              the procedure and your first year of follow-ups, with financing
-              through CareCredit and Affirm.
+              Pricing starts at {PRICE_FROM_PER_GRAFT} per graft, and most
+              procedures come to around {PRICE_AVERAGE}, covering a session of
+              up to roughly {PRICE_AVERAGE_UP_TO_GRAFTS} grafts. Dr. Imami
+              estimates the grafts your plan needs and puts one written session
+              price in front of you, covering the procedure and your first year
+              of follow-ups, with financing through CareCredit and Affirm.
             </p>
             <div className="hero-cta">
               <a className="btn" href="/fue-hair-transplant-cost">

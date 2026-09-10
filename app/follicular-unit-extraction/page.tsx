@@ -7,7 +7,14 @@ import ReviewMarquee from "../components/ReviewMarquee";
 import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
 import HeroBA from "../components/HeroBA";
-import { NAV_MAIN, PHONE, PHONE_HREF } from "../site";
+import {
+  NAV_MAIN,
+  PHONE,
+  PHONE_HREF,
+  PRICE_AVERAGE,
+  PRICE_AVERAGE_UP_TO_GRAFTS,
+  PRICE_FROM_PER_GRAFT,
+} from "../site";
 
 export const metadata: Metadata = {
   title: "FUE Hair Transplant in Florida | Follicular Unit Extraction",
@@ -98,7 +105,7 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "How much does a hair transplant cost?",
-    a: ["There is no single hair transplant price, because no two patients need the same session. Dr. Imami estimates the graft count your plan requires, then quotes a custom session price rather than charging per graft. As a reference, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized session quote covering your procedure and your year-one follow-ups, and financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included."],
+    a: [`Pricing starts at ${PRICE_FROM_PER_GRAFT} per graft, and most procedures come to around ${PRICE_AVERAGE}, which covers a session of up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized session price in front of you, covering your procedure and your year-one follow-ups. Financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
   },
   {
     q: "Do patients travel from Miami or Orlando?",
@@ -354,11 +361,13 @@ export default function FollicularUnitExtraction() {
             <p className="eyebrow">Investment</p>
             <h2>Hair Transplant Cost &amp; Financing</h2>
             <p className="lede">
-              For a lot of people, cost is the reason this waits another year.
-              There is no single hair transplant price, because no two patients
-              need the same number of grafts, so here is how the cost of a hair
-              transplant is actually built. Judge any quote by it, ours or
-              anyone else&rsquo;s.
+              For a lot of people, cost is the reason this waits another year,
+              so here it is plainly. Pricing starts at {PRICE_FROM_PER_GRAFT}{" "}
+              per graft, and most procedures come to around {PRICE_AVERAGE},
+              which covers a session of up to roughly{" "}
+              {PRICE_AVERAGE_UP_TO_GRAFTS} grafts. What follows is how that
+              number is built, so you can judge any quote by it, ours or anyone
+              else&rsquo;s.
             </p>
           </div>
           {/* Both columns stretch to the same height; the table distributes
@@ -429,10 +438,10 @@ export default function FollicularUnitExtraction() {
               </table>
               <p style={{ marginTop: 16 }}>
                 So if you are pricing a hair transplant 1000 grafts cost, or
-                costing a 2000 grafts hair transplant, we first estimate your
-                graft count, then quote a custom session price rather than a
-                per-graft rate. Florida hair transplant cost differs between
-                clinics mainly because session scopes and inclusions differ.
+                costing a 2000 grafts hair transplant, your graft count is what
+                moves the figure, from {PRICE_FROM_PER_GRAFT} per graft upward.
+                Florida hair transplant cost differs between clinics mainly
+                because session scopes and inclusions differ.
               </p>
             </div>
           </div>
@@ -448,7 +457,10 @@ export default function FollicularUnitExtraction() {
               <li>A written, itemized quote at your consultation, with no hidden extras</li>
               <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
               <li>Medication refills included through your first year</li>
-              <li>A custom session price built on your estimated graft count, not per-graft pricing</li>
+              <li>
+                One written session price for your plan, from{" "}
+                {PRICE_FROM_PER_GRAFT} per graft
+              </li>
             </ul>
             <a className="btn" style={{ marginTop: 24 }} href="#consult">
               Get a personalized quote

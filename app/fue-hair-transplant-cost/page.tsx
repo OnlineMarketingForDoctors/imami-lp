@@ -6,7 +6,13 @@ import BookingEmbed from "../components/BookingEmbed";
 import ReviewMarquee from "../components/ReviewMarquee";
 import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
-import { PHONE, PHONE_HREF } from "../site";
+import {
+  PHONE,
+  PHONE_HREF,
+  PRICE_AVERAGE,
+  PRICE_AVERAGE_UP_TO_GRAFTS,
+  PRICE_FROM_PER_GRAFT,
+} from "../site";
 
 export const metadata: Metadata = {
   title: "FUE Hair Transplant Cost | Imami Hair Restoration",
@@ -24,20 +30,6 @@ const NAV_COST = [
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
 ];
-
-/**
- * Session price bands. `price` renders once the practice supplies figures;
- * until then rows fall back to the written-quote line so nothing invented
- * ships.
- */
-const PRICE_BANDS: { grafts: string; price: string | null }[] = [
-  { grafts: "1,000-1,200", price: null },
-  { grafts: "1,200-1,800", price: null },
-  { grafts: "1,800-2,000+", price: null },
-];
-
-/** Indicative monthly financing figure, e.g. "$250" - null until supplied. */
-const FINANCE_MONTHLY: string | null = null;
 
 const ASK = [
   {
@@ -131,7 +123,7 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "How much does a hair transplant cost?",
-    a: ["There is no single hair transplant price, because no two patients need the same session. Dr. Imami estimates the graft count your plan requires, then quotes a custom session price rather than charging per graft. As a reference, recent no-shave FUE patients have typically received between 1,100 and 2,000 grafts in a session. At your consultation you receive a written, itemized session quote covering your procedure and your year-one follow-ups, and financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included."],
+    a: [`Pricing starts at ${PRICE_FROM_PER_GRAFT} per graft, and most procedures come to around ${PRICE_AVERAGE}, which covers a session of up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized session price in front of you, covering your procedure and your year-one follow-ups. Financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
   },
   {
     q: "Do patients travel from Miami or Orlando?",
@@ -211,18 +203,28 @@ export default function FueHairTransplantCost() {
           </p>
           {/* The brief puts the price band above the fold, so it takes the
               hero's corner-card slot; the gallery still runs below. */}
-          <aside className="hero-ba hero-price" aria-label="Session price at a glance">
-            <h3>Session Price by Graft Count</h3>
+          <aside className="hero-ba hero-price" aria-label="What it costs">
+            <h3>What It Costs</h3>
             <table>
               <tbody>
-                {PRICE_BANDS.map((b) => (
-                  <tr key={b.grafts}>
-                    <td>
-                      <b>{b.grafts} grafts</b>
-                    </td>
-                    <td>{b.price ?? "Quoted in writing"}</td>
-                  </tr>
-                ))}
+                <tr>
+                  <td>
+                    <b>Starting from</b>
+                  </td>
+                  <td>{PRICE_FROM_PER_GRAFT} per graft</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Most procedures</b>
+                  </td>
+                  <td>{PRICE_AVERAGE}</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Which covers</b>
+                  </td>
+                  <td>Up to {PRICE_AVERAGE_UP_TO_GRAFTS} grafts</td>
+                </tr>
               </tbody>
             </table>
             <a className="hero-ba-more" href="#cost">
@@ -346,11 +348,13 @@ export default function FueHairTransplantCost() {
             <p className="eyebrow">Investment</p>
             <h2>Hair Transplant Cost &amp; Financing</h2>
             <p className="lede">
-              For a lot of people, cost is the reason this waits another year.
-              There is no single hair transplant price, because no two patients
-              need the same number of grafts, so here is how the cost of a hair
-              transplant is actually built. Judge any quote by it, ours or
-              anyone else&rsquo;s.
+              For a lot of people, cost is the reason this waits another year,
+              so here it is plainly. Pricing starts at {PRICE_FROM_PER_GRAFT}{" "}
+              per graft, and most procedures come to around {PRICE_AVERAGE},
+              which covers a session of up to roughly{" "}
+              {PRICE_AVERAGE_UP_TO_GRAFTS} grafts. What follows is how that
+              number is built, so you can judge any quote by it, ours or anyone
+              else&rsquo;s.
             </p>
           </div>
           {/* Both columns stretch to the same height; the table distributes
@@ -402,33 +406,29 @@ export default function FueHairTransplantCost() {
                   <tr>
                     <th>Session</th>
                     <th>Typically suits</th>
-                    <th>Session price</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1,000-1,200</td>
                     <td>An early Norwood 2-3 hairline or temple rebuild</td>
-                    <td>{PRICE_BANDS[0].price ?? "Quoted in writing"}</td>
                   </tr>
                   <tr>
                     <td>1,200-1,800</td>
                     <td>A full Norwood 3 hairline restoration</td>
-                    <td>{PRICE_BANDS[1].price ?? "Quoted in writing"}</td>
                   </tr>
                   <tr>
                     <td>1,800-2,000+</td>
                     <td>Norwood 4-5, or hairline plus crown together</td>
-                    <td>{PRICE_BANDS[2].price ?? "Quoted in writing"}</td>
                   </tr>
                 </tbody>
               </table>
               <p style={{ marginTop: 16 }}>
                 So if you are pricing a hair transplant 1000 grafts cost, or
-                costing a 2000 grafts hair transplant, we first estimate your
-                graft count, then quote a custom session price rather than a
-                per-graft rate. Florida hair transplant cost differs between
-                clinics mainly because session scopes and inclusions differ.
+                costing a 2000 grafts hair transplant, your graft count is what
+                moves the figure, from {PRICE_FROM_PER_GRAFT} per graft upward.
+                Florida hair transplant cost differs between clinics mainly
+                because session scopes and inclusions differ.
               </p>
             </div>
           </div>
@@ -439,15 +439,18 @@ export default function FueHairTransplantCost() {
               We offer financing through CareCredit and Affirm, so hair
               restoration surgery cost can be spread over monthly payments rather
               than paid in one go.
-              {FINANCE_MONTHLY
-                ? ` For many patients that works out from about ${FINANCE_MONTHLY} a month, depending on the plan and term you choose.`
-                : " Ask on your free discovery call for an indicative monthly figure for your session size."}
+{" "}
+              Ask on your free discovery call what {PRICE_AVERAGE} looks like as
+              a monthly figure over the term you choose.
             </p>
             <ul className="checks" style={{ marginTop: 20 }}>
               <li>A written, itemized quote at your consultation, with no hidden extras</li>
               <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
               <li>Medication refills included through your first year</li>
-              <li>A custom session price built on your estimated graft count, not per-graft pricing</li>
+              <li>
+                One written session price for your plan, from{" "}
+                {PRICE_FROM_PER_GRAFT} per graft
+              </li>
             </ul>
             <a className="btn" style={{ marginTop: 24 }} href="#consult">
               Get a personalized quote

@@ -27,3 +27,11 @@ export const NAV = [
   { href: "#location", label: "Location" },
   { href: "#faq", label: "FAQ" },
 ];
+
+/**
+ * Pricing confirmed by the practice (September 2026). Every page reads these,
+ * so a price change is one edit here.
+ */
+export const PRICE_FROM_PER_GRAFT = "$3";
+export const PRICE_AVERAGE = "$12,000";
+export const PRICE_AVERAGE_UP_TO_GRAFTS = "3,000";
