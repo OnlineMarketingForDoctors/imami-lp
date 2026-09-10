@@ -37,10 +37,10 @@ const AREAS = [
 ];
 
 const HERO_POINTS = [
-  "Triple Board-Certified Surgeon",
-  "Flexible Financing Available",
-  "Natural-Looking, Artful Results",
-  "30+ Years Surgical Excellence",
+  "No shaved head, so nobody has to know",
+  "Your own hair, styled however you like",
+  "The surgeon you meet is the one who operates",
+  "Triple board-certified, 30+ years of surgery",
 ];
 
 const RESULTS: BAItem[] = [
@@ -72,12 +72,12 @@ const STEPS = [
 ];
 
 const BENEFITS = [
-  "No linear scarring in the donor area",
-  "Significantly shorter recovery time",
-  "No-shave options available for minimal downtime",
-  "Ability to wear hair longer or shorter",
-  "Repeatable procedure for future thinning",
-  "Completely natural, undetectable outcomes",
+  "No linear scar, so a short cut stays an option",
+  "A shorter recovery than older transplant techniques",
+  "No-shave options, so your week barely changes",
+  "Wear it long or short, it is your own hair",
+  "Repeatable later if thinning continues",
+  "Natural enough that people notice you, not your hairline",
 ];
 
 const WHY = [
@@ -301,8 +301,8 @@ export default function HairTransplantMelbourneFl() {
             <p className="eyebrow">Real Results</p>
             <h2>Before &amp; After</h2>
             <p className="lede">
-              See the transformative results our patients have achieved with Dr.
-              Imami.
+              Many of our patients tell us they wish they had come in sooner.
+              This is what they saw when they did.
             </p>
           </div>
           <BASlider items={RESULTS} />
@@ -460,10 +460,11 @@ export default function HairTransplantMelbourneFl() {
               <span className="num">Men</span>
               <h3>Male Pattern Hair Loss</h3>
               <p>
-                Most of our patients are men with a receding hairline, a thinning
-                crown or both. A men&rsquo;s FUE hair transplant rebuilds the
-                frame of the face using your own hair, and no-shave FUE means
-                colleagues need not know you have had anything done.
+                Most of our patients are men who have watched a hairline creep
+                back for years, or found the crown in a photograph nobody told
+                them was being taken. A men&rsquo;s FUE hair transplant rebuilds
+                the frame of the face using your own hair, and because it is
+                no-shave, colleagues need not know you have had anything done.
               </p>
               <p style={{ marginTop: 14 }}>
                 If you have been researching what a hair transplant costs, the
@@ -486,11 +487,11 @@ export default function HairTransplantMelbourneFl() {
               <span className="num">Women</span>
               <h3>Female Thinning &amp; Hairlines</h3>
               <p>
-                Women lose hair differently, more often diffuse thinning
-                or a high, uneven hairline than a classic receding pattern. A
-                female hairline transplant can lower and soften the frame, and
-                FUE hair transplant for women is carried out without shaving the
-                head.
+                For women it is usually the parting that widens first, or a
+                hairline sitting higher than it used to. It is a quieter kind of
+                hair loss, and often a lonelier one. A female hairline
+                transplant can lower and soften the frame, and FUE hair
+                transplant for women is carried out without shaving the head.
               </p>
               <p style={{ marginTop: 14 }}>
                 Pricing works the same way for women: after your assessment,
@@ -533,11 +534,11 @@ export default function HairTransplantMelbourneFl() {
             <p className="eyebrow">Meet Your Surgeon</p>
             <h2>Dr. Emran Imami</h2>
             <p className="lede">
-              Triple board-certified surgeon with over 30 years of surgical
-              excellence, bringing precision and artistry to every hair
-              restoration procedure at Imami Hair Restoration, a surgeon-led
-              hair transplant clinic in Melbourne, Florida that patients travel
-              to from Orlando, Miami and across the country.
+              Thirty years of surgery, and he still designs every hairline
+              himself. Dr. Imami is triple board-certified, and he treats a
+              hairline as a piece of a face rather than a row of grafts, which
+              is why patients travel to his Melbourne, Florida clinic from
+              Orlando, Miami and across the country.
             </p>
             <div id="why">
               {WHY.map((w) => (
@@ -582,13 +583,14 @@ export default function HairTransplantMelbourneFl() {
             <p className="eyebrow">Free Discovery Call</p>
             <h2>Book Your Free Discovery Call</h2>
             <p className="lede">
-              Start with a free phone call with one of our hair transplant
-              specialists to talk through your hair loss concerns, whether
-              no-shave FUE could suit you, and your next steps, including your
-              consultation with Dr. Imami. Book from wherever you are: patients
-              visit from Orlando, Miami and across the country, and our office
-              is just 1 mile from Melbourne-Orlando International Airport
-              (MLB), so fly-in patients can come once for the procedure itself.
+              One phone call, no pressure and nothing to pay. Talk to a hair
+              transplant specialist about what is happening to your hair,
+              whether no-shave FUE could suit you, and what your next step
+              looks like, including your consultation with Dr. Imami. Book from
+              wherever you are: patients visit from Orlando, Miami and across
+              the country, and our office is just 1 mile from Melbourne-Orlando
+              International Airport (MLB), so fly-in patients can come once for
+              the procedure itself.
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
