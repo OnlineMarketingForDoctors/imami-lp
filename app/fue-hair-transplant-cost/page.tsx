@@ -760,10 +760,9 @@ export default function FueHairTransplantCost() {
           <div className="contact-form">
             <LeadFormEmbed note={false} />
           </div>
-        </div>
-        {/* Outside the grid, so the photo finishes level with the form itself
-            rather than with the form plus its small print. */}
-        <div className="wrap">
+          {/* A second row of the same grid: the small print keeps the form's
+              column and width, while the row above leaves the form box alone
+              for the photo to finish level with. */}
           <div className="contact-note">
             <LeadFormNote />
           </div>
