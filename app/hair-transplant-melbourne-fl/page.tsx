@@ -252,15 +252,30 @@ export default function HairTransplantMelbourneFl() {
             </div>
           </div>
           <div>
-            <iframe
-              className="map-embed"
-              src="https://maps.google.com/maps?q=1140%20Broadband%20Drive%20Unit%20G2%2C%20Melbourne%2C%20FL%2032901&z=13&output=embed"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Map to Imami Hair Restoration, Melbourne, FL"
-            />
-            {/* The embed swallows clicks, so the route through to the Google
-                Business Profile is an explicit link beneath it. */}
+            {/* Google's own "Open in Maps" control inside the embed opens a
+                bare address search rather than the Business Profile, and the
+                embed's URL cannot change that, so a transparent overlay takes
+                every click on the map to the profile instead. The trade is
+                that the map no longer pans or zooms in place. */}
+            <div className="map-wrap">
+              <iframe
+                className="map-embed"
+                src="https://maps.google.com/maps?q=Imami%20Hair%20Restoration%2C%201140%20Broadband%20Drive%20Unit%20G2%2C%20Melbourne%2C%20FL%2032901&z=13&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Map to Imami Hair Restoration, Melbourne, FL"
+              />
+              <a
+                className="map-hit"
+                href={GMB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="sr-only">
+                  View Imami Hair Restoration on Google Maps
+                </span>
+              </a>
+            </div>
             <a
               className="map-link"
               href={GMB_URL}
@@ -685,6 +700,16 @@ export default function HairTransplantMelbourneFl() {
               <a href={PHONE_HREF}>{PHONE}</a> during office hours, Monday to
               Friday, 8 am to 5 pm.
             </p>
+            {/* Fills the column beside the tall enquiry form. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="rounded-img contact-side"
+              src="/images/Rectangle-183-8-1.png"
+              alt="Confident man after hair restoration"
+              width={568}
+              height={721}
+              loading="lazy"
+            />
           </div>
           <div className="contact-form">
             <LeadFormEmbed />
