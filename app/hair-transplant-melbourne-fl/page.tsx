@@ -252,30 +252,17 @@ export default function HairTransplantMelbourneFl() {
             </div>
           </div>
           <div>
-            {/* Google's own "Open in Maps" control inside the embed opens a
-                bare address search rather than the Business Profile, and the
-                embed's URL cannot change that, so a transparent overlay takes
-                every click on the map to the profile instead. The trade is
-                that the map no longer pans or zooms in place. */}
-            <div className="map-wrap">
-              <iframe
-                className="map-embed"
-                src="https://maps.google.com/maps?q=Imami%20Hair%20Restoration%2C%201140%20Broadband%20Drive%20Unit%20G2%2C%20Melbourne%2C%20FL%2032901&z=13&output=embed"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Map to Imami Hair Restoration, Melbourne, FL"
-              />
-              <a
-                className="map-hit"
-                href={GMB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="sr-only">
-                  View Imami Hair Restoration on Google Maps
-                </span>
-              </a>
-            </div>
+            {/* Embed code taken from the practice's own Google Business
+                Profile, so the card inside the map is the listing itself and
+                its controls open that listing rather than a bare address. */}
+            <iframe
+              className="map-embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.8268997864257!2d-80.64751489999999!3d28.090822499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88de0f10a2006831%3A0x7d29f70f22563660!2sImami%20Hair%20Restoration%20-%20Hair%20Transplant%20Clinic%20Florida!5e0!3m2!1sen!2s!4v1789065099617!5m2!1sen!2s"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="Map to Imami Hair Restoration, Melbourne, FL"
+            />
             <a
               className="map-link"
               href={GMB_URL}
