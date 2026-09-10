@@ -197,7 +197,10 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .consult-form{position:relative;z-index:2;width:min(620px,100%);margin:-380px auto 0}
 .booking-embed{background:#000;border:1px solid #999;border-radius:8px;padding:12px;overflow:hidden}
 .booking-embed iframe{display:block;width:100%;min-height:700px;background:#fff;border-radius:6px}
-.contact-side{margin-top:34px;width:min(420px,100%);height:auto}
+.contact-copy{display:flex;flex-direction:column}
+/* flex-grow makes the photo absorb the space the copy leaves, so its
+   bottom edge lands with the form's; cover keeps it from distorting. */
+.contact-side{flex:1;min-height:260px;margin-top:34px;width:100%;object-fit:cover}
 .contact-form{width:min(620px,100%);margin:0 auto;justify-self:end}
 
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
@@ -419,6 +422,7 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
   .ba-track{grid-auto-columns:calc(50% - 12px)}
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .g2,.form-grid,.rev-grid{grid-template-columns:1fr;gap:40px}
+  .contact-side{flex:none;height:auto;aspect-ratio:568/721}
   .g3,.ba,.steps{grid-template-columns:1fr 1fr}
   .step{border-right:none;border-bottom:1px solid var(--line)}
 }

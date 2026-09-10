@@ -687,8 +687,10 @@ export default function HairTransplantMelbourneFl() {
 
       {/* General enquiries: the form stays for visitors not ready to book */}
       <section className="sec sec--tint" id="contact">
-        <div className="wrap g2" style={{ alignItems: "start" }}>
-          <div>
+        {/* Stretched, so the photo grows to finish level with the form
+            however tall LeadConnector sizes its iframe. */}
+        <div className="wrap g2 g2--stretch">
+          <div className="contact-copy">
             <p className="eyebrow">Contact</p>
             <h2>General Enquiries</h2>
             <p className="lede">
