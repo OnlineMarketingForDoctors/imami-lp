@@ -313,6 +313,10 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .rev-dots{display:flex;gap:8px}
 .rev-dots button{width:8px;height:8px;padding:0;border-radius:50%;border:none;background:#C9C4B6;cursor:pointer}
 .rev-dots button.is-active{background:var(--brass);width:22px;border-radius:4px}
+/* Arrows belong to the phone review slider only; the grid layouts above
+   660px have nothing to scroll. */
+.revgrid-nav{display:none}
+@media (max-width:660px){.revgrid-nav{display:flex;margin-top:18px}}
 
 /* Grid children default to min-width:auto, which stops wide content (the cost
    tables) shrinking and pushes the page into horizontal scroll. */

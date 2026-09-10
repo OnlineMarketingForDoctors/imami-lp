@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import reviews from "./reviews.json";
 
 const STAR =
@@ -62,6 +62,46 @@ export default function ReviewGrid({ exclude = [] }: { exclude?: string[] }) {
   const items = reviews.filter((r) => !exclude.includes(r.name));
   const [open, setOpen] = useState<Review | null>(null);
 
+  /* Below 660px the row is a scroll-snap slider. These drive its arrows and
+     grey them out at each end; above that it is a plain grid and the arrows
+     are hidden, so none of this has any effect there. */
+  const track = useRef<HTMLDivElement>(null);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+
+  const syncEnds = useCallback(() => {
+    const el = track.current;
+    if (!el) return;
+    const max = el.scrollWidth - el.clientWidth;
+    setAtStart(el.scrollLeft <= 1);
+    setAtEnd(el.scrollLeft >= max - 1);
+  }, []);
+
+  useEffect(() => {
+    const el = track.current;
+    if (!el) return;
+    syncEnds();
+    el.addEventListener("scroll", syncEnds, { passive: true });
+    window.addEventListener("resize", syncEnds);
+    return () => {
+      el.removeEventListener("scroll", syncEnds);
+      window.removeEventListener("resize", syncEnds);
+    };
+  }, [syncEnds]);
+
+  /* One card plus one gap, measured rather than assumed, so the arrows keep
+     landing on a snap point if the card width or gap ever changes. */
+  const step = (dir: 1 | -1) => {
+    const el = track.current;
+    if (!el) return;
+    const kids = el.children;
+    const by =
+      kids.length > 1
+        ? (kids[1] as HTMLElement).offsetLeft - (kids[0] as HTMLElement).offsetLeft
+        : el.clientWidth;
+    el.scrollBy({ left: dir * by, behavior: "smooth" });
+  };
+
   const close = useCallback(() => setOpen(null), []);
 
   useEffect(() => {
@@ -79,10 +119,31 @@ export default function ReviewGrid({ exclude = [] }: { exclude?: string[] }) {
 
   return (
     <div className="wrap">
-      <div className="revgrid">
+      <div className="revgrid" ref={track}>
         {items.map((r) => (
           <Card r={r} key={r.name + r.date} onMore={() => setOpen(r)} />
         ))}
+      </div>
+
+      <div className="rev-nav revgrid-nav">
+        <button
+          type="button"
+          className="rev-arrow"
+          aria-label="Previous review"
+          onClick={() => step(-1)}
+          disabled={atStart}
+        >
+          &#8592;
+        </button>
+        <button
+          type="button"
+          className="rev-arrow"
+          aria-label="Next review"
+          onClick={() => step(1)}
+          disabled={atEnd}
+        >
+          &#8594;
+        </button>
       </div>
 
       {open && (
