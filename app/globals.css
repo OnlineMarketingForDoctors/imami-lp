@@ -76,6 +76,10 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .offercard{border:1px solid var(--olive);background:var(--paper-2);border-radius:var(--r);padding:24px 26px;margin-top:26px}
 .offercard .num{color:var(--brass)}
 .offercard h3{margin-bottom:8px}
+/* The card keeps its cream ground on dark sections, so its text has to
+   opt back out of the inherited light colour. */
+.sec--dark .offercard,.sec--dark .offercard h3,.sec--dark .offercard p{color:var(--ink)}
+.sec--dark .offercard .disc-sm{color:var(--muted)}
 .disc-sm{font-size:.78rem;color:var(--muted);margin-top:12px;line-height:1.5}
 .usps li.hl{color:#fff;font-weight:600}
 .usps li.hl::before{background:var(--brass);width:11px;height:11px;margin-top:8px}
@@ -128,20 +132,19 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .treat-rows h4{font-size:1.35rem;font-weight:700;color:#fff;margin-bottom:8px}
 .treat-rows p{color:#C9C9C9;font-size:1.02rem}
 
-/* Full-width review marquee: two identical card runs, translated by half the
-   track width for a seamless loop. Hover pauses; reduced motion scrolls. */
-.marquee{overflow:hidden;width:100%}
-.mq-track{display:flex;gap:24px;width:max-content;padding:6px 0;animation:mq 55s linear infinite}
-.mq-dup{display:contents}
-.marquee:hover .mq-track,.mq-track:focus-within{animation-play-state:paused}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 12px))}}
-.mq-card{flex:none;width:400px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;display:flex;flex-direction:column}
-.mq-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
+/* Reviews: one card per review, four across, stacking down to one. */
+.revgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:stretch}
+.revgrid>*{min-width:0}
+.mq-card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px;display:flex;flex-direction:column}
+.mq-top{display:flex;align-items:flex-start;gap:8px 14px;margin-bottom:14px;flex-wrap:wrap}
+.mq-top>div:not(.mq-stars){flex:1 1 0;min-width:0}
 .mq-avatar{width:40px;height:40px;flex:none;border-radius:50%;background:#fff;border:1px solid var(--line);padding:7px}
 .mq-name{font-weight:600;font-size:.98rem;line-height:1.3}
 .mq-date{color:var(--muted);font-size:.8rem;margin-top:2px}
-.mq-stars{margin:2px 0 0 auto}
+.mq-stars{flex:0 0 100%;margin:0}
 .mq-stars svg{width:15px;height:15px}
+@media (max-width:1180px){.revgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:660px){.revgrid{grid-template-columns:1fr}}
 .mq-body{font-size:.92rem;line-height:1.6;white-space:pre-line;display:-webkit-box;-webkit-line-clamp:7;line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
 .mq-more{margin-top:12px;padding:0;border:none;background:none;cursor:pointer;align-self:flex-start;font-family:inherit;font-size:.82rem;font-weight:600;color:var(--brass);text-decoration:underline}
 
@@ -149,10 +152,6 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .rev-modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;padding:24px}
 .rev-modal-card{width:min(640px,100%);max-height:82vh;overflow-y:auto;background:#fff;border-radius:8px;padding:32px 28px}
 .rev-modal-body{font-size:.95rem;line-height:1.65;white-space:pre-line}
-@media(prefers-reduced-motion:reduce){
-  .mq-track{animation:none}
-  .marquee{overflow-x:auto}
-}
 
 /* How FUE Works: badge left, heading right, staggered outline boxes */
 .works-head{display:grid;grid-template-columns:1fr 1fr;align-items:start;margin-bottom:60px}
@@ -438,7 +437,7 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
   .g3,.ba,.steps,.fields{grid-template-columns:1fr}
   .f-grid{grid-template-columns:1fr}
   .rev-track,.ba-track{grid-auto-columns:100%}
-  .mq-card{width:310px;padding:20px}
+  .mq-card{padding:20px}
   .wsteps{grid-template-columns:1fr}
   .hero2{padding:56px 0 64px;min-height:0}
   .hero-grid{grid-template-columns:1fr;gap:36px}

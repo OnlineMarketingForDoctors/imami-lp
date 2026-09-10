@@ -20,15 +20,7 @@ function Stars({ count }: { count: number }) {
   );
 }
 
-function Card({
-  r,
-  onMore,
-  ghost,
-}: {
-  r: Review;
-  onMore: () => void;
-  ghost?: boolean;
-}) {
+function Card({ r, onMore }: { r: Review; onMore: () => void }) {
   return (
     <article className="mq-card">
       <div className="mq-top">
@@ -50,14 +42,7 @@ function Card({
         <Stars count={r.stars} />
       </div>
       <p className="mq-body">{r.text}</p>
-      {/* Cards in the aria-hidden duplicate run stay clickable (they look
-          identical to the originals) but are removed from the tab order. */}
-      <button
-        type="button"
-        className="mq-more"
-        onClick={onMore}
-        tabIndex={ghost ? -1 : 0}
-      >
+      <button type="button" className="mq-more" onClick={onMore}>
         Read more
       </button>
     </article>
@@ -65,16 +50,15 @@ function Card({
 }
 
 /**
- * Full-width, continuously scrolling review carousel. The card list is
- * rendered twice so the CSS translation loops seamlessly; the copy is
- * aria-hidden so screen readers hear each review once. Pauses on hover,
- * and prefers-reduced-motion swaps the animation for manual scrolling.
+ * Reviews as a plain grid, one card per review. This replaced a looping
+ * marquee whose seamless scroll needed the whole card list rendered a
+ * second time, which read on the page as the same reviews appearing twice.
  * Every card's Read more button opens the full review text in an overlay.
  *
- * `exclude` drops reviews by reviewer name — the FUE ad-group pages must
- * not carry FUT content, and one review discusses a FUT procedure.
+ * `exclude` drops reviews by reviewer name, for pages that must not carry
+ * a particular review.
  */
-export default function ReviewMarquee({ exclude = [] }: { exclude?: string[] }) {
+export default function ReviewGrid({ exclude = [] }: { exclude?: string[] }) {
   const items = reviews.filter((r) => !exclude.includes(r.name));
   const [open, setOpen] = useState<Review | null>(null);
 
@@ -94,21 +78,11 @@ export default function ReviewMarquee({ exclude = [] }: { exclude?: string[] }) 
   }, [open, close]);
 
   return (
-    <div className="marquee">
-      <div className="mq-track">
+    <div className="wrap">
+      <div className="revgrid">
         {items.map((r) => (
           <Card r={r} key={r.name + r.date} onMore={() => setOpen(r)} />
         ))}
-        <div className="mq-dup" aria-hidden="true">
-          {items.map((r) => (
-            <Card
-              r={r}
-              key={"dup" + r.name + r.date}
-              onMore={() => setOpen(r)}
-              ghost
-            />
-          ))}
-        </div>
       </div>
 
       {open && (

@@ -3,7 +3,7 @@ import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import LeadFormEmbed from "../components/LeadFormEmbed";
 import BookingEmbed from "../components/BookingEmbed";
-import ReviewMarquee from "../components/ReviewMarquee";
+import ReviewGrid from "../components/ReviewGrid";
 import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
 import {
@@ -11,7 +11,6 @@ import {
   PHONE_HREF,
   PRICE_AVERAGE,
   PRICE_AVERAGE_UP_TO_GRAFTS,
-  PRICE_FROM_PER_GRAFT,
 } from "../site";
 
 export const metadata: Metadata = {
@@ -24,6 +23,7 @@ export const metadata: Metadata = {
 const NAV_COST = [
   { href: "#results", label: "Before & After" },
   { href: "#benefits", label: "Benefits" },
+  { href: "#repair", label: "Repair" },
   { href: "#cost", label: "Pricing" },
   { href: "#ask", label: "Compare Clinics" },
   { href: "#why", label: "Why Choose Us" },
@@ -61,15 +61,6 @@ const RESULTS: BAItem[] = [
   { img: "1-6.png", age: "38", norwood: "4", grafts: "2,023", timeline: "2 Years Post-Op" },
 ];
 
-const TREATS = [
-  { icon: "Group-467.png", h: "Receding Hairline", p: "Redesigning and lowering the hairline for a youthful frame." },
-  { icon: "Group-473.png", h: "Thinning Crown", p: "Restoring density to the vertex for complete coverage." },
-  { icon: "Group-467.png", h: "Temple Restoration", p: "Rebuilding temporal points for a balanced facial profile." },
-  { icon: "Group-474.png", h: "Scar Camouflage", p: "Concealing previous surgical scars or trauma." },
-  { icon: "Group-475-1.png", h: "Hairline Refinement", p: "Adding density to previous transplants or naturally weak hairlines." },
-  { icon: "Group-475.png", h: "Eyebrow Restoration", p: "Recreating fuller, natural-looking eyebrows for both men and women." },
-];
-
 const STEPS = [
   { num: "01.png", h: "Extraction", p: "Individual follicles are carefully extracted using a microscopic punch tool." },
   { num: "02.png", h: "Preparation", p: "Grafts are inspected, sorted, and preserved in a specialized solution." },
@@ -90,6 +81,21 @@ const WHY = [
   { h: "Triple Board-Certified", p: "A rare distinction ensuring the highest standards of surgical safety, ethics, and aesthetic outcomes." },
   { h: "Surgeon-Led Procedure", p: "Dr Imami directs his experienced hair transplant team for optimal extraction and site creation." },
   { h: "Personalized Design", p: "Every hairline is custom-designed based on facial geometry, age, and long-term hair loss progression." },
+];
+
+const REPAIR = [
+  {
+    h: "Correcting Previous Transplants",
+    p: "Grafts placed too thickly, at the wrong angle, or in the wrong direction give that pluggy look people recognise across a room. Dr. Imami softens the front, re-angles the growth, and fills between the old work with your own hair until it stops announcing itself.",
+  },
+  {
+    h: "Hairline Revision",
+    p: "A hairline set too low, too straight, or too far forward rarely suits the face it ends up on, and it ages badly. We redraw the shape and rebuild the edge with single hairs, so it sits where it would have sat naturally at the age you are now.",
+  },
+  {
+    h: "Donor Scar Camouflage",
+    p: "A linear donor scar from older surgery, or a scar from an injury, can be grafted into so it stops showing through short hair. For most people that is the point: getting back the option of wearing it short.",
+  },
 ];
 
 const JOURNEY = [
@@ -123,15 +129,15 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "How much does a hair transplant cost?",
-    a: [`Pricing starts at ${PRICE_FROM_PER_GRAFT} per graft, and most procedures come to around ${PRICE_AVERAGE}, which covers a session of up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized session price in front of you, covering your procedure and your year-one follow-ups. Financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
+    a: [`Most procedures come to around ${PRICE_AVERAGE}. That is the session price, covering up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts, your surgery with Dr. Imami, and your follow-ups through the first year. Smaller sessions cost less. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized price in front of you before anything is booked. Financing is available through CareCredit and Affirm, so it can be spread over monthly payments. When you compare quotes, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
   },
   {
     q: "Do patients travel from Miami or Orlando?",
-    a: ["Yes, all the time, and many patients travel to us from across the country. Our hair transplant clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando, a comfortable drive up the coast from Miami, and just 1 mile from Melbourne-Orlando International Airport (MLB) for patients who fly in. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a free discovery call from wherever you are, then visit once for the procedure itself."],
+    a: ["Yes, all the time, and many patients travel to us from across the country. Our clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando, a comfortable drive up the coast from Miami, and just 1 mile from Melbourne-Orlando International Airport (MLB) for anyone flying in. Start with a free discovery call from wherever you are, then visit once for the procedure itself."],
   },
   {
     q: "How many grafts will I need?",
-    a: ["The number of grafts varies based on your degree of hair loss (Norwood stage), the areas being treated, your donor density, and your desired result. As a reference, Dr. Imami’s recent No-Shave FUE patients have typically received between 1,100 and 2,000 grafts per session. For example, a Norwood 3 hairline restoration may require around 1,100–1,800 grafts, while more advanced patterns at Norwood 4–5 often need 1,800–2,000+ grafts. During your consultation, Dr. Imami will assess your scalp, design your hairline, and calculate the precise graft count needed to achieve a natural, balanced outcome."],
+    a: ["The number of grafts varies based on your degree of hair loss (Norwood stage), the areas being treated, your donor density, and your desired result. As a reference, most of Dr. Imami’s recent No-Shave FUE patients have received between 1,100 and 2,000 grafts per session, and a large session runs up to around 3,000. A Norwood 3 hairline restoration may require around 1,100–1,800 grafts, while more advanced patterns at Norwood 4–5 often need 1,800–3,000. During your consultation, Dr. Imami will assess your scalp, design your hairline, and calculate the precise graft count needed to achieve a natural, balanced outcome."],
   },
 ];
 
@@ -172,15 +178,9 @@ export default function FueHairTransplantCost() {
             The Cost of Getting Your Hair Back Is Less Than You Fear
           </h1>
           <p className="hero-sub">
-            {/* Font Awesome solid "gift" */}
-            <svg className="hero-gift" viewBox="0 0 512 512" aria-hidden="true">
-              <path d="M190.5 68.8 225.3 128h-1.3-72c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32v-64c0-17.7-14.3-32-32-32h-41.6c6.1-12 9.6-25.6 9.6-40 0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40h-72-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48h2.2c22.1 0 40 17.9 40 40zM32 288v176c0 26.5 21.5 48 48 48h144V288H32zm256 224h144c26.5 0 48-21.5 48-48V288H288v224z" />
-            </svg>
-            <strong className="hero-offer">
-              Complimentary biomimetic hair growth treatment
-            </strong>{" "}
-            with every hair transplant, included in Dr. Imami&rsquo;s
-            post-operative care program.*
+            Most men put this off for years assuming the number is out of reach.
+            It usually is not, and you will have your figure in writing before
+            anything is booked.
           </p>
           <ul className="hero-points">
             {HERO_POINTS.map((point) => (
@@ -197,22 +197,12 @@ export default function FueHairTransplantCost() {
               Get My Free Hair Restoration Plan
             </a>
           </div>
-          <p className="hero-fine">
-            *Offered with procedures booked through this page. Ask at your
-            consultation for full details.
-          </p>
           {/* The brief puts the price band above the fold, so it takes the
               hero's corner-card slot; the gallery still runs below. */}
           <aside className="hero-ba hero-price" aria-label="What it costs">
             <h3>What It Costs</h3>
             <table>
               <tbody>
-                <tr>
-                  <td>
-                    <b>Starting from</b>
-                  </td>
-                  <td>{PRICE_FROM_PER_GRAFT} per graft</td>
-                </tr>
                 <tr>
                   <td>
                     <b>Most procedures</b>
@@ -224,6 +214,12 @@ export default function FueHairTransplantCost() {
                     <b>Which covers</b>
                   </td>
                   <td>Up to {PRICE_AVERAGE_UP_TO_GRAFTS} grafts</td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>And includes</b>
+                  </td>
+                  <td>Year-one follow-ups</td>
                 </tr>
               </tbody>
             </table>
@@ -256,8 +252,7 @@ export default function FueHairTransplantCost() {
             <h2>What Our Patients Say</h2>
           </div>
         </div>
-        {/* One review discusses a FUT procedure; this FUE page must not carry it */}
-        <ReviewMarquee exclude={["eric blaufarb"]} />
+        <ReviewGrid />
       </section>
 
       <section className="sec sec--dark" id="approach">
@@ -287,6 +282,38 @@ export default function FueHairTransplantCost() {
               alt="Consultation with Dr Imami"
               loading="lazy"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Repair: a stated specialty of the practice, and the landing point
+          for the Repair ad group (#repair). */}
+      <section className="sec" id="repair">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Repair Work</p>
+            <h2>Fixing Work Someone Else Did</h2>
+            <p className="lede">
+              A transplant that went wrong is a particular kind of regret: you
+              already paid, and you are still hiding it. Repair is one of the
+              things this practice is known for, and most of what walks through
+              the door is fixable. Bring photographs to your free discovery call
+              and you will get a straight answer about yours.
+            </p>
+          </div>
+          <div className="g3">
+            {REPAIR.map((r, i) => (
+              <div className="card" key={r.h}>
+                <span className="num">{`0${i + 1}`}</span>
+                <h3 style={{ marginBottom: 10 }}>{r.h}</h3>
+                <p>{r.p}</p>
+              </div>
+            ))}
+          </div>
+          <div className="hero-cta">
+            <a className="btn" href="#consult">
+              Get My Free Hair Restoration Plan
+            </a>
           </div>
         </div>
       </section>
@@ -349,12 +376,12 @@ export default function FueHairTransplantCost() {
             <h2>Hair Transplant Cost &amp; Financing</h2>
             <p className="lede">
               For a lot of people, cost is the reason this waits another year,
-              so here it is plainly. Pricing starts at {PRICE_FROM_PER_GRAFT}{" "}
-              per graft, and most procedures come to around {PRICE_AVERAGE},
-              which covers a session of up to roughly{" "}
-              {PRICE_AVERAGE_UP_TO_GRAFTS} grafts. What follows is how that
-              number is built, so you can judge any quote by it, ours or anyone
-              else&rsquo;s.
+              so here it is plainly. Most procedures come to around{" "}
+              {PRICE_AVERAGE}. That is one session price, covering up to roughly{" "}
+              {PRICE_AVERAGE_UP_TO_GRAFTS} grafts, your surgery with Dr. Imami
+              and your follow-ups through the first year. Smaller sessions cost
+              less. What follows is how that number is built, so you can judge
+              any quote by it, ours or anyone else&rsquo;s.
             </p>
           </div>
           {/* Both columns stretch to the same height; the table distributes
@@ -373,7 +400,7 @@ export default function FueHairTransplantCost() {
                   <td>
                     Your estimated graft count sets the scope of the session. A
                     Norwood 3 hairline may need 1,100-1,800 grafts; Norwood 4-5
-                    often 1,800-2,000 or more.
+                    often 1,800-3,000.
                   </td>
                 </tr>
                 <tr>
@@ -418,17 +445,17 @@ export default function FueHairTransplantCost() {
                     <td>A full Norwood 3 hairline restoration</td>
                   </tr>
                   <tr>
-                    <td>1,800-2,000+</td>
+                    <td>1,800-3,000</td>
                     <td>Norwood 4-5, or hairline plus crown together</td>
                   </tr>
                 </tbody>
               </table>
               <p style={{ marginTop: 16 }}>
-                So if you are pricing a hair transplant 1000 grafts cost, or
-                costing a 2000 grafts hair transplant, your graft count is what
-                moves the figure, from {PRICE_FROM_PER_GRAFT} per graft upward.
-                Florida hair transplant cost differs between clinics mainly
-                because session scopes and inclusions differ.
+                Graft count is what moves the figure. A hairline on its own sits
+                at the lower end of the range; a hairline and crown together, or
+                a more advanced pattern, sits at the top of it. Dr. Imami
+                estimates your count at your consultation and quotes one written
+                session price against it.
               </p>
             </div>
           </div>
@@ -448,8 +475,8 @@ export default function FueHairTransplantCost() {
               <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
               <li>Medication refills included through your first year</li>
               <li>
-                One written session price for your plan, from{" "}
-                {PRICE_FROM_PER_GRAFT} per graft
+                One written session price for your plan, agreed before anything
+                is booked
               </li>
             </ul>
             <a className="btn" style={{ marginTop: 24 }} href="#consult">
@@ -673,6 +700,20 @@ export default function FueHairTransplantCost() {
               International Airport (MLB), so fly-in patients can come once for
               the procedure itself.
             </p>
+            <div className="offercard">
+              <span className="num">Included With Your Procedure</span>
+              <h3>Complimentary Biomimetic Hair Growth Treatment</h3>
+              <p>
+                Every hair transplant booked through this page includes a
+                complimentary session of our biomimetic hair growth treatment,
+                given as part of Dr. Imami&rsquo;s post-operative care program
+                alongside your year-one follow-ups.
+              </p>
+              <p className="disc-sm">
+                Offered as an adjunct to surgery, not a substitute for it. Ask at
+                your consultation for full details.
+              </p>
+            </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="rounded-img consult-side"

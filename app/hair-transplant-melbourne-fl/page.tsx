@@ -3,7 +3,7 @@ import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import LeadFormEmbed from "../components/LeadFormEmbed";
 import BookingEmbed from "../components/BookingEmbed";
-import ReviewMarquee from "../components/ReviewMarquee";
+import ReviewGrid from "../components/ReviewGrid";
 import BASlider, { BAItem } from "../components/BASlider";
 import BackToTop from "../components/BackToTop";
 import HeroBA from "../components/HeroBA";
@@ -12,7 +12,6 @@ import {
   PHONE_HREF,
   PRICE_AVERAGE,
   PRICE_AVERAGE_UP_TO_GRAFTS,
-  PRICE_FROM_PER_GRAFT,
 } from "../site";
 
 export const metadata: Metadata = {
@@ -27,6 +26,7 @@ const NAV_LOCAL = [
   { href: "#results", label: "Before & After" },
   { href: "#what", label: "What is FUE" },
   { href: "#works", label: "How It Works" },
+  { href: "#repair", label: "Repair" },
   { href: "#cost", label: "Cost" },
   { href: "#why", label: "Why Choose Us" },
   { href: "#faq", label: "FAQ" },
@@ -66,8 +66,21 @@ const TREATS = [
   { icon: "Group-467.png", h: "Receding Hairline", p: "Redesigning and lowering the hairline for a youthful frame." },
   { icon: "Group-473.png", h: "Thinning Crown", p: "Restoring density to the vertex for complete coverage." },
   { icon: "Group-467.png", h: "Temple Restoration", p: "Rebuilding temporal points for a balanced facial profile." },
-  { icon: "Group-474.png", h: "Scar Camouflage", p: "Concealing previous surgical scars or trauma." },
-  { icon: "Group-475-1.png", h: "Hairline Refinement", p: "Adding density to previous transplants or naturally weak hairlines." },
+];
+
+const REPAIR = [
+  {
+    h: "Correcting Previous Transplants",
+    p: "Grafts placed too thickly, at the wrong angle, or in the wrong direction give that pluggy look people recognise across a room. Dr. Imami softens the front, re-angles the growth, and fills between the old work with your own hair until it stops announcing itself.",
+  },
+  {
+    h: "Hairline Revision",
+    p: "A hairline set too low, too straight, or too far forward rarely suits the face it ends up on, and it ages badly. We redraw the shape and rebuild the edge with single hairs, so it sits where it would have sat naturally at the age you are now.",
+  },
+  {
+    h: "Donor Scar Camouflage",
+    p: "A linear donor scar from older surgery, or a scar from an injury, can be grafted into so it stops showing through short hair. For most people that is the point: getting back the option of wearing it short.",
+  },
 ];
 
 const STEPS = [
@@ -123,15 +136,15 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "How much does a hair transplant cost?",
-    a: [`Pricing starts at ${PRICE_FROM_PER_GRAFT} per graft, and most procedures come to around ${PRICE_AVERAGE}, which covers a session of up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized session price in front of you, covering your procedure and your year-one follow-ups. Financing is available through CareCredit and Affirm, so the cost can be spread over monthly payments. When comparing any FUE hair transplant quote, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
+    a: [`Most procedures come to around ${PRICE_AVERAGE}. That is the session price, covering up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts, your surgery with Dr. Imami, and your follow-ups through the first year. Smaller sessions cost less. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized price in front of you before anything is booked. Financing is available through CareCredit and Affirm, so it can be spread over monthly payments. When you compare quotes, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
   },
   {
     q: "Do patients travel from Miami or Orlando?",
-    a: ["Yes, all the time, and many patients travel to us from across the country. Our hair transplant clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando, a comfortable drive up the coast from Miami, and just 1 mile from Melbourne-Orlando International Airport (MLB) for patients who fly in. If you have been comparing hair transplant Orlando options, researching hair transplant Miami Florida clinics, or searching for hair replacement in Miami, FL, many patients in exactly that position choose to make the trip for a surgeon-led, no-shave FUE procedure. Start with a free discovery call from wherever you are, then visit once for the procedure itself."],
+    a: ["Yes, all the time, and many patients travel to us from across the country. Our clinic is in Melbourne, on Florida's Space Coast, about an hour from Orlando, a comfortable drive up the coast from Miami, and just 1 mile from Melbourne-Orlando International Airport (MLB) for anyone flying in. Start with a free discovery call from wherever you are, then visit once for the procedure itself."],
   },
   {
     q: "How many grafts will I need?",
-    a: ["The number of grafts varies based on your degree of hair loss (Norwood stage), the areas being treated, your donor density, and your desired result. As a reference, Dr. Imami’s recent No-Shave FUE patients have typically received between 1,100 and 2,000 grafts per session. For example, a Norwood 3 hairline restoration may require around 1,100–1,800 grafts, while more advanced patterns at Norwood 4–5 often need 1,800–2,000+ grafts. During your consultation, Dr. Imami will assess your scalp, design your hairline, and calculate the precise graft count needed to achieve a natural, balanced outcome."],
+    a: ["The number of grafts varies based on your degree of hair loss (Norwood stage), the areas being treated, your donor density, and your desired result. As a reference, most of Dr. Imami’s recent No-Shave FUE patients have received between 1,100 and 2,000 grafts per session, and a large session runs up to around 3,000. A Norwood 3 hairline restoration may require around 1,100–1,800 grafts, while more advanced patterns at Norwood 4–5 often need 1,800–3,000. During your consultation, Dr. Imami will assess your scalp, design your hairline, and calculate the precise graft count needed to achieve a natural, balanced outcome."],
   },
 ];
 
@@ -174,15 +187,9 @@ export default function HairTransplantMelbourneFl() {
             No-Shave FUE in Melbourne, FL
           </h1>
           <p className="hero-sub">
-            {/* Font Awesome solid "gift" */}
-            <svg className="hero-gift" viewBox="0 0 512 512" aria-hidden="true">
-              <path d="M190.5 68.8 225.3 128h-1.3-72c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32v-64c0-17.7-14.3-32-32-32h-41.6c6.1-12 9.6-25.6 9.6-40 0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40h-72-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48h2.2c22.1 0 40 17.9 40 40zM32 288v176c0 26.5 21.5 48 48 48h144V288H32zm256 224h144c26.5 0 48-21.5 48-48V288H288v224z" />
-            </svg>
-            <strong className="hero-offer">
-              Complimentary biomimetic hair growth treatment
-            </strong>{" "}
-            with every hair transplant, included in Dr. Imami&rsquo;s
-            post-operative care program.*
+            You should not have to leave Florida, or explain a shaved head at
+            work, to get your own hair back. Dr. Imami designs your hairline and
+            performs your procedure himself, an hour from Orlando.
           </p>
           <ul className="hero-points">
             {HERO_POINTS.map((point) => (
@@ -205,10 +212,6 @@ export default function HairTransplantMelbourneFl() {
             </a>{" "}
             &middot; Mon &ndash; Fri: 8 am to 5 pm &middot; After hours by
             appointment
-          </p>
-          <p className="hero-fine">
-            *Offered with procedures booked through this page. Ask at your
-            consultation for full details.
           </p>
           <HeroBA
             items={RESULTS.slice(0, 4).map((r) => ({
@@ -266,8 +269,7 @@ export default function HairTransplantMelbourneFl() {
             <h2>What Our Patients Say</h2>
           </div>
         </div>
-        {/* One review discusses a FUT procedure; this FUE page must not carry it */}
-        <ReviewMarquee exclude={["eric blaufarb"]} />
+        <ReviewGrid />
       </section>
 
       <section className="sec sec--dark" id="approach">
@@ -374,6 +376,38 @@ export default function HairTransplantMelbourneFl() {
       </section>
 
       {/* How FUE Works: cream, circular badge, staggered boxes with big numbers */}
+      {/* Repair: a stated specialty of the practice, and the landing point
+          for the Repair ad group (#repair). */}
+      <section className="sec" id="repair">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Repair Work</p>
+            <h2>Fixing Work Someone Else Did</h2>
+            <p className="lede">
+              A transplant that went wrong is a particular kind of regret: you
+              already paid, and you are still hiding it. Repair is one of the
+              things this practice is known for, and most of what walks through
+              the door is fixable. Bring photographs to your free discovery call
+              and you will get a straight answer about yours.
+            </p>
+          </div>
+          <div className="g3">
+            {REPAIR.map((r, i) => (
+              <div className="card" key={r.h}>
+                <span className="num">{`0${i + 1}`}</span>
+                <h3 style={{ marginBottom: 10 }}>{r.h}</h3>
+                <p>{r.p}</p>
+              </div>
+            ))}
+          </div>
+          <div className="hero-cta">
+            <a className="btn" href="#consult">
+              Get My Free Hair Restoration Plan
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section className="sec sec--tint" id="works">
         <div className="wrap">
           <div className="works-head">
@@ -432,12 +466,12 @@ export default function HairTransplantMelbourneFl() {
             <p className="eyebrow">Investment</p>
             <h2>What Does a Hair Transplant Cost in Melbourne?</h2>
             <p className="lede">
-              Pricing starts at {PRICE_FROM_PER_GRAFT} per graft, and most
-              procedures come to around {PRICE_AVERAGE}, covering a session of
-              up to roughly {PRICE_AVERAGE_UP_TO_GRAFTS} grafts. Dr. Imami
-              estimates the grafts your plan needs and puts one written session
-              price in front of you, covering the procedure and your first year
-              of follow-ups, with financing through CareCredit and Affirm.
+              Most procedures come to around {PRICE_AVERAGE}, one session
+              price covering up to roughly {PRICE_AVERAGE_UP_TO_GRAFTS} grafts,
+              your surgery and your first year of follow-ups. Smaller sessions
+              cost less. Dr. Imami estimates the grafts your plan needs and puts
+              that written price in front of you before anything is booked, with
+              financing through CareCredit and Affirm.
             </p>
             <div className="hero-cta">
               <a className="btn" href="/fue-hair-transplant-cost">
@@ -600,6 +634,20 @@ export default function HairTransplantMelbourneFl() {
               International Airport (MLB), so fly-in patients can come once for
               the procedure itself.
             </p>
+            <div className="offercard">
+              <span className="num">Included With Your Procedure</span>
+              <h3>Complimentary Biomimetic Hair Growth Treatment</h3>
+              <p>
+                Every hair transplant booked through this page includes a
+                complimentary session of our biomimetic hair growth treatment,
+                given as part of Dr. Imami&rsquo;s post-operative care program
+                alongside your year-one follow-ups.
+              </p>
+              <p className="disc-sm">
+                Offered as an adjunct to surgery, not a substitute for it. Ask at
+                your consultation for full details.
+              </p>
+            </div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="rounded-img consult-side"
