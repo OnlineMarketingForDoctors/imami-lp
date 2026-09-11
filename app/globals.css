@@ -81,6 +81,9 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .sec--dark .offercard,.sec--dark .offercard h3,.sec--dark .offercard p{color:var(--ink)}
 .sec--dark .offercard .disc-sm{color:var(--muted)}
 .disc-sm{font-size:.78rem;color:var(--muted);margin-top:12px;line-height:1.5}
+/* Landing page index: the path under each card's button, so the page can
+   be read off the screen as well as clicked. */
+.index-url{font-family:var(--mono);font-size:.76rem;color:var(--muted);margin-top:14px;word-break:break-all}
 .usps li.hl{color:#fff;font-weight:600}
 .usps li.hl::before{background:var(--brass);width:11px;height:11px;margin-top:8px}
 .hero{position:relative;background:var(--ink);color:var(--paper);padding:96px 0 104px;overflow:hidden;isolation:isolate}
