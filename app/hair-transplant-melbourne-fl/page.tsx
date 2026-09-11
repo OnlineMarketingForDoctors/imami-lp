@@ -13,6 +13,7 @@ import {
   PHONE_HREF,
   PRICE_AVERAGE,
   PRICE_AVERAGE_UP_TO_GRAFTS,
+  PRICE_FROM_PER_GRAFT,
 } from "../site";
 
 export const metadata: Metadata = {
@@ -137,7 +138,7 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "How much does a hair transplant cost?",
-    a: [`Most procedures come to around ${PRICE_AVERAGE}. That is the session price, covering up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts, your surgery with Dr. Imami, and your follow-ups through the first year. Smaller sessions cost less. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized price in front of you before anything is booked. Financing is available through CareCredit and Affirm, so it can be spread over monthly payments. When you compare quotes, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
+    a: [`Most procedures come to around ${PRICE_AVERAGE}. That is the session price, covering up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts, your surgery with Dr. Imami, and your follow-ups through the first year. Smaller sessions cost less, and pricing starts at ${PRICE_FROM_PER_GRAFT} per graft. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized price in front of you before anything is booked. Financing is available through CareCredit and Affirm, so it can be spread over monthly payments. When you compare quotes, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
   },
   {
     q: "Do patients travel from Miami or Orlando?",
@@ -202,17 +203,35 @@ export default function HairTransplantMelbourneFl() {
               </li>
             ))}
           </ul>
+          {/* The offer sits under the hook rather than replacing it, so the
+              hero still opens on something emotional. */}
+          <p className="hero-sub hero-sub--offer">
+            {/* Font Awesome solid "gift" */}
+            <svg className="hero-gift" viewBox="0 0 512 512" aria-hidden="true">
+              <path d="M190.5 68.8 225.3 128h-1.3-72c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32v-64c0-17.7-14.3-32-32-32h-41.6c6.1-12 9.6-25.6 9.6-40 0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40h-72-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48h2.2c22.1 0 40 17.9 40 40zM32 288v176c0 26.5 21.5 48 48 48h144V288H32zm256 224h144c26.5 0 48-21.5 48-48V288H288v224z" />
+            </svg>
+            <strong className="hero-offer">
+              Complimentary biomimetic hair growth treatment
+            </strong>{" "}
+            with every hair transplant, included in Dr. Imami&rsquo;s
+            post-operative care program.*
+          </p>
           <div className="hero-cta">
             <a className="btn" href="#consult">
               Get My Free Hair Restoration Plan
             </a>
+            {/* Beside the button rather than on its own row, so this page's
+                extra line does not push the hero past the first screen. */}
+            <p className="hero-hours">
+              <a className="hero-phone" href={PHONE_HREF}>
+                {PHONE}
+              </a>{" "}
+              &middot; Mon &ndash; Fri: 8 am to 5 pm
+            </p>
           </div>
-          <p className="hero-hours">
-            <a className="hero-phone" href={PHONE_HREF}>
-              {PHONE}
-            </a>{" "}
-            &middot; Mon &ndash; Fri: 8 am to 5 pm &middot; After hours by
-            appointment
+          <p className="hero-fine">
+            *Offered with procedures booked through this page. Ask at your
+            consultation for full details.
           </p>
           <HeroBA
             items={RESULTS.slice(0, 4).map((r) => ({
@@ -482,7 +501,8 @@ export default function HairTransplantMelbourneFl() {
               Most procedures come to around {PRICE_AVERAGE}, one session
               price covering up to roughly {PRICE_AVERAGE_UP_TO_GRAFTS} grafts,
               your surgery and your first year of follow-ups. Smaller sessions
-              cost less. Dr. Imami estimates the grafts your plan needs and puts
+              cost less, with pricing starting at {PRICE_FROM_PER_GRAFT} per
+              graft. Dr. Imami estimates the grafts your plan needs and puts
               that written price in front of you before anything is booked, with
               financing through CareCredit and Affirm.
             </p>
@@ -647,20 +667,7 @@ export default function HairTransplantMelbourneFl() {
               International Airport (MLB), so fly-in patients can come once for
               the procedure itself.
             </p>
-            <div className="offercard">
-              <span className="num">Included With Your Procedure</span>
-              <h3>Complimentary Biomimetic Hair Growth Treatment</h3>
-              <p>
-                Every hair transplant booked through this page includes a
-                complimentary session of our biomimetic hair growth treatment,
-                given as part of Dr. Imami&rsquo;s post-operative care program
-                alongside your year-one follow-ups.
-              </p>
-              <p className="disc-sm">
-                Offered as an adjunct to surgery, not a substitute for it. Ask
-                at your consultation for full details.
-              </p>
-            </div>
+            {/* The offer is back in the hero, so it does not repeat here. */}
           </div>
           <div className="consult-book">
             <BookingEmbed />

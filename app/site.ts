@@ -36,9 +36,8 @@ export const NAV = [
  * Pricing confirmed by the practice (September 2026). Every page reads these,
  * so a price change is one edit here.
  *
- * The pages lead with the session total. The confirmed $3 per-graft floor is
- * kept here for reference but is deliberately not published: it reads cheap
- * next to the average and pulls in price shoppers.
+ * The pages lead with the session total, with the per-graft floor quoted
+ * after it rather than as the headline figure.
  */
 export const PRICE_FROM_PER_GRAFT = "$3";
 export const PRICE_AVERAGE = "$12,000";

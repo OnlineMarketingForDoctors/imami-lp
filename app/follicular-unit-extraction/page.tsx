@@ -13,6 +13,7 @@ import {
   PHONE_HREF,
   PRICE_AVERAGE,
   PRICE_AVERAGE_UP_TO_GRAFTS,
+  PRICE_FROM_PER_GRAFT,
 } from "../site";
 
 export const metadata: Metadata = {
@@ -116,7 +117,7 @@ const FAQ: { q: string; a: string[]; open?: boolean }[] = [
   },
   {
     q: "How much does a hair transplant cost?",
-    a: [`Most procedures come to around ${PRICE_AVERAGE}. That is the session price, covering up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts, your surgery with Dr. Imami, and your follow-ups through the first year. Smaller sessions cost less. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized price in front of you before anything is booked. Financing is available through CareCredit and Affirm, so it can be spread over monthly payments. When you compare quotes, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
+    a: [`Most procedures come to around ${PRICE_AVERAGE}. That is the session price, covering up to roughly ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts, your surgery with Dr. Imami, and your follow-ups through the first year. Smaller sessions cost less, and pricing starts at ${PRICE_FROM_PER_GRAFT} per graft. Your own figure follows the graft count your plan needs: Dr. Imami estimates that at your consultation and puts one written, itemized price in front of you before anything is booked. Financing is available through CareCredit and Affirm, so it can be spread over monthly payments. When you compare quotes, ask what the session includes, who performs the surgery, and whether follow-ups are included.`],
   },
   {
     q: "Do patients travel from Miami or Orlando?",
@@ -177,11 +178,28 @@ export default function FollicularUnitExtraction() {
               </li>
             ))}
           </ul>
+          {/* The offer sits under the hook rather than replacing it, so the
+              hero still opens on something emotional. */}
+          <p className="hero-sub hero-sub--offer">
+            {/* Font Awesome solid "gift" */}
+            <svg className="hero-gift" viewBox="0 0 512 512" aria-hidden="true">
+              <path d="M190.5 68.8 225.3 128h-1.3-72c-22.1 0-40-17.9-40-40s17.9-40 40-40h2.2c14.9 0 28.8 7.9 36.3 20.8zM64 88c0 14.4 3.5 28 9.6 40H32c-17.7 0-32 14.3-32 32v64c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32v-64c0-17.7-14.3-32-32-32h-41.6c6.1-12 9.6-25.6 9.6-40 0-48.6-39.4-88-88-88h-2.2c-31.9 0-61.5 16.9-77.7 44.4L256 85.5l-24.1-41C215.7 16.9 186.1 0 154.2 0H152C103.4 0 64 39.4 64 88zm336 0c0 22.1-17.9 40-40 40h-72-1.3l34.8-59.2C329.1 55.9 342.9 48 357.8 48h2.2c22.1 0 40 17.9 40 40zM32 288v176c0 26.5 21.5 48 48 48h144V288H32zm256 224h144c26.5 0 48-21.5 48-48V288H288v224z" />
+            </svg>
+            <strong className="hero-offer">
+              Complimentary biomimetic hair growth treatment
+            </strong>{" "}
+            with every hair transplant, included in Dr. Imami&rsquo;s
+            post-operative care program.*
+          </p>
           <div className="hero-cta">
             <a className="btn" href="#consult">
               Get My Free Hair Restoration Plan
             </a>
           </div>
+          <p className="hero-fine">
+            *Offered with procedures booked through this page. Ask at your
+            consultation for full details.
+          </p>
           <HeroBA
             items={RESULTS.slice(0, 4).map((r) => ({
               img: r.img,
@@ -399,8 +417,9 @@ export default function FollicularUnitExtraction() {
               {PRICE_AVERAGE}. That is one session price, covering up to roughly{" "}
               {PRICE_AVERAGE_UP_TO_GRAFTS} grafts, your surgery with Dr. Imami
               and your follow-ups through the first year. Smaller sessions cost
-              less. What follows is how that number is built, so you can judge
-              any quote by it, ours or anyone else&rsquo;s.
+              less, with pricing starting at {PRICE_FROM_PER_GRAFT} per graft.
+              What follows is how that number is built, so you can judge any
+              quote by it, ours or anyone else&rsquo;s.
             </p>
           </div>
           {/* Both columns stretch to the same height; the table distributes
@@ -470,11 +489,12 @@ export default function FollicularUnitExtraction() {
                 </tbody>
               </table>
               <p style={{ marginTop: 16 }}>
-                Graft count is what moves the figure. A hairline on its own sits
-                at the lower end of the range; a hairline and crown together, or
-                a more advanced pattern, sits at the top of it. Dr. Imami
-                estimates your count at your consultation and quotes one written
-                session price against it.
+                Graft count is what moves the figure, from{" "}
+                {PRICE_FROM_PER_GRAFT} per graft upward. A hairline on its own
+                sits at the lower end of the range; a hairline and crown
+                together, or a more advanced pattern, sits at the top of it. Dr.
+                Imami estimates your count at your consultation and quotes one
+                written session price against it.
               </p>
             </div>
           </div>
@@ -491,8 +511,9 @@ export default function FollicularUnitExtraction() {
               <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
               <li>Medication refills included through your first year</li>
               <li>
-                One written session price for your plan, agreed before anything
-                is booked
+                One written session price for your plan, from{" "}
+                {PRICE_FROM_PER_GRAFT} per graft, agreed before anything is
+                booked
               </li>
             </ul>
             <a className="btn" style={{ marginTop: 24 }} href="#consult">
@@ -694,20 +715,7 @@ export default function FollicularUnitExtraction() {
               International Airport (MLB), so fly-in patients can come once for
               the procedure itself.
             </p>
-            <div className="offercard">
-              <span className="num">Included With Your Procedure</span>
-              <h3>Complimentary Biomimetic Hair Growth Treatment</h3>
-              <p>
-                Every hair transplant booked through this page includes a
-                complimentary session of our biomimetic hair growth treatment,
-                given as part of Dr. Imami&rsquo;s post-operative care program
-                alongside your year-one follow-ups.
-              </p>
-              <p className="disc-sm">
-                Offered as an adjunct to surgery, not a substitute for it. Ask
-                at your consultation for full details.
-              </p>
-            </div>
+            {/* The offer is back in the hero, so it does not repeat here. */}
           </div>
           <div className="consult-book">
             <BookingEmbed />

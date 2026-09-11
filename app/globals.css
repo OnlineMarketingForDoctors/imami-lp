@@ -94,13 +94,13 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .usps{list-style:none;display:grid;gap:15px;margin-top:34px}
 .usps li{display:flex;gap:14px;align-items:flex-start;color:#E4E4E4;font-size:1.02rem;line-height:1.5}
 .usps li::before{content:"";flex:none;width:9px;height:9px;margin-top:9px;border-radius:50%;background:#D6D1AE}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;align-items:center}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;align-items:center}
 
 /* ---- main FUE page (mirror of imamihair.com/follicular-unit-extraction) ---- */
 /* Hero: full-bleed photo, floating BOOK NOW pill on the right edge */
 /* Sized to sit fully above the fold: fills the viewport below the sticky
    header on typical screens, capped so huge monitors don't stretch it. */
-.hero2{position:relative;color:#fff;padding:30px 0 34px;display:flex;align-items:center;
+.hero2{position:relative;color:#fff;padding:24px 0 26px;display:flex;align-items:center;
   min-height:min(calc(100svh - 90px),860px);overflow:hidden;isolation:isolate;
   background:linear-gradient(90deg,rgba(20,16,12,.82) 0%,rgba(20,16,12,.55) 45%,rgba(20,16,12,.25) 100%),
   url('/images/FUE-Hair-Transplant.jpg') center 30%/cover no-repeat #111}
@@ -223,6 +223,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-sub{margin-top:18px;font-size:1.12rem;color:#E4E4E4;max-width:56ch}
+.hero-sub--offer{margin-top:20px;font-size:1.04rem}
 .hero-offer{color:var(--brass-lt);font-weight:600}
 .hero-gift{display:inline-block;width:19px;height:19px;fill:var(--brass-lt);margin-right:10px;vertical-align:-2px}
 
@@ -506,6 +507,8 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
 .hero-phone{display:inline-flex;align-items:center;gap:10px;margin-top:20px;font-size:1.25rem;font-weight:700;color:#fff;text-decoration:none}
 .hero-phone svg{width:19px;height:19px;fill:var(--brass)}
 .hero-hours{margin-top:6px;color:#C9C9C9;font-size:.92rem}
+.hero-cta .hero-hours,.hero-cta .hero-phone{margin-top:0}
+.hero-cta .hero-phone{font-size:1.12rem}
 
 /* Price band inside the hero's corner-card slot (cost page) */
 .hero-price{padding:18px 20px}
