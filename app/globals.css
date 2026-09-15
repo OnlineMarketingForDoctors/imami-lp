@@ -42,9 +42,9 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 
 /* Logo-only header (thank-you page): nothing to space apart, so centre it. */
 .bar--center{justify-content:center}
-.hnav{display:flex;align-items:center;gap:6px;flex:1;justify-content:center}
+.hnav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
 /* Nav matches imamihair.com: Montserrat 500 at 16px, Title Case, no tracking. */
-.hnav a{font-family:var(--sans);font-size:.9rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 9px;border-bottom:2px solid transparent;white-space:nowrap}
+.hnav a{font-family:var(--sans);font-size:.84rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 6px;border-bottom:2px solid transparent;white-space:nowrap}
 .hnav a:hover{color:var(--ink);border-bottom-color:var(--brass)}
 .hact{display:flex;align-items:center;gap:14px;flex:0 0 auto}
 .tel{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:1.12rem;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
@@ -64,6 +64,9 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .btn:hover{background:#fff;color:#000;border-color:#fff}
 .sec:not(.sec--dark) .btn:hover{border-color:#000}
 .btn--lt{background:#fff;color:#000;border-color:#fff}
+/* Secondary hero CTA: reads as the quieter of the two next to .btn. */
+.btn--ghost{background:transparent;color:#fff;border-color:#fff}
+.btn--ghost:hover{background:#fff;color:#000;border-color:#fff}
 .btn--lt:hover{background:var(--brass);color:#fff;border-color:var(--brass)}
 .btn--sm{padding:12px 20px;font-size:.78rem;letter-spacing:1px}
 

@@ -28,6 +28,7 @@ const HERO_POINTS = [
   "Your own hair, styled however you like",
   "The surgeon you meet is the one who operates",
   "Triple board-certified, 30+ years of surgery",
+  `${PRICE_AVERAGE} avg. session \u00b7 up to ${PRICE_AVERAGE_UP_TO_GRAFTS} grafts \u00b7 financing available`,
 ];
 
 const RESULTS: BAItem[] = [
@@ -162,12 +163,7 @@ export default function FollicularUnitExtraction() {
         />
         <div className="wrap">
           <p className="eyebrow eyebrow--accent">FUE Hair Transplant</p>
-          <h1>Your Own Hair Back, Without Anyone Knowing Why</h1>
-          <p className="hero-sub">
-            It is the first thing you look for in every photograph of yourself.
-            No-shave FUE moves your own hair back, follicle by follicle, so what
-            people notice is you, not a procedure.
-          </p>
+          <h1>Your Hair Back Without Anyone Knowing How</h1>
           <ul className="hero-points">
             {HERO_POINTS.map((point) => (
               <li key={point}>
@@ -178,8 +174,6 @@ export default function FollicularUnitExtraction() {
               </li>
             ))}
           </ul>
-          {/* The offer sits under the hook rather than replacing it, so the
-              hero still opens on something emotional. */}
           <p className="hero-sub hero-sub--offer">
             {/* Font Awesome solid "gift" */}
             <svg className="hero-gift" viewBox="0 0 512 512" aria-hidden="true">
@@ -193,7 +187,11 @@ export default function FollicularUnitExtraction() {
           </p>
           <div className="hero-cta">
             <a className="btn" href="#consult">
-              Get My Free Hair Restoration Plan
+              Book Your Free Discovery Call
+            </a>
+            {/* For visitors not ready to book a time: the enquiry form. */}
+            <a className="btn btn--ghost" href="#contact">
+              Curious? Enquire Now
             </a>
           </div>
           <p className="hero-fine">

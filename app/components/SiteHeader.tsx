@@ -78,7 +78,7 @@ export default function SiteHeader({
             <span className="tel-num">{PHONE}</span>
           </a>
           <a className="btn btn--sm" href={`${base}#consult`}>
-            Book a Free Call
+            Book a Free Discovery Call
           </a>
           <button
             type="button"
