@@ -217,6 +217,146 @@ export default function FollicularUnitExtraction() {
         <ReviewGrid />
       </section>
 
+      <section className="sec" id="results">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Real Results</p>
+            <h2>Before &amp; After</h2>
+            <p className="lede">
+              Ask any of our patients and you&rsquo;ll hear the same thing:
+              they wish they&rsquo;d come in sooner.
+            </p>
+          </div>
+          <BASlider items={RESULTS} />
+          <p className="disc disc--center">
+            The images above are displayed with the consent of the patients. The
+            outcomes shown are only relevant for these patients and do not
+            necessarily reflect the results other patients may experience. Our
+            team will discuss any factors that could influence the results that
+            you may get.
+          </p>
+          <div className="hero-cta hero-cta--center">
+            <a className="btn" href="#consult">
+              Book a Free Discovery Call
+            </a>
+          </div>
+        </div>
+      </section>
+      <section className="sec sec--tint" id="cost">
+        <div className="wrap">
+          <div className="head">
+            <p className="eyebrow">Investment</p>
+            <h2>Hair Transplant Cost &amp; Financing</h2>
+            <p className="lede">
+              <strong>Most procedures average around {PRICE_AVERAGE}.</strong>{" "}
+              That covers up to {PRICE_AVERAGE_UP_TO_GRAFTS} grafts &mdash; your
+              surgery with Dr. Imami, and every follow-up through your first
+              year. Per-graft pricing depends on your case, starting from{" "}
+              {PRICE_FROM_PER_GRAFT}. Here&rsquo;s exactly how we get to that
+              number, so you can hold any quote to the same standard, ours or
+              anyone else&rsquo;s.
+            </p>
+          </div>
+          {/* Both columns stretch to the same height; the table distributes
+              the extra space across its rows. */}
+          <div className="g2 g2--stretch">
+            <table className="tbl">
+              <thead>
+                <tr>
+                  <th>What drives the price</th>
+                  <th>Why</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Graft count</td>
+                  <td>
+                    Your estimated graft count sets the scope of the session. A
+                    Norwood 3 hairline may need 1,100-1,800 grafts; Norwood 4-5
+                    often 1,800-3,000.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Areas treated</td>
+                  <td>
+                    A hairline transplant alone costs less than hairline plus
+                    crown.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Donor density</td>
+                  <td>
+                    Determines how much can safely be moved in a single session.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Technique</td>
+                  <td>
+                    No-shave FUE is a specialised technique. Dr. Imami
+                    recommends the approach that suits your case.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div className="card">
+              <span className="num">Typical Session Sizes</span>
+              <h3>What Your Graft Count Means</h3>
+              <table className="tbl" style={{ marginTop: 16 }}>
+                <thead>
+                  <tr>
+                    <th>Session</th>
+                    <th>Typically suits</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1,000-1,200</td>
+                    <td>An early Norwood 2-3 hairline or temple rebuild</td>
+                  </tr>
+                  <tr>
+                    <td>1,200-1,800</td>
+                    <td>A full Norwood 3 hairline restoration</td>
+                  </tr>
+                  <tr>
+                    <td>1,800-3,000</td>
+                    <td>Norwood 4-5, or hairline plus crown together</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p style={{ marginTop: 16 }}>
+                Graft count is what moves the figure, from{" "}
+                {PRICE_FROM_PER_GRAFT} per graft upward. A hairline on its own
+                sits at the lower end of the range; a hairline and crown
+                together, or a more advanced pattern, sits at the top of it. Dr.
+                Imami estimates your count at your consultation and quotes one
+                written session price against it.
+              </p>
+            </div>
+          </div>
+          <div className="card" style={{ marginTop: 28 }}>
+            <span className="num">Paying For It</span>
+            <h3>Flexible Payment Plans</h3>
+            <p>
+              We offer financing through CareCredit and Affirm, so hair
+              restoration surgery cost can be spread over monthly payments rather
+              than paid in one go.
+            </p>
+            <ul className="checks" style={{ marginTop: 20 }}>
+              <li>A written, itemized quote at your consultation, with no hidden extras</li>
+              <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
+              <li>Medication refills included through your first year</li>
+              <li>
+                One written session price for your plan, from{" "}
+                {PRICE_FROM_PER_GRAFT} per graft, agreed before anything is
+                booked
+              </li>
+            </ul>
+            <a className="btn" style={{ marginTop: 24 }} href="#consult">
+              Get a personalized quote
+            </a>
+          </div>
+        </div>
+      </section>
       <section className="sec sec--dark" id="approach">
         <div className="wrap g2">
           <div>
@@ -248,31 +388,6 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <section className="sec sec--tint" id="results">
-        <div className="wrap">
-          <div className="head">
-            <p className="eyebrow">Real Results</p>
-            <h2>Before &amp; After</h2>
-            <p className="lede">
-              Many of our patients tell us they wish they had come in sooner.
-              This is what they saw when they did.
-            </p>
-          </div>
-          <BASlider items={RESULTS} />
-          <p className="disc disc--center">
-            The images above are displayed with the consent of the patients. The
-            outcomes shown are only relevant for these patients and do not
-            necessarily reflect the results other patients may experience. Our
-            team will discuss any factors that could influence the results that
-            you may get.
-          </p>
-          <div className="hero-cta hero-cta--center">
-            <a className="btn" href="#consult">
-              Book a Free Discovery Call
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* What is FUE + What FUE Can Treat: one dark textured section, as on the site */}
       <section className="sec sec--dark" id="what">
@@ -404,122 +519,6 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <section className="sec sec--tint" id="cost">
-        <div className="wrap">
-          <div className="head">
-            <p className="eyebrow">Investment</p>
-            <h2>Hair Transplant Cost &amp; Financing</h2>
-            <p className="lede">
-              For a lot of people, cost is the reason this waits another year,
-              so here it is plainly. Most procedures come to around{" "}
-              {PRICE_AVERAGE}. That is one session price, covering up to roughly{" "}
-              {PRICE_AVERAGE_UP_TO_GRAFTS} grafts, your surgery with Dr. Imami
-              and your follow-ups through the first year. Smaller sessions cost
-              less, with pricing starting at {PRICE_FROM_PER_GRAFT} per graft.
-              What follows is how that number is built, so you can judge any
-              quote by it, ours or anyone else&rsquo;s.
-            </p>
-          </div>
-          {/* Both columns stretch to the same height; the table distributes
-              the extra space across its rows. */}
-          <div className="g2 g2--stretch">
-            <table className="tbl">
-              <thead>
-                <tr>
-                  <th>What drives the price</th>
-                  <th>Why</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Graft count</td>
-                  <td>
-                    Your estimated graft count sets the scope of the session. A
-                    Norwood 3 hairline may need 1,100-1,800 grafts; Norwood 4-5
-                    often 1,800-3,000.
-                  </td>
-                </tr>
-                <tr>
-                  <td>Areas treated</td>
-                  <td>
-                    A hairline transplant alone costs less than hairline plus
-                    crown.
-                  </td>
-                </tr>
-                <tr>
-                  <td>Donor density</td>
-                  <td>
-                    Determines how much can safely be moved in a single session.
-                  </td>
-                </tr>
-                <tr>
-                  <td>Technique</td>
-                  <td>
-                    No-shave FUE is a specialised technique. Dr. Imami
-                    recommends the approach that suits your case.
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div className="card">
-              <span className="num">Typical Session Sizes</span>
-              <h3>What Your Graft Count Means</h3>
-              <table className="tbl" style={{ marginTop: 16 }}>
-                <thead>
-                  <tr>
-                    <th>Session</th>
-                    <th>Typically suits</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1,000-1,200</td>
-                    <td>An early Norwood 2-3 hairline or temple rebuild</td>
-                  </tr>
-                  <tr>
-                    <td>1,200-1,800</td>
-                    <td>A full Norwood 3 hairline restoration</td>
-                  </tr>
-                  <tr>
-                    <td>1,800-3,000</td>
-                    <td>Norwood 4-5, or hairline plus crown together</td>
-                  </tr>
-                </tbody>
-              </table>
-              <p style={{ marginTop: 16 }}>
-                Graft count is what moves the figure, from{" "}
-                {PRICE_FROM_PER_GRAFT} per graft upward. A hairline on its own
-                sits at the lower end of the range; a hairline and crown
-                together, or a more advanced pattern, sits at the top of it. Dr.
-                Imami estimates your count at your consultation and quotes one
-                written session price against it.
-              </p>
-            </div>
-          </div>
-          <div className="card" style={{ marginTop: 28 }}>
-            <span className="num">Paying For It</span>
-            <h3>Flexible Payment Plans</h3>
-            <p>
-              We offer financing through CareCredit and Affirm, so hair
-              restoration surgery cost can be spread over monthly payments rather
-              than paid in one go.
-            </p>
-            <ul className="checks" style={{ marginTop: 20 }}>
-              <li>A written, itemized quote at your consultation, with no hidden extras</li>
-              <li>Year-one follow-ups included, at Day 2, Day 14, Month 6 and Year 1</li>
-              <li>Medication refills included through your first year</li>
-              <li>
-                One written session price for your plan, from{" "}
-                {PRICE_FROM_PER_GRAFT} per graft, agreed before anything is
-                booked
-              </li>
-            </ul>
-            <a className="btn" style={{ marginTop: 24 }} href="#consult">
-              Get a personalized quote
-            </a>
-          </div>
-        </div>
-      </section>
 
       <section className="sec" id="who">
         <div className="wrap">

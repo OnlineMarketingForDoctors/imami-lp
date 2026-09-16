@@ -77,6 +77,11 @@ export default function SiteHeader({
             <PhoneIcon />
             <span className="tel-num">{PHONE}</span>
           </a>
+          {/* Contact left the link list to sit here as the quieter of the
+              two actions. */}
+          <a className="btn btn--sm btn--dark-outline" href={`${base}#contact`}>
+            Contact Us
+          </a>
           <a className="btn btn--sm" href={`${base}#consult`}>
             Book a Free Discovery Call
           </a>
@@ -110,6 +115,9 @@ export default function SiteHeader({
               {item.label}
             </a>
           ))}
+          <a href={`${base}#contact`} onClick={() => setOpen(false)}>
+            Contact Us
+          </a>
           <a
             className="mnav-tel"
             href={PHONE_HREF}

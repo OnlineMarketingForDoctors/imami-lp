@@ -10,14 +10,13 @@ export const LANDING = "/follicular-unit-extraction";
 /** In-page menu for the main FUE page (mirrors the live site's own anchor menu). */
 export const NAV_MAIN = [
   { href: "#results", label: "Before & After" },
+  { href: "#cost", label: "Cost" },
   { href: "#what", label: "What is FUE" },
+  { href: "#repair", label: "Repair" },
   { href: "#works", label: "How It Works" },
   { href: "#benefits", label: "Benefits" },
-  { href: "#repair", label: "Repair" },
-  { href: "#cost", label: "Cost" },
   { href: "#why", label: "Why Choose Us" },
   { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
 ];
 
 /** Nav for the original landing page, now at /follicular-unit-extraction-2. */

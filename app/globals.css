@@ -22,11 +22,15 @@ h3{font-size:1.35rem}
 h2{margin-bottom:22px}
 h3{margin-bottom:14px}
 p{color:#171717}
+/* The UA default is `bolder`, which is relative: against body text at 300
+   it only reaches 400 and reads as unemphasised. 600 is a loaded weight. */
+strong{font-weight:600}
 /* Eyebrows on imamihair.com: olive Montserrat semi-bold, no caps. */
 .eyebrow{font-family:var(--sans);font-size:1.3rem;font-weight:600;letter-spacing:.5px;line-height:1.4;color:var(--olive)}
 .eyebrow--accent{color:var(--brass)}
 .sec{padding:88px 0;border-top:1px solid var(--line)}
 .sec--dark{background:#111 url('/images/texture-dark.jpg');color:var(--paper);border-top:none}
+.sec--dark + .sec--dark{border-top:1px solid rgba(255,255,255,.14)}
 .sec--dark p{color:#C9C9C9}.sec--dark h2,.sec--dark h3{color:#fff}
 .sec--tint{background:var(--paper-2)}
 .lede{font-size:1.1rem;max-width:62ch;margin-top:18px}
@@ -35,9 +39,9 @@ p{color:#171717}
 .head h2{margin-top:12px}
 
 header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;max-width:1400px;margin:0 auto}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;max-width:1400px;margin:0 auto}
 .brand{flex:0 0 auto;text-decoration:none;display:block}
-.brand img{width:168px;height:auto}
+.brand img{width:152px;height:auto}
 .brand img{display:block}
 
 /* Logo-only header (thank-you page): nothing to space apart, so centre it. */
@@ -46,7 +50,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 /* Nav matches imamihair.com: Montserrat 500 at 16px, Title Case, no tracking. */
 .hnav a{font-family:var(--sans);font-size:.84rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 6px;border-bottom:2px solid transparent;white-space:nowrap}
 .hnav a:hover{color:var(--ink);border-bottom-color:var(--brass)}
-.hact{display:flex;align-items:center;gap:14px;flex:0 0 auto}
+.hact{display:flex;align-items:center;gap:10px;flex:0 0 auto}
 .tel{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:1.12rem;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
 .tel svg{width:17px;height:17px;flex:none;fill:var(--brass)}
 /* Menu button + dropdown replace the inline nav below the desktop breakpoint */
@@ -67,8 +71,14 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 /* Secondary hero CTA: reads as the quieter of the two next to .btn. */
 .btn--ghost{background:transparent;color:#fff;border-color:#fff}
 .btn--ghost:hover{background:#fff;color:#000;border-color:#fff}
+/* Header's secondary action: the CTA's shape in ink rather than orange. */
+.btn--dark-outline{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn--dark-outline:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+/* Narrow headers have no room for a second button, and the dropdown
+   carries Contact Us anyway. */
+@media(max-width:900px){.hact .btn--dark-outline{display:none}}
 .btn--lt:hover{background:var(--brass);color:#fff;border-color:var(--brass)}
-.btn--sm{padding:12px 20px;font-size:.78rem;letter-spacing:1px}
+.btn--sm{padding:12px 15px;font-size:.76rem;letter-spacing:.6px}
 
 .cta-offer{display:flex;align-items:flex-start;gap:9px;margin-top:16px;font-size:.9rem;color:var(--brass);font-weight:600;max-width:52ch}
 .cta-offer::before{content:"";flex:none;width:9px;height:9px;margin-top:7px;border-radius:50%;background:var(--olive)}
@@ -498,10 +508,10 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
 /* Very narrow phones: the logo plus phone number, and the long CTA label,
    both exceed 360px otherwise. */
 @media(max-width:420px){
-  .bar{gap:8px;padding:12px 12px}
-  .brand img{width:104px}
-  .hact{gap:7px}
-  .hact .btn{padding:9px 10px;font-size:.62rem;letter-spacing:.4px}
+  .bar{gap:6px;padding:12px 10px}
+  .brand img{width:96px}
+  .hact{gap:6px}
+  .hact .btn{padding:9px 8px;font-size:.58rem;letter-spacing:.3px}
   .tel{font-size:.86rem}
   .btn{white-space:normal;padding:14px 20px;font-size:.82rem;letter-spacing:1px}
 }

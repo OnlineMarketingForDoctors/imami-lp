@@ -29,7 +29,6 @@ const NAV_COST = [
   { href: "#ask", label: "Compare Clinics" },
   { href: "#why", label: "Why Choose Us" },
   { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
 ];
 
 const ASK = [

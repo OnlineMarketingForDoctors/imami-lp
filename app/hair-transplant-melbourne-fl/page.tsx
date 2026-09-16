@@ -32,7 +32,6 @@ const NAV_LOCAL = [
   { href: "#cost", label: "Cost" },
   { href: "#why", label: "Why Choose Us" },
   { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
 ];
 
 const AREAS = [
