@@ -39,18 +39,18 @@ strong{font-weight:600}
 .head h2{margin-top:12px}
 
 header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;max-width:1400px;margin:0 auto}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;max-width:1400px;margin:0 auto}
 .brand{flex:0 0 auto;text-decoration:none;display:block}
-.brand img{width:152px;height:auto}
+.brand img{width:164px;height:auto}
 .brand img{display:block}
 
 /* Logo-only header (thank-you page): nothing to space apart, so centre it. */
 .bar--center{justify-content:center}
-.hnav{display:flex;align-items:center;gap:2px;flex:1;justify-content:center}
+.hnav{display:flex;align-items:center;gap:5px;flex:1;justify-content:center}
 /* Nav matches imamihair.com: Montserrat 500 at 16px, Title Case, no tracking. */
-.hnav a{font-family:var(--sans);font-size:.84rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 6px;border-bottom:2px solid transparent;white-space:nowrap}
+.hnav a{font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--ink);text-decoration:none;padding:8px 8px;border-bottom:2px solid transparent;white-space:nowrap}
 .hnav a:hover{color:var(--ink);border-bottom-color:var(--brass)}
-.hact{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.hact{display:flex;align-items:center;gap:12px;flex:0 0 auto}
 .tel{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:1.12rem;font-weight:700;color:var(--ink);text-decoration:none;white-space:nowrap}
 .tel svg{width:17px;height:17px;flex:none;fill:var(--brass)}
 /* Menu button + dropdown replace the inline nav below the desktop breakpoint */
@@ -74,11 +74,8 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 /* Header's secondary action: the CTA's shape in ink rather than orange. */
 .btn--dark-outline{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn--dark-outline:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-/* Narrow headers have no room for a second button, and the dropdown
-   carries Contact Us anyway. */
-@media(max-width:900px){.hact .btn--dark-outline{display:none}}
 .btn--lt:hover{background:var(--brass);color:#fff;border-color:var(--brass)}
-.btn--sm{padding:12px 15px;font-size:.76rem;letter-spacing:.6px}
+.btn--sm{padding:12px 18px;font-size:.78rem;letter-spacing:1px}
 
 .cta-offer{display:flex;align-items:flex-start;gap:9px;margin-top:16px;font-size:.9rem;color:var(--brass);font-weight:600;max-width:52ch}
 .cta-offer::before{content:"";flex:none;width:9px;height:9px;margin-top:7px;border-radius:50%;background:var(--olive)}
@@ -453,6 +450,12 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
   .hnav{display:none}
   .menu-btn{display:inline-flex}
 }
+@media(max-width:900px){
+  .brand img{width:140px}
+  .hact{gap:9px}
+  .btn--sm{padding:11px 13px;font-size:.72rem;letter-spacing:.5px}
+  .tel{font-size:1rem}
+}
 @media(max-width:980px){
   .what-grid,.consult-grid{grid-template-columns:1fr;gap:44px}
   .wsteps{grid-template-columns:1fr 1fr;padding-bottom:60px}
@@ -491,10 +494,12 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
   /* Phones: logo | BOOK A FREE CALL | phone icon | menu on one row. The
      number collapses to its icon, everything tightens up to fit, and the
      button moves ahead of the phone (desktop keeps phone first). */
-  .bar{gap:14px}
-  .brand img{width:120px}
-  .hact{gap:9px}
-  .hact .btn{order:-1;padding:10px 12px;font-size:.68rem;letter-spacing:.5px}
+  .btn{white-space:normal}
+  .hact .btn{white-space:nowrap}
+  .bar{gap:10px;padding:14px 14px}
+  .brand img{width:112px}
+  .hact{gap:8px}
+  .hact .btn{order:-1;padding:10px 9px;font-size:.64rem;letter-spacing:.3px}
   .tel-num{display:none}
   .hact .tel svg{width:19px;height:19px}
   .menu-btn{width:34px;height:34px}
@@ -508,12 +513,19 @@ footer strong{color:var(--ink);display:block;margin-bottom:12px;font-weight:600;
 /* Very narrow phones: the logo plus phone number, and the long CTA label,
    both exceed 360px otherwise. */
 @media(max-width:420px){
-  .bar{gap:6px;padding:12px 10px}
-  .brand img{width:96px}
-  .hact{gap:6px}
-  .hact .btn{padding:9px 8px;font-size:.58rem;letter-spacing:.3px}
+  .bar{gap:5px;padding:12px 8px}
+  .brand img{width:88px}
+  .hact{gap:5px}
+  .hact .btn{padding:9px 7px;font-size:.56rem;letter-spacing:.2px}
   .tel{font-size:.86rem}
   .btn{white-space:normal;padding:14px 20px;font-size:.82rem;letter-spacing:1px}
+}
+@media(max-width:360px){
+  .bar{gap:4px;padding:12px 6px}
+  .brand img{width:78px}
+  .hact{gap:4px}
+  .hact .btn{padding:8px 6px;font-size:.52rem;letter-spacing:.1px}
+  .tel svg{width:15px;height:15px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 

@@ -520,6 +520,21 @@ export default function FollicularUnitExtraction() {
       </section>
 
 
+      <div className="band band--photo">
+        <div className="wrap">
+          <h2>
+            Wondering if FUE is the Right Procedure for You? Book a Free
+            Discovery Call with a Hair Transplant Specialist to Discuss Your
+            Options.
+          </h2>
+          <div className="hero-cta">
+            <a className="btn" href="#consult">
+              Book a Free Discovery Call
+            </a>
+          </div>
+        </div>
+      </div>
+
       <section className="sec" id="who">
         <div className="wrap">
           <div className="head">
@@ -584,20 +599,6 @@ export default function FollicularUnitExtraction() {
         </div>
       </section>
 
-      <div className="band band--photo">
-        <div className="wrap">
-          <h2>
-            Wondering if FUE is the Right Procedure for You? Book a Free
-            Discovery Call with a Hair Transplant Specialist to Discuss Your
-            Options.
-          </h2>
-          <div className="hero-cta">
-            <a className="btn" href="#consult">
-              Book a Free Discovery Call
-            </a>
-          </div>
-        </div>
-      </div>
 
       {/* Your FUE Journey: dark textured, centre zigzag timeline */}
       <section className="sec sec--dark" id="journey">

@@ -83,7 +83,7 @@ export default function SiteHeader({
             Contact Us
           </a>
           <a className="btn btn--sm" href={`${base}#consult`}>
-            Book a Free Discovery Call
+            Book Free Call
           </a>
           <button
             type="button"
