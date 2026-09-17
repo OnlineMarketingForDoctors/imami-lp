@@ -410,8 +410,10 @@ details p{margin-top:14px;font-size:1rem;max-width:74ch}
 .form-card{background:var(--ink-2);border:1px solid rgba(255,255,255,.12);border-radius:var(--r);padding:34px}
 /* LeadConnector embed. White canvas so the form stays legible whatever
    background it sets, and a min-height floor until form_embed.js measures it. */
-.form-embed{background:#000;border:1px solid #999;border-radius:8px;padding:20px;overflow:hidden}
-.form-embed iframe{display:block;width:100%;min-height:420px;background:#000;border-radius:6px}
+.form-embed{background:#000;border:1px solid #999;border-radius:8px;padding:30px;overflow:hidden}
+/* border:0 overrides the UA default (2px inset), which otherwise draws a
+   frame inside the black panel. */
+.form-embed iframe{display:block;width:100%;min-height:420px;background:#000;border:0;border-radius:6px}
 .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .field{display:flex;flex-direction:column;gap:7px}
 .field--full{grid-column:1/-1}
